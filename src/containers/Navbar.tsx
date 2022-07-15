@@ -1,6 +1,6 @@
 export default function Navbar() {
    return (
-      <div className="section flex justify-between px-10 py-6 fixed w-full text-white z-10">
+      <div className="section flex justify-between px-10 py-6 fixed w-full text-white z-20">
          <div className="text-2xl">Tulio Ruzo</div>
          <div className="flex space-x-7 items-center font-medium">
             <button className="flex">

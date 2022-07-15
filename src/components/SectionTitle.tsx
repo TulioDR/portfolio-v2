@@ -11,7 +11,7 @@ export default function SectionTitle({ children }: Props) {
          animate={{ x: 0 }}
          transition={{
             duration: 0.8,
-            delay: 0.7,
+            delay: 0.4,
             ease: "easeInOut",
          }}
          className="text-5xl sm:text-7xl md:text-8xl font-medium mt-10"
