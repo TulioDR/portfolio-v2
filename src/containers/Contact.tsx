@@ -1,10 +1,10 @@
-// import CardAnimation from "../animations/CardAnimation";
 import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import Underline from "../components/Underline";
 import Image from "next/image";
 import contactImg from "../assets/images/contact.jpg";
+import CardAnimation from "../animations/CardAnimation";
 
 export default function Contact() {
    return (
@@ -28,6 +28,7 @@ export default function Contact() {
                   className="object-cover"
                />
                <div className="w-full h-full bg-orange-800 bg-opacity-50 absolute top-0 left-0"></div>
+               <CardAnimation />
                <div className="px-40 space-y-5 w-full h-full absolute top-0 left-0 flex flex-col justify-center">
                   <div className="flex space-x-5">
                      <input
@@ -54,23 +55,6 @@ export default function Contact() {
                      Send
                   </button>
                </div>
-               <motion.div
-                  initial={{ x: 0 }}
-                  animate={{ x: "100%" }}
-                  transition={{ duration: 0.7, delay: 0.5, ease: "easeInOut" }}
-                  className="bg-slate-800 absolute top-0 left-0 w-full h-full z-50"
-               >
-                  <motion.div
-                     initial={{ width: 0 }}
-                     animate={{ width: "50%" }}
-                     transition={{
-                        duration: 0.7,
-                        delay: 0.4,
-                        ease: "easeInOut",
-                     }}
-                     className="bg-orange-600 top-0 left-0 w-full h-full"
-                  ></motion.div>
-               </motion.div>
             </div>
          </div>
       </SectionContainer>
