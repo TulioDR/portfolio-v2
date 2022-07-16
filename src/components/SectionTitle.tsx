@@ -14,7 +14,7 @@ export default function SectionTitle({ children }: Props) {
             delay: 0.4,
             ease: "easeInOut",
          }}
-         className="text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl whitespace-nowrap z-10 tracking-widest"
+         className="text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-widest min-w-max"
       >
          {children}
       </motion.h1>
