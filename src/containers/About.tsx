@@ -1,5 +1,5 @@
 import SectionContainer from "../components/SectionContainer";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
 import CardAnimation from "../animations/CardAnimation";
 import Image from "next/image";
@@ -7,6 +7,12 @@ import aboutImage from "../assets/images/skills.jpg";
 import Underline from "../components/Underline";
 import { useState } from "react";
 import DescriptionContainer from "../components/DescriptionContainer";
+
+import { mainSkills } from "../assets/constants/skills";
+import { otherSkills } from "../assets/constants/skills";
+import SkillsTab from "../components/SkillsTab";
+import Language from "../components/Language";
+import SkillsGrid from "../components/SkillsGrid";
 
 type Props = {};
 
@@ -51,43 +57,35 @@ export default function About({}: Props) {
             />
             <div className="bg-orange-600 bg-opacity-60 top-0 left-0 w-full h-full absolute"></div>
             <CardAnimation />
-            <div className="absolute space-y-5 w-full h-full grid place-content-center">
-               <div className="mx-auto">
-                  <div className="flex space-x-5">
-                     <div onClick={() => setShowMainSkills(true)}>
+            <div className="absolute space-y-5 w-full h-full flex items-center">
+               <div className="mx-auto bg-slate-900 p-5 rounded-md">
+                  <div className="flex space-x-5 text-lg border-b border-gray-400 mb-3">
+                     <SkillsTab
+                        isMainSkill={true}
+                        showMainSkills={showMainSkills}
+                        onClick={() => setShowMainSkills(true)}
+                     >
                         Main Skills
-                     </div>
-                     <div onClick={() => setShowMainSkills(false)}>
+                     </SkillsTab>
+                     <SkillsTab
+                        isMainSkill={false}
+                        showMainSkills={showMainSkills}
+                        onClick={() => setShowMainSkills(false)}
+                     >
                         Other Skills
-                     </div>
+                     </SkillsTab>
                   </div>
                   <div className="flex relative overflow-hidden">
-                     <motion.div
-                        animate={{ x: showMainSkills ? 0 : "-100%" }}
-                        transition={{ duration: 0.8 }}
-                        className="grid grid-cols-4 gap-3 min-w-max bg-blue-600"
-                     >
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                     </motion.div>
-                     <motion.div
-                        animate={{ x: showMainSkills ? "100%" : 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="grid grid-cols-4 gap-3 min-w-max bg-red-600 absolute top-0 left-0"
-                     >
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                        <div className="bg-slate-900 h-20 w-20"></div>
-                     </motion.div>
+                     <SkillsGrid mainSkills showMainSkills={showMainSkills}>
+                        {mainSkills.map((skill) => (
+                           <Language key={skill.name} skill={skill} />
+                        ))}
+                     </SkillsGrid>
+                     <SkillsGrid showMainSkills={!showMainSkills}>
+                        {otherSkills.map((skill) => (
+                           <Language key={skill.name} skill={skill} />
+                        ))}
+                     </SkillsGrid>
                   </div>
                </div>
             </div>
