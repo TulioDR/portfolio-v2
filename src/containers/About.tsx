@@ -1,5 +1,4 @@
 import SectionContainer from "../components/SectionContainer";
-import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
 import CardAnimation from "../animations/CardAnimation";
 import Image from "next/image";
@@ -13,6 +12,7 @@ import { otherSkills } from "../assets/constants/skills";
 import SkillsTab from "../components/SkillsTab";
 import Language from "../components/Language";
 import SkillsGrid from "../components/SkillsGrid";
+import CardContainer from "../components/CardContainer";
 
 type Props = {};
 
@@ -39,16 +39,7 @@ export default function About({}: Props) {
                </div>
             </div>
          </DescriptionContainer>
-         <motion.div
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{
-               duration: 1,
-               delay: 0.4,
-               ease: "easeInOut",
-            }}
-            className="w-3/5 shadow-md h-full origin-right relative overflow-hidden"
-         >
+         <CardContainer>
             <Image
                src={aboutImage}
                alt="about"
@@ -89,7 +80,7 @@ export default function About({}: Props) {
                   </div>
                </div>
             </div>
-         </motion.div>
+         </CardContainer>
       </SectionContainer>
    );
 }

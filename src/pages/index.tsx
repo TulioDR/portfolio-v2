@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { PositionProvider } from "../context/PositionContext";
-import InitialAnimation from "../components/InitialAnimation";
+import InitialAnimation from "../animations/InitialAnimation";
 
 import Navbar from "../containers/Navbar";
 import Sidebar from "../containers/Sidebar";

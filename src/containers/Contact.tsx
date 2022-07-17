@@ -1,11 +1,12 @@
 import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
-// import { motion } from "framer-motion";
+
 import Underline from "../components/Underline";
 import Image from "next/image";
 import contactImg from "../assets/images/contact.jpg";
 import CardAnimation from "../animations/CardAnimation";
 import DescriptionContainer from "../components/DescriptionContainer";
+import CardContainer from "../components/CardContainer";
 
 export default function Contact() {
    return (
@@ -20,7 +21,7 @@ export default function Contact() {
                Github
             </div>
          </DescriptionContainer>
-         <div className="w-3/5 bg-gray-200 relative overflow-hidden h-full shadow-2xl">
+         <CardContainer>
             <Image
                src={contactImg}
                alt="contact-form"
@@ -55,7 +56,7 @@ export default function Contact() {
                   Send
                </button>
             </div>
-         </div>
+         </CardContainer>
       </SectionContainer>
    );
 }
