@@ -6,7 +6,7 @@ type Props = {
 
 export default function Language({ skill }: Props) {
    return (
-      <article className="flex flex-col items-center bg-gray-200 rounded-md pt-2 pb-1 px-1">
+      <article className="flex flex-col items-center bg-gray-200 rounded-md pt-2 pb-1 px-1 cursor-pointer">
          <Image
             src={`/skills/${skill.img}`}
             alt={skill.name}

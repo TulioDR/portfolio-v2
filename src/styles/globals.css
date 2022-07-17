@@ -28,3 +28,14 @@ a {
 * {
    box-sizing: border-box;
 }
+
+.swiper-wrapper {
+   @apply ease-modern;
+}
+
+.swiper-pagination-bullet {
+   @apply h-1 w-6 bg-white cursor-pointer duration-500;
+}
+.swiper-pagination-bullet-active {
+   @apply w-10;
+}

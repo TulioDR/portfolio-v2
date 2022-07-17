@@ -3,11 +3,13 @@ import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
 import Underline from "../components/Underline";
 
-type Props = {};
+type Props = {
+   currentIndex: number;
+};
 
-export default function HomePage({}: Props) {
+export default function HomePage({ currentIndex }: Props) {
    return (
-      <SectionContainer index={0}>
+      <SectionContainer currentIndex={currentIndex} index={0}>
          <DescriptionContainer>
             <SectionTitle>
                <div className="mb-2">TULIO</div>

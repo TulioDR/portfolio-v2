@@ -10,6 +10,13 @@ module.exports = {
          aspectRatio: {
             "16/9": "16 / 9",
          },
+         minWidth: {
+            "1/2": "50%",
+            "2/3": "66.6666%",
+         },
+         transitionTimingFunction: {
+            modern: "cubic-bezier(0.645, 0.045, 0.355, 1)",
+         },
       },
    },
    plugins: [],

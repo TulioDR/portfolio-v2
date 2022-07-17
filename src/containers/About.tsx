@@ -14,13 +14,15 @@ import Language from "../components/Language";
 import SkillsGrid from "../components/SkillsGrid";
 import CardContainer from "../components/CardContainer";
 
-type Props = {};
+type Props = {
+   currentIndex: number;
+};
 
-export default function About({}: Props) {
+export default function About({ currentIndex }: Props) {
    const [showMainSkills, setShowMainSkills] = useState<Boolean>(true);
 
    return (
-      <SectionContainer index={1}>
+      <SectionContainer currentIndex={currentIndex} index={1}>
          <DescriptionContainer>
             <SectionTitle>About Me</SectionTitle>
             <Underline />
@@ -67,7 +69,7 @@ export default function About({}: Props) {
                      </SkillsTab>
                   </div>
                   <div className="flex relative overflow-hidden">
-                     <SkillsGrid mainSkills showMainSkills={showMainSkills}>
+                     <SkillsGrid showMainSkills={showMainSkills} mainSkills>
                         {mainSkills.map((skill) => (
                            <Language key={skill.name} skill={skill} />
                         ))}

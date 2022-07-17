@@ -8,9 +8,12 @@ import CardAnimation from "../animations/CardAnimation";
 import DescriptionContainer from "../components/DescriptionContainer";
 import CardContainer from "../components/CardContainer";
 
-export default function Contact() {
+type Props = {
+   currentIndex: number;
+};
+export default function Contact({ currentIndex }: Props) {
    return (
-      <SectionContainer index={3}>
+      <SectionContainer currentIndex={currentIndex} index={3}>
          <DescriptionContainer>
             <SectionTitle>Get In Touch</SectionTitle>
             <Underline />

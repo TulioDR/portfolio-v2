@@ -5,15 +5,12 @@ type Props = {};
 export default function InitialAnimation({}: Props) {
    return (
       <>
-         {/* <motion.div
-            className="bg-orange-700 w-screen h-screen absolute top-0 z-50"
-            animate={{ y: "-100%" }}
-            transition={{ duration: 0.5, delay: 0.2, ease: "easeIn" }}
-         ></motion.div> */}
          <motion.div
-            className="bg-slate-900 w-screen h-screen absolute top-0 z-50"
-            animate={{ y: "-100%" }}
-            transition={{ duration: 0.4, ease: "easeIn" }}
+            layout
+            className="bg-green-900 w-full h-screen absolute top-0 z-50"
+            initial={{ y: 0 }}
+            // animate={{ y: "-100%" }}
+            transition={{ duration: 0.7, delay: 1, ease: "easeIn" }}
          ></motion.div>
       </>
    );
