@@ -8,7 +8,7 @@ type Props = {
 export default function CardContainer({ children }: Props) {
    return (
       <motion.div
-         initial={{ scale: 0.9 }}
+         initial={{ scale: 0.95 }}
          animate={{ scale: 1 }}
          transition={{
             duration: 1,

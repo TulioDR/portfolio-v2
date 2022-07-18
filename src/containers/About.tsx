@@ -49,25 +49,27 @@ export default function About({ currentIndex }: Props) {
                className="object-cover"
             />
             <div className="bg-orange-600 bg-opacity-60 top-0 left-0 w-full h-full absolute"></div>
-            <CardAnimation />
             <div className="absolute space-y-5 w-full h-full flex items-center">
-               <div className="mx-auto bg-slate-900 p-5 rounded-md">
-                  <div className="flex space-x-5 text-lg border-b border-gray-400 mb-3">
-                     <SkillsTab
-                        isMainSkill={true}
-                        showMainSkills={showMainSkills}
-                        onClick={() => setShowMainSkills(true)}
-                     >
-                        Main Skills
-                     </SkillsTab>
-                     <SkillsTab
-                        isMainSkill={false}
-                        showMainSkills={showMainSkills}
-                        onClick={() => setShowMainSkills(false)}
-                     >
-                        Other Skills
-                     </SkillsTab>
+               <div className="mx-auto">
+                  <div className="px-5 pt-2 pb-3 mb-3 bg-slate-900 rounded-md">
+                     <div className="flex space-x-5 text-lg border-b border-gray-400">
+                        <SkillsTab
+                           isMainSkill={true}
+                           showMainSkills={showMainSkills}
+                           onClick={() => setShowMainSkills(true)}
+                        >
+                           Main Skills
+                        </SkillsTab>
+                        <SkillsTab
+                           isMainSkill={false}
+                           showMainSkills={showMainSkills}
+                           onClick={() => setShowMainSkills(false)}
+                        >
+                           Other Skills
+                        </SkillsTab>
+                     </div>
                   </div>
+
                   <div className="flex relative overflow-hidden">
                      <SkillsGrid showMainSkills={showMainSkills} mainSkills>
                         {mainSkills.map((skill) => (
@@ -82,6 +84,7 @@ export default function About({ currentIndex }: Props) {
                   </div>
                </div>
             </div>
+            <CardAnimation />
          </CardContainer>
       </SectionContainer>
    );

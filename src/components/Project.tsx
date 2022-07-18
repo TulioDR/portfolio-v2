@@ -1,16 +1,10 @@
 import { motion } from "framer-motion";
 
-type Props = {
-   showGrid: Boolean;
-};
-
-export default function Project({ showGrid }: Props) {
+export default function Project() {
    return (
       <motion.article
          layout
-         className={`aspect-16/9 bg-blue-600 block cursor-pointer ${
-            showGrid ? "w-full" : "w-2/3 min-w-2/3"
-         }`}
+         className="aspect-16/9 bg-blue-600 w-full"
       ></motion.article>
    );
 }

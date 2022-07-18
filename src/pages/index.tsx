@@ -13,9 +13,9 @@ import Contact from "../containers/Contact";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination, HashNavigation } from "swiper";
 import "swiper/css";
-import "swiper/css/keyboard";
 import "swiper/css/navigation";
 import "swiper/css/hash-navigation";
+
 import { useState } from "react";
 
 const Home: NextPage = () => {
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
          <Head>
             <title>Tulio Ruzo</title>
          </Head>
-         <InitialAnimation />
+
          <PositionProvider>
             <Navbar />
             <Sidebar />
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                   clickable: true,
                   renderBullet: function (index, className) {
                      console.log(index);
-                     return '<span class="' + className + '"></span>';
+                     return '<li class="' + className + '"></li>';
                   },
                }}
                hashNavigation={{
@@ -67,6 +67,7 @@ const Home: NextPage = () => {
                   <Contact currentIndex={currentIndex} />
                </SwiperSlide>
             </Swiper>
+            <InitialAnimation />
          </PositionProvider>
       </>
    );

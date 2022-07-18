@@ -10,7 +10,7 @@ export default function CardAnimation() {
             delay: 0.5,
             ease: [0.645, 0.045, 0.355, 1],
          }}
-         className="bg-slate-900 absolute top-0 left-0 w-full h-full z-50"
+         className="bg-slate-900 absolute top-0 bottom-0 left-0 w-full h-full"
       >
          <motion.div
             initial={{ width: 0 }}
@@ -20,7 +20,7 @@ export default function CardAnimation() {
                delay: 0.4,
                ease: [0.645, 0.045, 0.355, 1],
             }}
-            className="bg-orange-600 top-0 left-0 w-full h-full z-50"
+            className="bg-orange-600 w-full h-full"
          ></motion.div>
       </motion.div>
    );

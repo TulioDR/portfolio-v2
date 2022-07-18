@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Props = {
    skill: any;
@@ -6,15 +7,18 @@ type Props = {
 
 export default function Language({ skill }: Props) {
    return (
-      <article className="flex flex-col items-center bg-gray-200 rounded-md pt-2 pb-1 px-1 cursor-pointer">
+      <motion.article
+         whileTap={{ scale: 0.94 }}
+         className="flex flex-col items-center bg-slate-900 rounded-md pt-3 pb-2 px-2 cursor-pointer"
+      >
          <Image
             src={`/skills/${skill.img}`}
             alt={skill.name}
-            width={56}
-            height={56}
+            width={50}
+            height={50}
             className="object-contain"
          />
-         <div className="text-sm text-black">{skill.name}</div>
-      </article>
+         <div className="text-sm text-white">{skill.name}</div>
+      </motion.article>
    );
 }

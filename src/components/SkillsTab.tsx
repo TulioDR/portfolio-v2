@@ -16,7 +16,7 @@ export default function SkillsTab({
 }: Props) {
    return (
       <motion.div
-         className={`pb-2 relative cursor-pointer duration-300 ${
+         className={`pb-1 relative cursor-pointer duration-300 ${
             showMainSkills === isMainSkill ? "text-white" : "text-gray-400"
          }`}
          onClick={onClick}
@@ -27,7 +27,7 @@ export default function SkillsTab({
                layoutId="underline"
                className="w-full bg-orange-600 absolute"
                initial={{ bottom: -1, height: 5 }}
-               transition={{ duration: 0.6 }}
+               transition={{ duration: 0.7, ease: [0.645, 0.045, 0.355, 1] }}
             />
          )}
       </motion.div>

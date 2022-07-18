@@ -48,7 +48,7 @@ export const mainSkills = [
 
 export const otherSkills = [
    {
-      name: "Next",
+      name: "Next.js",
       img: "nextjs.png",
       link: "https://nextjs.org/",
    },
