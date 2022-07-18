@@ -2,13 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+   :root {
+      --color-primary: #161b21;
+      --color-secondary: #f4a950;
+   }
+}
+
 html,
 body {
    padding: 0;
    margin: 0;
    overflow-y: hidden;
    font-family: Futura, sans-serif;
-   @apply bg-gray-900;
+   /* @apply bg-primary; */
+   @apply bg-gradient-to-tl from-zinc-900 to-primary;
 }
 
 @font-face {
@@ -34,8 +42,8 @@ a {
 }
 
 .swiper-pagination-bullet {
-   @apply h-1 w-6 bg-white cursor-pointer duration-500;
+   @apply h-4 lg:h-1 w-1 lg:w-6 bg-white cursor-pointer duration-500;
 }
 .swiper-pagination-bullet-active {
-   @apply w-10;
+   @apply h-10 lg:h-1 lg:w-10;
 }

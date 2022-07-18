@@ -9,7 +9,7 @@ export default function Language({ skill }: Props) {
    return (
       <motion.article
          whileTap={{ scale: 0.94 }}
-         className="flex flex-col items-center bg-slate-900 rounded-md pt-3 pb-2 px-2 cursor-pointer"
+         className="flex flex-col items-center bg-primary rounded-md pt-3 pb-2 px-2 cursor-pointer"
       >
          <Image
             src={`/skills/${skill.img}`}

@@ -2,11 +2,11 @@ import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
 
 import Underline from "../components/Underline";
-import Image from "next/image";
 import contactImg from "../assets/images/contact.jpg";
-import CardAnimation from "../animations/CardAnimation";
 import DescriptionContainer from "../components/DescriptionContainer";
 import CardContainer from "../components/CardContainer";
+import CardImage from "../components/CardImage";
+import { motion } from "framer-motion";
 
 type Props = {
    currentIndex: number;
@@ -25,36 +25,31 @@ export default function Contact({ currentIndex }: Props) {
             </div>
          </DescriptionContainer>
          <CardContainer>
-            <Image
-               src={contactImg}
-               alt="contact-form"
-               layout="fill"
-               className="object-cover"
-            />
-            <div className="w-full h-full bg-orange-800 bg-opacity-50 absolute top-0 left-0"></div>
-
+            <CardImage src={contactImg} alt="contact-form-background" />
             <div className="px-16 lg:px-24 xl:px-32 2xl:px-40 space-y-5 w-full h-full absolute top-0 left-0 flex flex-col justify-center">
                <div className="flex space-x-5">
                   <input
                      type="text"
                      placeholder="Name"
-                     className="w-1/2 rounded-md px-3 py-2 bg-slate-900"
+                     className="w-1/2 rounded-md px-3 py-2 bg-primary"
                   />
                   <input
                      type="text"
                      placeholder="Email"
-                     className="w-1/2 rounded-md px-3 py-2 bg-slate-900"
+                     className="w-1/2 rounded-md px-3 py-2 bg-primary"
                   />
                </div>
                <textarea
                   placeholder="Message"
-                  className="w-full rounded-md h-48 2xl:h-60 px-3 py-2 bg-slate-900"
+                  className="w-full rounded-md h-48 2xl:h-60 px-3 py-2 bg-primary"
                />
-               <button className="py-3 w-full rounded-md text-white bg-orange-600">
+               <motion.button
+                  whileTap={{ scale: 0.94 }}
+                  className="py-3 w-full rounded-md text-white bg-orange-600"
+               >
                   Send
-               </button>
+               </motion.button>
             </div>
-            <CardAnimation />
          </CardContainer>
       </SectionContainer>
    );

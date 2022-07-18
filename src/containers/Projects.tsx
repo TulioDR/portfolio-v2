@@ -46,7 +46,7 @@ export default function Projects({ currentIndex }: Props) {
                <Project />
                <Project />
             </div>
-            <CardAnimation />
+            {/* <CardAnimation /> */}
          </CardContainer>
       </SectionContainer>
    );

@@ -1,7 +1,5 @@
 import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
-import CardAnimation from "../animations/CardAnimation";
-import Image from "next/image";
 import aboutImage from "../assets/images/skills.jpg";
 import Underline from "../components/Underline";
 import { useState } from "react";
@@ -13,6 +11,7 @@ import SkillsTab from "../components/SkillsTab";
 import Language from "../components/Language";
 import SkillsGrid from "../components/SkillsGrid";
 import CardContainer from "../components/CardContainer";
+import CardImage from "../components/CardImage";
 
 type Props = {
    currentIndex: number;
@@ -42,16 +41,10 @@ export default function About({ currentIndex }: Props) {
             </div>
          </DescriptionContainer>
          <CardContainer>
-            <Image
-               src={aboutImage}
-               alt="about"
-               layout="fill"
-               className="object-cover"
-            />
-            <div className="bg-orange-600 bg-opacity-60 top-0 left-0 w-full h-full absolute"></div>
+            <CardImage src={aboutImage} alt="about-background" />
             <div className="absolute space-y-5 w-full h-full flex items-center">
                <div className="mx-auto">
-                  <div className="px-5 pt-2 pb-3 mb-3 bg-slate-900 rounded-md">
+                  <div className="px-5 pt-2 pb-3 mb-3 bg-primary rounded-md">
                      <div className="flex space-x-5 text-lg border-b border-gray-400">
                         <SkillsTab
                            isMainSkill={true}
@@ -84,7 +77,6 @@ export default function About({ currentIndex }: Props) {
                   </div>
                </div>
             </div>
-            <CardAnimation />
          </CardContainer>
       </SectionContainer>
    );
