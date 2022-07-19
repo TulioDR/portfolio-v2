@@ -15,7 +15,6 @@ body {
    margin: 0;
    overflow-y: hidden;
    font-family: Futura, sans-serif;
-   /* @apply bg-primary; */
    @apply bg-gradient-to-tl from-zinc-900 to-primary;
 }
 

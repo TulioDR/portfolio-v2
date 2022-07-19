@@ -18,8 +18,10 @@ module.exports = {
             modern: "cubic-bezier(0.645, 0.045, 0.355, 1)",
          },
          colors: {
-            "empire-black": "#161B21",
             primary: "var(--color-primary)",
+         },
+         backgroundPosition: {
+            "1/2": "50%",
          },
       },
    },

@@ -15,12 +15,12 @@ export default function CardContainer({ children }: Props) {
             delay: 0.4,
             ease: "easeInOut",
          }}
-         className="w-3/5 shadow-md h-full origin-right relative overflow-hidden"
+         className="w-3/5 shadow-lg h-full bg-green origin-right relative overflow-hidden"
       >
          {children}
          <motion.div
             initial={{ x: 0 }}
-            animate={{ x: "100%" }}
+            animate={{ x: "calc(100% + 10px)" }}
             transition={{
                duration: 0.7,
                delay: 0.5,

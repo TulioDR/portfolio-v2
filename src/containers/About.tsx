@@ -42,7 +42,7 @@ export default function About({ currentIndex }: Props) {
          </DescriptionContainer>
          <CardContainer>
             <CardImage src={aboutImage} alt="about-background" />
-            <div className="absolute space-y-5 w-full h-full flex items-center">
+            <div className="absolute space-y-5 top-0 w-full h-full flex items-center">
                <div className="mx-auto">
                   <div className="px-5 pt-2 pb-3 mb-3 bg-primary rounded-md">
                      <div className="flex space-x-5 text-lg border-b border-gray-400">
