@@ -25,7 +25,7 @@ export default function SkillsTab({
          {showMainSkills === isMainSkill && (
             <motion.div
                layoutId="underline"
-               className="w-full bg-orange-600 absolute"
+               className="w-full bg-secondary absolute"
                initial={{ bottom: -1, height: 5 }}
                transition={{ duration: 0.7, ease: [0.645, 0.045, 0.355, 1] }}
             />

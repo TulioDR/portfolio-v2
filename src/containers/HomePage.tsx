@@ -1,14 +1,13 @@
-import {
-   MouseParallaxChild,
-   MouseParallaxContainer,
-} from "react-parallax-mouse";
+// import {
+//    MouseParallaxChild,
+//    MouseParallaxContainer,
+// } from "react-parallax-mouse";
 import DescriptionContainer from "../components/DescriptionContainer";
 import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
 import Underline from "../components/Underline";
-// import swordPNG from "../assets/images/logo/swordPNGsmall.png";
 // import Image from "next/image";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Props = {
    currentIndex: number;
@@ -25,29 +24,55 @@ export default function HomePage({ currentIndex }: Props) {
             <Underline />
             <div className="text-3xl">Web Developer</div>
          </DescriptionContainer>
-         <div className="w-3/5 h-full">
-            <MouseParallaxContainer
-               useWindowMouseEvents={true}
-               className="h-full w-full flex items-center justify-center space-x-3"
+         <div className="w-3/5 h-full flex items-center justify-center">
+            <motion.div
+               initial={{ x: "100%", opacity: 0 }}
+               animate={{ x: 0, opacity: 1 }}
+               transition={{ duration: 0.7 }}
+               className="relative mx-auto"
+               style={{ width: 350 }}
             >
-               <MouseParallaxChild factorX={0.03} factorY={0.05}>
-                  <div className="bg-blue-600 h-20 w-20"></div>
-               </MouseParallaxChild>
-               <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                  <div className="bg-green-600 h-20 w-20"></div>
-               </MouseParallaxChild>
-               <MouseParallaxChild
-                  factorX={0.07}
-                  factorY={0.08}
-                  updateStyles={{
-                     filter: "invert(1)",
+               <motion.img
+                  src="/logo/shield.svg"
+                  alt="shield"
+                  className="mx-auto"
+                  style={{ height: 300 }}
+               />
+               <motion.img
+                  initial={{ x: 50, y: -200, rotate: -30 }}
+                  animate={{ x: 100, y: -150, rotate: -30 }}
+                  transition={{
+                     duration: 0.15,
+                     delay: 1,
                   }}
-                  className="bg-red-600 h-20 w-20"
-               ></MouseParallaxChild>
-            </MouseParallaxContainer>
-            {/* <div className="bg-green-600 h-20 w-20 absolute top-20"></div>
-            <div className="bg-blue-600 h-20 w-20 absolute bottom-20"></div>
-            <div className="bg-red-600 h-20 w-20 absolute right-20"></div> */}
+                  src="/logo/sword.svg"
+                  alt="sword2"
+                  className="absolute top-0 left-0 -z-10"
+                  style={{ height: 500 }}
+               />
+               <motion.img
+                  initial={{ x: -48, y: -200, rotate: 29 }}
+                  animate={{ x: -98, y: -150, rotate: 29 }}
+                  transition={{
+                     duration: 0.15,
+                     delay: 1,
+                  }}
+                  src="/logo/sword.svg"
+                  alt="sword1"
+                  className="absolute top-0 right-0 -z-10"
+                  style={{ height: 500 }}
+               />
+               <motion.div className="absolute bottom-0 w-full translate-y-40">
+                  <img
+                     src="/logo/ribbon.svg"
+                     alt="ribbon"
+                     className="w-full scale-125"
+                  />
+                  <h1 className="text-4xl uppercase text-white text-center w-full tracking-widest -translate-y-16">
+                     Portfolio
+                  </h1>
+               </motion.div>
+            </motion.div>
          </div>
       </SectionContainer>
    );

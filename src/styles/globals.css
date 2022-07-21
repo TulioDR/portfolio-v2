@@ -5,7 +5,9 @@
 @layer base {
    :root {
       --color-primary: #161b21;
-      --color-secondary: #f4a950;
+      --color-secondary: #ea580c;
+      /* Kuon Yagi secondary color */
+      /* --color-secondary: #ff4d5a; */
    }
 }
 

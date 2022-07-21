@@ -17,9 +17,12 @@ import "swiper/css/navigation";
 import "swiper/css/hash-navigation";
 
 import { useState } from "react";
+import ScrollAdvice from "../components/ScrollAdvice";
+// import Background from "../components/Background";
 
 const Home: NextPage = () => {
    const [currentIndex, setCurrentIndex] = useState<number>(0);
+
    return (
       <>
          <Head>
@@ -30,7 +33,8 @@ const Home: NextPage = () => {
             <InitialAnimation />
             <Navbar />
             <Sidebar />
-
+            <ScrollAdvice currentIndex={currentIndex} />
+            {/* <Background /> */}
             <Swiper
                speed={1000}
                allowTouchMove={false}

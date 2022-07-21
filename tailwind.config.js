@@ -19,6 +19,7 @@ module.exports = {
          },
          colors: {
             primary: "var(--color-primary)",
+            secondary: "var(--color-secondary)",
          },
          backgroundPosition: {
             "1/2": "50%",

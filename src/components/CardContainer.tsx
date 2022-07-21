@@ -36,7 +36,7 @@ export default function CardContainer({ children }: Props) {
                   delay: 0.4,
                   ease: [0.645, 0.045, 0.355, 1],
                }}
-               className="bg-orange-600 w-full h-full"
+               className="bg-secondary w-full h-full"
             ></motion.div>
          </motion.div>
       </motion.div>
