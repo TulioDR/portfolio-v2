@@ -62,7 +62,10 @@ export default function HomePage({ currentIndex }: Props) {
                   className="absolute top-0 right-0 -z-10"
                   style={{ height: 500 }}
                />
-               <motion.div className="absolute bottom-0 w-full translate-y-40">
+               <div className="text-5xl top-1/2 -translate-y-1/2 -translate-x-10 uppercase absolute tracking-widest font-black">
+                  Portfolio
+               </div>
+               {/* <motion.div className="absolute bottom-0 w-full translate-y-40">
                   <img
                      src="/logo/ribbon.svg"
                      alt="ribbon"
@@ -71,50 +74,9 @@ export default function HomePage({ currentIndex }: Props) {
                   <h1 className="text-4xl uppercase text-white text-center w-full tracking-widest -translate-y-16">
                      Portfolio
                   </h1>
-               </motion.div>
+               </motion.div> */}
             </motion.div>
          </div>
       </SectionContainer>
    );
-}
-{
-   /* <img
-               data-depth="0.85"
-               // initial={{ x: "100%", y: "-100%", rotate: 45, opacity: 0 }}
-               // animate={{ x: 0, y: 0, rotate: 45, opacity: 1 }}
-               // transition={{
-               //    duration: 0.5,
-               //    delay: 0.4,
-               //    ease: "easeOut",
-               // }}
-               src="/logo/swordPNGsmall.png"
-               alt="sword"
-               className="absolute w-1/2 rotate-45 layer"
-            />
-            <img
-               data-depth="0.6"
-               // initial={{ x: "-100%", y: "-100%", rotate: -45, opacity: 0 }}
-               // animate={{ x: 0, y: 0, rotate: -45, opacity: 1 }}
-               // transition={{
-               //    duration: 0.5,
-               //    delay: 0.4,
-               //    ease: "easeOut",
-               // }}
-               src="/logo/swordPNGsmall.png"
-               alt="sword2"
-               className="absolute w-1/2 -scale-x-100 -rotate-45 layer"
-            />
-            <div
-               data-depth="0.2"
-               // initial={{ y: "100%", opacity: 0 }}
-               // animate={{ y: 0, opacity: 1 }}
-               // transition={{
-               //    duration: 0.5,
-               //    delay: 0.4,
-               // }}
-               className="relative flex items-center justify-center layer"
-            >
-               <img src="/logo/shield.png" alt="shield" className="w-3/5" />
-               <div className="absolute text-6xl -translate-y-4">Portfolio</div>
-            </div> */
 }
