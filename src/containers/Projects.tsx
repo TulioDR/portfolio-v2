@@ -5,7 +5,6 @@ import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
 import Underline from "../components/Underline";
 import Project from "../components/Project";
-import CardAnimation from "../animations/CardAnimation";
 
 type Props = {
    currentIndex: number;
@@ -23,30 +22,40 @@ export default function Projects({ currentIndex }: Props) {
                <div>I love Animation, Technology,</div>
                <div>and Design</div>
             </div>
-            <button
-               onClick={() => setShowGrid(!showGrid)}
-               className="material-icons text-6xl max-w-min"
-            >
-               view_carousel
-            </button>
          </DescriptionContainer>
          <CardContainer>
-            <div
-               className={`w-full grid gap-3 ${
-                  showGrid ? "grid-cols-2" : "grid-cols-3"
-               }`}
-            >
-               <Project />
-               <Project />
-               <Project />
-               <Project />
-               <Project />
-               <Project />
-               <Project />
-               <Project />
-               <Project />
+            <div className="h-full w-full flex flex-col">
+               <div
+                  className={`w-full flex-1 overflow-x-auto bg-primary ${
+                     showGrid
+                        ? "grid grid-flow-col grid-rows-2 gap-5"
+                        : "flex space-x-10 items-center px-20"
+                  }`}
+               >
+                  <Project showGrid={showGrid} />
+                  <Project showGrid={showGrid} />
+                  <Project showGrid={showGrid} />
+                  <Project showGrid={showGrid} />
+                  <Project showGrid={showGrid} />
+                  <Project showGrid={showGrid} />
+                  <Project showGrid={showGrid} />
+                  <Project showGrid={showGrid} />
+               </div>
+               <div className="w-full py-3 flex space-x-5 justify-center bg-primary border-t-2 border-white">
+                  <button
+                     onClick={() => setShowGrid(true)}
+                     className="material-icons text-5xl"
+                  >
+                     view_module
+                  </button>
+                  <button
+                     onClick={() => setShowGrid(false)}
+                     className="material-icons text-5xl"
+                  >
+                     view_carousel
+                  </button>
+               </div>
             </div>
-            {/* <CardAnimation /> */}
          </CardContainer>
       </SectionContainer>
    );
