@@ -12,6 +12,7 @@ import Language from "../components/Language";
 import SkillsGrid from "../components/SkillsGrid";
 import CardContainer from "../components/CardContainer";
 import CardImage from "../components/CardImage";
+import CardInfo from "../components/CardInfo";
 
 type Props = {
    currentIndex: number;
@@ -26,18 +27,24 @@ export default function About({ currentIndex }: Props) {
             <SectionTitle>About Me</SectionTitle>
             <Underline />
             <div className="space-y-5 text-xs lg:text-sm xl:text-base 2xl:text-lg w-5/6">
-               <div>
-                  I'm a self-taught developer, that after trying some javascript
-                  frameworks and libraries, I fell in love with React, and by
-                  extension with its most popular frameworks: "Next.js".
-               </div>
-               <div>
-                  I'm a well-organized person, problem solver, employee with
-                  high attention to detail and I speak spanish and english. This
-                  is more than “just a job” for me. It is a passion that
-                  motivates me to learn and improve my skills day by day, either
-                  with my team or on my own.
-               </div>
+               <CardInfo delay={0.7}>
+                  <div>
+                     I'm a self-taught developer, that after trying some
+                     javascript frameworks and libraries, I fell in love with
+                     React, and by extension with its most popular frameworks:
+                     "Next.js".
+                  </div>
+               </CardInfo>
+
+               <CardInfo delay={0.8}>
+                  <div>
+                     I'm a well-organized person, problem solver, employee with
+                     high attention to detail and I speak spanish and english.
+                     This is more than “just a job” for me. It is a passion that
+                     motivates me to learn and improve my skills day by day,
+                     either with my team or on my own.
+                  </div>
+               </CardInfo>
             </div>
          </DescriptionContainer>
          <CardContainer>

@@ -5,6 +5,7 @@ import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
 import Underline from "../components/Underline";
 import Project from "../components/Project";
+import CardInfo from "../components/CardInfo";
 
 type Props = {
    currentIndex: number;
@@ -18,10 +19,12 @@ export default function Projects({ currentIndex }: Props) {
          <DescriptionContainer>
             <SectionTitle>Projects</SectionTitle>
             <Underline />
-            <div className="text-3xl">
-               <div>I love Animation, Technology,</div>
-               <div>and Design</div>
-            </div>
+            <CardInfo delay={0.7}>
+               <div className="text-3xl">
+                  <div>I love Animation, Technology,</div>
+                  <div>and Design</div>
+               </div>
+            </CardInfo>
          </DescriptionContainer>
          <CardContainer>
             <div className="h-full w-full flex flex-col">

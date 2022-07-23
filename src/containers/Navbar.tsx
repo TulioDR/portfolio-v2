@@ -62,7 +62,7 @@ export default function Navbar() {
                   animate={{ height: "100vh" }}
                   exit={{ height: "0", top: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="fixed left-0 z-20 text-white w-full bg-gradient-to-r from-orange-700 to-orange-900 overflow-hidden"
+                  className="fixed left-0 z-20 text-white w-full bg-gradient-to-r from-orange-800 to-orange-900 overflow-hidden"
                >
                   <motion.div
                      exit={{ opacity: 0 }}
@@ -73,7 +73,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.4, delay: 0.3 }}
-                        className="text-center text-sm uppercase mb-5 tracking-widest"
+                        className="text-center text-sm text-gray-400 uppercase mb-5 tracking-widest"
                      >
                         Menu
                      </motion.h5>
@@ -90,7 +90,7 @@ export default function Navbar() {
                            duration: 0.4,
                            delay: 0.6,
                         }}
-                        className="absolute bottom-8 flex items-center text-gray-200 text-sm"
+                        className="absolute bottom-8 flex items-center text-gray-400 text-sm"
                      >
                         <span className="material-icons mx-1">copyright</span>
                         <span>2022 Tulio Ruzo. Made with</span>

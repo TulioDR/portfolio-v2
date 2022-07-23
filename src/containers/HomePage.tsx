@@ -8,6 +8,7 @@ import SectionTitle from "../components/SectionTitle";
 import Underline from "../components/Underline";
 // import Image from "next/image";
 import { motion } from "framer-motion";
+import CardInfo from "../components/CardInfo";
 
 type Props = {
    currentIndex: number;
@@ -18,11 +19,13 @@ export default function HomePage({ currentIndex }: Props) {
       <SectionContainer currentIndex={currentIndex} index={0}>
          <DescriptionContainer>
             <SectionTitle>
-               <div className="mb-2">TULIO</div>
-               <div>RUZO</div>
+               <div className="mb-2 text-8xl">TULIO</div>
+               <div className="text-8xl">RUZO</div>
             </SectionTitle>
             <Underline />
-            <div className="text-3xl">Web Developer</div>
+            <CardInfo delay={0.7}>
+               <div className="text-3xl">Web Developer</div>
+            </CardInfo>
          </DescriptionContainer>
          <div className="w-3/5 h-full flex items-center justify-center">
             <motion.div
@@ -38,7 +41,7 @@ export default function HomePage({ currentIndex }: Props) {
                   className="mx-auto"
                   style={{ height: 300 }}
                />
-               <motion.img
+               {/* <motion.img
                   initial={{ x: 50, y: -200, rotate: -30 }}
                   animate={{ x: 100, y: -150, rotate: -30 }}
                   transition={{
@@ -61,7 +64,7 @@ export default function HomePage({ currentIndex }: Props) {
                   alt="sword1"
                   className="absolute top-0 right-0 -z-10"
                   style={{ height: 500 }}
-               />
+               /> */}
                <div className="text-5xl top-1/2 -translate-y-1/2 -translate-x-10 uppercase absolute tracking-widest font-black">
                   Portfolio
                </div>

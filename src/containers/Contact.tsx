@@ -7,6 +7,7 @@ import DescriptionContainer from "../components/DescriptionContainer";
 import CardContainer from "../components/CardContainer";
 import CardImage from "../components/CardImage";
 import { motion } from "framer-motion";
+import CardInfo from "../components/CardInfo";
 
 type Props = {
    currentIndex: number;
@@ -17,12 +18,16 @@ export default function Contact({ currentIndex }: Props) {
          <DescriptionContainer>
             <SectionTitle>Get In Touch</SectionTitle>
             <Underline />
-            <div className="text-3xl hover:text-gray-400 duration-300 cursor-pointer max-w-min mb-8">
-               tulioruzo29@gmail.com
-            </div>
-            <div className="text-3xl hover:text-gray-400 duration-300 cursor-pointer max-w-min">
-               Github
-            </div>
+            <CardInfo delay={0.7}>
+               <div className="text-3xl hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+                  tulioruzo29@gmail.com
+               </div>
+            </CardInfo>
+            <CardInfo delay={0.8}>
+               <div className="text-3xl hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+                  Github
+               </div>
+            </CardInfo>
          </DescriptionContainer>
          <CardContainer>
             <CardImage src={contactImg} alt="contact-form-background" />
