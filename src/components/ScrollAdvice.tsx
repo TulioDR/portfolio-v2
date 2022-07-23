@@ -8,8 +8,12 @@ export default function ScrollAdvice({ currentIndex }: Props) {
    return (
       <motion.div
          animate={{ y: currentIndex === 0 ? 0 : "100%" }}
-         transition={{ duration: 0.5, ease: "easeOut" }}
-         className="fixed bottom-0 left-10 z-20 flex flex-col items-center justify-center space-y-4"
+         transition={{
+            duration: 0.5,
+            delay: currentIndex === 0 ? 0.3 : 0,
+            ease: "easeOut",
+         }}
+         className="fixed bottom-0 left-10 z-10 flex flex-col items-center justify-center space-y-4"
       >
          <p
             className="uppercase text-sm text-white tracking-wider"
