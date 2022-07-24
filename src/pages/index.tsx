@@ -16,6 +16,7 @@ import ScrollAdvice from "../components/ScrollAdvice";
 import SwiperContainer from "../containers/SwiperContainer";
 // import Background from "../components/Background";
 import { motion } from "framer-motion";
+import { NavbarProvider } from "../context/NavbarContext";
 
 const Home: NextPage = () => {
    return (
@@ -34,7 +35,9 @@ const Home: NextPage = () => {
                   ease: [0.645, 0.045, 0.355, 1],
                }}
             ></motion.div>
-            <Navbar />
+            <NavbarProvider>
+               <Navbar />
+            </NavbarProvider>
             <Sidebar />
             <ScrollAdvice />
             <SwiperContainer>

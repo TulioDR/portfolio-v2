@@ -26,7 +26,7 @@ export default function MenuContainer({ children }: Props) {
             >
                Menu
             </motion.h5>
-            {children}
+            <ul className="text-5xl font-black">{children}</ul>
             <motion.div
                initial={{ y: "100%", opacity: 0 }}
                animate={{ y: 0, opacity: 1 }}

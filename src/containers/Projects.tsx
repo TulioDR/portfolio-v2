@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardContainer from "../components/CardContainer";
 import DescriptionContainer from "../components/DescriptionContainer";
 import SectionContainer from "../components/SectionContainer";
@@ -7,12 +7,20 @@ import Underline from "../components/Underline";
 import Project from "../components/Project";
 import CardInfo from "../components/CardInfo";
 import { AnimatePresence, motion } from "framer-motion";
+import usePositionContext from "../context/PositionContext";
 
 type Props = {};
 
 export default function Projects({}: Props) {
-   const [showGrid, setShowGrid] = useState(true);
+   const { currentIndex } = usePositionContext();
+   const [showGrid, setShowGrid] = useState(false);
    const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
+
+   useEffect(() => {
+      setTimeout(() => {
+         setShowGrid(false);
+      }, 1000);
+   }, [currentIndex]);
 
    return (
       <SectionContainer index={2}>

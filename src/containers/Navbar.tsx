@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import MenuOption from "../components/Menu/MenuOption";
-import MenuContainer from "../components/Menu/MenuContainer";
-import usePositionContext from "../context/PositionContext";
+import Menu from "./Menu";
 
 export default function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +10,6 @@ export default function Navbar() {
       setIsOpen(false);
    };
 
-   const { homeBullet, aboutBullet, projectsBullet, contactBullet } =
-      usePositionContext();
    return (
       <>
          <nav className="section flex justify-between items-center px-10 pt-8 fixed w-full text-white z-30 text-2xl">
@@ -65,44 +61,7 @@ export default function Navbar() {
             </div>
          </nav>
          <AnimatePresence>
-            {isOpen && (
-               <MenuContainer>
-                  <ul className="text-center text-5xl space-y-5 font-black menu-swiper-pagination">
-                     <MenuOption
-                        closeMenu={closeMenu}
-                        bulletRef={homeBullet}
-                        delay={0.35}
-                        index={0}
-                     >
-                        Home
-                     </MenuOption>
-                     <MenuOption
-                        closeMenu={closeMenu}
-                        bulletRef={aboutBullet}
-                        delay={0.4}
-                        index={1}
-                     >
-                        About
-                     </MenuOption>
-                     <MenuOption
-                        closeMenu={closeMenu}
-                        bulletRef={projectsBullet}
-                        delay={0.45}
-                        index={2}
-                     >
-                        Projects
-                     </MenuOption>
-                     <MenuOption
-                        closeMenu={closeMenu}
-                        bulletRef={contactBullet}
-                        delay={0.5}
-                        index={3}
-                     >
-                        Contact
-                     </MenuOption>
-                  </ul>
-               </MenuContainer>
-            )}
+            {isOpen && <Menu closeMenu={closeMenu} />}
          </AnimatePresence>
       </>
    );
