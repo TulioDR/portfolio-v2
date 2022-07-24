@@ -23,7 +23,7 @@ export default function HomePage({ currentIndex }: Props) {
                <div className="text-8xl">RUZO</div>
             </SectionTitle>
             <Underline />
-            <CardInfo delay={0.7}>
+            <CardInfo delay={0.8}>
                <div>Web Developer</div>
             </CardInfo>
          </DescriptionContainer>
