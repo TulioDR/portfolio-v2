@@ -10,19 +10,16 @@ import About from "../containers/About";
 import Projects from "../containers/Projects";
 import Contact from "../containers/Contact";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Pagination, HashNavigation } from "swiper";
+import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/hash-navigation";
 
-import { useState } from "react";
 import ScrollAdvice from "../components/ScrollAdvice";
+import SwiperContainer from "../containers/SwiperContainer";
 // import Background from "../components/Background";
 
 const Home: NextPage = () => {
-   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
    return (
       <>
          <Head>
@@ -33,46 +30,21 @@ const Home: NextPage = () => {
             <InitialAnimation />
             <Navbar />
             <Sidebar />
-            <ScrollAdvice currentIndex={currentIndex} />
-            {/* <Background /> */}
-            <Swiper
-               speed={1000}
-               allowTouchMove={false}
-               direction={"vertical"}
-               spaceBetween={0}
-               slidesPerView={1}
-               mousewheel={true}
-               pagination={{
-                  el: ".swiper-pagination",
-                  clickable: true,
-                  renderBullet: function (index, className) {
-                     console.log(index);
-                     return '<li class="' + className + '"></li>';
-                  },
-               }}
-               hashNavigation={{
-                  replaceState: true,
-               }}
-               onSlideChange={(e) => {
-                  setCurrentIndex(e.activeIndex);
-               }}
-               // onSwiper={(swiper: any) => console.log(swiper)}
-               modules={[Mousewheel, Pagination, HashNavigation]}
-               className="mySwiper h-screen w-full"
-            >
+            <ScrollAdvice />
+            <SwiperContainer>
                <SwiperSlide data-hash="home">
-                  <HomePage currentIndex={currentIndex} />
+                  <HomePage />
                </SwiperSlide>
                <SwiperSlide data-hash="about">
-                  <About currentIndex={currentIndex} />
+                  <About />
                </SwiperSlide>
                <SwiperSlide data-hash="projects">
-                  <Projects currentIndex={currentIndex} />
+                  <Projects />
                </SwiperSlide>
                <SwiperSlide data-hash="contact">
-                  <Contact currentIndex={currentIndex} />
+                  <Contact />
                </SwiperSlide>
-            </Swiper>
+            </SwiperContainer>
          </PositionProvider>
       </>
    );

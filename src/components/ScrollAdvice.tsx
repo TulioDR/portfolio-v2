@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
+import usePositionContext from "../context/PositionContext";
 
-type Props = {
-   currentIndex: Number;
-};
+type Props = {};
 
-export default function ScrollAdvice({ currentIndex }: Props) {
+export default function ScrollAdvice({}: Props) {
+   const { currentIndex } = usePositionContext();
    return (
       <motion.div
          animate={{ y: currentIndex === 0 ? 0 : "100%" }}

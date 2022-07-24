@@ -9,12 +9,10 @@ import CardImage from "../components/CardImage";
 import { motion } from "framer-motion";
 import CardInfo from "../components/CardInfo";
 
-type Props = {
-   currentIndex: number;
-};
-export default function Contact({ currentIndex }: Props) {
+type Props = {};
+export default function Contact({}: Props) {
    return (
-      <SectionContainer currentIndex={currentIndex} index={3}>
+      <SectionContainer index={3}>
          <DescriptionContainer>
             <SectionTitle>Get In Touch</SectionTitle>
             <Underline />

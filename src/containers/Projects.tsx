@@ -8,16 +8,14 @@ import Project from "../components/Project";
 import CardInfo from "../components/CardInfo";
 import { AnimatePresence, motion } from "framer-motion";
 
-type Props = {
-   currentIndex: number;
-};
+type Props = {};
 
-export default function Projects({ currentIndex }: Props) {
+export default function Projects({}: Props) {
    const [showGrid, setShowGrid] = useState(true);
    const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
 
    return (
-      <SectionContainer currentIndex={currentIndex} index={2}>
+      <SectionContainer index={2}>
          <DescriptionContainer>
             <SectionTitle>Projects</SectionTitle>
             <Underline />

@@ -10,13 +10,11 @@ import Underline from "../components/Underline";
 import { motion } from "framer-motion";
 import CardInfo from "../components/CardInfo";
 
-type Props = {
-   currentIndex: number;
-};
+type Props = {};
 
-export default function HomePage({ currentIndex }: Props) {
+export default function HomePage({}: Props) {
    return (
-      <SectionContainer currentIndex={currentIndex} index={0}>
+      <SectionContainer index={0}>
          <DescriptionContainer>
             <SectionTitle>
                <div className="mb-2 text-8xl">TULIO</div>

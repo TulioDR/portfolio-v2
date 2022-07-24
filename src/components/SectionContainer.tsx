@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
+import usePositionContext from "../context/PositionContext";
 
 type Props = {
    children: any;
    index: number;
-   currentIndex: number;
 };
 
-export default function SectionContainer({
-   children,
-   index,
-   currentIndex,
-}: Props) {
+export default function SectionContainer({ children, index }: Props) {
+   const { currentIndex } = usePositionContext();
    const [selected, setSelected] = useState(true);
 
    useEffect(() => {

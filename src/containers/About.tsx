@@ -14,15 +14,13 @@ import CardContainer from "../components/CardContainer";
 import CardImage from "../components/CardImage";
 import CardInfo from "../components/CardInfo";
 
-type Props = {
-   currentIndex: number;
-};
+type Props = {};
 
-export default function About({ currentIndex }: Props) {
+export default function About({}: Props) {
    const [showMainSkills, setShowMainSkills] = useState<Boolean>(true);
 
    return (
-      <SectionContainer currentIndex={currentIndex} index={1}>
+      <SectionContainer index={1}>
          <DescriptionContainer>
             <SectionTitle>About Me</SectionTitle>
             <Underline />
