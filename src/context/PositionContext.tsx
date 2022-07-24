@@ -5,11 +5,17 @@ import {
    useState,
    ReactNode,
    useEffect,
+   useRef,
+   RefObject,
 } from "react";
 
 interface AppContextInterface {
    currentIndex: number | null;
    setCurrentIndex: any;
+   homeBullet: RefObject<Element>;
+   aboutBullet: RefObject<Element>;
+   projectsBullet: RefObject<Element>;
+   contactBullet: RefObject<Element>;
 }
 const PositionContext = createContext({} as AppContextInterface);
 export default function usePositionContext() {
@@ -30,9 +36,18 @@ export function PositionProvider({ children }: Props) {
       if (asPath === "/#contact") setCurrentIndex(3);
    }, []);
 
+   const homeBullet = useRef<Element>(null);
+   const aboutBullet = useRef<Element>(null);
+   const projectsBullet = useRef<Element>(null);
+   const contactBullet = useRef<Element>(null);
+
    const value = {
       currentIndex,
       setCurrentIndex,
+      homeBullet,
+      aboutBullet,
+      projectsBullet,
+      contactBullet,
    };
 
    return (

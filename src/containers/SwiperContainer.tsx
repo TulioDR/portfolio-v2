@@ -7,7 +7,14 @@ type Props = {
 };
 
 export default function SwiperContainer({ children }: Props) {
-   const { setCurrentIndex } = usePositionContext();
+   const {
+      setCurrentIndex,
+      homeBullet,
+      aboutBullet,
+      projectsBullet,
+      contactBullet,
+   } = usePositionContext();
+
    return (
       <Swiper
          speed={1000}
@@ -16,13 +23,16 @@ export default function SwiperContainer({ children }: Props) {
          spaceBetween={0}
          slidesPerView={1}
          mousewheel={true}
+         onInit={(swiper) => {
+            swiper.pagination.bullets[0] = homeBullet.current!;
+            swiper.pagination.bullets[1] = aboutBullet?.current!;
+            swiper.pagination.bullets[2] = projectsBullet?.current!;
+            swiper.pagination.bullets[3] = contactBullet?.current!;
+         }}
          pagination={{
             el: ".swiper-pagination",
             clickable: true,
-            renderBullet: function (index, className) {
-               console.log(index);
-               return '<li class="' + className + '"></li>';
-            },
+            type: "custom",
          }}
          hashNavigation={{
             replaceState: true,
@@ -30,7 +40,6 @@ export default function SwiperContainer({ children }: Props) {
          onSlideChange={(e) => {
             setCurrentIndex(e.activeIndex);
          }}
-         // onSwiper={(swiper: any) => console.log(swiper)}
          modules={[Mousewheel, Pagination, HashNavigation]}
          className="mySwiper h-screen w-full"
       >

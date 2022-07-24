@@ -41,10 +41,3 @@ a {
 .swiper-wrapper {
    @apply ease-modern;
 }
-
-.swiper-pagination-bullet {
-   @apply h-4 lg:h-1 w-1 lg:w-6 bg-white cursor-pointer duration-500;
-}
-.swiper-pagination-bullet-active {
-   @apply h-10 lg:h-1 lg:w-10;
-}

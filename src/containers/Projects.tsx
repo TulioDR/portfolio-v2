@@ -27,9 +27,9 @@ export default function Projects({}: Props) {
          <CardContainer>
             <div className="h-full w-full flex flex-col">
                <div
-                  className={`w-full flex-1 overflow-x-auto bg-primary ${
+                  className={`w-full flex-1 overflow-hidden bg-primary ${
                      showGrid
-                        ? "grid grid-flow-col grid-rows-2 gap-5"
+                        ? "grid grid-flow-col grid-rows-2 gap-5 pb-5"
                         : "flex space-x-10 items-center px-20"
                   }`}
                >
