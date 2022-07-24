@@ -7,6 +7,7 @@ export default function ScrollAdvice({}: Props) {
    const { currentIndex } = usePositionContext();
    return (
       <motion.div
+         initial={{ y: "100%" }}
          animate={{ y: currentIndex === 0 ? 0 : "100%" }}
          transition={{
             duration: 0.5,
