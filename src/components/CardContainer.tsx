@@ -15,7 +15,7 @@ export default function CardContainer({ children }: Props) {
             delay: 0.4,
             ease: "easeInOut",
          }}
-         className="w-4/6 shadow-lg h-full bg-green origin-right relative overflow-hidden"
+         className="w-3/5 shadow-lg h-full bg-green origin-right relative overflow-hidden"
       >
          {children}
          <motion.div

@@ -16,6 +16,7 @@ export default function CardInfo({ children, delay }: Props) {
             delay: delay,
             ease: [0.645, 0.045, 0.355, 1],
          }}
+         className="text-3xl"
       >
          {children}
       </motion.div>

@@ -24,7 +24,7 @@ export default function HomePage({ currentIndex }: Props) {
             </SectionTitle>
             <Underline />
             <CardInfo delay={0.7}>
-               <div className="text-3xl">Web Developer</div>
+               <div>Web Developer</div>
             </CardInfo>
          </DescriptionContainer>
          <div className="w-3/5 h-full flex items-center justify-center">

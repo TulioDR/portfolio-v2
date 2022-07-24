@@ -18,13 +18,13 @@ export default function Contact({ currentIndex }: Props) {
          <DescriptionContainer>
             <SectionTitle>Get In Touch</SectionTitle>
             <Underline />
-            <CardInfo delay={0.7}>
-               <div className="text-3xl hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+            <CardInfo delay={0.8}>
+               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
                   tulioruzo29@gmail.com
                </div>
             </CardInfo>
-            <CardInfo delay={0.8}>
-               <div className="text-3xl hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+            <CardInfo delay={0.9}>
+               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
                   Github
                </div>
             </CardInfo>

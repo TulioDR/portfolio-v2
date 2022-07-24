@@ -26,23 +26,24 @@ export default function About({ currentIndex }: Props) {
          <DescriptionContainer>
             <SectionTitle>About Me</SectionTitle>
             <Underline />
-            <div className="space-y-5 text-xs lg:text-sm xl:text-base 2xl:text-lg w-5/6">
-               <CardInfo delay={0.7}>
-                  <div>
-                     I'm a self-taught developer, that after trying some
-                     javascript frameworks and libraries, I fell in love with
-                     React, and by extension with its most popular frameworks:
-                     "Next.js".
+            <div className="space-y-5 w-5/6">
+               <CardInfo delay={0.8}>
+                  <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg">
+                     I'm a self-taught developer that fell in love with React
+                     and Next.js.
                   </div>
                </CardInfo>
-
-               <CardInfo delay={0.8}>
-                  <div>
-                     I'm a well-organized person, problem solver, employee with
-                     high attention to detail and I speak spanish and english.
-                     This is more than “just a job” for me. It is a passion that
-                     motivates me to learn and improve my skills day by day,
-                     either with my team or on my own.
+               <CardInfo delay={0.9}>
+                  <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg">
+                     I'm a well-organized person, problem solver with high
+                     attention to detail and I speak spanish and english. This
+                     is more than “just a job” for me.
+                  </div>
+               </CardInfo>
+               <CardInfo delay={1}>
+                  <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg">
+                     It's a passion that motivates me to learn and improve my
+                     skills day by day, either with my team or on my own.
                   </div>
                </CardInfo>
             </div>
