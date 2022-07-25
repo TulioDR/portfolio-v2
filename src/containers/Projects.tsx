@@ -4,21 +4,26 @@ import DescriptionContainer from "../components/DescriptionContainer";
 import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
 import Underline from "../components/Underline";
-import Project from "../components/Project";
+import Project from "../components/Projects/Project";
 import CardInfo from "../components/CardInfo";
 import { AnimatePresence, motion } from "framer-motion";
 import usePositionContext from "../context/PositionContext";
+import ProjectsContainer from "../components/Projects/ProjectsContainer";
+import ChangeViewBtn from "../components/Projects/ChangeViewBtn";
 
 type Props = {};
 
+const projectsArray = [1, 2, 3, 4, 5, 6, 7, 8];
+
 export default function Projects({}: Props) {
    const { currentIndex } = usePositionContext();
-   const [showGrid, setShowGrid] = useState(false);
+   const [showCarousel, setShowCarousel] = useState(true);
+
    const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
 
    useEffect(() => {
       setTimeout(() => {
-         setShowGrid(false);
+         setShowCarousel(true);
       }, 1000);
    }, [currentIndex]);
 
@@ -34,67 +39,27 @@ export default function Projects({}: Props) {
          </DescriptionContainer>
          <CardContainer>
             <div className="h-full w-full flex flex-col">
-               <div
-                  className={`w-full flex-1 overflow-hidden bg-primary ${
-                     showGrid
-                        ? "grid grid-flow-col grid-rows-2 gap-5 pb-5"
-                        : "flex space-x-10 items-center px-20"
-                  }`}
-               >
-                  <Project
-                     id={"1"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-                  <Project
-                     id={"2"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-                  <Project
-                     id={"3"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-                  <Project
-                     id={"4"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-                  <Project
-                     id={"5"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-                  <Project
-                     id={"6"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-                  <Project
-                     id={"7"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-                  <Project
-                     id={"8"}
-                     showGrid={showGrid}
-                     setSelectedId={setSelectedId}
-                  />
-               </div>
+               <ProjectsContainer showCarousel={showCarousel}>
+                  {projectsArray.map((project) => (
+                     <Project
+                        key={project}
+                        id={`${project}`}
+                        showCarousel={showCarousel}
+                        setSelectedId={setSelectedId}
+                     />
+                  ))}
+               </ProjectsContainer>
                <div className="w-full py-3 flex space-x-5 justify-center bg-primary border-t-2 border-white">
-                  <button
-                     onClick={() => setShowGrid(true)}
-                     className="material-icons text-5xl"
-                  >
-                     view_module
-                  </button>
-                  <button
-                     onClick={() => setShowGrid(false)}
-                     className="material-icons text-5xl"
-                  >
-                     view_carousel
-                  </button>
+                  <ChangeViewBtn
+                     onClick={() => setShowCarousel(true)}
+                     icon="view_carousel"
+                     showCarousel={showCarousel}
+                  />
+                  <ChangeViewBtn
+                     onClick={() => setShowCarousel(false)}
+                     icon="view_module"
+                     showCarousel={!showCarousel}
+                  />
                </div>
             </div>
          </CardContainer>
@@ -107,7 +72,7 @@ export default function Projects({}: Props) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 1 }}
                   transition={{ duration: 0.6 }}
-                  className="fixed top-0 left-0 w-full h-screen bg-orange-800 z-50"
+                  className="absolute top-0 left-0 w-full h-screen bg-orange-800 z-50"
                ></motion.div>
             )}
          </AnimatePresence>
