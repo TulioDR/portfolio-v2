@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
+
 type Props = {
    children: ReactNode;
 };
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
 
 export default function MenuContainer({ children }: Props) {
    return (

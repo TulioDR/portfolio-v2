@@ -1,11 +1,27 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import useNavbarContext from "../../context/NavbarContext";
 
 export default function Hamburger() {
    const { toggleMenu, isMenuOpen } = useNavbarContext();
 
+   const [isAnimating, setIsAnimating] = useState(false);
+
+   const handleClick = () => {
+      toggleMenu();
+      setIsAnimating(true);
+      setTimeout(() => {
+         setIsAnimating(false);
+      }, 500);
+   };
+
    return (
-      <button className="flex flex-col space-y-4" onClick={toggleMenu}>
+      <button
+         className={`flex flex-col space-y-4 ${
+            isAnimating ? "pointer-events-none" : ""
+         }`}
+         onClick={handleClick}
+      >
          <motion.span
             animate={{
                y: isMenuOpen ? 10 : 0,
