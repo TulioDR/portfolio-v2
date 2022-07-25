@@ -8,7 +8,7 @@ export default function Underline({}: Props) {
          initial={{ x: "-100%" }}
          animate={{ x: 0 }}
          transition={{
-            duration: 0.6,
+            duration: 0.8,
             delay: 0.6,
             ease: [0.645, 0.045, 0.355, 1],
          }}
@@ -20,7 +20,7 @@ export default function Underline({}: Props) {
                initial={{ x: "-100%" }}
                animate={{ x: 0 }}
                transition={{
-                  duration: 0.6,
+                  duration: 0.8,
                   delay: 0.6,
                   ease: [0.645, 0.045, 0.355, 1],
                }}
