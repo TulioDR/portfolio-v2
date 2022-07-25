@@ -5,7 +5,6 @@ import useNavbarContext from "../../context/NavbarContext";
 
 type Props = {
    children: ReactNode;
-   closeMenu: any;
    delay: number;
    index: number;
    bulletRef: any;
@@ -13,23 +12,20 @@ type Props = {
 
 export default function MenuOption({
    children,
-   closeMenu,
    bulletRef,
    delay,
    index,
 }: Props) {
    const { currentIndex } = usePositionContext();
+   const { hoveredBullet, setHoveredBullet, closeMenu } = useNavbarContext();
 
-   const { hoveredBullet, setHoveredBullet } = useNavbarContext();
    const execute = () => {
       bulletRef.current.click();
       closeMenu();
    };
-
    const handleHoverStart = () => {
       setHoveredBullet(index);
    };
-
    const handleHoverEnd = () => {
       if (currentIndex != null) setHoveredBullet(currentIndex);
    };

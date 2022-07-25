@@ -24,7 +24,6 @@ const Home: NextPage = () => {
          <Head>
             <title>Tulio Ruzo</title>
          </Head>
-
          <PositionProvider>
             <motion.div
                className="fixed top-0 left-0 bg-zinc-900 w-full h-screen z-50"

@@ -3,46 +3,22 @@ import MenuContainer from "../components/Menu/MenuContainer";
 import MenuOption from "../components/Menu/MenuOption";
 import usePositionContext from "../context/PositionContext";
 
-type Props = {
-   closeMenu: any;
-};
-
-export default function Menu({ closeMenu }: Props) {
+export default function Menu() {
    const { homeBullet, aboutBullet, projectsBullet, contactBullet } =
       usePositionContext();
 
    return (
       <MenuContainer>
-         <MenuOption
-            closeMenu={closeMenu}
-            bulletRef={homeBullet}
-            delay={0.35}
-            index={0}
-         >
+         <MenuOption index={0} delay={0.35} bulletRef={homeBullet}>
             Home
          </MenuOption>
-         <MenuOption
-            closeMenu={closeMenu}
-            bulletRef={aboutBullet}
-            delay={0.4}
-            index={1}
-         >
+         <MenuOption index={1} delay={0.4} bulletRef={aboutBullet}>
             About
          </MenuOption>
-         <MenuOption
-            closeMenu={closeMenu}
-            bulletRef={projectsBullet}
-            delay={0.45}
-            index={2}
-         >
+         <MenuOption index={2} delay={0.45} bulletRef={projectsBullet}>
             Projects
          </MenuOption>
-         <MenuOption
-            closeMenu={closeMenu}
-            bulletRef={contactBullet}
-            delay={0.5}
-            index={3}
-         >
+         <MenuOption index={3} delay={0.5} bulletRef={contactBullet}>
             Contact
          </MenuOption>
       </MenuContainer>

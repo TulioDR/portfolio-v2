@@ -12,6 +12,9 @@ import usePositionContext from "./PositionContext";
 interface AppContextInterface {
    hoveredBullet: number;
    setHoveredBullet: Dispatch<SetStateAction<number>>;
+   isMenuOpen: boolean;
+   toggleMenu: any;
+   closeMenu: any;
 }
 
 const NavbarContext = createContext({} as AppContextInterface);
@@ -29,9 +32,16 @@ export function NavbarProvider({ children }: Props) {
       if (currentIndex != null) setHoveredBullet(currentIndex);
    }, [currentIndex]);
 
+   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+   const closeMenu = () => setIsMenuOpen(false);
+
    const value = {
       hoveredBullet,
       setHoveredBullet,
+      isMenuOpen,
+      toggleMenu,
+      closeMenu,
    };
    return (
       <NavbarContext.Provider value={value}>{children}</NavbarContext.Provider>
