@@ -14,6 +14,7 @@ export default function Project({ showCarousel, id, setSelectedId }: Props) {
          className={`aspect-16/9 bg-orange-900 ${
             showCarousel ? "w-full min-w-full" : "h-full min-w-max"
          }`}
+         transition={{ duration: 0.5, delay: showCarousel ? 0 : 0.2 }}
       ></motion.article>
    );
 }

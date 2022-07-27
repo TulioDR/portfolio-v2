@@ -10,6 +10,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import usePositionContext from "../context/PositionContext";
 import ProjectsContainer from "../components/Projects/ProjectsContainer";
 import ChangeViewBtn from "../components/Projects/ChangeViewBtn";
+import CarouselPagination from "../components/Projects/CarouselPagination";
+import CarouselPaginationContainer from "../components/Projects/CarouselPaginationContainer";
 
 type Props = {};
 
@@ -27,6 +29,8 @@ export default function Projects({}: Props) {
       }, 1000);
    }, [currentIndex]);
 
+   const [selectedPagination, setSelectedPagination] = useState(1);
+
    return (
       <SectionContainer index={2}>
          <DescriptionContainer>
@@ -38,17 +42,34 @@ export default function Projects({}: Props) {
             </CardInfo>
          </DescriptionContainer>
          <CardContainer>
-            <div className="h-full w-full flex flex-col">
-               <ProjectsContainer showCarousel={showCarousel}>
-                  {projectsArray.map((project) => (
-                     <Project
-                        key={project}
-                        id={`${project}`}
-                        showCarousel={showCarousel}
-                        setSelectedId={setSelectedId}
-                     />
-                  ))}
-               </ProjectsContainer>
+            <div className="h-full w-full flex flex-col overflow-hidden bg-primary">
+               <div className="flex-1 relative overflow-hidden">
+                  <ProjectsContainer
+                     selectedPagination={selectedPagination}
+                     showCarousel={showCarousel}
+                  >
+                     {projectsArray.map((project) => (
+                        <Project
+                           key={project}
+                           id={`${project}`}
+                           showCarousel={showCarousel}
+                           setSelectedId={setSelectedId}
+                        />
+                     ))}
+                  </ProjectsContainer>
+
+                  <CarouselPaginationContainer showCarousel={showCarousel}>
+                     {projectsArray.map((project) => (
+                        <CarouselPagination
+                           key={project}
+                           project={project}
+                           selectedPagination={selectedPagination}
+                           setSelectedPagination={setSelectedPagination}
+                        />
+                     ))}
+                  </CarouselPaginationContainer>
+               </div>
+
                <div className="w-full py-3 flex space-x-5 justify-center bg-primary border-t-2 border-white">
                   <ChangeViewBtn
                      onClick={() => setShowCarousel(true)}

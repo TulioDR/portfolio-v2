@@ -8,12 +8,12 @@ type Props = {
 export default function CardContainer({ children }: Props) {
    return (
       <motion.div
-         initial={{ scale: 0.95 }}
+         initial={{ scale: 0.85 }}
          animate={{ scale: 1 }}
          transition={{
-            duration: 1,
+            duration: 1.2,
             delay: 0.4,
-            ease: "easeInOut",
+            ease: "easeOut",
          }}
          className="w-3/5 shadow-lg h-full bg-green origin-right relative overflow-hidden"
       >

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import usePositionContext from "../context/PositionContext";
+import usePositionContext from "../../context/PositionContext";
 
 type Props = {};
 
