@@ -12,6 +12,7 @@ import ProjectsContainer from "../components/Projects/ProjectsContainer";
 import ChangeViewBtn from "../components/Projects/ChangeViewBtn";
 import CarouselPagination from "../components/Projects/CarouselPagination";
 import CarouselPaginationContainer from "../components/Projects/CarouselPaginationContainer";
+import CarouselNavigation from "../components/Projects/CarouselNavigation";
 
 type Props = {};
 
@@ -43,7 +44,7 @@ export default function Projects({}: Props) {
          </DescriptionContainer>
          <CardContainer>
             <div className="h-full w-full flex flex-col overflow-hidden bg-primary">
-               <div className="flex-1 relative overflow-hidden">
+               <div className="flex-1 relative overflow-hidden group">
                   <ProjectsContainer
                      selectedPagination={selectedPagination}
                      showCarousel={showCarousel}
@@ -54,9 +55,32 @@ export default function Projects({}: Props) {
                            id={`${project}`}
                            showCarousel={showCarousel}
                            setSelectedId={setSelectedId}
+                           selectedPagination={selectedPagination}
                         />
                      ))}
                   </ProjectsContainer>
+
+                  <AnimatePresence>
+                     {selectedPagination !== 1 && showCarousel && (
+                        <CarouselNavigation
+                           forward={false}
+                           onClick={() =>
+                              setSelectedPagination(selectedPagination - 1)
+                           }
+                        />
+                     )}
+                  </AnimatePresence>
+                  <AnimatePresence>
+                     {selectedPagination !== projectsArray.length &&
+                        showCarousel && (
+                           <CarouselNavigation
+                              forward
+                              onClick={() =>
+                                 setSelectedPagination(selectedPagination + 1)
+                              }
+                           />
+                        )}
+                  </AnimatePresence>
 
                   <CarouselPaginationContainer showCarousel={showCarousel}>
                      {projectsArray.map((project) => (
