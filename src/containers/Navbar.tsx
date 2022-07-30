@@ -4,13 +4,14 @@ import Hamburger from "../components/Navbar/Hamburger";
 import TranslateBtn from "../components/Navbar/TranslateBtn";
 import NavContainer from "../components/Navbar/NavContainer";
 import useNavbarContext from "../context/NavbarContext";
+import Name from "../components/Navbar/Name";
 
 export default function Navbar() {
    const { isMenuOpen } = useNavbarContext();
    return (
       <>
          <NavContainer>
-            <div className="">Tulio Ruzo</div>
+            <Name />
             <div className="flex space-x-7 items-center font-medium">
                <TranslateBtn />
                <Hamburger />

@@ -12,10 +12,10 @@ import {
 interface AppContextInterface {
    currentIndex: number | null;
    setCurrentIndex: any;
-   homeBullet: RefObject<Element>;
-   aboutBullet: RefObject<Element>;
-   projectsBullet: RefObject<Element>;
-   contactBullet: RefObject<Element>;
+   homeBullet: RefObject<HTMLButtonElement>;
+   aboutBullet: RefObject<HTMLButtonElement>;
+   projectsBullet: RefObject<HTMLButtonElement>;
+   contactBullet: RefObject<HTMLButtonElement>;
 }
 const PositionContext = createContext({} as AppContextInterface);
 export default function usePositionContext() {
@@ -36,10 +36,10 @@ export function PositionProvider({ children }: Props) {
       if (asPath === "/#contact") setCurrentIndex(3);
    }, []);
 
-   const homeBullet = useRef<Element>(null);
-   const aboutBullet = useRef<Element>(null);
-   const projectsBullet = useRef<Element>(null);
-   const contactBullet = useRef<Element>(null);
+   const homeBullet = useRef<HTMLButtonElement>(null);
+   const aboutBullet = useRef<HTMLButtonElement>(null);
+   const projectsBullet = useRef<HTMLButtonElement>(null);
+   const contactBullet = useRef<HTMLButtonElement>(null);
 
    const value = {
       currentIndex,
