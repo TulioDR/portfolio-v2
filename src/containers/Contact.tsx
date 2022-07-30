@@ -16,12 +16,12 @@ export default function Contact({}: Props) {
          <DescriptionContainer>
             <SectionTitle>Get In Touch</SectionTitle>
             <Underline />
-            <CardInfo delay={0.8}>
+            <CardInfo>
                <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
                   tulioruzo29@gmail.com
                </div>
             </CardInfo>
-            <CardInfo delay={0.9}>
+            <CardInfo>
                <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
                   Github
                </div>

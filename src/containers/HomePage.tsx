@@ -21,7 +21,7 @@ export default function HomePage({}: Props) {
                <div className="text-8xl">RUZO</div>
             </SectionTitle>
             <Underline />
-            <CardInfo delay={0.8}>
+            <CardInfo>
                <div>Web Developer</div>
             </CardInfo>
          </DescriptionContainer>

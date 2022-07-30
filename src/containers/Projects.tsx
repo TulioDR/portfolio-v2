@@ -38,9 +38,11 @@ export default function Projects({}: Props) {
          <DescriptionContainer>
             <SectionTitle>Projects</SectionTitle>
             <Underline />
-            <CardInfo delay={0.8}>
-               <div>I love Animation, Technology,</div>
-               <div>and Design</div>
+            <CardInfo>
+               <div>
+                  <div>I love Animation, Technology,</div>
+                  <div>and Design</div>
+               </div>
             </CardInfo>
          </DescriptionContainer>
          <CardContainer>
