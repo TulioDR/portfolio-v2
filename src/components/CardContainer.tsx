@@ -1,8 +1,7 @@
-import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 type Props = {
-   children: ReactNode;
+   children: React.ReactNode;
 };
 
 export default function CardContainer({ children }: Props) {
@@ -15,7 +14,7 @@ export default function CardContainer({ children }: Props) {
             delay: 0.4,
             ease: "easeOut",
          }}
-         className="w-3/5 shadow-lg h-full bg-green origin-right relative overflow-hidden"
+         className="w-3/5 drop-shadow-lg h-full origin-right relative overflow-hidden"
       >
          {children}
          <motion.div

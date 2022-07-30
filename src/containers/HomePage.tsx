@@ -39,30 +39,6 @@ export default function HomePage({}: Props) {
                   className="mx-auto"
                   style={{ height: 300 }}
                />
-               {/* <motion.img
-                  initial={{ x: 50, y: -200, rotate: -30 }}
-                  animate={{ x: 100, y: -150, rotate: -30 }}
-                  transition={{
-                     duration: 0.15,
-                     delay: 1,
-                  }}
-                  src="/logo/sword.svg"
-                  alt="sword2"
-                  className="absolute top-0 left-0 -z-10"
-                  style={{ height: 500 }}
-               />
-               <motion.img
-                  initial={{ x: -48, y: -200, rotate: 29 }}
-                  animate={{ x: -98, y: -150, rotate: 29 }}
-                  transition={{
-                     duration: 0.15,
-                     delay: 1,
-                  }}
-                  src="/logo/sword.svg"
-                  alt="sword1"
-                  className="absolute top-0 right-0 -z-10"
-                  style={{ height: 500 }}
-               /> */}
                <div className="text-5xl top-1/2 -translate-y-1/2 -translate-x-10 uppercase absolute tracking-widest font-black">
                   Portfolio
                </div>
