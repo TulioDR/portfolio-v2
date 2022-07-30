@@ -5,17 +5,11 @@ import useNavbarContext from "../../context/NavbarContext";
 
 type Props = {
    children: ReactNode;
-   delay: number;
    index: number;
    bulletRef: any;
 };
 
-export default function MenuOption({
-   children,
-   bulletRef,
-   delay,
-   index,
-}: Props) {
+export default function MenuOption({ children, bulletRef, index }: Props) {
    const { currentIndex } = usePositionContext();
    const { hoveredBullet, setHoveredBullet, closeMenu } = useNavbarContext();
 
@@ -30,11 +24,20 @@ export default function MenuOption({
       if (currentIndex != null) setHoveredBullet(currentIndex);
    };
 
+   const option = {
+      hidden: { x: -60, opacity: 0 },
+      visible: {
+         x: 0,
+         opacity: 1,
+         transition: {
+            duration: 0.4,
+         },
+      },
+   };
+
    return (
       <motion.li
-         initial={{ x: -60, opacity: 0 }}
-         animate={{ x: 0, opacity: 1 }}
-         transition={{ duration: 0.4, delay: delay }}
+         variants={option}
          className={`cursor-pointer relative w-min mx-auto py-2 ${
             currentIndex === index ? "" : "text-gray-400"
          }`}

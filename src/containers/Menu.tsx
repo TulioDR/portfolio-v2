@@ -1,6 +1,9 @@
 // import { useState } from "react";
 import MenuContainer from "../components/Menu/MenuContainer";
+import MenuFooter from "../components/Menu/MenuFooter";
 import MenuOption from "../components/Menu/MenuOption";
+import MenuOptionsContainer from "../components/Menu/MenuOptionsContainer";
+import MenuTitle from "../components/Menu/MenuTitle";
 import usePositionContext from "../context/PositionContext";
 
 export default function Menu() {
@@ -9,18 +12,22 @@ export default function Menu() {
 
    return (
       <MenuContainer>
-         <MenuOption index={0} delay={0.35} bulletRef={homeBullet}>
-            Home
-         </MenuOption>
-         <MenuOption index={1} delay={0.4} bulletRef={aboutBullet}>
-            About
-         </MenuOption>
-         <MenuOption index={2} delay={0.45} bulletRef={projectsBullet}>
-            Projects
-         </MenuOption>
-         <MenuOption index={3} delay={0.5} bulletRef={contactBullet}>
-            Contact
-         </MenuOption>
+         <MenuTitle />
+         <MenuOptionsContainer>
+            <MenuOption index={0} bulletRef={homeBullet}>
+               Home
+            </MenuOption>
+            <MenuOption index={1} bulletRef={aboutBullet}>
+               About
+            </MenuOption>
+            <MenuOption index={2} bulletRef={projectsBullet}>
+               Projects
+            </MenuOption>
+            <MenuOption index={3} bulletRef={contactBullet}>
+               Contact
+            </MenuOption>
+         </MenuOptionsContainer>
+         <MenuFooter />
       </MenuContainer>
    );
 }
