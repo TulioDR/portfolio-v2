@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CardContainer from "../components/CardContainer";
 import DescriptionContainer from "../components/DescriptionContainer";
 import SectionContainer from "../components/SectionContainer";
@@ -7,31 +7,32 @@ import Underline from "../components/Underline";
 import Project from "../components/Projects/Project";
 import CardInfo from "../components/CardInfo";
 import { AnimatePresence, motion } from "framer-motion";
-import usePositionContext from "../context/PositionContext";
 import ProjectsContainer from "../components/Projects/ProjectsContainer";
 import ChangeViewBtn from "../components/Projects/ChangeViewBtn";
 import CarouselPagination from "../components/Projects/CarouselPagination";
 import CarouselPaginationContainer from "../components/Projects/CarouselPaginationContainer";
 import CarouselNavigation from "../components/Projects/CarouselNavigation";
+import usePositionContext from "../context/PositionContext";
 
 type Props = {};
 
 const projectsArray = [1, 2, 3, 4, 5, 6, 7, 8];
-
+const { length } = projectsArray;
 export default function Projects({}: Props) {
    const { currentIndex } = usePositionContext();
+
    const [showCarousel, setShowCarousel] = useState(true);
 
    const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
+
+   const [selectedPagination, setSelectedPagination] = useState(1);
+   const constrainRef = useRef(null);
 
    useEffect(() => {
       setTimeout(() => {
          setShowCarousel(true);
       }, 1000);
    }, [currentIndex]);
-
-   const [selectedPagination, setSelectedPagination] = useState(1);
-
    return (
       <SectionContainer index={2}>
          <DescriptionContainer>
@@ -43,44 +44,37 @@ export default function Projects({}: Props) {
             </CardInfo>
          </DescriptionContainer>
          <CardContainer>
-            <div className="h-full w-full flex flex-col overflow-hidden bg-primary">
-               <div className="flex-1 relative overflow-hidden group">
+            <div className="h-full w-full flex flex-col bg-primary">
+               <div ref={constrainRef} className="flex-1 w-full relative group">
                   <ProjectsContainer
                      selectedPagination={selectedPagination}
                      showCarousel={showCarousel}
+                     constrainRef={constrainRef}
                   >
                      {projectsArray.map((project) => (
                         <Project
                            key={project}
                            id={`${project}`}
+                           project={project}
                            showCarousel={showCarousel}
                            setSelectedId={setSelectedId}
                            selectedPagination={selectedPagination}
                         />
                      ))}
                   </ProjectsContainer>
-
-                  <AnimatePresence>
-                     {selectedPagination !== 1 && showCarousel && (
-                        <CarouselNavigation
-                           forward={false}
-                           onClick={() =>
-                              setSelectedPagination(selectedPagination - 1)
-                           }
-                        />
-                     )}
-                  </AnimatePresence>
-                  <AnimatePresence>
-                     {selectedPagination !== projectsArray.length &&
-                        showCarousel && (
-                           <CarouselNavigation
-                              forward
-                              onClick={() =>
-                                 setSelectedPagination(selectedPagination + 1)
-                              }
-                           />
-                        )}
-                  </AnimatePresence>
+                  <CarouselNavigation
+                     reveal={selectedPagination !== 1 && showCarousel}
+                     onClick={() =>
+                        setSelectedPagination(selectedPagination - 1)
+                     }
+                  />
+                  <CarouselNavigation
+                     forward
+                     reveal={selectedPagination !== length && showCarousel}
+                     onClick={() =>
+                        setSelectedPagination(selectedPagination + 1)
+                     }
+                  />
 
                   <CarouselPaginationContainer showCarousel={showCarousel}>
                      {projectsArray.map((project) => (

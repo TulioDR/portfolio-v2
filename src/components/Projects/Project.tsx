@@ -4,16 +4,17 @@ type Props = {
    id: string;
    setSelectedId: any;
    selectedPagination: number;
+   project: number;
 };
 
+// Do something with selected Pagination
 export default function Project({ showCarousel, id, setSelectedId }: Props) {
    return (
       <motion.article
          layout
          layoutId={id}
-         onClick={() => setSelectedId(id)}
-         className={`aspect-16/9 bg-orange-900 cursor-pointer ${
-            showCarousel ? "w-full min-w-full" : "h-full min-w-max"
+         className={`aspect-16/9 bg-orange-800 ${
+            showCarousel ? "w-full min-w-full" : "h-full"
          }`}
          transition={{ duration: 0.5, delay: showCarousel ? 0 : 0.2 }}
       ></motion.article>

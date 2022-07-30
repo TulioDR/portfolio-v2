@@ -1,39 +1,54 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 type Props = {
    children: ReactNode;
    showCarousel: boolean;
    selectedPagination: number;
+   constrainRef: React.RefObject<Element>;
 };
 
 export default function ProjectsContainer({
    children,
    showCarousel,
    selectedPagination,
+   constrainRef,
 }: Props) {
-   const distance = selectedPagination - 1;
+   const [dragConstraints, setDragConstraints] =
+      useState<React.RefObject<Element>>();
+   const onDragStart = () => {
+      setDragConstraints(constrainRef);
+   };
 
-   const [width, setWidth] = useState<number>(0);
-   const containerRef = useRef<HTMLDivElement>(null);
-
+   const controls = useAnimation();
    useEffect(() => {
-      if (containerRef.current) {
-         const containerWidth: number =
-            containerRef.current.clientWidth - 80 - 40;
-         setWidth(containerWidth);
+      if (showCarousel) {
+         const { clientWidth } = constrainRef.current!;
+         const containerWidth: number = clientWidth - 80 - 40;
+         const distance = selectedPagination - 1;
+         controls.start({
+            x: -(containerWidth * distance),
+            transition: { duration: 0.5 },
+         });
+      } else {
+         controls.start({
+            x: 0,
+            transition: { duration: 0.5 },
+         });
       }
-   }, []);
+   }, [selectedPagination, showCarousel]);
 
    return (
       <motion.div
-         ref={containerRef}
-         animate={showCarousel ? { x: -(width * distance) } : { x: 0 }}
-         transition={{ duration: 0.5 }}
-         className={`w-full h-full ${
+         drag={showCarousel ? false : "x"}
+         dragConstraints={dragConstraints}
+         dragElastic={0.1}
+         animate={controls}
+         onDragStart={onDragStart}
+         className={`h-full ${
             showCarousel
-               ? "flex items-center space-x-10 px-20"
-               : "grid grid-flow-col grid-rows-2 gap-5 p-5"
+               ? "w-full flex items-center space-x-10 px-20"
+               : "min-w-max grid grid-flow-col grid-rows-2 gap-5 2xl:gap-10 p-5 2xl:p-10"
          }`}
       >
          {children}
