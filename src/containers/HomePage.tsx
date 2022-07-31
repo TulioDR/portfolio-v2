@@ -7,7 +7,6 @@ import SectionContainer from "../components/SectionContainer";
 import SectionTitle from "../components/SectionTitle";
 import Underline from "../components/Underline";
 // import Image from "next/image";
-import { motion } from "framer-motion";
 import CardInfo from "../components/CardInfo";
 
 type Props = {};
@@ -25,34 +24,27 @@ export default function HomePage({}: Props) {
                <div>Web Developer</div>
             </CardInfo>
          </DescriptionContainer>
-         <div className="w-3/5 h-full flex items-center justify-center">
-            <motion.div
-               initial={{ x: "100%", opacity: 0 }}
-               animate={{ x: 0, opacity: 1 }}
-               transition={{ duration: 0.7 }}
-               className="relative mx-auto"
-               style={{ width: 350 }}
+         <div
+            className="absolute top-1/2 -translate-y-1/2"
+            style={{ left: 800 }}
+         >
+            <div
+               className="relative translate-y-10"
+               style={{ width: 500, height: 500 }}
             >
-               <motion.img
-                  src="/logo/shield.svg"
-                  alt="shield"
-                  className="mx-auto"
-                  style={{ height: 300 }}
-               />
-               <div className="text-5xl top-1/2 -translate-y-1/2 -translate-x-10 uppercase absolute tracking-widest font-black">
-                  Portfolio
-               </div>
-               {/* <motion.div className="absolute bottom-0 w-full translate-y-40">
-                  <img
-                     src="/logo/ribbon.svg"
-                     alt="ribbon"
-                     className="w-full scale-125"
-                  />
-                  <h1 className="text-4xl uppercase text-white text-center w-full tracking-widest -translate-y-16">
+               <img src="/logo/moon.svg" alt="moon" className="h-full w-full" />
+               <div className="absolute flex items-center right-0 top-1/2 -translate-y-1/2">
+                  <div className="text-6xl drop-shadow-lg shadow-black uppercase tracking-widest font-black text-secondary z-10 -translate-x-20 translate-y-6 ">
                      Portfolio
-                  </h1>
-               </motion.div> */}
-            </motion.div>
+                  </div>
+                  <img
+                     src="/logo/shield.svg"
+                     alt="shield"
+                     className="z-10 -translate-x-16 translate-y-6 drop-shadow-lg shadow-black"
+                     style={{ width: 150 }}
+                  />
+               </div>
+            </div>
          </div>
       </SectionContainer>
    );

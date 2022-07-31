@@ -5,6 +5,7 @@
 @layer base {
    :root {
       --color-primary: #161b21;
+      --color-primaryDark: #141719;
       --color-secondary: #ea580c;
       /* Kuon Yagi secondary color */
       /* --color-secondary: #ff4d5a; */
@@ -17,7 +18,7 @@ body {
    margin: 0;
    overflow-y: hidden;
    font-family: Futura, sans-serif;
-   @apply bg-gradient-to-t from-zinc-900 to-primary;
+   @apply bg-gradient-to-t from-primaryDark to-primary;
 }
 
 @font-face {

@@ -18,7 +18,7 @@ export default function SectionContainer({ children, index }: Props) {
    }, [currentIndex]);
    return (
       <section className="h-full w-full pl-40 2xl:pl-48 text-white">
-         <div className="h-full w-full flex justify-end relative overflow-hidden py-24 2xl:py-32 pr-24 2xl:pr-32">
+         <div className="h-full w-full flex overflow-hidden py-24 2xl:py-32 pr-24 2xl:pr-32">
             <>{selected && children}</>
          </div>
       </section>

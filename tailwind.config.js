@@ -20,6 +20,7 @@ module.exports = {
          },
          colors: {
             primary: "var(--color-primary)",
+            primaryDark: "var(--color-primaryDark)",
             secondary: "var(--color-secondary)",
          },
          backgroundPosition: {
