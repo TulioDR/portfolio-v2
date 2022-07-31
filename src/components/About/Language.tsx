@@ -6,9 +6,16 @@ type Props = {
 };
 
 export default function Language({ skill }: Props) {
+   const openNewTab = () => {
+      setTimeout(() => {
+         window.open(skill.link, "_blank");
+      }, 300);
+   };
+
    return (
       <motion.article
          whileTap={{ scale: 0.94 }}
+         onTap={openNewTab}
          className="flex flex-col items-center bg-primary rounded-md pt-3 pb-2 px-2 cursor-pointer"
       >
          <Image

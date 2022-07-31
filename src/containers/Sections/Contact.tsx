@@ -21,12 +21,12 @@ export default function Contact({}: Props) {
             <SectionTitle>Get In Touch</SectionTitle>
             <Underline />
             <Info>
-               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+               <div className="hover:text-gray-400 duration-300 cursor-pointer min-w-max">
                   tulioruzo29@gmail.com
                </div>
             </Info>
             <Info>
-               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+               <div className="hover:text-gray-400 duration-300 cursor-pointer min-w-max">
                   Github
                </div>
             </Info>

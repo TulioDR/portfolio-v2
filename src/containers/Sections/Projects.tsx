@@ -41,10 +41,8 @@ export default function Projects({}: Props) {
             <SectionTitle>Projects</SectionTitle>
             <Underline />
             <Info>
-               <div>
-                  <div>I love Animation, Technology,</div>
-                  <div>and Design</div>
-               </div>
+               <div>I love Animation, Technology,</div>
+               <div>and Design</div>
             </Info>
          </InfoContainer>
          <JumbotronContainer>

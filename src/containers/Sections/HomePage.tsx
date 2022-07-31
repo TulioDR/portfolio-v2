@@ -16,9 +16,7 @@ export default function HomePage({}: Props) {
                <div className="text-8xl">RUZO</div>
             </SectionTitle>
             <Underline />
-            <Info>
-               <div>Web Developer</div>
-            </Info>
+            <Info>Web Developer</Info>
          </InfoContainer>
          <div
             className="absolute top-1/2 -translate-y-1/2"

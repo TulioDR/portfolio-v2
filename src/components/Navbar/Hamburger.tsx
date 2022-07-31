@@ -17,7 +17,7 @@ export default function Hamburger() {
 
    return (
       <button
-         className="flex flex-col space-y-4"
+         className="flex flex-col space-y-4 py-2"
          onClick={isAnimating ? undefined : handleClick}
       >
          <motion.span
