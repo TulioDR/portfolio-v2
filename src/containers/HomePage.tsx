@@ -32,7 +32,11 @@ export default function HomePage({}: Props) {
                className="relative translate-y-10"
                style={{ width: 500, height: 500 }}
             >
-               <img src="/logo/moon.svg" alt="moon" className="h-full w-full" />
+               <img
+                  src="/logo/moon.svg"
+                  alt="moon"
+                  className="h-full w-full -rotate-45"
+               />
                <div className="absolute flex items-center right-0 top-1/2 -translate-y-1/2">
                   <div className="text-6xl drop-shadow-lg shadow-black uppercase tracking-widest font-black text-secondary z-10 -translate-x-20 translate-y-6 ">
                      Portfolio
