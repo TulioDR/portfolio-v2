@@ -16,8 +16,8 @@ export default function ScrollAdvice({}: Props) {
          }}
          className="fixed bottom-0 left-10 z-10 flex flex-col items-center justify-center space-y-4"
       >
-         <div className="border-2 border-white rounded-2xl w-7 h-11 grid place-content-center">
-            <div className="w-1 h-3 bg-white rounded-full animate-bounce"></div>
+         <div className="border-2 border-white rounded-2xl w-7 h-11 flex justify-center">
+            <div className="w-1 h-3 mt-3 bg-white rounded-full animate-bounce"></div>
          </div>
          <span className="h-16 w-1 bg-white"></span>
       </motion.div>

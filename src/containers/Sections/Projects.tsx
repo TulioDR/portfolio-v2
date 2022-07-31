@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import CardContainer from "../components/CardContainer";
-import DescriptionContainer from "../components/DescriptionContainer";
-import SectionContainer from "../components/SectionContainer";
-import SectionTitle from "../components/SectionTitle";
-import Underline from "../components/Underline";
-import Project from "../components/Projects/Project";
-import CardInfo from "../components/CardInfo";
+
+import SectionContainer from "../../components/Sections/SectionContainer";
+import SectionTitle from "../../components/Sections/SectionTitle";
+import Underline from "../../components/Sections/Underline";
+import Project from "../../components/Projects/Project";
+
 import { AnimatePresence, motion } from "framer-motion";
-import ProjectsContainer from "../components/Projects/ProjectsContainer";
-import ChangeViewBtn from "../components/Projects/ChangeViewBtn";
-import CarouselPagination from "../components/Projects/CarouselPagination";
-import CarouselPaginationContainer from "../components/Projects/CarouselPaginationContainer";
-import CarouselNavigation from "../components/Projects/CarouselNavigation";
-import usePositionContext from "../context/PositionContext";
+import ProjectsContainer from "../../components/Projects/ProjectsContainer";
+import ChangeViewBtn from "../../components/Projects/ChangeViewBtn";
+import CarouselPagination from "../../components/Projects/CarouselPagination";
+import CarouselPaginationContainer from "../../components/Projects/CarouselPaginationContainer";
+import CarouselNavigation from "../../components/Projects/CarouselNavigation";
+import usePositionContext from "../../context/PositionContext";
+import InfoContainer from "../../components/Sections/InfoContainer";
+import JumbotronContainer from "../../components/Sections/JumbotronContainer";
+import Info from "../../components/Sections/Info";
 
 type Props = {};
 
@@ -35,17 +37,17 @@ export default function Projects({}: Props) {
    }, [currentIndex]);
    return (
       <SectionContainer index={2}>
-         <DescriptionContainer>
+         <InfoContainer>
             <SectionTitle>Projects</SectionTitle>
             <Underline />
-            <CardInfo>
+            <Info>
                <div>
                   <div>I love Animation, Technology,</div>
                   <div>and Design</div>
                </div>
-            </CardInfo>
-         </DescriptionContainer>
-         <CardContainer>
+            </Info>
+         </InfoContainer>
+         <JumbotronContainer>
             <div className="h-full w-full flex flex-col bg-primary">
                <div ref={constrainRef} className="flex-1 w-full relative group">
                   <ProjectsContainer
@@ -103,7 +105,7 @@ export default function Projects({}: Props) {
                   />
                </div>
             </div>
-         </CardContainer>
+         </JumbotronContainer>
          <AnimatePresence>
             {selectedId && (
                <motion.div

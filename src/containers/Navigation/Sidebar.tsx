@@ -1,6 +1,6 @@
-import SideContainer from "../components/Sidebar/SideContainer";
-import SidePagination from "../components/Sidebar/SidePagination";
-import usePositionContext from "../context/PositionContext";
+import SideContainer from "../../components/Sidebar/SideContainer";
+import SidePagination from "../../components/Sidebar/SidePagination";
+import usePositionContext from "../../context/PositionContext";
 
 export default function Sidebar() {
    const { homeBullet, aboutBullet, projectsBullet, contactBullet } =

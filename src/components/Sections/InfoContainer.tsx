@@ -4,7 +4,7 @@ type Props = {
    children: React.ReactNode;
 };
 
-export default function DescriptionContainer({ children }: Props) {
+export default function InfoContainer({ children }: Props) {
    const infoContainer = {
       initial: { opacity: 1 },
       animate: {

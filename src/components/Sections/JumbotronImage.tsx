@@ -9,7 +9,7 @@ type Props = {
    alt: string;
 };
 
-export default function CardImage({ src, alt }: Props) {
+export default function JumbotronImage({ src, alt }: Props) {
    return (
       <MouseParallaxContainer
          useWindowMouseEvents={true}

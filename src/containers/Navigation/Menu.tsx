@@ -1,10 +1,10 @@
 // import { useState } from "react";
-import MenuContainer from "../components/Menu/MenuContainer";
-import MenuFooter from "../components/Menu/MenuFooter";
-import MenuOption from "../components/Menu/MenuOption";
-import MenuOptionsContainer from "../components/Menu/MenuOptionsContainer";
-import MenuTitle from "../components/Menu/MenuTitle";
-import usePositionContext from "../context/PositionContext";
+import MenuContainer from "../../components/Menu/MenuContainer";
+import MenuFooter from "../../components/Menu/MenuFooter";
+import MenuOption from "../../components/Menu/MenuOption";
+import MenuOptionsContainer from "../../components/Menu/MenuOptionsContainer";
+import MenuTitle from "../../components/Menu/MenuTitle";
+import usePositionContext from "../../context/PositionContext";
 
 export default function Menu() {
    const { homeBullet, aboutBullet, projectsBullet, contactBullet } =

@@ -2,27 +2,26 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { PositionProvider } from "../context/PositionContext";
 
-import Navbar from "../containers/Navbar";
-import Sidebar from "../containers/Sidebar";
-import HomePage from "../containers/HomePage";
-import About from "../containers/About";
-import Projects from "../containers/Projects";
-import Contact from "../containers/Contact";
-
-import { SwiperSlide } from "swiper/react";
-
 import ScrollAdvice from "../components/Others/ScrollAdvice";
-import SwiperContainer from "../containers/SwiperContainer";
-// import Background from "../components/Background";
 
 import { NavbarProvider } from "../context/NavbarContext";
 import InitialAnimation from "../animations/InitialAnimation";
+
+import Navbar from "../containers/Navigation/Navbar";
+import Sidebar from "../containers/Navigation/Sidebar";
+import SwiperContainer from "../containers/Navigation/SwiperContainer";
+import { SwiperSlide } from "swiper/react";
+
+import HomePage from "../containers/Sections/HomePage";
+import About from "../containers/Sections/About";
+import Contact from "../containers/Sections/Contact";
+import Projects from "../containers/Sections/Projects";
 
 const Home: NextPage = () => {
    return (
       <>
          <Head>
-            <title>Tulio Ruzo</title>
+            <title>TULIO RUZO PORTFOLIO</title>
          </Head>
          <PositionProvider>
             <InitialAnimation />

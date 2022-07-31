@@ -4,7 +4,7 @@ type Props = {
    children: React.ReactNode;
 };
 
-export default function CardInfo({ children }: Props) {
+export default function Info({ children }: Props) {
    const sectionInfo = {
       initial: { x: "-100%" },
       animate: {

@@ -1,29 +1,25 @@
-// import {
-//    MouseParallaxChild,
-//    MouseParallaxContainer,
-// } from "react-parallax-mouse";
-import DescriptionContainer from "../components/DescriptionContainer";
-import SectionContainer from "../components/SectionContainer";
-import SectionTitle from "../components/SectionTitle";
-import Underline from "../components/Underline";
-// import Image from "next/image";
-import CardInfo from "../components/CardInfo";
+import SectionContainer from "../../components/Sections/SectionContainer";
+
+import SectionTitle from "../../components/Sections/SectionTitle";
+import Underline from "../../components/Sections/Underline";
+import InfoContainer from "../../components/Sections/InfoContainer";
+import Info from "../../components/Sections/Info";
 
 type Props = {};
 
 export default function HomePage({}: Props) {
    return (
       <SectionContainer index={0}>
-         <DescriptionContainer>
+         <InfoContainer>
             <SectionTitle>
                <div className="mb-2 text-8xl">TULIO</div>
                <div className="text-8xl">RUZO</div>
             </SectionTitle>
             <Underline />
-            <CardInfo>
+            <Info>
                <div>Web Developer</div>
-            </CardInfo>
-         </DescriptionContainer>
+            </Info>
+         </InfoContainer>
          <div
             className="absolute top-1/2 -translate-y-1/2"
             style={{ left: 800 }}

@@ -4,7 +4,7 @@ type Props = {
    children: React.ReactNode;
 };
 
-export default function CardContainer({ children }: Props) {
+export default function JumbotronContainer({ children }: Props) {
    return (
       <motion.div
          initial={{ scale: 0.85 }}

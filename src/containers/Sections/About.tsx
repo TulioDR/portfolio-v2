@@ -1,18 +1,20 @@
-import SectionContainer from "../components/SectionContainer";
-import SectionTitle from "../components/SectionTitle";
-import aboutImage from "../assets/images/skills.jpg";
-import Underline from "../components/Underline";
+import SectionContainer from "../../components/Sections/SectionContainer";
+import SectionTitle from "../../components/Sections/SectionTitle";
+import aboutImage from "../../assets/images/skills.jpg";
+import Underline from "../../components/Sections/Underline";
 import { useState } from "react";
-import DescriptionContainer from "../components/DescriptionContainer";
 
-import { mainSkills } from "../assets/constants/skills";
-import { otherSkills } from "../assets/constants/skills";
-import SkillsTab from "../components/SkillsTab";
-import Language from "../components/Language";
-import SkillsGrid from "../components/SkillsGrid";
-import CardContainer from "../components/CardContainer";
-import CardImage from "../components/CardImage";
-import CardInfo from "../components/CardInfo";
+import { mainSkills } from "../../assets/constants/skills";
+import { otherSkills } from "../../assets/constants/skills";
+
+import Language from "../../components/About/Language";
+import SkillsGrid from "../../components/About/SkillsGrid";
+
+import SkillsTab from "../../components/About/SkillsTab";
+import InfoContainer from "../../components/Sections/InfoContainer";
+import JumbotronContainer from "../../components/Sections/JumbotronContainer";
+import JumbotronImage from "../../components/Sections/JumbotronImage";
+import Info from "../../components/Sections/Info";
 
 type Props = {};
 
@@ -21,31 +23,31 @@ export default function About({}: Props) {
 
    return (
       <SectionContainer index={1}>
-         <DescriptionContainer>
+         <InfoContainer>
             <SectionTitle>About Me</SectionTitle>
             <Underline />
-            <CardInfo>
+            <Info>
                <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg">
                   I'm a self-taught developer that fell in love with React and
                   Next.js.
                </div>
-            </CardInfo>
-            <CardInfo>
+            </Info>
+            <Info>
                <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg">
                   I'm a well-organized person, problem solver with high
                   attention to detail and I speak spanish and english. This is
                   more than “just a job” for me.
                </div>
-            </CardInfo>
-            <CardInfo>
+            </Info>
+            <Info>
                <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg">
                   It's a passion that motivates me to learn and improve my
                   skills day by day, either with my team or on my own.
                </div>
-            </CardInfo>
-         </DescriptionContainer>
-         <CardContainer>
-            <CardImage src={aboutImage} alt="about-background" />
+            </Info>
+         </InfoContainer>
+         <JumbotronContainer>
+            <JumbotronImage src={aboutImage} alt="about-background" />
             <div className="absolute space-y-5 top-0 w-full h-full flex items-center">
                <div className="mx-auto">
                   <div className="px-5 pt-2 pb-3 mb-3 bg-primary rounded-md">
@@ -81,7 +83,7 @@ export default function About({}: Props) {
                   </div>
                </div>
             </div>
-         </CardContainer>
+         </JumbotronContainer>
       </SectionContainer>
    );
 }

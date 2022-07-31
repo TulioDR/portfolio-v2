@@ -1,9 +1,8 @@
-import { ReactNode } from "react";
 import { Swiper } from "swiper/react";
 import { Mousewheel, Pagination, HashNavigation } from "swiper";
-import usePositionContext from "../context/PositionContext";
+import usePositionContext from "../../context/PositionContext";
 type Props = {
-   children: ReactNode;
+   children: React.ReactNode;
 };
 
 export default function SwiperContainer({ children }: Props) {
