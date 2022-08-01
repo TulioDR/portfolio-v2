@@ -21,30 +21,43 @@ export default function Contact({}: Props) {
             <SectionTitle>Get In Touch</SectionTitle>
             <Underline />
             <Info>
-               <div className="hover:text-gray-400 duration-300 cursor-pointer min-w-max">
+               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
                   tulioruzo29@gmail.com
                </div>
             </Info>
             <Info>
-               <div className="hover:text-gray-400 duration-300 cursor-pointer min-w-max">
+               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
                   Github
                </div>
             </Info>
          </InfoContainer>
          <JumbotronContainer>
             <JumbotronImage src={contactImg} alt="contact-form-background" />
-            <div className="px-16 lg:px-24 xl:px-32 2xl:px-40 space-y-5 w-full h-full absolute top-0 left-0 flex flex-col justify-center">
-               <div className="flex space-x-5">
-                  <Input placeholder="Name" />
-                  <Input placeholder="Email" />
+            <div className="w-full h-full absolute top-0 left-0 grid place-content-center text-xs md:text-sm lg:text-base">
+               <div className="flex flex-col xl:w-80 2xl:w-96 space-y-5 mx-auto">
+                  <Input
+                     type="Name"
+                     icon="person"
+                     placeholder="What's your name?"
+                  />
+                  <Input
+                     type="Email"
+                     icon="email"
+                     placeholder="Where should I contact you?"
+                  />
+                  <MessageArea
+                     icon="forum"
+                     type="Message"
+                     placeholder="What do you want to talk about?"
+                  />
+                  <motion.button
+                     whileTap={{ scale: 0.94 }}
+                     className="py-3 px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
+                  >
+                     <span className="material-icons">send</span>
+                     <span>Send</span>
+                  </motion.button>
                </div>
-               <MessageArea placeholder="Message" />
-               <motion.button
-                  whileTap={{ scale: 0.94 }}
-                  className="py-3 w-full rounded-md text-white bg-orange-600"
-               >
-                  Send
-               </motion.button>
             </div>
          </JumbotronContainer>
       </SectionContainer>

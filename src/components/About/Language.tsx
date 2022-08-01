@@ -16,7 +16,7 @@ export default function Language({ skill }: Props) {
       <motion.article
          whileTap={{ scale: 0.94 }}
          onTap={openNewTab}
-         className="flex flex-col items-center bg-primary rounded-md pt-3 pb-2 px-2 cursor-pointer"
+         className="flex flex-col items-center rounded-md pt-3 pb-2 px-2 cursor-pointer"
       >
          <Image
             src={`/skills/${skill.img}`}
