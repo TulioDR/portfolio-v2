@@ -61,7 +61,9 @@ export default function Contact({}: Props) {
             </Info>
             <Info>
                <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
-                  Github
+                  <a href="https://github.com/TulioDR" target="_blank">
+                     Github
+                  </a>
                </div>
             </Info>
          </InfoContainer>
