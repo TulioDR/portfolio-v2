@@ -16,6 +16,9 @@ import InfoContainer from "../../components/Sections/InfoContainer";
 import JumbotronContainer from "../../components/Sections/JumbotronContainer";
 import Info from "../../components/Sections/Info";
 
+import projectsImg from "../../assets/images/projects.jpg";
+import JumbotronImage from "../../components/Sections/JumbotronImage";
+
 type Props = {};
 
 const projectsArray = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -46,7 +49,8 @@ export default function Projects({}: Props) {
             </Info>
          </InfoContainer>
          <JumbotronContainer>
-            <div className="h-full w-full flex flex-col bg-primary">
+            <JumbotronImage src={projectsImg} alt="contact-form-background" />
+            <div className="w-full h-full absolute top-0 left-0 flex flex-col">
                <div ref={constrainRef} className="flex-1 w-full relative group">
                   <ProjectsContainer
                      selectedPagination={selectedPagination}
@@ -90,7 +94,7 @@ export default function Projects({}: Props) {
                   </CarouselPaginationContainer>
                </div>
 
-               <div className="w-full py-3 flex space-x-5 justify-center bg-primary border-t-2 border-white">
+               <div className="w-full py-3 flex space-x-5 justify-center border-t-2 border-white">
                   <ChangeViewBtn
                      onClick={() => setShowCarousel(true)}
                      icon="view_carousel"

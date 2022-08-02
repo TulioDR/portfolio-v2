@@ -1,47 +1,68 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { Field } from "formik";
+import ErrorMessage from "./ErrorMessage";
+
+import BorderBottom from "./BorderBottom";
 
 type Props = {
    placeholder: string;
    icon: string;
-   type: string;
+   label: string;
+   name: string;
+   handleBlur: any;
+   errors: any;
+   touched: any;
+   textarea: boolean;
 };
 
-export default function Input({ placeholder, icon, type }: Props) {
+export default function Input({
+   placeholder,
+   icon,
+   label,
+   name,
+   handleBlur,
+   errors,
+   touched,
+   textarea,
+}: Props) {
    const [isOnFocus, setIsOnFocus] = useState<boolean>(false);
-   const [inputValue, setInputValue] = useState<string>("");
 
-   const onBlur = () => {
-      if (!inputValue.length) setIsOnFocus(false);
+   const onBlur = (e: any) => {
+      handleBlur(e);
+      const value = e.target.value;
+      if (!value.length) setIsOnFocus(false);
    };
 
    return (
       <div className="w-full">
-         <label className="flex items-center space-x-2">
+         <label className="flex items-center space-x-2 pr-4 max-w-min relative">
             <span className="material-icons w-6">{icon}</span>
-            <span>{type}</span>
+            <span>{label}</span>
+            <ErrorMessage
+               errors={errors}
+               touched={touched}
+               name={name}
+               textarea={textarea}
+            />
          </label>
          <div className="pl-8">
             <div className="w-full relative overflow-hidden">
-               <input
+               <Field
+                  as={textarea ? "textarea" : "input"}
+                  name={name}
                   onFocus={() => setIsOnFocus(true)}
                   onBlur={onBlur}
                   placeholder={placeholder}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  type="text"
-                  className="w-full pr-3 py-2 text-gray-300 bg-transparent focus:outline-none "
+                  autoComplete="off"
+                  className={
+                     textarea
+                        ? `w-full text-gray-300 mt-2 bg-transparent focus:outline-none outline-none resize-none duration-500 ${
+                             isOnFocus ? "h-24 delay-300" : "h-6"
+                          }`
+                        : `w-full text-gray-300 my-2 bg-transparent focus:outline-none`
+                  }
                />
-               <AnimatePresence>
-                  {isOnFocus && (
-                     <motion.div
-                        initial={{ x: "-100%" }}
-                        animate={{ x: 0 }}
-                        exit={{ x: "100%" }}
-                        transition={{ duration: 0.3 }}
-                        className="w-full h-1 bg-secondary absolute bottom-0"
-                     ></motion.div>
-                  )}
-               </AnimatePresence>
+               <BorderBottom isOnFocus={isOnFocus} />
             </div>
          </div>
       </div>
