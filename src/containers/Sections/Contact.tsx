@@ -14,7 +14,7 @@ import Input from "../../components/Contact/Input";
 
 import { Form, Formik } from "formik";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const initialState = {
    name: "",
@@ -22,15 +22,29 @@ const initialState = {
    message: "",
 };
 
-type Props = {};
 type Errors = {
    name?: string;
    email?: string;
-   message?: any;
+   message?: {
+      message1: string;
+      message2: string;
+   };
 };
-export default function Contact({}: Props) {
+export default function Contact() {
+   const [isNameOnFocus, setIsNameOnFocus] = useState<boolean>(false);
+   const [isEmailOnFocus, setIsEmailOnFocus] = useState<boolean>(false);
+   const [isMessageOnFocus, setIsMessageOnFocus] = useState<boolean>(false);
    const form = useRef<HTMLFormElement>(null);
-   const onSubmit = ({ resetForm }: any) => {
+
+   const checkName = (name: string): boolean => {
+      return /^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(name);
+   };
+   const checkEmail = (email: string): boolean => {
+      return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email);
+   };
+
+   const onSubmit = (values: any, { resetForm }: any) => {
+      console.log(values);
       emailjs
          .sendForm(
             process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
@@ -42,6 +56,9 @@ export default function Contact({}: Props) {
             (result) => {
                console.log(result);
                resetForm();
+               setIsNameOnFocus(false);
+               setIsEmailOnFocus(false);
+               setIsMessageOnFocus(false);
                // setSendedSuccess(true);
                // setTimeout(() => setSendedSuccess(false), 5000);
             },
@@ -57,8 +74,12 @@ export default function Contact({}: Props) {
       let errors: Errors = {};
 
       if (!value.name) errors.name = "You haven't told me your name yet.";
+      else if (!checkName(value.name))
+         errors.name = "That name is pretty weird";
 
       if (!value.email) errors.email = "You forgot your email.";
+      else if (!checkEmail(value.email))
+         errors.email = "Are you sure that's your email?";
 
       if (!value.message)
          errors.message = {
@@ -97,7 +118,7 @@ export default function Contact({}: Props) {
                   validate={validation}
                   onSubmit={onSubmit}
                >
-                  {({ handleBlur, errors, touched, handleReset }) => (
+                  {({ handleBlur, errors, touched }) => (
                      <Form
                         ref={form}
                         className="flex flex-col lg:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto"
@@ -111,7 +132,8 @@ export default function Contact({}: Props) {
                            touched={touched}
                            handleBlur={handleBlur}
                            textarea={false}
-                           handleReset={handleReset}
+                           isOnFocus={isNameOnFocus}
+                           setIsOnFocus={setIsNameOnFocus}
                         />
                         <Input
                            name="email"
@@ -122,7 +144,8 @@ export default function Contact({}: Props) {
                            touched={touched}
                            handleBlur={handleBlur}
                            textarea={false}
-                           handleReset={handleReset}
+                           isOnFocus={isEmailOnFocus}
+                           setIsOnFocus={setIsEmailOnFocus}
                         />
                         <Input
                            name="message"
@@ -133,7 +156,8 @@ export default function Contact({}: Props) {
                            touched={touched}
                            handleBlur={handleBlur}
                            textarea={true}
-                           handleReset={handleReset}
+                           isOnFocus={isMessageOnFocus}
+                           setIsOnFocus={setIsMessageOnFocus}
                         />
                         <motion.button
                            type="submit"

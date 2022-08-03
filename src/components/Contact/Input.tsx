@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Field } from "formik";
 import ErrorMessage from "./ErrorMessage";
 
@@ -13,7 +12,8 @@ type Props = {
    errors: any;
    touched: any;
    textarea: boolean;
-   handleReset: any;
+   isOnFocus: boolean;
+   setIsOnFocus: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function Input({
@@ -25,19 +25,14 @@ export default function Input({
    errors,
    touched,
    textarea,
-   handleReset,
+   isOnFocus,
+   setIsOnFocus,
 }: Props) {
-   const [isOnFocus, setIsOnFocus] = useState<boolean>(false);
-
    const onBlur = (e: any) => {
       handleBlur(e);
       const value = e.target.value;
       if (!value.length) setIsOnFocus(false);
    };
-
-   useEffect(() => {
-      console.log("reset!");
-   }, []);
 
    return (
       <div className="w-full">
