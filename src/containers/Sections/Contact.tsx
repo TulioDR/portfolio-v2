@@ -15,6 +15,7 @@ import Input from "../../components/Contact/Input";
 import { Form, Formik } from "formik";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
+import SentMessage from "../../components/Contact/SentMessage";
 
 const initialState = {
    name: "",
@@ -34,6 +35,9 @@ export default function Contact() {
    const [isNameOnFocus, setIsNameOnFocus] = useState<boolean>(false);
    const [isEmailOnFocus, setIsEmailOnFocus] = useState<boolean>(false);
    const [isMessageOnFocus, setIsMessageOnFocus] = useState<boolean>(false);
+   const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
+   const [sentFailure, setSentFailure] = useState<boolean>(false);
+
    const form = useRef<HTMLFormElement>(null);
 
    const checkName = (name: string): boolean => {
@@ -59,13 +63,13 @@ export default function Contact() {
                setIsNameOnFocus(false);
                setIsEmailOnFocus(false);
                setIsMessageOnFocus(false);
-               // setSendedSuccess(true);
-               // setTimeout(() => setSendedSuccess(false), 5000);
+               setSentSuccessfull(true);
+               setTimeout(() => setSentSuccessfull(false), 4000);
             },
             (error) => {
                console.log(error);
-               // setSendedFailure(true);
-               // setTimeout(() => setSendedFailure(false), 5000);
+               setSentFailure(true);
+               setTimeout(() => setSentFailure(false), 4000);
             }
          );
    };
@@ -172,6 +176,13 @@ export default function Contact() {
                </Formik>
             </div>
          </JumbotronContainer>
+
+         <SentMessage
+            open={sentSuccessfull}
+            setOpen={setSentSuccessfull}
+            success
+         />
+         <SentMessage open={sentFailure} setOpen={setSentFailure} />
       </SectionContainer>
    );
 }
