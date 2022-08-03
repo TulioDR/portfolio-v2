@@ -44,8 +44,10 @@ export default function Projects({}: Props) {
             <SectionTitle>Projects</SectionTitle>
             <Underline />
             <Info>
-               <div>I love Details, Technology,</div>
-               <div>and Animation</div>
+               <div className="min-w-max">
+                  <div>I love Details, Technology,</div>
+                  <div>and Animation</div>
+               </div>
             </Info>
          </InfoContainer>
          <JumbotronContainer>

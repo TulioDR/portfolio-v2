@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Field } from "formik";
 import ErrorMessage from "./ErrorMessage";
 
@@ -13,6 +13,7 @@ type Props = {
    errors: any;
    touched: any;
    textarea: boolean;
+   handleReset: any;
 };
 
 export default function Input({
@@ -24,6 +25,7 @@ export default function Input({
    errors,
    touched,
    textarea,
+   handleReset,
 }: Props) {
    const [isOnFocus, setIsOnFocus] = useState<boolean>(false);
 
@@ -32,6 +34,10 @@ export default function Input({
       const value = e.target.value;
       if (!value.length) setIsOnFocus(false);
    };
+
+   useEffect(() => {
+      console.log("reset!");
+   }, []);
 
    return (
       <div className="w-full">

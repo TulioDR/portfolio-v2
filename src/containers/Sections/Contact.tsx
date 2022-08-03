@@ -13,6 +13,8 @@ import Info from "../../components/Sections/Info";
 import Input from "../../components/Contact/Input";
 
 import { Form, Formik } from "formik";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 
 const initialState = {
    name: "",
@@ -27,8 +29,28 @@ type Errors = {
    message?: any;
 };
 export default function Contact({}: Props) {
-   const onSubmit = (values: any) => {
-      console.log(values);
+   const form = useRef<HTMLFormElement>(null);
+   const onSubmit = ({ resetForm }: any) => {
+      emailjs
+         .sendForm(
+            process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
+            process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
+            form.current!,
+            process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY!
+         )
+         .then(
+            (result) => {
+               console.log(result);
+               resetForm();
+               // setSendedSuccess(true);
+               // setTimeout(() => setSendedSuccess(false), 5000);
+            },
+            (error) => {
+               console.log(error);
+               // setSendedFailure(true);
+               // setTimeout(() => setSendedFailure(false), 5000);
+            }
+         );
    };
 
    const validation = (value: any) => {
@@ -75,8 +97,11 @@ export default function Contact({}: Props) {
                   validate={validation}
                   onSubmit={onSubmit}
                >
-                  {({ handleBlur, errors, touched }) => (
-                     <Form className="flex flex-col lg:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto">
+                  {({ handleBlur, errors, touched, handleReset }) => (
+                     <Form
+                        ref={form}
+                        className="flex flex-col lg:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto"
+                     >
                         <Input
                            name="name"
                            label="Name"
@@ -86,6 +111,7 @@ export default function Contact({}: Props) {
                            touched={touched}
                            handleBlur={handleBlur}
                            textarea={false}
+                           handleReset={handleReset}
                         />
                         <Input
                            name="email"
@@ -96,6 +122,7 @@ export default function Contact({}: Props) {
                            touched={touched}
                            handleBlur={handleBlur}
                            textarea={false}
+                           handleReset={handleReset}
                         />
                         <Input
                            name="message"
@@ -106,6 +133,7 @@ export default function Contact({}: Props) {
                            touched={touched}
                            handleBlur={handleBlur}
                            textarea={true}
+                           handleReset={handleReset}
                         />
                         <motion.button
                            type="submit"
