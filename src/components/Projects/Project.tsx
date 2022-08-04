@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 type Props = {
    showCarousel: Boolean;
    id: string;
-   setSelectedId: any;
+   setSelectedId?: any;
    selectedPagination: number;
    project: number;
 };
