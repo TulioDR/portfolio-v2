@@ -17,7 +17,8 @@ import JumbotronContainer from "../../components/Sections/JumbotronContainer";
 import Info from "../../components/Sections/Info";
 
 import projectsImg from "../../assets/images/projects.jpg";
-import JumbotronImage from "../../components/Sections/JumbotronImage";
+
+import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
 
 type Props = {};
 
@@ -51,7 +52,10 @@ export default function Projects({}: Props) {
             </Info>
          </InfoContainer>
          <JumbotronContainer>
-            <JumbotronImage src={projectsImg} alt="contact-form-background" />
+            <JumbotronBackgroundImage
+               src={projectsImg}
+               alt="contact-form-background"
+            />
             <div className="w-full h-full absolute top-0 left-0 flex flex-col">
                <div ref={constrainRef} className="flex-1 w-full relative group">
                   <ProjectsContainer

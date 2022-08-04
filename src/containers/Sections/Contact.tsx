@@ -6,12 +6,13 @@ import Underline from "../../components/Sections/Underline";
 
 import InfoContainer from "../../components/Sections/InfoContainer";
 import JumbotronContainer from "../../components/Sections/JumbotronContainer";
-import JumbotronImage from "../../components/Sections/JumbotronImage";
+
 import Info from "../../components/Sections/Info";
 
 import { useState } from "react";
 import SentMessage from "../../components/Contact/SentMessage";
 import ContactForm from "../../components/Contact/ContactForm";
+import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
 
 export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
@@ -38,7 +39,10 @@ export default function Contact() {
             </Info>
          </InfoContainer>
          <JumbotronContainer>
-            <JumbotronImage src={contactImg} alt="contact-form-background" />
+            <JumbotronBackgroundImage
+               src={contactImg}
+               alt="contact-form-background"
+            />
             <div className="w-full h-full absolute top-0 left-0 grid place-content-center text-xs md:text-sm 2xl:text-base">
                <ContactForm
                   setSentSuccessfull={setSentSuccessfull}

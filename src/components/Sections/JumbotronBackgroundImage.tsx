@@ -9,7 +9,7 @@ type Props = {
    alt: string;
 };
 
-export default function JumbotronImage({ src, alt }: Props) {
+export default function JumbotronBackgroundImage({ src, alt }: Props) {
    return (
       <MouseParallaxContainer
          useWindowMouseEvents={true}

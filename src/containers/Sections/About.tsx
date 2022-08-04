@@ -13,8 +13,9 @@ import SkillsGrid from "../../components/About/SkillsGrid";
 import SkillsTab from "../../components/About/SkillsTab";
 import InfoContainer from "../../components/Sections/InfoContainer";
 import JumbotronContainer from "../../components/Sections/JumbotronContainer";
-import JumbotronImage from "../../components/Sections/JumbotronImage";
+
 import Info from "../../components/Sections/Info";
+import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
 
 type Props = {};
 
@@ -47,7 +48,7 @@ export default function About({}: Props) {
             </Info>
          </InfoContainer>
          <JumbotronContainer>
-            <JumbotronImage src={aboutImage} alt="about-background" />
+            <JumbotronBackgroundImage src={aboutImage} alt="about-background" />
             <div className="absolute space-y-5 top-0 w-full h-full flex items-center">
                <div className="mx-auto">
                   <div className="px-5 mb-3 rounded-md">
