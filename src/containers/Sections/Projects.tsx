@@ -19,6 +19,7 @@ import Info from "../../components/Sections/Info";
 import projectsImg from "../../assets/images/projects.jpg";
 
 import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
+import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerContainer";
 
 type Props = {};
 
@@ -56,7 +57,7 @@ export default function Projects({}: Props) {
                src={projectsImg}
                alt="contact-form-background"
             />
-            <div className="w-full h-full absolute top-0 left-0 flex flex-col">
+            <JumbotronInnerContainer>
                <div ref={constrainRef} className="flex-1 w-full relative group">
                   <ProjectsContainer
                      selectedPagination={selectedPagination}
@@ -112,7 +113,7 @@ export default function Projects({}: Props) {
                      showCarousel={!showCarousel}
                   />
                </div>
-            </div>
+            </JumbotronInnerContainer>
          </JumbotronContainer>
          <AnimatePresence>
             {selectedId && (
