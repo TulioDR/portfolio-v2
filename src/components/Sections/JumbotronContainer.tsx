@@ -25,7 +25,7 @@ export default function JumbotronContainer({ children }: Props) {
                delay: 0.5,
                ease: [0.645, 0.045, 0.355, 1],
             }}
-            className="bg-primary absolute top-0 bottom-0 left-0 w-full h-full"
+            className="bg-primary z-10 absolute top-0 bottom-0 left-0 w-full h-full"
          >
             <motion.div
                initial={{ width: 0 }}

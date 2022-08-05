@@ -23,7 +23,7 @@ export default function SwiperContainer({ children }: Props) {
          slidesPerView={1}
          mousewheel={true}
          onInit={(swiper) => {
-            swiper.pagination.bullets[0] = homeBullet.current!;
+            swiper.pagination.bullets[0] = homeBullet?.current!;
             swiper.pagination.bullets[1] = aboutBullet?.current!;
             swiper.pagination.bullets[2] = projectsBullet?.current!;
             swiper.pagination.bullets[3] = contactBullet?.current!;
@@ -40,7 +40,7 @@ export default function SwiperContainer({ children }: Props) {
             setCurrentIndex(e.activeIndex);
          }}
          modules={[Mousewheel, Pagination, HashNavigation]}
-         className="mySwiper h-screen w-full"
+         className="h-screen w-full"
       >
          {children}
       </Swiper>

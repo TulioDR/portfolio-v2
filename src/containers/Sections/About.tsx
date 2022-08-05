@@ -9,7 +9,7 @@ import JumbotronContainer from "../../components/Sections/JumbotronContainer";
 import Info from "../../components/Sections/Info";
 import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
 import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerContainer";
-import SkillsShowcase from "./SkillsShowcase";
+import SkillsShowcase from "../../components/About/SkillsShowcase";
 
 type Props = {};
 

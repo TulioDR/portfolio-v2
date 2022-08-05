@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { mainSkills, otherSkills } from "../../assets/constants/skills";
-import Language from "../../components/About/Language";
-import SkillsGrid from "../../components/About/SkillsGrid";
-import SkillsTab from "../../components/About/SkillsTab";
+import Language from "./Language";
+import SkillsGrid from "./SkillsGrid";
+import SkillsTab from "./SkillsTab";
 
 type Props = {};
 
