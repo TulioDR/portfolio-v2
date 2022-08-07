@@ -16,7 +16,7 @@ export default function SkillsTab({
    return (
       <motion.li
          ref={tabRef}
-         className={`swiper-pagination-bullet pb-1 relative text-sm md:text-base lg:text-lg cursor-pointer duration-300 ${
+         className={`swiper-pagination-bullet pb-1 relative text-sm md:text-base lg:text-lg 2xl:text-xl cursor-pointer duration-300 ${
             index === currentSkills ? "text-white" : "text-gray-400"
          }`}
       >

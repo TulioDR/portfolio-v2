@@ -11,7 +11,7 @@ export default function Language({ skill }: Props) {
          whileTap={{ scale: 0.94 }}
          className="flex flex-col items-center rounded-md cursor-pointer"
       >
-         <div className="relative h-8 w-8 md:h-12 md:w-12">
+         <div className="relative h-8 w-8 md:h-12 md:w-12 2xl:w-16 2xl:h-16">
             <Image
                src={`/skills/${skill.img}`}
                alt={skill.name}

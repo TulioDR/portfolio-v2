@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { mainSkills, otherSkills } from "../../assets/constants/skills";
 import Language from "./Language";
-// import SkillsGrid from "./SkillsGrid";
+import SkillsGrid from "./SkillsGrid";
 import SkillsTab from "./SkillsTab";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
@@ -15,8 +15,8 @@ export default function SkillsShowcase({}: Props) {
 
    return (
       <div className="flex flex-col justify-center items-center p-3 md:p-0 max-w-full w-80 md:w-96">
-         <div className="px-4 w-full">
-            <ul className="flex space-x-5 mb-5 text-lg border-b border-gray-400 skills-pagination">
+         <div className="px-4 xl:px-3 2xl:px-2 w-full">
+            <ul className="flex space-x-5 mb-5 2xl:mb-6 text-lg border-b border-gray-400 skills-pagination">
                <SkillsTab
                   tabRef={mainSkillsRef}
                   currentSkills={currentSkills}
@@ -55,18 +55,18 @@ export default function SkillsShowcase({}: Props) {
             className="w-full"
          >
             <SwiperSlide>
-               <div className="grid grid-cols-3 md:grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-4 w-full">
+               <SkillsGrid>
                   {mainSkills.map((skill) => (
                      <Language key={skill.name} skill={skill} />
                   ))}
-               </div>
+               </SkillsGrid>
             </SwiperSlide>
             <SwiperSlide>
-               <div className="grid grid-cols-3 md:grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-4 w-full">
+               <SkillsGrid>
                   {otherSkills.map((skill) => (
                      <Language key={skill.name} skill={skill} />
                   ))}
-               </div>
+               </SkillsGrid>
             </SwiperSlide>
          </Swiper>
       </div>
