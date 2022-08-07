@@ -12,7 +12,10 @@ export default function Underline({}: Props) {
    };
 
    return (
-      <motion.div variants={sectionInfo} className="space-y-5 w-36">
+      <motion.div
+         variants={sectionInfo}
+         className="space-y-2 sm:space-y-3 md:space-y-5 w-20 sm:w-28 md:w-36"
+      >
          <div className="bg-secondary w-2/3 h-1 rounded-sm"></div>
          <div className="flex justify-end">
             <motion.div

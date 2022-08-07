@@ -11,14 +11,16 @@ export default function Language({ skill }: Props) {
          whileTap={{ scale: 0.94 }}
          className="flex flex-col items-center rounded-md cursor-pointer"
       >
-         <Image
-            src={`/skills/${skill.img}`}
-            alt={skill.name}
-            width={50}
-            height={50}
-            className="object-contain"
-         />
-         <div className="text-sm text-white">{skill.name}</div>
+         <div className="relative h-8 w-8 md:h-12 md:w-12">
+            <Image
+               src={`/skills/${skill.img}`}
+               alt={skill.name}
+               layout="fill"
+               className="object-contain"
+            />
+         </div>
+
+         <div className="text-xs md:text-sm text-white">{skill.name}</div>
       </motion.article>
    );
 }

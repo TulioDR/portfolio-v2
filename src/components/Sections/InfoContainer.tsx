@@ -20,7 +20,7 @@ export default function InfoContainer({ children }: Props) {
          variants={infoContainer}
          initial="initial"
          animate="animate"
-         className="space-y-5 2xl:space-y-8 w-2/5 flex flex-col justify-center z-20 pr-10 absolute left-0 top-1/2 -translate-y-1/2"
+         className="space-y-2 sm:space-y-3 md:space-y-5 2xl:space-y-8 w-full sm:w-2/5 flex flex-col justify-center z-20 sm:pr-10"
       >
          {children}
       </motion.div>

@@ -96,7 +96,7 @@ export default function ContactForm({
          {({ handleBlur, errors, touched }) => (
             <Form
                ref={form}
-               className="flex flex-col lg:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
+               className="flex flex-col p-5 sm:p-10 md:p-0 max-w-full w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
             >
                <Input
                   name="name"

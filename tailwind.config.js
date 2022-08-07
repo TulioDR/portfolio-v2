@@ -15,6 +15,9 @@ module.exports = {
             "1/2": "50%",
             "2/3": "66.6666%",
          },
+         minHeight: {
+            80: "20rem",
+         },
          transitionTimingFunction: {
             modern: "cubic-bezier(0.645, 0.045, 0.355, 1)",
          },

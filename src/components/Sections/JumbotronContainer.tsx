@@ -14,7 +14,7 @@ export default function JumbotronContainer({ children }: Props) {
             delay: 0.4,
             ease: "easeOut",
          }}
-         className="w-3/5 drop-shadow-lg h-full origin-right relative overflow-hidden"
+         className="w-full sm:w-3/5 drop-shadow-lg h-full origin-right relative overflow-hidden"
       >
          {children}
          <motion.div

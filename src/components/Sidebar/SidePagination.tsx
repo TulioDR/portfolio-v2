@@ -11,8 +11,8 @@ export default function SidePagination({ index, bulletRef }: Props) {
    return (
       <li
          ref={bulletRef}
-         className={`swiper-pagination-bullet h-4 lg:h-1 w-1 bg-white cursor-pointer duration-500 ${
-            currentIndex === index ? "h-10 lg:h-1 lg:w-10" : "lg:w-6"
+         className={`sidebar-pagination h-4 xl:h-1 w-1 bg-white cursor-pointer duration-500 ${
+            currentIndex === index ? "h-10 xl:h-1 xl:w-10" : "xl:w-6"
          }`}
       ></li>
    );

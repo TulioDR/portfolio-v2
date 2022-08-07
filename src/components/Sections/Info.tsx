@@ -13,7 +13,10 @@ export default function Info({ children }: Props) {
       },
    };
    return (
-      <motion.div variants={sectionInfo} className="text-3xl">
+      <motion.div
+         variants={sectionInfo}
+         className="text-sm sm:text-base md:text-lg lg:text-3xl"
+      >
          {children}
       </motion.div>
    );
