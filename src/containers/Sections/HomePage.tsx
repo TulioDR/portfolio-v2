@@ -12,8 +12,10 @@ export default function HomePage({}: Props) {
       <SectionContainer index={0}>
          <InfoContainer>
             <SectionTitle>
-               <div className="mb-2 text-8xl">TULIO</div>
-               <div className="text-8xl">RUZO</div>
+               <div className="space-y-2 text-5xl md:text-6xl lg:text-8xl xl:text-9xl">
+                  <div>TULIO</div>
+                  <div>RUZO</div>
+               </div>
             </SectionTitle>
             <Underline />
             <Info>Web Developer</Info>
