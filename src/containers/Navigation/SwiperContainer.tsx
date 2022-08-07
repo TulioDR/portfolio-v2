@@ -27,7 +27,6 @@ export default function SwiperContainer({ children }: Props) {
             swiper.pagination.bullets[1] = aboutBullet?.current!;
             swiper.pagination.bullets[2] = projectsBullet?.current!;
             swiper.pagination.bullets[3] = contactBullet?.current!;
-            console.log(swiper.pagination.bullets);
          }}
          pagination={{
             el: ".sidebar-pagination-container",

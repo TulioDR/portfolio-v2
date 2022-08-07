@@ -11,6 +11,7 @@ import projectsImg from "../../assets/images/projects.jpg";
 import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
 import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerContainer";
 import ProjectsShowcase from "../../components/Projects/ProjectsShowcase";
+import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
 
 type Props = {};
 
@@ -33,7 +34,12 @@ export default function Projects({}: Props) {
                alt="contact-form-background"
             />
             <JumbotronInnerContainer>
-               <ProjectsShowcase />
+               <div className="w-full h-full lg:hidden flex flex-col justify-center space-y-5">
+                  <MobileProjectsShowcase />
+               </div>
+               <div className="w-full h-full hidden lg:flex flex-col">
+                  <ProjectsShowcase />
+               </div>
             </JumbotronInnerContainer>
          </JumbotronContainer>
       </SectionContainer>
