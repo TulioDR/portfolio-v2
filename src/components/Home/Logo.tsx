@@ -87,9 +87,10 @@ export default function Logo({}: Props) {
                exit="exit"
                className="flex items-center justify-end h-full w-full"
             >
-               <div className="text-6xl drop-shadow-lg shadow-black uppercase tracking-widest font-black text-secondary z-10 -translate-x-20 translate-y-6 ">
+               <div className="text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10 -translate-x-20 translate-y-6 ">
                   Portfolio
                </div>
+
                <img
                   src="/logo/shield.svg"
                   alt="shield"

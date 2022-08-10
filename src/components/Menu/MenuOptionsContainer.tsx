@@ -20,7 +20,7 @@ export default function MenuOptionsContainer({ children }: Props) {
          variants={container}
          initial="hidden"
          animate="visible"
-         className="text-5xl font-black"
+         className="text-5xl font-extrabold tracking-wide"
       >
          {children}
       </motion.ul>

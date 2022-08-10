@@ -15,7 +15,7 @@ export default function Info({ children }: Props) {
    return (
       <motion.div
          variants={sectionInfo}
-         className="text-sm sm:text-base md:text-lg lg:text-3xl"
+         className="text-sm sm:text-base md:text-lg lg:text-3xl font-light"
       >
          {children}
       </motion.div>
