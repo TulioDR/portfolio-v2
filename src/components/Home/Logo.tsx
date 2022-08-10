@@ -1,24 +1,92 @@
 type Props = {};
-
+import {
+   MouseParallaxChild,
+   MouseParallaxContainer,
+} from "react-parallax-mouse";
 import { motion } from "framer-motion";
 
 export default function Logo({}: Props) {
+   const moon = {
+      initial: { opacity: 0, x: "70%" },
+      animate: {
+         opacity: 1,
+         x: 0,
+         transition: {
+            duration: 0.5,
+            ease: "easeOut",
+            delay: 0.7,
+         },
+      },
+      exit: {
+         opacity: 0,
+         x: "70%",
+         transition: {
+            duration: 0.5,
+            delay: 0.15,
+         },
+      },
+   };
+
+   const title = {
+      initial: { opacity: 0, x: "80%" },
+      animate: {
+         opacity: 1,
+         x: 0,
+         transition: {
+            duration: 0.7,
+            delay: 0.4,
+            ease: "easeOut",
+         },
+      },
+      exit: {
+         opacity: 0,
+         x: "80%",
+         transition: {
+            duration: 0.6,
+         },
+      },
+   };
+
    return (
-      <motion.div
-         className="flex justify-center items-center h-full"
-         style={{ left: 800 }}
-         initial={{ opacity: 0, x: "100%" }}
-         animate={{ opacity: 1, x: 0 }}
-         exit={{ opacity: 0, x: "100%" }}
-         transition={{ duration: 1, delay: 0.4 }}
+      <MouseParallaxContainer
+         useWindowMouseEvents={true}
+         className="flex justify-center items-center h-full relative"
+         containerStyles={{ overflow: "visible" }}
       >
-         <div className="relative" style={{ width: 500, height: 500 }}>
-            <img
-               src="/logo/moon.svg"
-               alt="moon"
-               className="h-full w-full -rotate-45"
-            />
-            <div className="absolute flex items-center right-0 top-1/2 -translate-y-1/2">
+         <MouseParallaxChild
+            factorX={0.04}
+            factorY={0.04}
+            updateStyles={{
+               width: 500,
+               height: 500,
+            }}
+         >
+            <motion.div
+               variants={moon}
+               initial="initial"
+               animate="animate"
+               exit="exit"
+               className="h-full"
+            >
+               <img
+                  src="/logo/moon.svg"
+                  alt="moon"
+                  className="h-full -rotate-45"
+               />
+            </motion.div>
+         </MouseParallaxChild>
+         <MouseParallaxChild
+            factorX={0.02}
+            factorY={0.02}
+            className="absolute pr-12 h-full w-full"
+         >
+            <motion.div
+               variants={title}
+               initial="initial"
+               animate="animate"
+               exit="exit"
+               className="flex items-center justify-end h-full w-full"
+            >
                <div className="text-6xl drop-shadow-lg shadow-black uppercase tracking-widest font-black text-secondary z-10 -translate-x-20 translate-y-6 ">
                   Portfolio
                </div>
@@ -28,8 +96,8 @@ export default function Logo({}: Props) {
                   className="z-10 -translate-x-16 translate-y-6 drop-shadow-lg shadow-black"
                   style={{ width: 150 }}
                />
-            </div>
-         </div>
-      </motion.div>
+            </motion.div>
+         </MouseParallaxChild>
+      </MouseParallaxContainer>
    );
 }

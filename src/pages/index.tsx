@@ -16,6 +16,7 @@ import HomePage from "../containers/Sections/HomePage";
 import About from "../containers/Sections/About";
 import Contact from "../containers/Sections/Contact";
 import Projects from "../containers/Sections/Projects";
+import Background from "../components/Others/Background";
 
 const Home: NextPage = () => {
    return (
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
          <Head>
             <title>TULIO RUZO PORTFOLIO</title>
          </Head>
+         <Background />
          <PositionProvider>
             <InitialAnimation />
             <NavbarProvider>

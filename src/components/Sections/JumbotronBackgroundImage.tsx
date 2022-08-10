@@ -18,7 +18,7 @@ export default function JumbotronBackgroundImage({ src, alt }: Props) {
          <MouseParallaxChild
             factorX={0.03}
             factorY={0.03}
-            className={`w-full h-full bg-1/2`}
+            className="w-full h-full bg-1/2"
             updateStyles={{
                transform: "scale(1.2)",
             }}
