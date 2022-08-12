@@ -12,19 +12,23 @@ import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgro
 import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerContainer";
 import ProjectsShowcase from "../../components/Projects/ProjectsShowcase";
 import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
+import useLanguageContext from "../../context/LanguageContext";
 
 type Props = {};
 
 export default function Projects({}: Props) {
+   const { currentIdiom } = useLanguageContext();
+
+   const { title, subtitle1, subtitle2 } = currentIdiom.projects;
    return (
       <SectionContainer index={2}>
          <InfoContainer>
-            <SectionTitle>Projects</SectionTitle>
+            <SectionTitle>{title}</SectionTitle>
             <Underline />
             <Info>
                <div className="min-w-max">
-                  <div>I love Details, Technology,</div>
-                  <div>and Animation</div>
+                  <div>{subtitle1}</div>
+                  <div>{subtitle2}</div>
                </div>
             </Info>
          </InfoContainer>

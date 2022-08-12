@@ -1,10 +1,14 @@
 import { useRef, useState } from "react";
-import { mainSkills, otherSkills } from "../../assets/constants/skills";
+import {
+   mainSkillsArray,
+   otherSkillsArray,
+} from "../../assets/constants/skills";
 import Language from "./Language";
 import SkillsGrid from "./SkillsGrid";
 import SkillsTab from "./SkillsTab";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+import useLanguageContext from "../../context/LanguageContext";
 type Props = {};
 
 export default function SkillsShowcase({}: Props) {
@@ -13,6 +17,9 @@ export default function SkillsShowcase({}: Props) {
 
    const [currentSkills, setCurrentSkills] = useState<number>(0);
 
+   const { currentIdiom } = useLanguageContext();
+
+   const { mainSkills, otherSkills } = currentIdiom.about;
    return (
       <div className="flex flex-col justify-center items-center p-3 md:p-0 max-w-full w-80 md:w-96">
          <div className="px-4 xl:px-3 2xl:px-2 w-full">
@@ -22,14 +29,14 @@ export default function SkillsShowcase({}: Props) {
                   currentSkills={currentSkills}
                   index={0}
                >
-                  Main Skills
+                  {mainSkills}
                </SkillsTab>
                <SkillsTab
                   tabRef={otherSkillsRef}
                   currentSkills={currentSkills}
                   index={1}
                >
-                  Other Skills
+                  {otherSkills}
                </SkillsTab>
             </ul>
          </div>
@@ -56,14 +63,14 @@ export default function SkillsShowcase({}: Props) {
          >
             <SwiperSlide>
                <SkillsGrid>
-                  {mainSkills.map((skill) => (
+                  {mainSkillsArray.map((skill) => (
                      <Language key={skill.name} skill={skill} />
                   ))}
                </SkillsGrid>
             </SwiperSlide>
             <SwiperSlide>
                <SkillsGrid>
-                  {otherSkills.map((skill) => (
+                  {otherSkillsArray.map((skill) => (
                      <Language key={skill.name} skill={skill} />
                   ))}
                </SkillsGrid>

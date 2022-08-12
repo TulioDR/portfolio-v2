@@ -14,15 +14,19 @@ import SentMessage from "../../components/Contact/SentMessage";
 import ContactForm from "../../components/Contact/ContactForm";
 import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
 import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerContainer";
+import useLanguageContext from "../../context/LanguageContext";
 
 export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
    const [sentFailure, setSentFailure] = useState<boolean>(false);
 
+   const { currentIdiom } = useLanguageContext();
+   const { title } = currentIdiom.contact;
+
    return (
       <SectionContainer index={3}>
          <InfoContainer>
-            <SectionTitle>Get In Touch</SectionTitle>
+            <SectionTitle>{title}</SectionTitle>
             <Underline />
             <Info>
                <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">

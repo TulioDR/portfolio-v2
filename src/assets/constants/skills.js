@@ -1,4 +1,4 @@
-export const mainSkills = [
+export const mainSkillsArray = [
    {
       name: "HTML",
       img: "html5.png",
@@ -46,7 +46,7 @@ export const mainSkills = [
    },
 ];
 
-export const otherSkills = [
+export const otherSkillsArray = [
    {
       name: "Next.js",
       img: "nextjs.png",

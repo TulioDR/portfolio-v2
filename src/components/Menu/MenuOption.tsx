@@ -38,7 +38,7 @@ export default function MenuOption({ children, bulletRef, index }: Props) {
    return (
       <motion.li
          variants={option}
-         className={`cursor-pointer relative w-min mx-auto py-2 ${
+         className={`cursor-pointer relative mx-auto py-2 ${
             currentIndex === index ? "" : "text-gray-400"
          }`}
          onClick={execute}

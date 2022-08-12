@@ -17,6 +17,7 @@ import About from "../containers/Sections/About";
 import Contact from "../containers/Sections/Contact";
 import Projects from "../containers/Sections/Projects";
 import Background from "../components/Others/Background";
+import { LanguageProvider } from "../context/LanguageContext";
 
 const Home: NextPage = () => {
    return (
@@ -27,25 +28,27 @@ const Home: NextPage = () => {
          <Background />
          <PositionProvider>
             <InitialAnimation />
-            <NavbarProvider>
-               <Navbar />
-            </NavbarProvider>
-            <Sidebar />
-            <ScrollAdvice />
-            <SwiperContainer>
-               <SwiperSlide data-hash="home">
-                  <HomePage />
-               </SwiperSlide>
-               <SwiperSlide data-hash="about">
-                  <About />
-               </SwiperSlide>
-               <SwiperSlide data-hash="projects">
-                  <Projects />
-               </SwiperSlide>
-               <SwiperSlide data-hash="contact">
-                  <Contact />
-               </SwiperSlide>
-            </SwiperContainer>
+            <LanguageProvider>
+               <NavbarProvider>
+                  <Navbar />
+               </NavbarProvider>
+               <Sidebar />
+               <ScrollAdvice />
+               <SwiperContainer>
+                  <SwiperSlide data-hash="home">
+                     <HomePage />
+                  </SwiperSlide>
+                  <SwiperSlide data-hash="about">
+                     <About />
+                  </SwiperSlide>
+                  <SwiperSlide data-hash="projects">
+                     <Projects />
+                  </SwiperSlide>
+                  <SwiperSlide data-hash="contact">
+                     <Contact />
+                  </SwiperSlide>
+               </SwiperContainer>
+            </LanguageProvider>
          </PositionProvider>
       </>
    );

@@ -7,11 +7,17 @@ import Info from "../../components/Sections/Info";
 import Logo from "../../components/Home/Logo";
 import usePositionContext from "../../context/PositionContext";
 import { AnimatePresence } from "framer-motion";
+import useLanguageContext from "../../context/LanguageContext";
 
 type Props = {};
 
 export default function HomePage({}: Props) {
    const { currentIndex } = usePositionContext();
+
+   const { currentIdiom } = useLanguageContext();
+
+   const { webDeveloper } = currentIdiom.home;
+
    return (
       <SectionContainer index={0}>
          <InfoContainer>
@@ -22,7 +28,7 @@ export default function HomePage({}: Props) {
                </div>
             </SectionTitle>
             <Underline />
-            <Info>Web Developer</Info>
+            <Info>{webDeveloper}</Info>
          </InfoContainer>
          <div className="w-3/5 h-full">
             <AnimatePresence>{currentIndex === 0 && <Logo />}</AnimatePresence>

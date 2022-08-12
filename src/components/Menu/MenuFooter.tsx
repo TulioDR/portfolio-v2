@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import useLanguageContext from "../../context/LanguageContext";
 
 export default function MenuFooter() {
+   const { currentIdiom } = useLanguageContext();
+   const { footer1, footer2 } = currentIdiom.menu;
    return (
       <motion.div
          initial={{ y: "100%", opacity: 0 }}
@@ -12,9 +15,9 @@ export default function MenuFooter() {
          className="absolute bottom-8 flex items-center text-gray-400 text-sm"
       >
          <span className="material-icons mx-1">copyright</span>
-         <span>2022 Tulio Ruzo. Made with</span>
+         <span>2022 Tulio Ruzo. {footer1}</span>
          <span className="material-icons mx-1">favorite</span>
-         <span>in Carabobo, Venezuela.</span>
+         <span>{footer2}</span>
       </motion.div>
    );
 }

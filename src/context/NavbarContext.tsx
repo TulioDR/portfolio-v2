@@ -1,19 +1,11 @@
-import {
-   createContext,
-   Dispatch,
-   ReactNode,
-   SetStateAction,
-   useContext,
-   useEffect,
-   useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import usePositionContext from "./PositionContext";
 
 interface AppContextInterface {
    hoveredBullet: number;
-   setHoveredBullet: Dispatch<SetStateAction<number>>;
+   setHoveredBullet: React.Dispatch<React.SetStateAction<number>>;
    isMenuOpen: boolean;
-   toggleMenu: any;
+   toggleMenu: React.Dispatch<React.SetStateAction<boolean>>;
    closeMenu: any;
 }
 
@@ -22,7 +14,7 @@ export default function useNavbarContext() {
    return useContext(NavbarContext);
 }
 type Props = {
-   children: ReactNode;
+   children: React.ReactNode;
 };
 export function NavbarProvider({ children }: Props) {
    const { currentIndex } = usePositionContext();

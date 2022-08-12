@@ -3,6 +3,7 @@ import Input from "./Input";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import useLanguageContext from "../../context/LanguageContext";
 
 type Props = {
    setSentSuccessfull: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,6 +29,19 @@ export default function ContactForm({
    setSentSuccessfull,
    setSentFailure,
 }: Props) {
+   const { currentIdiom } = useLanguageContext();
+
+   const {
+      name,
+      email,
+      message,
+      namePlaceholder,
+      emailPlaceholder,
+      messagePlaceholder,
+      send,
+      formErrors,
+   } = currentIdiom.contact;
+
    const [isNameOnFocus, setIsNameOnFocus] = useState<boolean>(false);
    const [isEmailOnFocus, setIsEmailOnFocus] = useState<boolean>(false);
    const [isMessageOnFocus, setIsMessageOnFocus] = useState<boolean>(false);
@@ -62,7 +76,7 @@ export default function ContactForm({
             (error) => {
                console.log(error);
                setSentFailure(true);
-               setTimeout(() => setSentFailure(false), 4000);
+               // setTimeout(() => setSentFailure(false), 4000);
             }
          );
    };
@@ -70,18 +84,16 @@ export default function ContactForm({
    const validation = (value: any) => {
       let errors: Errors = {};
 
-      if (!value.name) errors.name = "You haven't told me your name yet.";
-      else if (!checkName(value.name))
-         errors.name = "That name is pretty weird";
+      if (!value.name) errors.name = formErrors.noName;
+      else if (!checkName(value.name)) errors.name = formErrors.invalidName;
 
-      if (!value.email) errors.email = "You forgot your email.";
-      else if (!checkEmail(value.email))
-         errors.email = "Are you sure that's your email?";
+      if (!value.email) errors.email = formErrors.noEmail;
+      else if (!checkEmail(value.email)) errors.email = formErrors.invalidEmail;
 
       if (!value.message)
          errors.message = {
-            message1: "I can't read minds yet...",
-            message2: "so a message would be nice.",
+            message1: formErrors.noMessage1,
+            message2: formErrors.noMessage2,
          };
 
       return errors;
@@ -100,9 +112,9 @@ export default function ContactForm({
             >
                <Input
                   name="name"
-                  label="Name"
+                  label={name}
                   icon="person"
-                  placeholder="What's your name?"
+                  placeholder={namePlaceholder}
                   errors={errors}
                   touched={touched}
                   handleBlur={handleBlur}
@@ -112,9 +124,9 @@ export default function ContactForm({
                />
                <Input
                   name="email"
-                  label="Email"
+                  label={email}
                   icon="email"
-                  placeholder="Where should I contact you?"
+                  placeholder={emailPlaceholder}
                   errors={errors}
                   touched={touched}
                   handleBlur={handleBlur}
@@ -124,9 +136,9 @@ export default function ContactForm({
                />
                <Input
                   name="message"
-                  label="Message"
+                  label={message}
                   icon="forum"
-                  placeholder="What do you want to talk about?"
+                  placeholder={messagePlaceholder}
                   errors={errors}
                   touched={touched}
                   handleBlur={handleBlur}
@@ -140,7 +152,7 @@ export default function ContactForm({
                   className="py-3 px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
                >
                   <span className="material-icons">send</span>
-                  <span>Send</span>
+                  <span>{send}</span>
                </motion.button>
             </Form>
          )}

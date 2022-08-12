@@ -11,14 +11,18 @@ import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgro
 import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerContainer";
 import SkillsShowcase from "../../components/About/SkillsShowcase";
 import AboutInfoContainer from "../../components/About/AboutInfoContainer";
+import useLanguageContext from "../../context/LanguageContext";
 
 type Props = {};
 
 export default function About({}: Props) {
+   const { currentIdiom } = useLanguageContext();
+
+   const { title } = currentIdiom.about;
    return (
       <SectionContainer index={1}>
          <InfoContainer>
-            <SectionTitle>About Me</SectionTitle>
+            <SectionTitle>{title}</SectionTitle>
             <Underline />
             <Info>
                <AboutInfoContainer>
