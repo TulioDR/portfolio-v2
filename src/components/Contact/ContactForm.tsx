@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import Input from "./Input";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import useLanguageContext from "../../context/LanguageContext";
 
@@ -29,7 +29,7 @@ export default function ContactForm({
    setSentSuccessfull,
    setSentFailure,
 }: Props) {
-   const { currentIdiom } = useLanguageContext();
+   const { currentIdiom, isEnglish } = useLanguageContext();
 
    const {
       name,
@@ -39,7 +39,6 @@ export default function ContactForm({
       emailPlaceholder,
       messagePlaceholder,
       send,
-      formErrors,
    } = currentIdiom.contact;
 
    const [isNameOnFocus, setIsNameOnFocus] = useState<boolean>(false);
@@ -82,6 +81,7 @@ export default function ContactForm({
    };
 
    const validation = (value: any) => {
+      const { formErrors } = currentIdiom.contact;
       let errors: Errors = {};
 
       if (!value.name) errors.name = formErrors.noName;
@@ -105,57 +105,65 @@ export default function ContactForm({
          validate={validation}
          onSubmit={onSubmit}
       >
-         {({ handleBlur, errors, touched }) => (
-            <Form
-               ref={form}
-               className="flex flex-col p-5 sm:p-10 md:p-0 max-w-full w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
-            >
-               <Input
-                  name="name"
-                  label={name}
-                  icon="person"
-                  placeholder={namePlaceholder}
-                  errors={errors}
-                  touched={touched}
-                  handleBlur={handleBlur}
-                  textarea={false}
-                  isOnFocus={isNameOnFocus}
-                  setIsOnFocus={setIsNameOnFocus}
-               />
-               <Input
-                  name="email"
-                  label={email}
-                  icon="email"
-                  placeholder={emailPlaceholder}
-                  errors={errors}
-                  touched={touched}
-                  handleBlur={handleBlur}
-                  textarea={false}
-                  isOnFocus={isEmailOnFocus}
-                  setIsOnFocus={setIsEmailOnFocus}
-               />
-               <Input
-                  name="message"
-                  label={message}
-                  icon="forum"
-                  placeholder={messagePlaceholder}
-                  errors={errors}
-                  touched={touched}
-                  handleBlur={handleBlur}
-                  textarea={true}
-                  isOnFocus={isMessageOnFocus}
-                  setIsOnFocus={setIsMessageOnFocus}
-               />
-               <motion.button
-                  type="submit"
-                  whileTap={{ scale: 0.94 }}
-                  className="py-3 px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
+         {({ handleBlur, errors, touched, validateForm }) => {
+            useEffect(() => {
+               setTimeout(() => {
+                  validateForm();
+               }, 0);
+            }, [isEnglish]);
+
+            return (
+               <Form
+                  ref={form}
+                  className="flex flex-col p-5 sm:p-10 md:p-0 max-w-full w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
                >
-                  <span className="material-icons">send</span>
-                  <span>{send}</span>
-               </motion.button>
-            </Form>
-         )}
+                  <Input
+                     name="name"
+                     label={name}
+                     icon="person"
+                     placeholder={namePlaceholder}
+                     errors={errors}
+                     touched={touched}
+                     handleBlur={handleBlur}
+                     textarea={false}
+                     isOnFocus={isNameOnFocus}
+                     setIsOnFocus={setIsNameOnFocus}
+                  />
+                  <Input
+                     name="email"
+                     label={email}
+                     icon="email"
+                     placeholder={emailPlaceholder}
+                     errors={errors}
+                     touched={touched}
+                     handleBlur={handleBlur}
+                     textarea={false}
+                     isOnFocus={isEmailOnFocus}
+                     setIsOnFocus={setIsEmailOnFocus}
+                  />
+                  <Input
+                     name="message"
+                     label={message}
+                     icon="forum"
+                     placeholder={messagePlaceholder}
+                     errors={errors}
+                     touched={touched}
+                     handleBlur={handleBlur}
+                     textarea={true}
+                     isOnFocus={isMessageOnFocus}
+                     setIsOnFocus={setIsMessageOnFocus}
+                  />
+                  <motion.button
+                     type="submit"
+                     whileTap={{ scale: 0.94 }}
+                     className="py-3 px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
+                  >
+                     <span className="material-icons">send</span>
+                     <span>{send}</span>
+                  </motion.button>
+               </Form>
+            );
+         }}
       </Formik>
    );
 }
