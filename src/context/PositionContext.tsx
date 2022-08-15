@@ -30,10 +30,10 @@ export function PositionProvider({ children }: Props) {
 
    const { asPath } = useRouter();
    useEffect(() => {
-      if (asPath === "/#home") setCurrentIndex(0);
       if (asPath === "/#about") setCurrentIndex(1);
-      if (asPath === "/#projects") setCurrentIndex(2);
-      if (asPath === "/#contact") setCurrentIndex(3);
+      else if (asPath === "/#projects") setCurrentIndex(2);
+      else if (asPath === "/#contact") setCurrentIndex(3);
+      else setCurrentIndex(0);
    }, []);
 
    const homeBullet = useRef<HTMLButtonElement>(null);
