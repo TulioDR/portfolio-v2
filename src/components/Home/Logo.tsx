@@ -4,8 +4,12 @@ import {
    MouseParallaxContainer,
 } from "react-parallax-mouse";
 import { motion } from "framer-motion";
+import useLanguageContext from "../../context/LanguageContext";
 
 export default function Logo({}: Props) {
+   const { currentIdiom } = useLanguageContext();
+   const { portfolio } = currentIdiom.home;
+
    const moon = {
       initial: { opacity: 0, x: "70%" },
       animate: {
@@ -50,7 +54,7 @@ export default function Logo({}: Props) {
    return (
       <MouseParallaxContainer
          useWindowMouseEvents={true}
-         className="w-72 h-full md:w-80 md:h-80 lg:h-96 lg:w-96 xl:w-125 xl:h-125 relative"
+         className="w-64 h-full sm:w-72 md:w-80 lg:w-96 xl:w-125 relative"
          containerStyles={{ overflow: "visible" }}
       >
          <MouseParallaxChild
@@ -75,7 +79,7 @@ export default function Logo({}: Props) {
          <MouseParallaxChild
             factorX={0.02}
             factorY={0.02}
-            className="absolute flex justify-end items-center top-0 left-0 sm:pr-12 h-full w-full"
+            className="absolute flex justify-end items-center top-0 left-0 h-full w-full"
          >
             <motion.div
                variants={title}
@@ -83,9 +87,9 @@ export default function Logo({}: Props) {
                animate="animate"
                exit="exit"
             >
-               <div className="flex items-center space-x-2 -translate-x-5 sm:-translate-x-10 translate-y-5">
-                  <div className="text-4xl lg:text-5xl xl:text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10">
-                     Portfolio
+               <div className="flex items-center justify-end space-x-2 -translate-x-5 sm:-translate-x-10 translate-y-5">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10">
+                     {portfolio}
                   </div>
                   <img
                      src="/logo/shield.svg"
