@@ -8,6 +8,12 @@ module.exports = {
    ],
    theme: {
       extend: {
+         height: {
+            125: "31.25rem",
+         },
+         width: {
+            125: "31.25rem",
+         },
          aspectRatio: {
             "16/9": "16 / 9",
          },

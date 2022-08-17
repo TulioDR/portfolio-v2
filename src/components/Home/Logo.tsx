@@ -14,7 +14,7 @@ export default function Logo({}: Props) {
          transition: {
             duration: 0.5,
             ease: "easeOut",
-            delay: 0.7,
+            delay: 0.4,
          },
       },
       exit: {
@@ -34,7 +34,7 @@ export default function Logo({}: Props) {
          x: 0,
          transition: {
             duration: 0.7,
-            delay: 0.4,
+            delay: 0.7,
             ease: "easeOut",
          },
       },
@@ -50,53 +50,49 @@ export default function Logo({}: Props) {
    return (
       <MouseParallaxContainer
          useWindowMouseEvents={true}
-         className="flex justify-center items-center h-full relative"
+         className="w-72 h-full md:w-80 md:h-80 lg:h-96 lg:w-96 xl:w-125 xl:h-125 relative"
          containerStyles={{ overflow: "visible" }}
       >
          <MouseParallaxChild
             factorX={0.04}
             factorY={0.04}
-            updateStyles={{
-               width: 500,
-               height: 500,
-            }}
+            className="w-full h-full flex items-center justify-center"
          >
             <motion.div
                variants={moon}
                initial="initial"
                animate="animate"
                exit="exit"
-               className="h-full"
+               className="h-full w-full"
             >
                <img
                   src="/logo/moon.svg"
                   alt="moon"
-                  className="h-full -rotate-45"
+                  className="h-full w-full -rotate-45 translate-x-5 sm:translate-x-0"
                />
             </motion.div>
          </MouseParallaxChild>
          <MouseParallaxChild
             factorX={0.02}
             factorY={0.02}
-            className="absolute pr-12 h-full w-full"
+            className="absolute flex justify-end items-center top-0 left-0 sm:pr-12 h-full w-full"
          >
             <motion.div
                variants={title}
                initial="initial"
                animate="animate"
                exit="exit"
-               className="flex items-center justify-end h-full w-full"
             >
-               <div className="text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10 -translate-x-20 translate-y-6 ">
-                  Portfolio
+               <div className="flex items-center space-x-2 -translate-x-5 sm:-translate-x-10 translate-y-5">
+                  <div className="text-4xl lg:text-5xl xl:text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10">
+                     Portfolio
+                  </div>
+                  <img
+                     src="/logo/shield.svg"
+                     alt="shield"
+                     className="z-10 drop-shadow-lg shadow-black w-16 sm:w-20 lg:w-24 xl:w-36"
+                  />
                </div>
-
-               <img
-                  src="/logo/shield.svg"
-                  alt="shield"
-                  className="z-10 -translate-x-16 translate-y-6 drop-shadow-lg shadow-black"
-                  style={{ width: 150 }}
-               />
             </motion.div>
          </MouseParallaxChild>
       </MouseParallaxContainer>

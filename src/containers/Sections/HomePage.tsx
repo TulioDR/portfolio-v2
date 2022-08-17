@@ -22,7 +22,7 @@ export default function HomePage({}: Props) {
       <SectionContainer index={0}>
          <InfoContainer>
             <SectionTitle>
-               <div className="space-y-2 text-5xl md:text-6xl lg:text-8xl xl:text-9xl">
+               <div className="space-y-2 text-3xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl">
                   <div>TULIO</div>
                   <div>RUZO</div>
                </div>
@@ -30,7 +30,7 @@ export default function HomePage({}: Props) {
             <Underline />
             <Info>{webDeveloper}</Info>
          </InfoContainer>
-         <div className="w-3/5 h-full">
+         <div className="w-full sm:w-3/5 h-full flex items-center justify-center">
             <AnimatePresence>{currentIndex === 0 && <Logo />}</AnimatePresence>
          </div>
       </SectionContainer>
