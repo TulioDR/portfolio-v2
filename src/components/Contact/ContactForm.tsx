@@ -17,7 +17,10 @@ const initialState = {
 };
 
 type Errors = {
-   name?: string;
+   name?: {
+      message1: string;
+      message2: string;
+   };
    email?: string;
    message?: {
       message1: string;
@@ -85,7 +88,11 @@ export default function ContactForm({
       let errors: Errors = {};
 
       if (!value.name) errors.name = formErrors.noName;
-      else if (!checkName(value.name)) errors.name = formErrors.invalidName;
+      else if (!checkName(value.name))
+         errors.name = {
+            message1: formErrors.invalidName1,
+            message2: formErrors.invalidName2,
+         };
 
       if (!value.email) errors.email = formErrors.noEmail;
       else if (!checkEmail(value.email)) errors.email = formErrors.invalidEmail;
@@ -125,6 +132,7 @@ export default function ContactForm({
                      errors={errors}
                      touched={touched}
                      handleBlur={handleBlur}
+                     doubleError={true}
                      textarea={false}
                      isOnFocus={isNameOnFocus}
                      setIsOnFocus={setIsNameOnFocus}
@@ -137,6 +145,7 @@ export default function ContactForm({
                      errors={errors}
                      touched={touched}
                      handleBlur={handleBlur}
+                     doubleError={false}
                      textarea={false}
                      isOnFocus={isEmailOnFocus}
                      setIsOnFocus={setIsEmailOnFocus}
@@ -149,6 +158,7 @@ export default function ContactForm({
                      errors={errors}
                      touched={touched}
                      handleBlur={handleBlur}
+                     doubleError={true}
                      textarea={true}
                      isOnFocus={isMessageOnFocus}
                      setIsOnFocus={setIsMessageOnFocus}

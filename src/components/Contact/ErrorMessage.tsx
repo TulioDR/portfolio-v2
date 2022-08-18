@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 
-type Props = { name: string; errors: any; touched: any; textarea: boolean };
+type Props = { name: string; errors: any; touched: any; doubleError: boolean };
 
 export default function ErrorMessage({
    errors,
    touched,
-   textarea,
    name,
+   doubleError,
 }: Props) {
    const container = {
       initial: { x: "150%", opacity: 0, bottom: 2 },
@@ -63,7 +63,7 @@ export default function ErrorMessage({
                exit="exit"
                className="absolute right-0 text-red-300 min-w-max"
             >
-               {textarea ? (
+               {doubleError ? (
                   <>
                      <motion.div variants={message1}>
                         {errors[name].message1}

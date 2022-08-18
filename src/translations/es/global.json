@@ -153,7 +153,8 @@
       "errorMessage": "Algo salió mal",
       "formErrors": {
          "noName": "Aún no me has dicho tu nombre.",
-         "invalidName": "Ese nombre es muy raro.",
+         "invalidName1": "Ese nombre es muy raro.",
+         "invalidName2": "Solo debería contener letras y espacios.",
          "noEmail": "Se te olvidó tu correo.",
          "invalidEmail": "¿Estás seguro de que ese es tu correo?",
          "noMessage1": "Todavía no puedo leer mentes...",

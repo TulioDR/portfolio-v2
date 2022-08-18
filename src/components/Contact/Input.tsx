@@ -10,6 +10,7 @@ type Props = {
    handleBlur: any;
    errors: any;
    touched: any;
+   doubleError: boolean;
    textarea: boolean;
    isOnFocus: boolean;
    setIsOnFocus: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,6 +24,7 @@ export default function Input({
    handleBlur,
    errors,
    touched,
+   doubleError,
    textarea,
    isOnFocus,
    setIsOnFocus,
@@ -42,7 +44,7 @@ export default function Input({
                errors={errors}
                touched={touched}
                name={name}
-               textarea={textarea}
+               doubleError={doubleError}
             />
          </label>
          <div className="pl-8">

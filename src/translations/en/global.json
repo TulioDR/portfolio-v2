@@ -154,7 +154,8 @@
       "errorMessage": "Something went wrong.",
       "formErrors": {
          "noName": "You haven't told me your name yet.",
-         "invalidName": "That name is pretty weird.",
+         "invalidName1": "That name is pretty weird.",
+         "invalidName2": "It should only contain letters and spaces.",
          "noEmail": "You forgot your email.",
          "invalidEmail": "Are you sure that's your email?",
          "noMessage1": "I can't read minds yet...",
