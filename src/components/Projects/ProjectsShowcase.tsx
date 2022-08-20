@@ -24,7 +24,8 @@ export default function ProjectsShowcase({}: Props) {
 
    return (
       <>
-         <div ref={constrainRef} className="flex-1 w-full relative group">
+         <div ref={constrainRef} className="flex-1 w-full relative">
+            {/* <div ref={constrainRef} className="flex-1 w-full relative group"> */}
             <ProjectsContainer
                selectedPagination={selectedPagination}
                showCarousel={showCarousel}
