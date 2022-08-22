@@ -7,9 +7,10 @@ import ChangeViewBtn from "./ChangeViewBtn";
 import Project from "./Project";
 import ProjectsContainer from "./ProjectsContainer";
 
+import { projectsList } from "../../assets/constants/projects";
+
 type Props = {};
-const projectsArray = [1, 2, 3, 4, 5, 6, 7, 8];
-const { length } = projectsArray;
+const { length } = projectsList;
 export default function ProjectsShowcase({}: Props) {
    const { currentIndex } = usePositionContext();
    const constrainRef = useRef(null);
@@ -31,10 +32,9 @@ export default function ProjectsShowcase({}: Props) {
                showCarousel={showCarousel}
                constrainRef={constrainRef}
             >
-               {projectsArray.map((project) => (
+               {projectsList.map((project, index) => (
                   <Project
-                     key={project}
-                     id={`${project}`}
+                     key={index}
                      project={project}
                      showCarousel={showCarousel}
                      selectedPagination={selectedPagination}
@@ -52,10 +52,10 @@ export default function ProjectsShowcase({}: Props) {
             />
 
             <CarouselPaginationContainer showCarousel={showCarousel}>
-               {projectsArray.map((project) => (
+               {projectsList.map((_project, index) => (
                   <CarouselPagination
-                     key={project}
-                     project={project}
+                     key={index}
+                     pagination={index + 1}
                      selectedPagination={selectedPagination}
                      setSelectedPagination={setSelectedPagination}
                   />

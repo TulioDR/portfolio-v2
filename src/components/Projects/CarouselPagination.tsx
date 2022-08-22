@@ -1,26 +1,26 @@
 import { AnimatePresence, motion } from "framer-motion";
 
 type Props = {
-   project: number;
+   pagination: number;
    selectedPagination: number;
    setSelectedPagination: any;
 };
 
 export default function CarouselPagination({
-   project,
+   pagination,
    selectedPagination,
    setSelectedPagination,
 }: Props) {
    return (
       <div className="flex items-center">
          <button
-            onClick={() => setSelectedPagination(project)}
+            onClick={() => setSelectedPagination(pagination)}
             className="mr-3 text-sm"
          >
-            0{project}
+            0{pagination}
          </button>
          <AnimatePresence>
-            {selectedPagination === project && (
+            {selectedPagination === pagination && (
                <motion.div
                   initial={{ width: 0, height: 2 }}
                   animate={{ width: 60 }}
