@@ -15,10 +15,10 @@ export default function CarouselNavigation({
       <AnimatePresence>
          {reveal && (
             <div
-               className={`absolute h-full top-0 flex items-center opacity-0 group-hover:opacity-100 duration-300 ${
+               className={`absolute h-full top-0 flex items-center opacity-0 group-one-hover:opacity-100 duration-300 ${
                   forward
-                     ? "right-0 group-hover:right-4"
-                     : "left-0 group-hover:left-4"
+                     ? "right-0 group-one-hover:right-4"
+                     : "left-0 group-one-hover:left-4"
                }`}
             >
                <motion.button
