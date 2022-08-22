@@ -13,17 +13,20 @@ export default function Project({ project, showCarousel }: Props) {
    return (
       <motion.article
          layout
-         className={`aspect-16/9 bg-orange-800 drop-shadow-md group-two ${
+         className={`aspect-16/9 drop-shadow-md group-two ${
             showCarousel ? "w-full min-w-full" : "h-full"
          }`}
          transition={{ duration: 0.5, delay: showCarousel ? 0 : 0.2 }}
       >
-         <Image
-            alt="example"
-            src={project.img}
-            layout="fill"
-            className="group-two-hover:scale-110  duration-500"
-         />
+         <div className="h-full w-full absolute top-0 left-0">
+            <Image
+               alt="example"
+               src={project.img}
+               layout="fill"
+               className="group-two-hover:scale-110 duration-500 object-cover h-full w-full"
+            />
+         </div>
+
          <div className="absolute top-0 left-0 w-full h-full flex space-x-10 items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-50 duration-200 overflow-hidden">
             <a
                target="_blank"

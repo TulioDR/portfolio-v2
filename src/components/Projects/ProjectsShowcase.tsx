@@ -25,7 +25,6 @@ export default function ProjectsShowcase({}: Props) {
 
    return (
       <>
-         {/* <div ref={constrainRef} className="flex-1 w-full relative"> */}
          <div ref={constrainRef} className="flex-1 w-full relative group-one">
             <ProjectsContainer
                selectedPagination={selectedPagination}
@@ -63,7 +62,7 @@ export default function ProjectsShowcase({}: Props) {
             </CarouselPaginationContainer>
          </div>
 
-         <div className="w-full py-3 flex space-x-5 justify-center border-t-2 border-white">
+         <div className="w-full h-16 flex space-x-5 justify-center border-t-2 border-white">
             <ChangeViewBtn
                onClick={() => setShowCarousel(true)}
                icon="view_carousel"
