@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+import { projectsList } from "../../assets/constants/projects";
+import MobileProject from "./MobileProject";
 
-const projectsArray = [1, 2, 3, 4, 5, 6, 7, 8];
 export default function MobileProjectsShowcase() {
    return (
       <>
@@ -19,9 +20,9 @@ export default function MobileProjectsShowcase() {
             modules={[Pagination]}
             className="w-full"
          >
-            {projectsArray.map((project) => (
-               <SwiperSlide key={project} className="flex items-center">
-                  <div className="aspect-16/9 w-full bg-orange-800 drop-shadow-md"></div>
+            {projectsList.map((project, index) => (
+               <SwiperSlide key={index} className="flex items-center">
+                  <MobileProject project={project} />
                </SwiperSlide>
             ))}
          </Swiper>
