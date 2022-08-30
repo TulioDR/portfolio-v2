@@ -35,6 +35,9 @@ module.exports = {
          backgroundPosition: {
             "1/2": "50%",
          },
+         fontFamily: {
+            dancing: "'Dancing Script', cursive",
+         },
       },
    },
    plugins: [

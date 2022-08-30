@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Tag from "../Others/Tag";
 
 type Props = {
    children: React.ReactNode;
@@ -20,7 +21,9 @@ export default function Info({ children, about }: Props) {
             about ? "" : "min-w-max"
          }`}
       >
-         {children}
+         <Tag>p</Tag>
+         <div className="translate-x-5">{children}</div>
+         <Tag closing>p</Tag>
       </motion.div>
    );
 }
