@@ -15,6 +15,7 @@ import ContactForm from "../../components/Contact/ContactForm";
 import JumbotronBackgroundImage from "../../components/Sections/JumbotronBackgroundImage";
 import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerContainer";
 import useLanguageContext from "../../context/LanguageContext";
+import TagContainer from "../../components/Sections/TagContainer";
 
 export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
@@ -26,22 +27,26 @@ export default function Contact() {
    return (
       <SectionContainer index={3}>
          <InfoContainer>
-            <SectionTitle>{title}</SectionTitle>
-            <Underline />
-            <Info>
-               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
-                  <a href="mailto:tulioruzo29@gmail.com">
-                     tulioruzo29@gmail.com
-                  </a>
-               </div>
-            </Info>
-            <Info>
-               <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
-                  <a href="https://github.com/TulioDR" target="_blank">
-                     Github
-                  </a>
-               </div>
-            </Info>
+            <TagContainer tag="h2">
+               <SectionTitle>{title}</SectionTitle>
+               <Underline />
+            </TagContainer>
+            <TagContainer tag="p">
+               <Info>
+                  <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+                     <a href="mailto:tulioruzo29@gmail.com">
+                        tulioruzo29@gmail.com
+                     </a>
+                  </div>
+               </Info>
+               <Info>
+                  <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
+                     <a href="https://github.com/TulioDR" target="_blank">
+                        Github
+                     </a>
+                  </div>
+               </Info>
+            </TagContainer>
          </InfoContainer>
          <JumbotronContainer>
             <JumbotronBackgroundImage

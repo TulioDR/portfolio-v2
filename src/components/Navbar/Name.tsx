@@ -1,5 +1,6 @@
 import useNavbarContext from "../../context/NavbarContext";
 import usePositionContext from "../../context/PositionContext";
+import TagContainer from "../Sections/TagContainer";
 
 export default function Name() {
    const { homeBullet } = usePositionContext();
@@ -9,8 +10,10 @@ export default function Name() {
       closeMenu();
    };
    return (
-      <div onClick={execute} className="cursor-pointer">
-         Tulio Ruzo
-      </div>
+      <TagContainer tag="nav">
+         <div onClick={execute} className="cursor-pointer">
+            Tulio Ruzo
+         </div>
+      </TagContainer>
    );
 }

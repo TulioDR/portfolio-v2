@@ -12,6 +12,7 @@ import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerCon
 import SkillsShowcase from "../../components/About/SkillsShowcase";
 import AboutInfoContainer from "../../components/About/AboutInfoContainer";
 import useLanguageContext from "../../context/LanguageContext";
+import TagContainer from "../../components/Sections/TagContainer";
 
 type Props = {};
 
@@ -23,17 +24,21 @@ export default function About({}: Props) {
    return (
       <SectionContainer index={1}>
          <InfoContainer>
-            <SectionTitle>{title}</SectionTitle>
-            <Underline />
-            <Info about>
-               <AboutInfoContainer>{description1}</AboutInfoContainer>
-            </Info>
-            <Info about>
-               <AboutInfoContainer>{description2}</AboutInfoContainer>
-            </Info>
-            <Info about>
-               <AboutInfoContainer>{description3}</AboutInfoContainer>
-            </Info>
+            <TagContainer tag="h2">
+               <SectionTitle>{title}</SectionTitle>
+               <Underline />
+            </TagContainer>
+            <TagContainer tag="p">
+               <Info about>
+                  <AboutInfoContainer>{description1}</AboutInfoContainer>
+               </Info>
+               <Info about>
+                  <AboutInfoContainer>{description2}</AboutInfoContainer>
+               </Info>
+               <Info about>
+                  <AboutInfoContainer>{description3}</AboutInfoContainer>
+               </Info>
+            </TagContainer>
          </InfoContainer>
          <JumbotronContainer>
             <JumbotronBackgroundImage src={aboutImage} alt="about-background" />

@@ -1,23 +1,14 @@
 import { motion } from "framer-motion";
+import { infoContainerAnimation } from "../../animations/InfoAnimation";
 
 type Props = {
    children: React.ReactNode;
 };
 
 export default function InfoContainer({ children }: Props) {
-   const infoContainer = {
-      initial: { opacity: 1 },
-      animate: {
-         transition: {
-            delayChildren: 0.4,
-            staggerChildren: 0.2,
-         },
-      },
-   };
-
    return (
       <motion.div
-         variants={infoContainer}
+         variants={infoContainerAnimation}
          initial="initial"
          animate="animate"
          className="pt-3 sm:pt-0 w-full sm:w-2/5 flex flex-col justify-center z-20 sm:pr-10"

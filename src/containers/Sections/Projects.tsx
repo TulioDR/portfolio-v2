@@ -13,6 +13,7 @@ import JumbotronInnerContainer from "../../components/Sections/JumbotronInnerCon
 import ProjectsShowcase from "../../components/Projects/ProjectsShowcase";
 import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
 import useLanguageContext from "../../context/LanguageContext";
+import TagContainer from "../../components/Sections/TagContainer";
 
 type Props = {};
 
@@ -23,14 +24,18 @@ export default function Projects({}: Props) {
    return (
       <SectionContainer index={2}>
          <InfoContainer>
-            <SectionTitle>{title}</SectionTitle>
-            <Underline />
-            <Info>
-               <div className="min-w-max">
-                  <div>{subtitle1}</div>
-                  <div>{subtitle2}</div>
-               </div>
-            </Info>
+            <TagContainer tag="h2">
+               <SectionTitle>{title}</SectionTitle>
+               <Underline />
+            </TagContainer>
+            <TagContainer tag="p">
+               <Info>
+                  <div className="min-w-max">
+                     <div>{subtitle1}</div>
+                     <div>{subtitle2}</div>
+                  </div>
+               </Info>
+            </TagContainer>
          </InfoContainer>
          <JumbotronContainer>
             <JumbotronBackgroundImage
