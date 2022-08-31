@@ -23,7 +23,7 @@ export const tagContainerAnimation = {
 };
 
 export const infoAnimation = {
-   initial: { x: "calc(-100% - 20px)" },
+   initial: { x: "-100% " },
    animate: {
       x: 0,
       transition: { duration: 0.6, ease: [0.645, 0.045, 0.355, 1] },
