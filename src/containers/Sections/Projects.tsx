@@ -13,6 +13,8 @@ import useLanguageContext from "../../context/LanguageContext";
 import TagContainer from "../../components/Sections/TagContainer";
 import { SwiperSlide } from "swiper/react";
 import Jumbotron from "../Parts/Jumbotron";
+import SlideNextBtn from "../../components/Sections/SlideNextBtn";
+import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
 
 type Props = {};
 
@@ -36,6 +38,7 @@ export default function Projects({}: Props) {
                      </div>
                   </Info>
                </TagContainer>
+               <SlideNextBtn text="Check my projects" />
             </InfoContainer>
             <div className="w-2/3 hidden sm:block">
                <Jumbotron
@@ -49,7 +52,7 @@ export default function Projects({}: Props) {
                </Jumbotron>
             </div>
          </SwiperSlide>
-         <SwiperSlide className="w-full h-full flex justify-end sm:hidden">
+         <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
             <Jumbotron
                tag="picture"
                imgSrc={projectsImg}
@@ -59,6 +62,7 @@ export default function Projects({}: Props) {
                   <MobileProjectsShowcase />
                </div>
             </Jumbotron>
+            <SlidePrevBtn />
          </SwiperSlide>
       </SectionContainer>
    );

@@ -12,7 +12,7 @@ export default function MenuFooter() {
             duration: 0.4,
             delay: 0.5,
          }}
-         className="absolute bottom-8 flex items-center text-gray-400 text-sm"
+         className="absolute bottom-8 flex items-center text-gray-400 text-xs sm:text-sm"
       >
          <span className="material-icons mx-1">copyright</span>
          <span>2022 Tulio Ruzo. {footer1}</span>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import usePositionContext from "../../context/PositionContext";
 import { Swiper } from "swiper/react";
+
 type Props = {
    children: any;
    index: number;
@@ -25,6 +26,7 @@ export default function SectionContainer({ children, index }: Props) {
                resistance={true}
                resistanceRatio={0}
                nested={true}
+               speed={500}
             >
                <>{selected && children}</>
             </Swiper>

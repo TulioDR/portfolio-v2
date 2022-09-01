@@ -16,6 +16,8 @@ import TagContainer from "../../components/Sections/TagContainer";
 
 import { SwiperSlide } from "swiper/react";
 import Jumbotron from "../Parts/Jumbotron";
+import SlideNextBtn from "../../components/Sections/SlideNextBtn";
+import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
 export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
    const [sentFailure, setSentFailure] = useState<boolean>(false);
@@ -47,6 +49,7 @@ export default function Contact() {
                      </div>
                   </Info>
                </TagContainer>
+               <SlideNextBtn text="Contact Me" />
             </InfoContainer>
             <div className="w-2/3 hidden sm:block">
                <Jumbotron
@@ -61,7 +64,7 @@ export default function Contact() {
                </Jumbotron>
             </div>
          </SwiperSlide>
-         <SwiperSlide className="w-full h-full flex justify-end">
+         <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
             <Jumbotron
                tag="form"
                imgSrc={contactImg}
@@ -72,6 +75,7 @@ export default function Contact() {
                   setSentFailure={setSentFailure}
                />
             </Jumbotron>
+            <SlidePrevBtn />
          </SwiperSlide>
 
          <SentMessage

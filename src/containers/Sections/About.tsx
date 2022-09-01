@@ -12,6 +12,8 @@ import useLanguageContext from "../../context/LanguageContext";
 import TagContainer from "../../components/Sections/TagContainer";
 import { SwiperSlide } from "swiper/react";
 import Jumbotron from "../Parts/Jumbotron";
+import SlideNextBtn from "../../components/Sections/SlideNextBtn";
+import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
 type Props = {};
 
 export default function About({}: Props) {
@@ -38,6 +40,7 @@ export default function About({}: Props) {
                      <AboutInfoContainer>{description3}</AboutInfoContainer>
                   </Info>
                </TagContainer>
+               <SlideNextBtn text="Check my skills" />
             </InfoContainer>
             <div className="w-2/3 hidden sm:block">
                <Jumbotron
@@ -49,7 +52,7 @@ export default function About({}: Props) {
                </Jumbotron>
             </div>
          </SwiperSlide>
-         <SwiperSlide className="w-full h-full flex justify-end">
+         <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
             <Jumbotron
                tag="table"
                imgSrc={aboutImage}
@@ -57,6 +60,7 @@ export default function About({}: Props) {
             >
                <SkillsShowcase />
             </Jumbotron>
+            <SlidePrevBtn />
          </SwiperSlide>
       </SectionContainer>
    );
