@@ -37,8 +37,10 @@ export default function Input({
 
    return (
       <div className="w-full">
-         <label className="flex items-center space-x-2 pr-4 max-w-min relative">
-            <span className="material-icons w-6">{icon}</span>
+         <label className="flex items-center md:space-x-2 pr-4 max-w-min relative">
+            <span className="material-icons w-6 text-lg md:text-2xl">
+               {icon}
+            </span>
             <span>{label}</span>
             <ErrorMessage
                errors={errors}
@@ -47,7 +49,7 @@ export default function Input({
                doubleError={doubleError}
             />
          </label>
-         <div className="pl-8">
+         <div className="pl-6 md:pl-8">
             <div className="w-full relative overflow-hidden">
                <Field
                   as={textarea ? "textarea" : "input"}

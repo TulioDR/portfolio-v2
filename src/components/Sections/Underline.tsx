@@ -5,8 +5,8 @@ type Props = {};
 
 export default function Underline({}: Props) {
    return (
-      <motion.div variants={infoAnimation} className="w-20 sm:w-28 md:w-36">
-         <div className="space-y-2 sm:space-y-3 md:space-y-5">
+      <motion.div variants={infoAnimation} className="w-28 md:w-36">
+         <div className="space-y-3 md:space-y-5">
             <div className="bg-secondary w-2/3 h-1 rounded-sm"></div>
             <div className="flex justify-end">
                <motion.div

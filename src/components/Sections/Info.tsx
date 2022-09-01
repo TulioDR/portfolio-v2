@@ -10,7 +10,7 @@ export default function Info({ children, about }: Props) {
    return (
       <motion.div
          variants={infoAnimation}
-         className={`text-sm sm:text-base md:text-lg lg:text-3xl font-light ${
+         className={`text-base md:text-lg lg:text-3xl font-light ${
             about ? "" : "min-w-max"
          }`}
       >

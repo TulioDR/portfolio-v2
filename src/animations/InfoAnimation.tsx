@@ -3,7 +3,7 @@ export const infoContainerAnimation = {
    animate: {
       transition: {
          delayChildren: 0.3,
-         staggerChildren: 0.6,
+         staggerChildren: 0.7,
       },
    },
 };
@@ -16,7 +16,7 @@ export const tagContainerAnimation = {
       transition: {
          duration: 0.6,
          ease: [0.645, 0.045, 0.355, 1],
-         delayChildren: 0.4,
+         delayChildren: 0.6,
          staggerChildren: 0.2,
       },
    },

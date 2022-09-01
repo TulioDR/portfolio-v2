@@ -11,7 +11,7 @@ export default function TagContainer({ children, tag }: Props) {
    return (
       <motion.div variants={tagContainerAnimation}>
          <Tag>{tag}</Tag>
-         <div className="space-y-2 sm:space-y-3 md:space-y-5 2xl:space-y-8 pl-5">
+         <div className="space-y-3 md:space-y-5 2xl:space-y-8 pl-5">
             {children}
          </div>
          <Tag closing>{tag}</Tag>

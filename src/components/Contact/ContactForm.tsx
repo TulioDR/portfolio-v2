@@ -122,7 +122,7 @@ export default function ContactForm({
             return (
                <Form
                   ref={form}
-                  className="flex flex-col p-5 sm:p-10 md:p-0 max-w-full w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
+                  className="flex flex-col p-5 sm:p-10 md:p-0 max-w-full w-full sm:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
                >
                   <Input
                      name="name"
@@ -166,7 +166,7 @@ export default function ContactForm({
                   <motion.button
                      type="submit"
                      whileTap={{ scale: 0.94 }}
-                     className="py-3 px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
+                     className="py-1 md:py-3 px-2 md:px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
                   >
                      <span className="material-icons">send</span>
                      <span>{send}</span>

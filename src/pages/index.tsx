@@ -25,7 +25,7 @@ const Home: NextPage = () => {
          <Head>
             <title>TULIO RUZO PORTFOLIO</title>
          </Head>
-         <Background />
+         {/* <Background /> */}
          <PositionProvider>
             <InitialAnimation />
             <LanguageProvider>
