@@ -19,6 +19,7 @@ export default function MobileProjectsShowcase() {
             }}
             modules={[Pagination]}
             className="w-full"
+            nested={true}
          >
             {projectsList.map((project, index) => (
                <SwiperSlide key={index} className="flex items-center">
