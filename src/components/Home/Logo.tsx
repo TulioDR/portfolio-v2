@@ -54,7 +54,7 @@ export default function Logo({}: Props) {
    return (
       <MouseParallaxContainer
          useWindowMouseEvents={true}
-         className="w-64 h-full sm:w-72 md:w-80 lg:w-96 xl:w-125 relative"
+         className="w-64 h-full sm:w-72 md:w-80 lg:w-96 xl:w-125 relative -translate-y-4 sm:translate-y-0"
          containerStyles={{ overflow: "visible" }}
       >
          <MouseParallaxChild

@@ -18,6 +18,8 @@ import { SwiperSlide } from "swiper/react";
 import Jumbotron from "../Parts/Jumbotron";
 import SlideNextBtn from "../../components/Sections/SlideNextBtn";
 import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
+import SwiperSlideInner from "../../components/Sections/SwiperSlideInner";
+import ContactLink from "../../components/Contact/ContactLink";
 export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
    const [sentFailure, setSentFailure] = useState<boolean>(false);
@@ -27,31 +29,43 @@ export default function Contact() {
 
    return (
       <SectionContainer index={3}>
-         <SwiperSlide className="flex">
-            <InfoContainer>
-               <TagContainer tag="h2">
-                  <SectionTitle>{title}</SectionTitle>
-                  <Underline />
-               </TagContainer>
-               <TagContainer tag="p">
-                  <Info>
-                     <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
-                        <a href="mailto:tulioruzo29@gmail.com">
+         <SwiperSlide>
+            <SwiperSlideInner>
+               <InfoContainer>
+                  <TagContainer tag="h2">
+                     <SectionTitle>{title}</SectionTitle>
+                     <Underline />
+                  </TagContainer>
+                  <TagContainer tag="p">
+                     <Info>
+                        <ContactLink href="mailto:tulioruzo29@gmail.com">
                            tulioruzo29@gmail.com
-                        </a>
-                     </div>
-                  </Info>
-                  <Info>
-                     <div className="hover:text-gray-400 duration-300 cursor-pointer max-w-min">
-                        <a href="https://github.com/TulioDR" target="_blank">
+                        </ContactLink>
+                     </Info>
+                     <Info>
+                        <ContactLink href="https://github.com/TulioDR">
                            Github
-                        </a>
-                     </div>
-                  </Info>
-               </TagContainer>
-               <SlideNextBtn text="Contact Me" />
-            </InfoContainer>
-            <div className="w-2/3 hidden sm:block">
+                        </ContactLink>
+                     </Info>
+                  </TagContainer>
+                  <SlideNextBtn text="Contact Me" />
+               </InfoContainer>
+               <div className="w-2/3 hidden sm:block">
+                  <Jumbotron
+                     tag="form"
+                     imgSrc={contactImg}
+                     imgAlt="contact-form-background"
+                  >
+                     <ContactForm
+                        setSentSuccessfull={setSentSuccessfull}
+                        setSentFailure={setSentFailure}
+                     />
+                  </Jumbotron>
+               </div>
+            </SwiperSlideInner>
+         </SwiperSlide>
+         <SwiperSlide className="sm:hidden">
+            <SwiperSlideInner mobile>
                <Jumbotron
                   tag="form"
                   imgSrc={contactImg}
@@ -62,20 +76,8 @@ export default function Contact() {
                      setSentFailure={setSentFailure}
                   />
                </Jumbotron>
-            </div>
-         </SwiperSlide>
-         <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
-            <Jumbotron
-               tag="form"
-               imgSrc={contactImg}
-               imgAlt="contact-form-background"
-            >
-               <ContactForm
-                  setSentSuccessfull={setSentSuccessfull}
-                  setSentFailure={setSentFailure}
-               />
-            </Jumbotron>
-            <SlidePrevBtn />
+               <SlidePrevBtn />
+            </SwiperSlideInner>
          </SwiperSlide>
 
          <SentMessage

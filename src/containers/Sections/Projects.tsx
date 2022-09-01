@@ -15,6 +15,7 @@ import { SwiperSlide } from "swiper/react";
 import Jumbotron from "../Parts/Jumbotron";
 import SlideNextBtn from "../../components/Sections/SlideNextBtn";
 import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
+import SwiperSlideInner from "../../components/Sections/SwiperSlideInner";
 
 type Props = {};
 
@@ -24,45 +25,47 @@ export default function Projects({}: Props) {
    const { title, subtitle1, subtitle2 } = currentIdiom.projects;
    return (
       <SectionContainer index={2}>
-         <SwiperSlide className="flex">
-            <InfoContainer>
-               <TagContainer tag="h2">
-                  <SectionTitle>{title}</SectionTitle>
-                  <Underline />
-               </TagContainer>
-               <TagContainer tag="p">
-                  <Info>
-                     <div className="min-w-max">
-                        <div>{subtitle1}</div>
-                        <div>{subtitle2}</div>
-                     </div>
-                  </Info>
-               </TagContainer>
-               <SlideNextBtn text="Check my projects" />
-            </InfoContainer>
-            <div className="w-2/3 hidden sm:block">
+         <SwiperSlide>
+            <SwiperSlideInner>
+               <InfoContainer>
+                  <TagContainer tag="h2">
+                     <SectionTitle>{title}</SectionTitle>
+                     <Underline />
+                  </TagContainer>
+                  <TagContainer tag="p">
+                     <Info>
+                        <div className="min-w-max">
+                           <div>{subtitle1}</div>
+                           <div>{subtitle2}</div>
+                        </div>
+                     </Info>
+                  </TagContainer>
+                  <SlideNextBtn text="Check my projects" />
+               </InfoContainer>
+               <div className="w-2/3 hidden sm:block">
+                  <Jumbotron
+                     tag="picture"
+                     imgSrc={projectsImg}
+                     imgAlt="contact-form-background"
+                  >
+                     <ProjectsShowcase />
+                  </Jumbotron>
+               </div>
+            </SwiperSlideInner>
+         </SwiperSlide>
+         <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
+            <SwiperSlideInner mobile>
                <Jumbotron
                   tag="picture"
                   imgSrc={projectsImg}
                   imgAlt="contact-form-background"
                >
-                  <div className="w-full h-full flex flex-col">
-                     <ProjectsShowcase />
+                  <div className="w-full h-full flex flex-col justify-center space-y-5">
+                     <MobileProjectsShowcase />
                   </div>
                </Jumbotron>
-            </div>
-         </SwiperSlide>
-         <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
-            <Jumbotron
-               tag="picture"
-               imgSrc={projectsImg}
-               imgAlt="contact-form-background"
-            >
-               <div className="w-full h-full flex flex-col justify-center space-y-5">
-                  <MobileProjectsShowcase />
-               </div>
-            </Jumbotron>
-            <SlidePrevBtn />
+               <SlidePrevBtn />
+            </SwiperSlideInner>
          </SwiperSlide>
       </SectionContainer>
    );
