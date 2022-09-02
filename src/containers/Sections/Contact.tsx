@@ -19,7 +19,7 @@ import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
 import SwiperSlideInner from "../../components/Sections/SwiperSlideInner";
 import ContactLink from "../../components/Contact/ContactLink";
 import Title from "../Parts/Title";
-import MobileJumbotronContainer from "../Parts/MobileJumbotronContainer";
+
 export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
    const [sentFailure, setSentFailure] = useState<boolean>(false);
@@ -62,23 +62,19 @@ export default function Contact() {
             </SwiperSlideInner>
          </SwiperSlide>
          <SwiperSlide className="sm:hidden">
-            {({ isActive }) => (
-               <MobileJumbotronContainer isActive={isActive}>
-                  <SwiperSlideInner mobile>
-                     <Jumbotron
-                        tag="form"
-                        imgSrc={contactImg}
-                        imgAlt="contact-form-background"
-                     >
-                        <ContactForm
-                           setSentSuccessfull={setSentSuccessfull}
-                           setSentFailure={setSentFailure}
-                        />
-                     </Jumbotron>
-                     <SlidePrevBtn />
-                  </SwiperSlideInner>
-               </MobileJumbotronContainer>
-            )}
+            <SwiperSlideInner mobile>
+               <Jumbotron
+                  tag="form"
+                  imgSrc={contactImg}
+                  imgAlt="contact-form-background"
+               >
+                  <ContactForm
+                     setSentSuccessfull={setSentSuccessfull}
+                     setSentFailure={setSentFailure}
+                  />
+               </Jumbotron>
+               <SlidePrevBtn />
+            </SwiperSlideInner>
          </SwiperSlide>
 
          <SentMessage

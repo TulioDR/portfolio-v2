@@ -14,7 +14,7 @@ import SlideNextBtn from "../../components/Sections/SlideNextBtn";
 import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
 import SwiperSlideInner from "../../components/Sections/SwiperSlideInner";
 import Title from "../Parts/Title";
-import MobileJumbotronContainer from "../Parts/MobileJumbotronContainer";
+
 type Props = {};
 
 export default function About({}: Props) {
@@ -53,20 +53,16 @@ export default function About({}: Props) {
             </SwiperSlideInner>
          </SwiperSlide>
          <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
-            {({ isActive }) => (
-               <MobileJumbotronContainer isActive={isActive}>
-                  <SwiperSlideInner mobile>
-                     <Jumbotron
-                        tag="table"
-                        imgSrc={aboutImage}
-                        imgAlt="about-background"
-                     >
-                        <SkillsShowcase />
-                     </Jumbotron>
-                     <SlidePrevBtn />
-                  </SwiperSlideInner>
-               </MobileJumbotronContainer>
-            )}
+            <SwiperSlideInner mobile>
+               <Jumbotron
+                  tag="table"
+                  imgSrc={aboutImage}
+                  imgAlt="about-background"
+               >
+                  <SkillsShowcase />
+               </Jumbotron>
+               <SlidePrevBtn />
+            </SwiperSlideInner>
          </SwiperSlide>
       </SectionContainer>
    );
