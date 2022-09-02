@@ -50,7 +50,8 @@
       "successMessage": "Email sent successfully",
       "errorMessage": "Something went wrong.",
       "formErrors": {
-         "noName": "You haven't told me your name yet.",
+         "noName1": "You haven't told me your name yet.",
+         "noName2": "I'm sure is pretty cool",
          "invalidName1": "That name is pretty weird.",
          "invalidName2": "It should only contain letters and spaces.",
          "noEmail": "You forgot your email.",

@@ -78,7 +78,6 @@ export default function ContactForm({
             (error) => {
                console.log(error);
                setSentFailure(true);
-               // setTimeout(() => setSentFailure(false), 4000);
             }
          );
    };
@@ -87,7 +86,11 @@ export default function ContactForm({
       const { formErrors } = currentIdiom.contact;
       let errors: Errors = {};
 
-      if (!value.name) errors.name = formErrors.noName;
+      if (!value.name)
+         errors.name = {
+            message1: formErrors.noName1,
+            message2: formErrors.noName2,
+         };
       else if (!checkName(value.name))
          errors.name = {
             message1: formErrors.invalidName1,
@@ -122,7 +125,7 @@ export default function ContactForm({
             return (
                <Form
                   ref={form}
-                  className="flex flex-col p-5 sm:p-10 md:p-0 max-w-full w-full sm:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
+                  className="flex flex-col p-5 md:p-0 max-w-full w-full sm:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
                >
                   <Input
                      name="name"
@@ -166,7 +169,7 @@ export default function ContactForm({
                   <motion.button
                      type="submit"
                      whileTap={{ scale: 0.94 }}
-                     className="py-1 md:py-3 px-2 md:px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
+                     className="py-2 md:py-3 px-6 md:px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
                   >
                      <span className="material-icons">send</span>
                      <span>{send}</span>

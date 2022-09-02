@@ -9,7 +9,7 @@ export default function ErrorMessage({
    doubleError,
 }: Props) {
    const container = {
-      initial: { x: "150%", opacity: 0, bottom: 2 },
+      initial: { x: "150%", opacity: 0, bottom: 1, y: -5 },
       animate: {
          x: "100%",
          opacity: 1,

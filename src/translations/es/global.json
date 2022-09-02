@@ -50,7 +50,8 @@
       "successMessage": "Correo enviado con éxito",
       "errorMessage": "Algo salió mal",
       "formErrors": {
-         "noName": "Aún no me has dicho tu nombre.",
+         "noName1": "Aún no me has dicho tu nombre.",
+         "noName2": "Estoy seguro que es genial.",
          "invalidName1": "Ese nombre es muy raro.",
          "invalidName2": "Solo debería contener letras y espacios.",
          "noEmail": "Se te olvidó tu correo.",
