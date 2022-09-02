@@ -1,8 +1,6 @@
 import contactImg from "../../assets/images/contact.jpg";
 
 import SectionContainer from "../../components/Sections/SectionContainer";
-import SectionTitle from "../../components/Sections/SectionTitle";
-import Underline from "../../components/Sections/Underline";
 
 import InfoContainer from "../../components/Sections/InfoContainer";
 
@@ -20,6 +18,8 @@ import SlideNextBtn from "../../components/Sections/SlideNextBtn";
 import SlidePrevBtn from "../../components/Sections/SlidePrevBtn";
 import SwiperSlideInner from "../../components/Sections/SwiperSlideInner";
 import ContactLink from "../../components/Contact/ContactLink";
+import Title from "../Parts/Title";
+import MobileJumbotronContainer from "../Parts/MobileJumbotronContainer";
 export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
    const [sentFailure, setSentFailure] = useState<boolean>(false);
@@ -32,10 +32,7 @@ export default function Contact() {
          <SwiperSlide>
             <SwiperSlideInner>
                <InfoContainer>
-                  <TagContainer tag="h2">
-                     <SectionTitle>{title}</SectionTitle>
-                     <Underline />
-                  </TagContainer>
+                  <Title>{title}</Title>
                   <TagContainer tag="p">
                      <Info>
                         <ContactLink href="mailto:tulioruzo29@gmail.com">
@@ -50,7 +47,7 @@ export default function Contact() {
                   </TagContainer>
                   <SlideNextBtn text="Contact Me" />
                </InfoContainer>
-               <div className="w-2/3 hidden sm:block">
+               <div className="w-3/5 hidden sm:block">
                   <Jumbotron
                      tag="form"
                      imgSrc={contactImg}
@@ -65,19 +62,23 @@ export default function Contact() {
             </SwiperSlideInner>
          </SwiperSlide>
          <SwiperSlide className="sm:hidden">
-            <SwiperSlideInner mobile>
-               <Jumbotron
-                  tag="form"
-                  imgSrc={contactImg}
-                  imgAlt="contact-form-background"
-               >
-                  <ContactForm
-                     setSentSuccessfull={setSentSuccessfull}
-                     setSentFailure={setSentFailure}
-                  />
-               </Jumbotron>
-               <SlidePrevBtn />
-            </SwiperSlideInner>
+            {({ isActive }) => (
+               <MobileJumbotronContainer isActive={isActive}>
+                  <SwiperSlideInner mobile>
+                     <Jumbotron
+                        tag="form"
+                        imgSrc={contactImg}
+                        imgAlt="contact-form-background"
+                     >
+                        <ContactForm
+                           setSentSuccessfull={setSentSuccessfull}
+                           setSentFailure={setSentFailure}
+                        />
+                     </Jumbotron>
+                     <SlidePrevBtn />
+                  </SwiperSlideInner>
+               </MobileJumbotronContainer>
+            )}
          </SwiperSlide>
 
          <SentMessage

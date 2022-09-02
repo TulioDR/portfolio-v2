@@ -1,7 +1,4 @@
 import SectionContainer from "../../components/Sections/SectionContainer";
-
-import SectionTitle from "../../components/Sections/SectionTitle";
-import Underline from "../../components/Sections/Underline";
 import InfoContainer from "../../components/Sections/InfoContainer";
 import Info from "../../components/Sections/Info";
 import Logo from "../../components/Home/Logo";
@@ -11,6 +8,7 @@ import useLanguageContext from "../../context/LanguageContext";
 import TagContainer from "../../components/Sections/TagContainer";
 import { SwiperSlide } from "swiper/react";
 import SwiperSlideInner from "../../components/Sections/SwiperSlideInner";
+import Title from "../Parts/Title";
 
 type Props = {};
 
@@ -27,15 +25,12 @@ export default function HomePage({}: Props) {
             <SwiperSlideInner>
                <div className="flex flex-col sm:flex-row w-full">
                   <InfoContainer>
-                     <TagContainer tag="h2">
-                        <SectionTitle>
-                           <div className="space-y-2 text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl">
-                              <div>TULIO</div>
-                              <div>RUZO</div>
-                           </div>
-                        </SectionTitle>
-                        <Underline />
-                     </TagContainer>
+                     <Title>
+                        <div className="space-y-2 text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl">
+                           <div>TULIO</div>
+                           <div>RUZO</div>
+                        </div>
+                     </Title>
                      <TagContainer tag="p">
                         <Info>{webDeveloper}</Info>
                      </TagContainer>

@@ -17,6 +17,7 @@ export default function SectionContainer({ children, index }: Props) {
          setTimeout(() => setSelected(true), 50);
       }
    }, [currentIndex]);
+
    return (
       <section className="h-full w-full pl-10 md:pl-16 lg:pl-20 xl:pl-40 2xl:pl-48 text-white">
          <Swiper
