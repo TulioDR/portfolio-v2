@@ -56,9 +56,7 @@ export default function Projects({}: Props) {
                   imgSrc={projectsImg}
                   imgAlt="contact-form-background"
                >
-                  <div className="w-full h-full flex flex-col justify-center space-y-5">
-                     <MobileProjectsShowcase />
-                  </div>
+                  <MobileProjectsShowcase />
                </Jumbotron>
                <SlidePrevBtn />
             </SwiperSlideInner>

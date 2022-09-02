@@ -5,7 +5,7 @@ import MobileProject from "./MobileProject";
 
 export default function MobileProjectsShowcase() {
    return (
-      <>
+      <div className="w-full h-full flex flex-col justify-center space-y-5">
          <Swiper
             speed={500}
             spaceBetween={20}
@@ -28,6 +28,6 @@ export default function MobileProjectsShowcase() {
             ))}
          </Swiper>
          <div className="w-full flex space-x-3 justify-center mobile-projects-showcase-pagination-bullet-container"></div>
-      </>
+      </div>
    );
 }
