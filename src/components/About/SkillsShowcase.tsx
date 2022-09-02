@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
    mainSkillsArray,
    otherSkillsArray,
@@ -6,76 +6,51 @@ import {
 import Language from "./Language";
 import SkillsGrid from "./SkillsGrid";
 import SkillsTab from "./SkillsTab";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+
 import useLanguageContext from "../../context/LanguageContext";
+
 type Props = {};
 
 export default function SkillsShowcase({}: Props) {
-   const mainSkillsRef = useRef<HTMLButtonElement>(null);
-   const otherSkillsRef = useRef<HTMLButtonElement>(null);
-
-   const [currentSkills, setCurrentSkills] = useState<number>(0);
-
    const { currentIdiom } = useLanguageContext();
 
    const { mainSkills, otherSkills } = currentIdiom.about;
+
+   const [isMain, setIsMain] = useState<boolean>(true);
+
    return (
-      <div className="flex flex-col justify-center items-center p-3 md:p-0 max-w-full w-80 md:w-96">
-         <div className="px-4 xl:px-3 2xl:px-2 w-full">
-            <ul className="flex space-x-5 mb-5 2xl:mb-6 text-lg border-b border-gray-400 skills-pagination">
+      <div className="flex flex-col justify-center items-center">
+         <div className="px-2 w-full">
+            <ul className="flex space-x-5 mb-5 2xl:mb-6 text-lg border-b border-gray-400">
                <SkillsTab
-                  tabRef={mainSkillsRef}
-                  currentSkills={currentSkills}
-                  index={0}
+                  onClick={() => setIsMain(true)}
+                  isMain={isMain}
+                  main={true}
                >
                   {mainSkills}
                </SkillsTab>
                <SkillsTab
-                  tabRef={otherSkillsRef}
-                  currentSkills={currentSkills}
-                  index={1}
+                  onClick={() => setIsMain(false)}
+                  isMain={isMain}
+                  main={false}
                >
                   {otherSkills}
                </SkillsTab>
             </ul>
          </div>
+         <div className="flex w-min overflow-hidden relative">
+            <SkillsGrid main isMain={isMain}>
+               {mainSkillsArray.map((skill) => (
+                  <Language key={skill.name} skill={skill} />
+               ))}
+            </SkillsGrid>
 
-         <Swiper
-            speed={500}
-            slidesPerView={1}
-            spaceBetween={20}
-            onInit={(swiper) => {
-               swiper.pagination.bullets[0] = mainSkillsRef?.current!;
-               swiper.pagination.bullets[1] = otherSkillsRef?.current!;
-            }}
-            pagination={{
-               el: ".skills-pagination",
-               clickable: true,
-               type: "custom",
-            }}
-            onSlideChange={(e) => {
-               setCurrentSkills(e.activeIndex);
-            }}
-            centeredSlides={true}
-            modules={[Pagination]}
-            className="w-full"
-         >
-            <SwiperSlide>
-               <SkillsGrid>
-                  {mainSkillsArray.map((skill) => (
-                     <Language key={skill.name} skill={skill} />
-                  ))}
-               </SkillsGrid>
-            </SwiperSlide>
-            <SwiperSlide>
-               <SkillsGrid>
-                  {otherSkillsArray.map((skill) => (
-                     <Language key={skill.name} skill={skill} />
-                  ))}
-               </SkillsGrid>
-            </SwiperSlide>
-         </Swiper>
+            <SkillsGrid isMain={isMain}>
+               {otherSkillsArray.map((skill) => (
+                  <Language key={skill.name} skill={skill} />
+               ))}
+            </SkillsGrid>
+         </div>
       </div>
    );
 }

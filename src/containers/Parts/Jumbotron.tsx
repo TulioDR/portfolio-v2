@@ -25,11 +25,14 @@ export default function Jumbotron({ children, imgSrc, imgAlt, tag }: Props) {
          className="flex flex-col w-full h-full origin-right"
       >
          <Tag>{tag}</Tag>
-         <JumbotronContainer>
-            <JumbotronBackgroundImage src={imgSrc} alt={imgAlt} />
-            <JumbotronInnerContainer>{children}</JumbotronInnerContainer>
-            <JumbotronAnimation />
-         </JumbotronContainer>
+         <div className="w-full h-full pl-5">
+            <JumbotronContainer>
+               <JumbotronBackgroundImage src={imgSrc} alt={imgAlt} />
+               <JumbotronInnerContainer>{children}</JumbotronInnerContainer>
+               <JumbotronAnimation />
+            </JumbotronContainer>
+         </div>
+
          <Tag closing>{tag}</Tag>
       </motion.div>
    );

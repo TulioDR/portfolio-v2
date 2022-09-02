@@ -2,26 +2,21 @@ import { motion } from "framer-motion";
 
 type Props = {
    children: React.ReactNode;
-   tabRef: any;
-   index: number;
-   currentSkills: number;
+   isMain: boolean;
+   main?: boolean;
+   onClick: any;
 };
 
-export default function SkillsTab({
-   children,
-   tabRef,
-   index,
-   currentSkills,
-}: Props) {
+export default function SkillsTab({ children, isMain, main, onClick }: Props) {
    return (
       <motion.li
-         ref={tabRef}
-         className={`swiper-pagination-bullet pb-1 relative text-xs sm:text-sm md:text-base 2xl:text-lg cursor-pointer duration-300 ${
-            index === currentSkills ? "text-white" : "text-gray-400"
+         className={`pb-1 relative text-xs sm:text-sm md:text-base 2xl:text-lg cursor-pointer duration-500 ${
+            main === isMain ? "text-white" : "text-gray-400"
          }`}
+         onClick={onClick}
       >
          {children}
-         {index === currentSkills && (
+         {main === isMain && (
             <motion.div
                layoutId="underline"
                className="w-full bg-secondary absolute"

@@ -25,7 +25,6 @@ export default function SectionContainer({ children, index }: Props) {
             spaceBetween={0}
             resistance={true}
             resistanceRatio={0}
-            nested={true}
             speed={500}
             style={{ overflow: "visible" }}
          >

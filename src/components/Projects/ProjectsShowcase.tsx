@@ -62,7 +62,7 @@ export default function ProjectsShowcase({}: Props) {
             </CarouselPaginationContainer>
          </div>
 
-         <div className="w-full h-16 flex space-x-5 justify-center border-t-2 border-white">
+         <div className="w-full h-16 space-x-5 justify-center border-t-2 border-white hidden sm:flex">
             <ChangeViewBtn
                onClick={() => setShowCarousel(true)}
                icon="view_carousel"

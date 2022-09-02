@@ -4,7 +4,7 @@ type Props = {
 
 export default function JumbotronContainer({ children }: Props) {
    return (
-      <div className="w-full drop-shadow-xl flex-1 relative overflow-hidden pl-5">
+      <div className="w-full h-full drop-shadow-xl relative overflow-hidden">
          {children}
       </div>
    );
