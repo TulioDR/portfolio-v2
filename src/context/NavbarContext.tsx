@@ -5,7 +5,7 @@ interface AppContextInterface {
    hoveredBullet: number;
    setHoveredBullet: React.Dispatch<React.SetStateAction<number>>;
    isMenuOpen: boolean;
-   toggleMenu: React.Dispatch<React.SetStateAction<boolean>>;
+   toggleMenu: any;
    closeMenu: any;
 }
 
@@ -25,7 +25,9 @@ export function NavbarProvider({ children }: Props) {
    }, [currentIndex]);
 
    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+   const toggleMenu = () => {
+      setIsMenuOpen(!isMenuOpen);
+   };
    const closeMenu = () => setIsMenuOpen(false);
 
    const value = {
