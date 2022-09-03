@@ -1,9 +1,9 @@
-import { Form, Formik } from "formik";
-import Input from "./Input";
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { Formik } from "formik";
+
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import useLanguageContext from "../../context/LanguageContext";
+import FormInputs from "./FormInputs";
 
 type Props = {
    setSentSuccessfull: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,17 +32,7 @@ export default function ContactForm({
    setSentSuccessfull,
    setSentFailure,
 }: Props) {
-   const { currentIdiom, isEnglish } = useLanguageContext();
-
-   const {
-      name,
-      email,
-      message,
-      namePlaceholder,
-      emailPlaceholder,
-      messagePlaceholder,
-      send,
-   } = currentIdiom.contact;
+   const { currentIdiom } = useLanguageContext();
 
    const [isNameOnFocus, setIsNameOnFocus] = useState<boolean>(false);
    const [isEmailOnFocus, setIsEmailOnFocus] = useState<boolean>(false);
@@ -115,68 +105,21 @@ export default function ContactForm({
          validate={validation}
          onSubmit={onSubmit}
       >
-         {({ handleBlur, errors, touched, validateForm }) => {
-            useEffect(() => {
-               setTimeout(() => {
-                  validateForm();
-               }, 0);
-            }, [isEnglish]);
-
-            return (
-               <Form
-                  ref={form}
-                  className="flex flex-col p-5 md:p-0 max-w-full w-full sm:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
-               >
-                  <Input
-                     name="name"
-                     label={name}
-                     icon="person"
-                     placeholder={namePlaceholder}
-                     errors={errors}
-                     touched={touched}
-                     handleBlur={handleBlur}
-                     doubleError={true}
-                     textarea={false}
-                     isOnFocus={isNameOnFocus}
-                     setIsOnFocus={setIsNameOnFocus}
-                  />
-                  <Input
-                     name="email"
-                     label={email}
-                     icon="email"
-                     placeholder={emailPlaceholder}
-                     errors={errors}
-                     touched={touched}
-                     handleBlur={handleBlur}
-                     doubleError={false}
-                     textarea={false}
-                     isOnFocus={isEmailOnFocus}
-                     setIsOnFocus={setIsEmailOnFocus}
-                  />
-                  <Input
-                     name="message"
-                     label={message}
-                     icon="forum"
-                     placeholder={messagePlaceholder}
-                     errors={errors}
-                     touched={touched}
-                     handleBlur={handleBlur}
-                     doubleError={true}
-                     textarea={true}
-                     isOnFocus={isMessageOnFocus}
-                     setIsOnFocus={setIsMessageOnFocus}
-                  />
-                  <motion.button
-                     type="submit"
-                     whileTap={{ scale: 0.94 }}
-                     className="py-2 md:py-3 px-6 md:px-8 text-white bg-secondary w-min drop-shadow-lg flex items-center space-x-3"
-                  >
-                     <span className="material-icons">send</span>
-                     <span>{send}</span>
-                  </motion.button>
-               </Form>
-            );
-         }}
+         {({ handleBlur, errors, touched, validateForm }) => (
+            <FormInputs
+               handleBlur={handleBlur}
+               errors={errors}
+               touched={touched}
+               validateForm={validateForm}
+               ref={form}
+               isNameOnFocus={isNameOnFocus}
+               setIsNameOnFocus={setIsNameOnFocus}
+               isEmailOnFocus={isEmailOnFocus}
+               setIsEmailOnFocus={setIsEmailOnFocus}
+               isMessageOnFocus={isMessageOnFocus}
+               setIsMessageOnFocus={setIsMessageOnFocus}
+            />
+         )}
       </Formik>
    );
 }

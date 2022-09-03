@@ -43,8 +43,9 @@ export default function MobileProject({ project }: Props) {
                      initial={{ scale: 0.5 }}
                      animate={{ scale: 1 }}
                      exit={{ scale: 0.5 }}
-                     target="_blank"
                      href={project.repository}
+                     target="_blank"
+                     rel="noreferrer"
                      className="bg-secondary rounded-full shadow-md h-16 w-16 grid place-content-center"
                   >
                      <span className="w-min text-center">{viewCode}</span>
@@ -53,8 +54,9 @@ export default function MobileProject({ project }: Props) {
                      initial={{ scale: 0.5 }}
                      animate={{ scale: 1 }}
                      exit={{ scale: 0.5 }}
-                     target="_blank"
                      href={project.website}
+                     target="_blank"
+                     rel="noreferrer"
                      className="bg-secondary rounded-full shadow-md h-16 w-16 grid place-content-center"
                   >
                      <span className="w-min text-center">{visitSite}</span>
