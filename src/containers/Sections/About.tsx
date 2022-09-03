@@ -20,7 +20,7 @@ type Props = {};
 export default function About({}: Props) {
    const { currentIdiom } = useLanguageContext();
 
-   const { title, description1, description2, description3 } =
+   const { title, description1, description2, description3, checkMySkills } =
       currentIdiom.about;
    return (
       <SectionContainer index={1}>
@@ -39,9 +39,9 @@ export default function About({}: Props) {
                         <AboutInfoContainer>{description3}</AboutInfoContainer>
                      </Info>
                   </TagContainer>
-                  <SlideNextBtn text="Check my skills" />
+                  <SlideNextBtn text={checkMySkills} />
                </InfoContainer>
-               <div className="w-2/3 hidden sm:block">
+               <div className="w-3/5 hidden sm:block">
                   <Jumbotron
                      tag="table"
                      imgSrc={aboutImage}

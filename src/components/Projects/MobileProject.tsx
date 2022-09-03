@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import useLanguageContext from "../../context/LanguageContext";
 
 type Props = {
    project: any;
@@ -9,7 +10,8 @@ type Props = {
 // Do something with selected Pagination
 export default function MobileProject({ project }: Props) {
    const [showButtons, setShowButtons] = useState<boolean>(false);
-
+   const { currentIdiom } = useLanguageContext();
+   const { viewCode, visitSite } = currentIdiom.projects;
    return (
       <article className="aspect-16/9 w-full bg-orange-800 drop-shadow-md relative">
          <div
@@ -45,7 +47,7 @@ export default function MobileProject({ project }: Props) {
                      href={project.repository}
                      className="bg-secondary rounded-full shadow-md h-16 w-16 grid place-content-center"
                   >
-                     <span className="w-min text-center">View Code</span>
+                     <span className="w-min text-center">{viewCode}</span>
                   </motion.a>
                   <motion.a
                      initial={{ scale: 0.5 }}
@@ -55,7 +57,7 @@ export default function MobileProject({ project }: Props) {
                      href={project.website}
                      className="bg-secondary rounded-full shadow-md h-16 w-16 grid place-content-center"
                   >
-                     <span className="w-min text-center"> Visit Site</span>
+                     <span className="w-min text-center">{visitSite}</span>
                   </motion.a>
                </motion.div>
             )}

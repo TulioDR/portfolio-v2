@@ -1,10 +1,7 @@
 import SectionContainer from "../../components/Sections/SectionContainer";
-
 import InfoContainer from "../../components/Sections/InfoContainer";
 import Info from "../../components/Sections/Info";
-
 import projectsImg from "../../assets/images/projects.jpg";
-
 import ProjectsShowcase from "../../components/Projects/ProjectsShowcase";
 import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
 import useLanguageContext from "../../context/LanguageContext";
@@ -20,8 +17,9 @@ type Props = {};
 
 export default function Projects({}: Props) {
    const { currentIdiom } = useLanguageContext();
+   const { title, subtitle1, subtitle2, checkMyProjects } =
+      currentIdiom.projects;
 
-   const { title, subtitle1, subtitle2 } = currentIdiom.projects;
    return (
       <SectionContainer index={2}>
          <SwiperSlide>
@@ -36,9 +34,9 @@ export default function Projects({}: Props) {
                         </div>
                      </Info>
                   </TagContainer>
-                  <SlideNextBtn text="Check my projects" />
+                  <SlideNextBtn text={checkMyProjects} />
                </InfoContainer>
-               <div className="w-2/3 hidden sm:block">
+               <div className="w-3/5 hidden sm:block">
                   <Jumbotron
                      tag="picture"
                      imgSrc={projectsImg}

@@ -18,27 +18,36 @@
       "footer1": "Made with",
       "footer2": "in Carabobo, Venezuela."
    },
+   "others": {
+      "goBack": "Go Back"
+   },
    "home": {
       "portfolio": "Portfolio",
       "webDeveloper": "web developer."
    },
+
    "about": {
       "title": "About Me",
       "description1": "I'm a self-taught Front-End Developer with basic knowledge of Back-End Technology.",
       "description2": "I'm a well-organized person, problem solver with high attention to detail that specializes on React.",
       "description3": "Coding is a passion that motivates me to learn and improve my skills day by day, either with my team or on my own.",
       "mainSkills": "Main Skills",
-      "otherSkills": "Other Skills"
+      "otherSkills": "Other Skills",
+      "checkMySkills": "Check my skills"
    },
    "projects": {
       "title": "Projects",
       "subtitle1": "I love Details, Technology,",
       "subtitle2": "and Animation.",
       "repository": "Repository",
-      "website": "Website"
+      "website": "Website",
+      "viewCode": "View Code",
+      "visitSite": "Visit Site",
+      "checkMyProjects": "Check my projects"
    },
    "contact": {
       "title": "Get In Touch",
+      "contactMe": "Contact me",
       "name": "Name",
       "email": "Email",
       "message": "Message",

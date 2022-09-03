@@ -25,7 +25,7 @@ export default function Contact() {
    const [sentFailure, setSentFailure] = useState<boolean>(false);
 
    const { currentIdiom } = useLanguageContext();
-   const { title } = currentIdiom.contact;
+   const { title, contactMe } = currentIdiom.contact;
 
    return (
       <SectionContainer index={3}>
@@ -45,7 +45,7 @@ export default function Contact() {
                         </ContactLink>
                      </Info>
                   </TagContainer>
-                  <SlideNextBtn text="Contact Me" />
+                  <SlideNextBtn text={contactMe} />
                </InfoContainer>
                <div className="w-3/5 hidden sm:block">
                   <Jumbotron

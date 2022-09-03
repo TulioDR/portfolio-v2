@@ -18,6 +18,9 @@
       "footer1": "Hecho con",
       "footer2": "en Carabobo, Venezuela."
    },
+   "others": {
+      "goBack": "Regresar"
+   },
    "home": {
       "portfolio": "Portafolio",
       "webDeveloper": "desarrollador web."
@@ -28,17 +31,22 @@
       "description2": "Soy una persona organizada, solucionador de problemas, tengo gran atención a los detalles.",
       "description3": "Programar es una pasión que me motiva a aprender y mejorar mis habilidades día a día, ya sea con mi equipo o por mi cuenta.",
       "mainSkills": "Habilidades Principales",
-      "otherSkills": "Otras Habilidades"
+      "otherSkills": "Otras Habilidades",
+      "checkMySkills": "Ve mis habilidades"
    },
    "projects": {
       "title": "Proyectos",
       "subtitle1": "Amo los Detalles, la Tecnología,",
       "subtitle2": "y la Animación.",
       "repository": "Repositorio",
-      "website": "Sitio Web"
+      "website": "Sitio Web",
+      "viewCode": "Ver Código",
+      "visitSite": "Visitar Sitio",
+      "checkMyProjects": "Ve mis proyectos"
    },
    "contact": {
       "title": "Contáctame",
+      "contactMe": "Contáctame",
       "text": "Si tienes una solicitud o pregunta, no dudes en utilizar el formulario o enviarme un correo a",
       "name": "Nombre",
       "email": "Correo",

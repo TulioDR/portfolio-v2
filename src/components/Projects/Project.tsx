@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import useLanguageContext from "../../context/LanguageContext";
 
 type Props = {
    showCarousel: Boolean;
@@ -8,8 +9,10 @@ type Props = {
    project: any;
 };
 
-// Do something with selected Pagination
 export default function Project({ project, showCarousel }: Props) {
+   const { currentIdiom } = useLanguageContext();
+   const { viewCode, visitSite } = currentIdiom.projects;
+
    return (
       <motion.article
          layout
@@ -34,7 +37,7 @@ export default function Project({ project, showCarousel }: Props) {
                className="rounded-full bg-secondary h-20 w-20 2xl:h-28 2xl:w-28 grid place-content-center opacity-0 group-two-hover:opacity-100 scale-0 group-two-hover:scale-100 duration-200"
             >
                <span className="w-min text-center text-sm leading-tight">
-                  View Code
+                  {viewCode}
                </span>
             </a>
             <a
@@ -43,7 +46,7 @@ export default function Project({ project, showCarousel }: Props) {
                className="rounded-full bg-secondary h-20 w-20 2xl:h-28 2xl:w-28 grid place-content-center opacity-0 group-two-hover:opacity-100 scale-0 group-two-hover:scale-100 duration-200"
             >
                <span className="w-min text-center text-sm leading-tight">
-                  Visit Site
+                  {visitSite}
                </span>
             </a>
          </div>
