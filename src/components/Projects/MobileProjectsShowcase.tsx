@@ -8,8 +8,8 @@ export default function MobileProjectsShowcase() {
       <div className="w-full h-full flex flex-col justify-center space-y-5">
          <Swiper
             speed={500}
-            spaceBetween={20}
-            slidesPerView={1.3}
+            spaceBetween={10}
+            slidesPerView={1.15}
             centeredSlides={true}
             pagination={{
                el: ".mobile-projects-showcase-pagination-bullet-container",
