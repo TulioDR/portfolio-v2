@@ -9,7 +9,7 @@ type Props = {
    errors: any;
    touched: any;
    validateForm: any;
-   ref: any;
+   formRef: any;
    isNameOnFocus: any;
    setIsNameOnFocus: any;
    isEmailOnFocus: any;
@@ -23,7 +23,7 @@ export default function FormInputs({
    errors,
    touched,
    validateForm,
-   ref,
+   formRef,
    isNameOnFocus,
    setIsNameOnFocus,
    isEmailOnFocus,
@@ -47,11 +47,11 @@ export default function FormInputs({
       setTimeout(() => {
          validateForm();
       }, 0);
-   }, [validateForm]);
-
+   }, [validateForm, isEnglish]);
+   console.log("hello");
    return (
       <Form
-         ref={ref}
+         ref={formRef}
          className="flex flex-col p-5 md:p-0 max-w-full w-full sm:w-72 xl:w-80 2xl:w-96 space-y-5 mx-auto text-xs md:text-sm 2xl:text-base"
       >
          <Input

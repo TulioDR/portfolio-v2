@@ -111,7 +111,7 @@ export default function ContactForm({
                errors={errors}
                touched={touched}
                validateForm={validateForm}
-               ref={form}
+               formRef={form}
                isNameOnFocus={isNameOnFocus}
                setIsNameOnFocus={setIsNameOnFocus}
                isEmailOnFocus={isEmailOnFocus}
