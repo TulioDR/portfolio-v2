@@ -4,7 +4,7 @@ import spanish from "../translations/es/global.json";
 
 interface AppContextInterface {
    isEnglish: boolean;
-   toggleLanguage: React.Dispatch<React.SetStateAction<boolean>>;
+   toggleLanguage: any;
    currentIdiom: any;
 }
 type Props = {
