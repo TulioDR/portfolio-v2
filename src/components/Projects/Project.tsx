@@ -27,7 +27,7 @@ export default function Project({ project, showCarousel }: Props) {
             />
          </div>
 
-         <div className="absolute top-0 left-0 w-full h-full flex space-x-10 items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-50 duration-200 overflow-hidden">
+         <div className="absolute top-0 left-0 w-full h-full flex space-x-10 items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-20 duration-200 overflow-hidden">
             <a
                target="_blank"
                href={project.repository}

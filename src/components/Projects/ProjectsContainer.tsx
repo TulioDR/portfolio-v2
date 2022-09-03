@@ -48,7 +48,7 @@ export default function ProjectsContainer({
          className={`h-full ${
             showCarousel
                ? "w-full flex items-center space-x-10 px-20"
-               : "min-w-max grid grid-flow-col grid-rows-2 gap-5 2xl:gap-10 p-5 2xl:p-10"
+               : "w-min grid grid-flow-col grid-rows-2 cursor-grab active:cursor-grabbing"
          }`}
       >
          {children}
