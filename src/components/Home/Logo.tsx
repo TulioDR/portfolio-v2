@@ -54,7 +54,7 @@ export default function Logo({}: Props) {
    return (
       <MouseParallaxContainer
          useWindowMouseEvents={true}
-         className="w-64 h-full sm:w-72 md:w-80 lg:w-96 xl:w-125 relative -translate-y-4 sm:translate-y-0"
+         className="w-44 h-full sm:w-72 md:w-80 lg:w-96 xl:w-125 relative -translate-y-4 sm:translate-y-0"
          containerStyles={{ overflow: "visible" }}
       >
          <MouseParallaxChild
@@ -87,14 +87,14 @@ export default function Logo({}: Props) {
                animate="animate"
                exit="exit"
             >
-               <div className="flex items-center justify-end space-x-2 -translate-x-5 sm:-translate-x-10 translate-y-5">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10">
+               <div className="flex items-center justify-end space-x-2 sm:-translate-x-10 translate-y-5">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10">
                      {portfolio}
                   </div>
                   <img
                      src="/logo/shield.svg"
                      alt="shield"
-                     className="z-10 drop-shadow-lg shadow-black w-16 sm:w-20 lg:w-24 xl:w-36"
+                     className="z-10 drop-shadow-lg shadow-black w-14 sm:w-20 lg:w-24 xl:w-36"
                   />
                </div>
             </motion.div>
