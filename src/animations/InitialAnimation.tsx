@@ -5,7 +5,7 @@ type Props = {};
 export default function InitialAnimation({}: Props) {
    return (
       <motion.div
-         className="fixed top-0 left-0 bg-zinc-900 w-full h-screen z-50"
+         className="fixed top-0 left-0 bg-gradient-to-t from-orange-800 to-orange-900 w-full h-screen z-50 grid place-content-center"
          initial={{ y: 0 }}
          animate={{ y: "-100%" }}
          transition={{
