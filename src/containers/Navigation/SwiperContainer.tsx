@@ -17,7 +17,7 @@ export default function SwiperContainer({ children }: Props) {
    return (
       <Swiper
          speed={1000}
-         allowTouchMove={false}
+         followFinger={false}
          direction={"vertical"}
          spaceBetween={0}
          slidesPerView={1}

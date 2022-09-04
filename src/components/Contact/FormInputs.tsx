@@ -48,7 +48,7 @@ export default function FormInputs({
          validateForm();
       }, 0);
    }, [validateForm, isEnglish]);
-   console.log("hello");
+
    return (
       <Form
          ref={formRef}
