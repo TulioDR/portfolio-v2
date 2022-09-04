@@ -22,9 +22,7 @@ export default function SectionContainer({ children, index }: Props) {
       <section className="h-full w-full pl-10 md:pl-16 lg:pl-20 xl:pl-40 2xl:pl-48 text-white">
          <Swiper
             className="w-full h-full"
-            spaceBetween={0}
-            resistance={true}
-            resistanceRatio={0}
+            followFinger={false}
             speed={500}
             style={{ overflow: "visible" }}
          >

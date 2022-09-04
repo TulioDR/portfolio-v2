@@ -12,12 +12,17 @@ export default function MenuFooter() {
             duration: 0.4,
             delay: 0.5,
          }}
-         className="absolute bottom-8 flex items-center text-gray-400 text-xs sm:text-sm"
+         className="absolute bottom-8 flex flex-col sm:flex-row items-center sm:space-x-1 text-gray-400 text-xs sm:text-sm"
       >
-         <span className="material-icons mx-1">copyright</span>
-         <span>2022 Tulio Ruzo. {footer1}</span>
-         <span className="material-icons mx-1">favorite</span>
-         <span>{footer2}</span>
+         <div className="flex items-center">
+            <span className="material-icons mx-1">copyright</span>
+            <span>2022 Tulio Ruzo.</span>
+         </div>
+         <div className="flex items-center">
+            <span>{footer1}</span>
+            <span className="material-icons mx-1">favorite</span>
+            <span>{footer2}</span>
+         </div>
       </motion.div>
    );
 }
