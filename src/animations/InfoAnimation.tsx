@@ -2,8 +2,8 @@ export const infoContainerAnimation = {
    initial: { opacity: 1 },
    animate: {
       transition: {
-         delayChildren: 0.2,
-         staggerChildren: 0.6,
+         delayChildren: 0.1,
+         staggerChildren: 0.3,
       },
    },
 };
