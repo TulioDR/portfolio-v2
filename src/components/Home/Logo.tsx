@@ -78,7 +78,8 @@ export default function Logo({}: Props) {
                      layout="fill"
                      src={moon}
                      alt="moon"
-                     className="h-full w-full "
+                     className="h-full w-full"
+                     priority
                   />
                </div>
             </motion.div>

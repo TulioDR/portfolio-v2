@@ -28,6 +28,7 @@ export default function JumbotronBackgroundImage({ src, alt }: Props) {
                alt={alt}
                layout="fill"
                className="object-cover w-full h-full grayscale"
+               priority
             />
             <div className="w-full h-full bg-primary opacity-70 absolute top-0 left-0"></div>
          </MouseParallaxChild>
