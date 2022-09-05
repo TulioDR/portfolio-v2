@@ -11,9 +11,9 @@ export default function InitialAnimation({}: Props) {
          initial={{ y: 0 }}
          animate={{ y: "-100%" }}
          transition={{
-            duration: 0.8,
+            duration: 0.7,
             delay: 0.4,
-            ease: [0.645, 0.045, 0.355, 1],
+            ease: "easeIn",
          }}
       >
          <div className="relative h-60 w-full">
