@@ -36,7 +36,7 @@ export default function ProjectsContainer({
             transition: { duration: 0.5 },
          });
       }
-   }, [selectedPagination, showCarousel]);
+   }, [selectedPagination, showCarousel, constrainRef, controls]);
 
    return (
       <motion.div

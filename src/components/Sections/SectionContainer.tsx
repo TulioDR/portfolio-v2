@@ -24,7 +24,7 @@ export default function SectionContainer({
          setSelected(false);
          setTimeout(() => setSelected(true), 50);
       }
-   }, [currentIndex]);
+   }, [currentIndex, index]);
 
    return (
       <Swiper className="w-full h-full" followFinger={false} speed={500}>

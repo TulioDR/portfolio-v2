@@ -6,11 +6,15 @@ import {
 import { motion } from "framer-motion";
 import useLanguageContext from "../../context/LanguageContext";
 
+import moon from "../../assets/images/logo/moon.svg";
+import shield from "../../assets/images/logo/shield.svg";
+import Image from "next/image";
+
 export default function Logo({}: Props) {
    const { currentIdiom } = useLanguageContext();
    const { portfolio } = currentIdiom.home;
 
-   const moon = {
+   const moonVariant = {
       initial: { opacity: 0, x: "70%" },
       animate: {
          opacity: 1,
@@ -63,17 +67,20 @@ export default function Logo({}: Props) {
             className="w-full h-full flex items-center justify-center"
          >
             <motion.div
-               variants={moon}
+               variants={moonVariant}
                initial="initial"
                animate="animate"
                exit="exit"
                className="h-full w-full"
             >
-               <img
-                  src="/logo/moon.svg"
-                  alt="moon"
-                  className="h-full w-full -rotate-45 translate-x-5 sm:translate-x-0"
-               />
+               <div className="w-full h-full relative -rotate-45 translate-x-5 sm:translate-x-0">
+                  <Image
+                     layout="fill"
+                     src={moon}
+                     alt="moon"
+                     className="h-full w-full "
+                  />
+               </div>
             </motion.div>
          </MouseParallaxChild>
          <MouseParallaxChild
@@ -91,11 +98,14 @@ export default function Logo({}: Props) {
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-md shadow-black uppercase tracking-wide font-bold text-secondary z-10">
                      {portfolio}
                   </div>
-                  <img
-                     src="/logo/shield.svg"
-                     alt="shield"
-                     className="z-10 drop-shadow-lg shadow-black w-14 sm:w-20 lg:w-24 xl:w-36"
-                  />
+                  <div className="relative w-14 h-28 sm:w-20  lg:w-24 lg:h-40 xl:w-36 xl:h-44">
+                     <Image
+                        layout="fill"
+                        src={shield}
+                        alt="shield"
+                        className="z-10 drop-shadow-lg shadow-black"
+                     />
+                  </div>
                </div>
             </motion.div>
          </MouseParallaxChild>
