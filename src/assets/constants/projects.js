@@ -18,8 +18,7 @@ export const projectsList = [
    {
       name: "Portfolio.v1",
       img: portfolioV1,
-      website: "https://film-organizer.netlify.app/home",
-      repository: "https://github.com/TulioDR/Film-Organizer",
+      website: "https://tulioruzov1.vercel.app",
+      repository: "https://github.com/TulioDR/portfolio",
    },
-
 ];
