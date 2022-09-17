@@ -1,8 +1,4 @@
 import Image, { StaticImageData } from "next/image";
-import {
-   MouseParallaxChild,
-   MouseParallaxContainer,
-} from "react-parallax-mouse";
 
 type Props = {
    src: StaticImageData;
@@ -11,18 +7,8 @@ type Props = {
 
 export default function JumbotronBackgroundImage({ src, alt }: Props) {
    return (
-      <MouseParallaxContainer
-         useWindowMouseEvents={true}
-         className="h-full w-full"
-      >
-         <MouseParallaxChild
-            factorX={0.03}
-            factorY={0.03}
-            className="w-full h-full bg-1/2 relative"
-            updateStyles={{
-               transform: "scale(1.2)",
-            }}
-         >
+      <div className="h-full w-full">
+         <div className="w-full h-full bg-1/2 relative">
             <Image
                src={src}
                alt={alt}
@@ -31,7 +17,29 @@ export default function JumbotronBackgroundImage({ src, alt }: Props) {
                priority
             />
             <div className="w-full h-full bg-primary opacity-70 absolute top-0 left-0"></div>
-         </MouseParallaxChild>
-      </MouseParallaxContainer>
+         </div>
+      </div>
+      // <MouseParallaxContainer
+      //    useWindowMouseEvents={true}
+      //    className="h-full w-full"
+      // >
+      //    <MouseParallaxChild
+      //       factorX={0.03}
+      //       factorY={0.03}
+      //       className="w-full h-full bg-1/2 relative"
+      //       updateStyles={{
+      //          transform: "scale(1.2)",
+      //       }}
+      //    >
+      //       <Image
+      //          src={src}
+      //          alt={alt}
+      //          layout="fill"
+      //          className="object-cover w-full h-full grayscale"
+      //          priority
+      //       />
+      //       <div className="w-full h-full bg-primary opacity-70 absolute top-0 left-0"></div>
+      //    </MouseParallaxChild>
+      // </MouseParallaxContainer>
    );
 }

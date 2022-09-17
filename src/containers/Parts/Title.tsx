@@ -1,5 +1,5 @@
 import SectionTitle from "../../components/Sections/SectionTitle";
-import TagContainer from "../../components/Sections/TagContainer";
+
 import Underline from "../../components/Sections/Underline";
 
 type Props = {
@@ -8,9 +8,9 @@ type Props = {
 
 export default function Title({ children }: Props) {
    return (
-      <TagContainer tag="h2">
+      <>
          <SectionTitle>{children}</SectionTitle>
          <Underline />
-      </TagContainer>
+      </>
    );
 }

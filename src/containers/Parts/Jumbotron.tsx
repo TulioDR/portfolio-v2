@@ -2,7 +2,6 @@ import JumbotronAnimation from "../../components/Sections/Jumbotron/JumbotronAni
 import JumbotronBackgroundImage from "../../components/Sections/Jumbotron/JumbotronBackgroundImage";
 import JumbotronContainer from "../../components/Sections/Jumbotron/JumbotronContainer";
 import JumbotronInnerContainer from "../../components/Sections/Jumbotron/JumbotronInnerContainer";
-import Tag from "../../components/Sections/Tag";
 import { motion } from "framer-motion";
 
 type Props = {
@@ -24,7 +23,6 @@ export default function Jumbotron({ children, imgSrc, imgAlt, tag }: Props) {
          }}
          className="flex flex-col w-full h-full origin-right"
       >
-         <Tag>{tag}</Tag>
          <div className="w-full h-full pl-5">
             <JumbotronContainer>
                <JumbotronBackgroundImage src={imgSrc} alt={imgAlt} />
@@ -32,8 +30,6 @@ export default function Jumbotron({ children, imgSrc, imgAlt, tag }: Props) {
                <JumbotronAnimation />
             </JumbotronContainer>
          </div>
-
-         <Tag closing>{tag}</Tag>
       </motion.div>
    );
 }

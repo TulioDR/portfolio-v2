@@ -3,7 +3,6 @@ import SkillsShowcase from "../../components/About/SkillsShowcase";
 import Info from "../../components/Sections/Info";
 import InfoContainer from "../../components/Sections/InfoContainer";
 import SlideNextBtn from "../../components/Sections/SlideNextBtn";
-import TagContainer from "../../components/Sections/TagContainer";
 import useLanguageContext from "../../context/LanguageContext";
 import Jumbotron from "../Parts/Jumbotron";
 import Title from "../Parts/Title";
@@ -20,17 +19,15 @@ export default function AboutD({}: Props) {
       <>
          <InfoContainer>
             <Title>{title}</Title>
-            <TagContainer tag="p">
-               <Info about>
-                  <AboutInfoContainer>{description1}</AboutInfoContainer>
-               </Info>
-               <Info about>
-                  <AboutInfoContainer>{description2}</AboutInfoContainer>
-               </Info>
-               <Info about>
-                  <AboutInfoContainer>{description3}</AboutInfoContainer>
-               </Info>
-            </TagContainer>
+            <Info about>
+               <AboutInfoContainer>{description1}</AboutInfoContainer>
+            </Info>
+            <Info about>
+               <AboutInfoContainer>{description2}</AboutInfoContainer>
+            </Info>
+            <Info about>
+               <AboutInfoContainer>{description3}</AboutInfoContainer>
+            </Info>
             <SlideNextBtn text={checkMySkills} />
          </InfoContainer>
          <div className="w-3/5 hidden sm:block">

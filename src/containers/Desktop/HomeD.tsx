@@ -2,7 +2,6 @@ import { AnimatePresence } from "framer-motion";
 import Logo from "../../components/Home/Logo";
 import Info from "../../components/Sections/Info";
 import InfoContainer from "../../components/Sections/InfoContainer";
-import TagContainer from "../../components/Sections/TagContainer";
 import useLanguageContext from "../../context/LanguageContext";
 import usePositionContext from "../../context/PositionContext";
 import Title from "../Parts/Title";
@@ -24,9 +23,8 @@ export default function HomeD({}: Props) {
                   <div>RUZO</div>
                </div>
             </Title>
-            <TagContainer tag="p">
-               <Info>{webDeveloper}</Info>
-            </TagContainer>
+
+            <Info>{webDeveloper}</Info>
          </InfoContainer>
          <div className="w-full sm:w-3/5 h-full flex items-center justify-center">
             <AnimatePresence>{currentIndex === 0 && <Logo />}</AnimatePresence>
