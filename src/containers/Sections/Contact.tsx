@@ -18,11 +18,14 @@ export default function Contact() {
    const { title, contactMe } = currentIdiom.contact;
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
    const [sentFailure, setSentFailure] = useState<boolean>(false);
+
+   const [revealJumbotron, setRevealJumbotron] = useState<boolean>(false);
+   const toggleJumbotron = () => setRevealJumbotron(!revealJumbotron);
+
    return (
       <SectionContainer index={3}>
          <InfoContainer>
             <Title>{title}</Title>
-
             <Info>
                <ContactLink href="mailto:tulioruzo29@gmail.com">
                   tulioruzo29@gmail.com
@@ -33,16 +36,19 @@ export default function Contact() {
                   Github
                </ContactLink>
             </Info>
-            <SlideNextBtn text={contactMe} />
+            <SlideNextBtn text={contactMe} onClick={toggleJumbotron} />
          </InfoContainer>
-         <div className="w-1/2 hidden sm:block">
-            <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
-               <ContactForm
-                  setSentSuccessfull={setSentSuccessfull}
-                  setSentFailure={setSentFailure}
-               />
-            </Jumbotron>
-         </div>
+         <Jumbotron
+            reveal={revealJumbotron}
+            toggle={toggleJumbotron}
+            imgSrc={contactImg}
+            imgAlt="contact-form-background"
+         >
+            <ContactForm
+               setSentSuccessfull={setSentSuccessfull}
+               setSentFailure={setSentFailure}
+            />
+         </Jumbotron>
          <SentMessage
             open={sentSuccessfull}
             setOpen={setSentSuccessfull}

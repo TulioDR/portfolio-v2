@@ -10,6 +10,7 @@ import Jumbotron from "../Parts/Jumbotron";
 import Title from "../Parts/Title";
 
 import aboutImage from "../../assets/images/projects.jpg";
+import { useState } from "react";
 
 type Props = {};
 
@@ -18,6 +19,9 @@ export default function About({}: Props) {
 
    const { title, description1, description2, description3, checkMySkills } =
       currentIdiom.about;
+
+   const [revealJumbotron, setRevealJumbotron] = useState<boolean>(false);
+   const toggleJumbotron = () => setRevealJumbotron(!revealJumbotron);
 
    return (
       <SectionContainer index={1}>
@@ -32,13 +36,17 @@ export default function About({}: Props) {
             <Info about>
                <AboutInfoContainer>{description3}</AboutInfoContainer>
             </Info>
-            <SlideNextBtn text={checkMySkills} />
+            <SlideNextBtn text={checkMySkills} onClick={toggleJumbotron} />
          </InfoContainer>
-         <div className="w-1/2 hidden sm:block">
-            <Jumbotron imgSrc={aboutImage} imgAlt="about-background">
-               <SkillsShowcase />
-            </Jumbotron>
-         </div>
+
+         <Jumbotron
+            reveal={revealJumbotron}
+            toggle={toggleJumbotron}
+            imgSrc={aboutImage}
+            imgAlt="about-background"
+         >
+            <SkillsShowcase />
+         </Jumbotron>
       </SectionContainer>
    );
 }

@@ -21,7 +21,7 @@ export default function HomePage({}: Props) {
          <div className="flex flex-col sm:flex-row w-full">
             <InfoContainer>
                <Title>
-                  <div className="space-y-2 text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl">
+                  <div className="space-y-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
                      <div>TULIO</div>
                      <div>RUZO</div>
                   </div>

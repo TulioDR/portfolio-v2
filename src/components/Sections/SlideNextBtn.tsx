@@ -1,27 +1,25 @@
-import { useSwiper } from "swiper/react";
-import Info from "./Info";
-import TagContainer from "./TagContainer";
+import { motion } from "framer-motion";
 
-type Props = { text: string };
+type Props = { text: string; onClick: any };
 
-export default function SlideNextBtn({ text }: Props) {
-   const swiper = useSwiper();
+export default function SlideNextBtn({ text, onClick }: Props) {
+   const buttonAnimation = {
+      initial: { y: "100%" },
+      animate: {
+         y: 0,
+         transition: { duration: 0.6, ease: [0.645, 0.045, 0.355, 1] },
+      },
+   };
 
    return (
-      <div className="sm:hidden">
-         <TagContainer tag="button">
-            <Info>
-               <button
-                  className="bg-secondary rounded-full flex items-center w-max px-4 space-x-3"
-                  onClick={() => swiper.slideNext()}
-               >
-                  <span>{text}</span>
-                  <span className="material-icons text-4xl animate-bounce-horizontal">
-                     trending_flat
-                  </span>
-               </button>
-            </Info>
-         </TagContainer>
+      <div className="sm:hidden overflow-hidden">
+         <motion.button
+            variants={buttonAnimation}
+            className="bg-secondary rounded-full flex items-center w-max px-10 py-2 mx-auto"
+            onClick={onClick}
+         >
+            <span className="text-lg">{text}</span>
+         </motion.button>
       </div>
    );
 }
