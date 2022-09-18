@@ -20,7 +20,7 @@ export default function SkillsShowcase({}: Props) {
 
    return (
       <div className="flex flex-col justify-center items-center">
-         <div className="px-4 w-full">
+         <div className="px-3 w-full">
             <ul className="flex space-x-5 mb-5 2xl:mb-6 text-lg border-b border-gray-400">
                <SkillsTab
                   onClick={() => setIsMain(true)}

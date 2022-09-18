@@ -1,21 +1,11 @@
 import { useEffect, useState } from "react";
 import usePositionContext from "../../context/PositionContext";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperSlideInner from "./SwiperSlideInner";
-
 type Props = {
    index: number;
-   desktop: React.ReactElement;
-   mobile?: React.ReactElement;
-   home?: boolean;
+   children: React.ReactNode;
 };
 
-export default function SectionContainer({
-   index,
-   desktop,
-   mobile,
-   home,
-}: Props) {
+export default function SectionContainer({ index, children }: Props) {
    const { currentIndex } = usePositionContext();
    const [selected, setSelected] = useState(true);
 
@@ -27,19 +17,10 @@ export default function SectionContainer({
    }, [currentIndex, index]);
 
    return (
-      <Swiper className="w-full h-full" followFinger={false} speed={500}>
-         {selected && (
-            <>
-               <SwiperSlide>
-                  <SwiperSlideInner>{desktop}</SwiperSlideInner>
-               </SwiperSlide>
-               {!home && (
-                  <SwiperSlide className="w-full h-full flex flex-col sm:hidden">
-                     <SwiperSlideInner mobile>{mobile}</SwiperSlideInner>
-                  </SwiperSlide>
-               )}
-            </>
-         )}
-      </Swiper>
+      <div className="w-full h-full pl-10 md:pl-16 lg:pl-20 xl:pl-40 2xl:pl-48">
+         <div className="w-full h-full pt-24 pb-36 sm:py-24 lg:pb-20 2xl:pb-32 2xl:py-32 pr-10 md:pr-16 lg:pr-20 xl:pr-16 2xl:pr-32 overflow-hidden flex">
+            {selected && <>{children}</>}
+         </div>
+      </div>
    );
 }
