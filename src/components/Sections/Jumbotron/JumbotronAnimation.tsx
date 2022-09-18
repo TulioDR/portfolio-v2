@@ -8,7 +8,7 @@ export default function JumbotronAnimation({}: Props) {
          initial={{ x: 0 }}
          animate={{ x: "calc(100% + 10px)" }}
          transition={{
-            duration: 0.7,
+            duration: 0.6,
             delay: 0.5,
             ease: [0.645, 0.045, 0.355, 1],
          }}
@@ -18,8 +18,8 @@ export default function JumbotronAnimation({}: Props) {
             initial={{ width: 0 }}
             animate={{ width: "30%" }}
             transition={{
-               duration: 0.7,
-               delay: 0.4,
+               duration: 0.6,
+               delay: 0.5,
                ease: [0.645, 0.045, 0.355, 1],
             }}
             className="bg-secondary w-full h-full"

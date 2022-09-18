@@ -12,15 +12,17 @@ export default function MenuContainer({ children }: Props) {
          animate={{ height: "100vh" }}
          exit={{ height: "0", top: 0 }}
          transition={{ duration: 0.5 }}
-         className="fixed left-0 z-20 text-white w-full bg-gradient-to-t from-orange-800 to-orange-900 overflow-hidden"
+         className="fixed left-0 z-20 text-white w-full overflow-hidden"
       >
-         <motion.div
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="relative w-full h-screen flex flex-col items-center justify-center"
-         >
-            {children}
-         </motion.div>
+         <div className="w-full h-screen bg-gradient-to-br from-orange-900 to-secondary">
+            <motion.div
+               exit={{ opacity: 0 }}
+               transition={{ duration: 0.3 }}
+               className="relative h-full w-full flex flex-col items-center justify-center"
+            >
+               {children}
+            </motion.div>
+         </div>
       </motion.aside>
    );
 }

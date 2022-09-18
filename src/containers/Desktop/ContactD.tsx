@@ -34,12 +34,8 @@ export default function ContactD({}: Props) {
             </Info>
             <SlideNextBtn text={contactMe} />
          </InfoContainer>
-         <div className="w-3/5 hidden sm:block">
-            <Jumbotron
-               tag="form"
-               imgSrc={contactImg}
-               imgAlt="contact-form-background"
-            >
+         <div className="w-1/2 hidden sm:block">
+            <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
                <ContactForm
                   setSentSuccessfull={setSentSuccessfull}
                   setSentFailure={setSentFailure}

@@ -7,11 +7,7 @@ type Props = {};
 export default function ProjectsM({}: Props) {
    return (
       <>
-         <Jumbotron
-            tag="picture"
-            imgSrc={projectsImg}
-            imgAlt="contact-form-background"
-         >
+         <Jumbotron imgSrc={projectsImg} imgAlt="contact-form-background">
             <MobileProjectsShowcase />
          </Jumbotron>
          <SlidePrevBtn />

@@ -26,7 +26,7 @@ export default function HomeD({}: Props) {
 
             <Info>{webDeveloper}</Info>
          </InfoContainer>
-         <div className="w-full sm:w-3/5 h-full flex items-center justify-center">
+         <div className="w-full sm:w-1/2 h-full flex items-center justify-center">
             <AnimatePresence>{currentIndex === 0 && <Logo />}</AnimatePresence>
          </div>
       </div>

@@ -8,10 +8,9 @@ type Props = {
    children: React.ReactNode;
    imgSrc: any;
    imgAlt: any;
-   tag: string;
 };
 
-export default function Jumbotron({ children, imgSrc, imgAlt, tag }: Props) {
+export default function Jumbotron({ children, imgSrc, imgAlt }: Props) {
    return (
       <motion.div
          initial={{ scale: 0.85 }}
@@ -23,7 +22,7 @@ export default function Jumbotron({ children, imgSrc, imgAlt, tag }: Props) {
          }}
          className="flex flex-col w-full h-full origin-right"
       >
-         <div className="w-full h-full pl-5">
+         <div className="w-full h-full">
             <JumbotronContainer>
                <JumbotronBackgroundImage src={imgSrc} alt={imgAlt} />
                <JumbotronInnerContainer>{children}</JumbotronInnerContainer>

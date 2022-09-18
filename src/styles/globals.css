@@ -18,7 +18,8 @@ body {
    margin: 0;
    overflow-y: hidden;
    font-family: Futura, sans-serif;
-   @apply bg-gradient-to-t from-primaryDark to-primary text-white;
+   /* @apply bg-primary text-white; */
+   @apply bg-gradient-to-l from-primaryDark to-primary text-white;
 }
 
 @font-face {

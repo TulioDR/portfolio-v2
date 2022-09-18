@@ -12,11 +12,7 @@ export default function ContactM({}: Props) {
    const [sentFailure, setSentFailure] = useState<boolean>(false);
    return (
       <>
-         <Jumbotron
-            tag="form"
-            imgSrc={contactImg}
-            imgAlt="contact-form-background"
-         >
+         <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
             <ContactForm
                setSentSuccessfull={setSentSuccessfull}
                setSentFailure={setSentFailure}

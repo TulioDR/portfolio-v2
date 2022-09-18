@@ -9,7 +9,7 @@ export default function SectionTitle({ children }: Props) {
    return (
       <motion.h1
          variants={infoAnimation}
-         className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl min-w-max tracking-widest"
+         className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl min-w-max tracking-wide"
       >
          {children}
       </motion.h1>

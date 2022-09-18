@@ -7,7 +7,7 @@ type Props = {};
 export default function AboutM({}: Props) {
    return (
       <>
-         <Jumbotron tag="table" imgSrc={aboutImage} imgAlt="about-background">
+         <Jumbotron imgSrc={aboutImage} imgAlt="about-background">
             <SkillsShowcase />
          </Jumbotron>
          <SlidePrevBtn />

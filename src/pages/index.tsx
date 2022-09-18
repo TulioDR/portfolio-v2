@@ -27,12 +27,12 @@ const Home: NextPage = () => {
          <PositionProvider>
             <InitialAnimation />
             <LanguageProvider>
-               <NavbarProvider>
-                  <Navbar />
-               </NavbarProvider>
-               <Sidebar />
                <ScrollAdvice />
                <SwiperContainer>
+                  <NavbarProvider>
+                     <Navbar />
+                  </NavbarProvider>
+                  <Sidebar />
                   <SwiperSlide data-hash="home">
                      <HomePage />
                   </SwiperSlide>

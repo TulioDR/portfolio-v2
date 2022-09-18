@@ -30,12 +30,8 @@ export default function AboutD({}: Props) {
             </Info>
             <SlideNextBtn text={checkMySkills} />
          </InfoContainer>
-         <div className="w-3/5 hidden sm:block">
-            <Jumbotron
-               tag="table"
-               imgSrc={aboutImage}
-               imgAlt="about-background"
-            >
+         <div className="w-1/2 hidden sm:block">
+            <Jumbotron imgSrc={aboutImage} imgAlt="about-background">
                <SkillsShowcase />
             </Jumbotron>
          </div>
