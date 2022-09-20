@@ -3,7 +3,7 @@ import SkillsShowcase from "../../components/About/SkillsShowcase";
 import Info from "../../components/Sections/Info";
 import InfoContainer from "../../components/Sections/InfoContainer";
 import SectionContainer from "../../components/Sections/SectionContainer";
-import SlideNextBtn from "../../components/Sections/SlideNextBtn";
+
 import useLanguageContext from "../../context/LanguageContext";
 
 import Jumbotron from "../Parts/Jumbotron";
@@ -11,6 +11,7 @@ import Title from "../Parts/Title";
 
 import aboutImage from "../../assets/images/projects.jpg";
 import { useState } from "react";
+import RevealJumbotronBtn from "../../components/Sections/RevealJumbotronBtn";
 
 type Props = {};
 
@@ -36,7 +37,10 @@ export default function About({}: Props) {
             <Info about>
                <AboutInfoContainer>{description3}</AboutInfoContainer>
             </Info>
-            <SlideNextBtn text={checkMySkills} onClick={toggleJumbotron} />
+            <RevealJumbotronBtn
+               text={checkMySkills}
+               onClick={toggleJumbotron}
+            />
          </InfoContainer>
 
          <Jumbotron
@@ -44,6 +48,7 @@ export default function About({}: Props) {
             toggle={toggleJumbotron}
             imgSrc={aboutImage}
             imgAlt="about-background"
+            about
          >
             <SkillsShowcase />
          </Jumbotron>

@@ -3,7 +3,6 @@ import {
    useContext,
    createContext,
    useState,
-   ReactNode,
    useEffect,
    useRef,
    RefObject,
@@ -22,7 +21,7 @@ export default function usePositionContext() {
    return useContext(PositionContext);
 }
 type Props = {
-   children: ReactNode;
+   children: React.ReactNode;
 };
 
 export function PositionProvider({ children }: Props) {

@@ -8,8 +8,9 @@ type Props = {
    children: React.ReactNode;
    imgSrc: any;
    imgAlt: any;
-   reveal: boolean;
-   toggle: any;
+   reveal?: boolean;
+   toggle?: any;
+   about?: boolean;
 };
 
 export default function Jumbotron({
@@ -18,6 +19,7 @@ export default function Jumbotron({
    imgAlt,
    reveal,
    toggle,
+   about,
 }: Props) {
    return (
       <div
@@ -43,7 +45,11 @@ export default function Jumbotron({
                   >
                      close
                   </button>
-                  <JumbotronBackgroundImage src={imgSrc} alt={imgAlt} />
+                  <JumbotronBackgroundImage
+                     about={about}
+                     src={imgSrc}
+                     alt={imgAlt}
+                  />
                   <JumbotronInnerContainer>{children}</JumbotronInnerContainer>
                   <JumbotronAnimation />
                </JumbotronContainer>

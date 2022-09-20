@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 type Props = { text: string; onClick: any };
 
-export default function SlideNextBtn({ text, onClick }: Props) {
+export default function RevealJumbotronBtn({ text, onClick }: Props) {
    const buttonAnimation = {
       initial: { y: "100%" },
       animate: {

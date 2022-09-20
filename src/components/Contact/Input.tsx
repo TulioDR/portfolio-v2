@@ -1,16 +1,14 @@
 import { Field } from "formik";
 import ErrorMessage from "./ErrorMessage";
 import BorderBottom from "./BorderBottom";
+import ErrorMessageMobile from "./ErrorMessageMobile";
 
 type Props = {
    placeholder: string;
-   icon: string;
-   label: string;
    name: string;
    handleBlur: any;
    errors: any;
    touched: any;
-   doubleError: boolean;
    textarea: boolean;
    isOnFocus: boolean;
    setIsOnFocus: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,13 +16,10 @@ type Props = {
 
 export default function Input({
    placeholder,
-   icon,
-   label,
    name,
    handleBlur,
    errors,
    touched,
-   doubleError,
    textarea,
    isOnFocus,
    setIsOnFocus,
@@ -36,39 +31,27 @@ export default function Input({
    };
 
    return (
-      <div className="w-full">
-         <label className="flex items-center md:space-x-2 pr-4 max-w-min relative">
-            <span className="material-icons w-6 text-lg md:text-2xl">
-               {icon}
-            </span>
-            <span>{label}</span>
-            <ErrorMessage
-               errors={errors}
-               touched={touched}
+      <div className="w-full relative">
+         <ErrorMessage errors={errors} touched={touched} name={name} />
+         <div className="w-full relative overflow-hidden">
+            <Field
+               as={textarea ? "textarea" : "input"}
                name={name}
-               doubleError={doubleError}
+               onFocus={() => setIsOnFocus(true)}
+               onBlur={onBlur}
+               placeholder={placeholder}
+               autoComplete="off"
+               className={`bg-gray-100 w-full px-4 py-3 text-primary placeholder:text-gray-600 focus:outline-none
+                     ${
+                        textarea
+                           ? "h-28 outline-none resize-none duration-500"
+                           : "h-12"
+                     }
+                  `}
             />
-         </label>
-         <div className="pl-6 md:pl-8">
-            <div className="w-full relative overflow-hidden">
-               <Field
-                  as={textarea ? "textarea" : "input"}
-                  name={name}
-                  onFocus={() => setIsOnFocus(true)}
-                  onBlur={onBlur}
-                  placeholder={placeholder}
-                  autoComplete="off"
-                  className={
-                     textarea
-                        ? `w-full text-gray-300 mt-2 bg-transparent focus:outline-none outline-none resize-none duration-500 ${
-                             isOnFocus ? "h-24 delay-300" : "h-6"
-                          }`
-                        : `w-full text-gray-300 my-2 bg-transparent focus:outline-none`
-                  }
-               />
-               <BorderBottom isOnFocus={isOnFocus} />
-            </div>
+            <BorderBottom isOnFocus={isOnFocus} />
          </div>
+         <ErrorMessageMobile errors={errors} touched={touched} name={name} />
       </div>
    );
 }

@@ -15,7 +15,7 @@ export default function SentMessage({ open, setOpen, success }: Props) {
                animate={{ y: 0 }}
                exit={{ y: "200%" }}
                transition={{ duration: 0.5 }}
-               className={`rounded-md fixed bottom-7 left-7 px-5 py-4 flex items-center space-x-2 ${
+               className={`rounded-md fixed bottom-20 sm:bottom-7 left-7 px-5 py-4 flex items-center space-x-2 ${
                   success ? "bg-green-700" : "bg-red-700"
                }`}
             >

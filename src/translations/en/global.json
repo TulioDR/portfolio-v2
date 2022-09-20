@@ -48,11 +48,8 @@
    "contact": {
       "title": "Get In Touch",
       "contactMe": "Contact me",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
       "namePlaceholder": "What's your name?",
-      "emailPlaceholder": "Where should I contact you?",
+      "emailPlaceholder": "What is your email?",
       "messagePlaceholder": "What do you want to talk about?",
       "send": "Send",
       "close": "Close",

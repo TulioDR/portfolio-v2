@@ -3,9 +3,10 @@ import Image, { StaticImageData } from "next/image";
 type Props = {
    src: StaticImageData;
    alt: string;
+   about?: boolean;
 };
 
-export default function JumbotronBackgroundImage({ src, alt }: Props) {
+export default function JumbotronBackgroundImage({ src, alt, about }: Props) {
    return (
       <div className="h-full w-full">
          <div className="w-full h-full bg-1/2 relative">
@@ -13,10 +14,14 @@ export default function JumbotronBackgroundImage({ src, alt }: Props) {
                src={src}
                alt={alt}
                layout="fill"
-               className="object-cover w-full h-full grayscale"
+               className="object-cover w-full h-full"
                priority
             />
-            <div className="w-full h-full bg-primary opacity-70 absolute top-0 left-0"></div>
+            <div
+               className={`w-full h-full absolute top-0 left-0 ${
+                  about ? "bg-primaryDark opacity-70" : "bg-black opacity-40"
+               }`}
+            ></div>
          </div>
       </div>
       // <MouseParallaxContainer

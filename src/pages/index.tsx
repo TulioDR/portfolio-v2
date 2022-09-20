@@ -17,6 +17,8 @@ import About from "../containers/Sections/About";
 import Contact from "../containers/Sections/Contact";
 import Projects from "../containers/Sections/Projects";
 import { LanguageProvider } from "../context/LanguageContext";
+import MobileContactForm from "../containers/Parts/MobileContactForm";
+import { MobileFormProvider } from "../context/MobileFormContext";
 
 const Home: NextPage = () => {
    return (
@@ -28,24 +30,27 @@ const Home: NextPage = () => {
             <InitialAnimation />
             <LanguageProvider>
                <ScrollAdvice />
-               <SwiperContainer>
-                  <NavbarProvider>
-                     <Navbar />
-                  </NavbarProvider>
-                  <Sidebar />
-                  <SwiperSlide data-hash="home">
-                     <HomePage />
-                  </SwiperSlide>
-                  <SwiperSlide data-hash="about">
-                     <About />
-                  </SwiperSlide>
-                  <SwiperSlide data-hash="projects">
-                     <Projects />
-                  </SwiperSlide>
-                  <SwiperSlide data-hash="contact">
-                     <Contact />
-                  </SwiperSlide>
-               </SwiperContainer>
+               <MobileFormProvider>
+                  <SwiperContainer>
+                     <NavbarProvider>
+                        <Navbar />
+                     </NavbarProvider>
+                     <Sidebar />
+                     <SwiperSlide data-hash="home">
+                        <HomePage />
+                     </SwiperSlide>
+                     <SwiperSlide data-hash="about">
+                        <About />
+                     </SwiperSlide>
+                     <SwiperSlide data-hash="projects">
+                        <Projects />
+                     </SwiperSlide>
+                     <SwiperSlide data-hash="contact">
+                        <Contact />
+                     </SwiperSlide>
+                  </SwiperContainer>
+                  <MobileContactForm />
+               </MobileFormProvider>
             </LanguageProvider>
          </PositionProvider>
       </>

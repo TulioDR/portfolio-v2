@@ -5,13 +5,16 @@ import SentMessage from "../../components/Contact/SentMessage";
 import Info from "../../components/Sections/Info";
 import InfoContainer from "../../components/Sections/InfoContainer";
 import SectionContainer from "../../components/Sections/SectionContainer";
-import SlideNextBtn from "../../components/Sections/SlideNextBtn";
+
 import useLanguageContext from "../../context/LanguageContext";
 
 import Jumbotron from "../Parts/Jumbotron";
 import Title from "../Parts/Title";
 
-import contactImg from "../../assets/images/contact.jpg";
+import RevealJumbotronBtn from "../../components/Sections/RevealJumbotronBtn";
+import useMobileFormContext from "../../context/MobileFormContext";
+
+import contactImg from "../../assets/images/contact6.jpg";
 
 export default function Contact() {
    const { currentIdiom } = useLanguageContext();
@@ -19,8 +22,7 @@ export default function Contact() {
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
    const [sentFailure, setSentFailure] = useState<boolean>(false);
 
-   const [revealJumbotron, setRevealJumbotron] = useState<boolean>(false);
-   const toggleJumbotron = () => setRevealJumbotron(!revealJumbotron);
+   const { toggleMobileReveal } = useMobileFormContext();
 
    return (
       <SectionContainer index={3}>
@@ -36,14 +38,9 @@ export default function Contact() {
                   Github
                </ContactLink>
             </Info>
-            <SlideNextBtn text={contactMe} onClick={toggleJumbotron} />
+            <RevealJumbotronBtn text={contactMe} onClick={toggleMobileReveal} />
          </InfoContainer>
-         <Jumbotron
-            reveal={revealJumbotron}
-            toggle={toggleJumbotron}
-            imgSrc={contactImg}
-            imgAlt="contact-form-background"
-         >
+         <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
             <ContactForm
                setSentSuccessfull={setSentSuccessfull}
                setSentFailure={setSentFailure}
