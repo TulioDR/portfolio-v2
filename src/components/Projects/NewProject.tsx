@@ -6,14 +6,32 @@ import {
 
 import landscape from "../../assets/images/landscape2.jpg";
 import JumbotronAnimation from "../Sections/Jumbotron/JumbotronAnimation";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 type Props = {
    lg?: string;
+   setValues: any;
 };
 
-export default function NewProject({ lg }: Props) {
+export default function NewProject({ lg, setValues }: Props) {
+   const project = useRef(null);
+
+   const saveNewValues = () => {
+      setValues({
+         width: project.current.clientWidth,
+         height: project.current.clientHeight,
+         x: project.current.offsetLeft,
+         y: project.current.offsetTop,
+      });
+   };
+
    return (
-      <div className={`relative overflow-hidden ${lg}`}>
+      <div
+         ref={project}
+         className={`relative overflow-hidden ${lg}`}
+         onClick={saveNewValues}
+      >
          <MouseParallaxContainer enabled={false} className="h-full w-full">
             <MouseParallaxChild
                factorX={0.03}
@@ -24,10 +42,9 @@ export default function NewProject({ lg }: Props) {
                   src={landscape}
                   alt="landscape"
                   layout="fill"
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full brightness-50"
                   priority
                />
-               <div className="w-full h-full bg-primary opacity-70 absolute top-0 left-0"></div>
             </MouseParallaxChild>
          </MouseParallaxContainer>
          <JumbotronAnimation />

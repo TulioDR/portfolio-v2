@@ -46,8 +46,7 @@ export default function ContactForm({
       return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email);
    };
 
-   const onSubmit = (values: any, { resetForm }: any) => {
-      console.log(values);
+   const onSubmit = (_values: any, { resetForm }: any) => {
       emailjs
          .sendForm(
             process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
@@ -56,8 +55,7 @@ export default function ContactForm({
             process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY!
          )
          .then(
-            (result) => {
-               console.log(result);
+            (_result) => {
                resetForm();
                setIsNameOnFocus(false);
                setIsEmailOnFocus(false);

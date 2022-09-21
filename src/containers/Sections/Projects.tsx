@@ -1,14 +1,22 @@
 import SectionContainer from "../../components/Sections/SectionContainer";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import useLanguageContext from "../../context/LanguageContext";
 import UnderlineProjects from "../../components/Projects/UnderlineProjects";
 import NewProject from "../../components/Projects/NewProject";
 type Props = {};
 
+import { useState } from "react";
+
+import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
+import SelectedProject from "../../components/Projects/SelectedProject";
+
 export default function Projects({}: Props) {
    const { currentIdiom } = useLanguageContext();
    const { title } = currentIdiom.projects;
+
+   const [values, setValues] = useState<any>(null);
+
    return (
       <SectionContainer index={2}>
          <div className="h-full w-full flex flex-col">
@@ -25,12 +33,17 @@ export default function Projects({}: Props) {
                   <UnderlineProjects />
                </div>
             </div>
-            <div className="flex-1 w-full grid grid-cols-4 gap-4">
-               <NewProject lg="col-span-3" />
-               <NewProject lg="row-span-2" />
-               <NewProject />
-               <NewProject lg="col-span-2" />
+            <div className="flex-1 w-full hidden sm:grid grid-cols-5 gap-4">
+               <NewProject lg="col-span-3" setValues={setValues} />
+               <NewProject lg="col-span-2 row-span-2" setValues={setValues} />
+               <NewProject lg="col-span-3" setValues={setValues} />
             </div>
+            <AnimatePresence>
+               {values && (
+                  <SelectedProject values={values} setValues={setValues} />
+               )}
+            </AnimatePresence>
+            <MobileProjectsShowcase />
          </div>
       </SectionContainer>
    );

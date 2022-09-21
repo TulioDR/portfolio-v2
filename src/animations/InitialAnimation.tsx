@@ -11,8 +11,8 @@ export default function InitialAnimation({}: Props) {
          initial={{ y: 0 }}
          animate={{ y: "-100%" }}
          transition={{
-            duration: 0.7,
-            delay: 0.4,
+            duration: 0.5,
+            delay: 0.2,
             ease: "easeIn",
          }}
       >

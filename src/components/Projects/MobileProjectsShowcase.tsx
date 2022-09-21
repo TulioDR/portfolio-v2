@@ -1,33 +1,34 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-import { projectsList } from "../../assets/constants/projects";
-import MobileProject from "./MobileProject";
+
+import JumbotronAnimation from "../Sections/Jumbotron/JumbotronAnimation";
+import NewMobileProject from "./NewMobileProject";
 
 export default function MobileProjectsShowcase() {
    return (
-      <div className="w-full h-full flex flex-col justify-center space-y-5">
+      <div className="flex-1 w-full sm:hidden">
          <Swiper
             speed={500}
-            spaceBetween={10}
-            slidesPerView={1.15}
-            centeredSlides={true}
-            pagination={{
-               el: ".mobile-projects-showcase-pagination-bullet-container",
-               clickable: true,
-               bulletClass: "mobile-projects-showcase-bullet",
-               bulletActiveClass: "mobile-projects-showcase-bullet-active",
-            }}
+            spaceBetween={0}
+            slidesPerView={1}
+            pagination={true}
             modules={[Pagination]}
-            className="w-full"
-            nested={true}
+            className="h-full w-full relative"
          >
-            {projectsList.map((project, index) => (
-               <SwiperSlide key={index} className="flex items-center">
-                  <MobileProject project={project} />
-               </SwiperSlide>
-            ))}
+            <JumbotronAnimation />
+            <SwiperSlide>
+               <NewMobileProject />
+            </SwiperSlide>
+            <SwiperSlide>
+               <NewMobileProject />
+            </SwiperSlide>
+            <SwiperSlide>
+               <NewMobileProject />
+            </SwiperSlide>
+            <SwiperSlide>
+               <NewMobileProject />
+            </SwiperSlide>
          </Swiper>
-         <div className="w-full flex space-x-3 justify-center mobile-projects-showcase-pagination-bullet-container"></div>
       </div>
    );
 }
