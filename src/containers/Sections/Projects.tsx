@@ -3,13 +3,13 @@ import SectionContainer from "../../components/Sections/SectionContainer";
 import { AnimatePresence, motion } from "framer-motion";
 import useLanguageContext from "../../context/LanguageContext";
 import UnderlineProjects from "../../components/Projects/UnderlineProjects";
-import NewProject from "../../components/Projects/NewProject";
 type Props = {};
 
 import { useState } from "react";
 
 import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
 import SelectedProject from "../../components/Projects/SelectedProject";
+import ProjectShowcase from "../../components/Projects/ProjectShowcase";
 
 export default function Projects({}: Props) {
    const { currentIdiom } = useLanguageContext();
@@ -33,17 +33,13 @@ export default function Projects({}: Props) {
                   <UnderlineProjects />
                </div>
             </div>
-            <div className="flex-1 w-full hidden sm:grid grid-cols-5 gap-4">
-               <NewProject lg="col-span-3" setValues={setValues} />
-               <NewProject lg="col-span-2 row-span-2" setValues={setValues} />
-               <NewProject lg="col-span-3" setValues={setValues} />
-            </div>
+            <ProjectShowcase setValues={setValues} />
+            <MobileProjectsShowcase />
             <AnimatePresence>
                {values && (
                   <SelectedProject values={values} setValues={setValues} />
                )}
             </AnimatePresence>
-            <MobileProjectsShowcase />
          </div>
       </SectionContainer>
    );

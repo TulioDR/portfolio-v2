@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
-import JumbotronAnimation from "../Sections/Jumbotron/JumbotronAnimation";
-import NewMobileProject from "./NewMobileProject";
+import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
+import MobileProject from "./MobileProject";
 
 export default function MobileProjectsShowcase() {
    return (
@@ -17,16 +17,16 @@ export default function MobileProjectsShowcase() {
          >
             <JumbotronAnimation />
             <SwiperSlide>
-               <NewMobileProject />
+               <MobileProject />
             </SwiperSlide>
             <SwiperSlide>
-               <NewMobileProject />
+               <MobileProject />
             </SwiperSlide>
             <SwiperSlide>
-               <NewMobileProject />
+               <MobileProject />
             </SwiperSlide>
             <SwiperSlide>
-               <NewMobileProject />
+               <MobileProject />
             </SwiperSlide>
          </Swiper>
       </div>

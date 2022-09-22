@@ -1,7 +1,7 @@
-import JumbotronAnimation from "../../components/Sections/Jumbotron/JumbotronAnimation";
-import JumbotronBackgroundImage from "../../components/Sections/Jumbotron/JumbotronBackgroundImage";
-import JumbotronContainer from "../../components/Sections/Jumbotron/JumbotronContainer";
-import JumbotronInnerContainer from "../../components/Sections/Jumbotron/JumbotronInnerContainer";
+import JumbotronAnimation from "../../components/Jumbotron/JumbotronAnimation";
+import JumbotronBackgroundImage from "../../components/Jumbotron/JumbotronBackgroundImage";
+import JumbotronContainer from "../../components/Jumbotron/JumbotronContainer";
+import JumbotronInnerContainer from "../../components/Jumbotron/JumbotronInnerContainer";
 import { motion } from "framer-motion";
 
 type Props = {

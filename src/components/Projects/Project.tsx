@@ -1,57 +1,53 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
-import useLanguageContext from "../../context/LanguageContext";
+import {
+   MouseParallaxChild,
+   MouseParallaxContainer,
+} from "react-parallax-mouse";
+
+import landscape from "../../assets/images/landscape2.jpg";
+import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
+
+import { useRef } from "react";
 
 type Props = {
-   showCarousel: Boolean;
-   setSelectedId?: any;
-   selectedPagination: number;
-   project: any;
+   lg?: string;
+   setValues: any;
 };
 
-export default function Project({ project, showCarousel }: Props) {
-   const { currentIdiom } = useLanguageContext();
-   const { viewCode, visitSite } = currentIdiom.projects;
+export default function Project({ lg, setValues }: Props) {
+   const project = useRef<HTMLDivElement>(null);
+
+   const saveNewValues = () => {
+      setValues({
+         width: project.current!.clientWidth,
+         height: project.current!.clientHeight,
+         x: project.current!.offsetLeft,
+         y: project.current!.offsetTop,
+      });
+   };
 
    return (
-      <motion.article
-         layout
-         className={`aspect-16/9 drop-shadow-md group-two ${
-            showCarousel ? "w-full min-w-full" : "h-full"
-         }`}
-         transition={{ duration: 0.5, delay: showCarousel ? 0 : 0.2 }}
+      <div
+         ref={project}
+         className={`relative overflow-hidden ${lg}`}
+         onClick={saveNewValues}
       >
-         <div className="h-full w-full absolute top-0 left-0">
-            <Image
-               alt="example"
-               src={project.img}
-               layout="fill"
-               className="group-two-hover:scale-110 duration-500 object-cover h-full w-full"
-            />
-         </div>
-
-         <div className="absolute top-0 left-0 w-full h-full flex space-x-10 items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-20 duration-200 overflow-hidden">
-            <a
-               target="_blank"
-               rel="noreferrer"
-               href={project.repository}
-               className="rounded-full bg-secondary h-20 w-20 2xl:h-28 2xl:w-28 grid place-content-center opacity-0 group-two-hover:opacity-100 scale-0 group-two-hover:scale-100 duration-200"
+         <MouseParallaxContainer enabled={false} className="h-full w-full">
+            <MouseParallaxChild
+               factorX={0.03}
+               factorY={0.03}
+               className="w-full h-full bg-1/2 relative border border-primary"
             >
-               <span className="w-min text-center text-sm leading-tight">
-                  {viewCode}
-               </span>
-            </a>
-            <a
-               target="_blank"
-               rel="noreferrer"
-               href={project.website}
-               className="rounded-full bg-secondary h-20 w-20 2xl:h-28 2xl:w-28 grid place-content-center opacity-0 group-two-hover:opacity-100 scale-0 group-two-hover:scale-100 duration-200"
-            >
-               <span className="w-min text-center text-sm leading-tight">
-                  {visitSite}
-               </span>
-            </a>
-         </div>
-      </motion.article>
+               <Image
+                  src={landscape}
+                  alt="landscape"
+                  layout="fill"
+                  className="object-cover w-full brightness-50"
+                  priority
+               />
+            </MouseParallaxChild>
+         </MouseParallaxContainer>
+         <JumbotronAnimation />
+      </div>
    );
 }
