@@ -18,18 +18,21 @@ export default function Project({ lg, setValues }: Props) {
    const project = useRef<HTMLDivElement>(null);
 
    const saveNewValues = () => {
+      const { clientWidth, clientHeight, offsetLeft, offsetTop } =
+         project.current!;
+
       setValues({
-         width: project.current!.clientWidth,
-         height: project.current!.clientHeight,
-         x: project.current!.offsetLeft,
-         y: project.current!.offsetTop,
+         width: clientWidth,
+         height: clientHeight,
+         x: offsetLeft,
+         y: offsetTop,
       });
    };
 
    return (
       <div
          ref={project}
-         className={`relative overflow-hidden ${lg}`}
+         className={`relative overflow-hidden cursor-pointer ${lg}`}
          onClick={saveNewValues}
       >
          <MouseParallaxContainer enabled={false} className="h-full w-full">
