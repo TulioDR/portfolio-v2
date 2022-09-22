@@ -8,8 +8,9 @@ import { useState } from "react";
 
 import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
 import SelectedProject from "../../components/Projects/SelectedProject";
-import ProjectShowcase from "../../components/Projects/ProjectShowcase";
+
 import Underline from "../../components/Sections/Underline";
+import ProjectsShowcase from "../../components/Projects/ProjectsShowcase";
 
 export default function Projects({}: Props) {
    const { currentIdiom } = useLanguageContext();
@@ -33,8 +34,8 @@ export default function Projects({}: Props) {
                   <Underline projects />
                </div>
             </div>
-            <ProjectShowcase setValues={setValues} />
-            <MobileProjectsShowcase />
+            <ProjectsShowcase setValues={setValues} />
+            <MobileProjectsShowcase setValues={setValues} />
             <AnimatePresence>
                {values && (
                   <SelectedProject values={values} setValues={setValues} />

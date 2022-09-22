@@ -17,7 +17,7 @@ type Props = {
 export default function Project({ lg, setValues }: Props) {
    const project = useRef<HTMLDivElement>(null);
 
-   const saveNewValues = () => {
+   const saveValues = () => {
       const { clientWidth, clientHeight, offsetLeft, offsetTop } =
          project.current!;
 
@@ -33,7 +33,7 @@ export default function Project({ lg, setValues }: Props) {
       <div
          ref={project}
          className={`relative overflow-hidden cursor-pointer ${lg}`}
-         onClick={saveNewValues}
+         onClick={saveValues}
       >
          <MouseParallaxContainer enabled={false} className="h-full w-full">
             <MouseParallaxChild

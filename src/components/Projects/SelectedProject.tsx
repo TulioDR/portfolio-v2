@@ -6,6 +6,7 @@ type Props = {
 };
 
 export default function SelectedProject({ values, setValues }: Props) {
+   console.log(values);
    return (
       <motion.div
          initial={{

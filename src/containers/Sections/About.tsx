@@ -7,11 +7,12 @@ import SectionContainer from "../../components/Sections/SectionContainer";
 import useLanguageContext from "../../context/LanguageContext";
 
 import Jumbotron from "../Parts/Jumbotron";
-import Title from "../Parts/Title";
 
 import aboutImage from "../../assets/images/projects.jpg";
 import { useState } from "react";
 import RevealJumbotronBtn from "../../components/Sections/RevealJumbotronBtn";
+import SectionTitle from "../../components/Sections/SectionTitle";
+import Underline from "../../components/Sections/Underline";
 
 type Props = {};
 
@@ -27,7 +28,8 @@ export default function About({}: Props) {
    return (
       <SectionContainer index={1}>
          <InfoContainer>
-            <Title>{title}</Title>
+            <SectionTitle>{title}</SectionTitle>
+            <Underline />
             <Info about>
                <AboutInfoContainer>{description1}</AboutInfoContainer>
             </Info>

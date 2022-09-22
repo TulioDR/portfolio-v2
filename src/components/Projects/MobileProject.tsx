@@ -1,11 +1,14 @@
 import Image from "next/image";
+
 import landscape from "../../assets/images/landscape2.jpg";
 
-type Props = {};
+type Props = {
+   saveValues: any;
+};
 
-export default function MobileProject({}: Props) {
+export default function MobileProject({ saveValues }: Props) {
    return (
-      <div className="w-full h-full relative">
+      <div className="w-full h-full relative" onClick={saveValues}>
          <Image
             src={landscape}
             alt="landscape"

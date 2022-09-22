@@ -9,12 +9,13 @@ import SectionContainer from "../../components/Sections/SectionContainer";
 import useLanguageContext from "../../context/LanguageContext";
 
 import Jumbotron from "../Parts/Jumbotron";
-import Title from "../Parts/Title";
 
 import RevealJumbotronBtn from "../../components/Sections/RevealJumbotronBtn";
 import useMobileFormContext from "../../context/MobileFormContext";
 
 import contactImg from "../../assets/images/contact6.jpg";
+import Underline from "../../components/Sections/Underline";
+import SectionTitle from "../../components/Sections/SectionTitle";
 
 export default function Contact() {
    const { currentIdiom } = useLanguageContext();
@@ -27,7 +28,8 @@ export default function Contact() {
    return (
       <SectionContainer index={3}>
          <InfoContainer>
-            <Title>{title}</Title>
+            <SectionTitle>{title}</SectionTitle>
+            <Underline />
             <Info>
                <ContactLink href="mailto:tulioruzo29@gmail.com">
                   tulioruzo29@gmail.com
