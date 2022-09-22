@@ -1,5 +1,4 @@
 import SectionTitle from "../../components/Sections/SectionTitle";
-
 import Underline from "../../components/Sections/Underline";
 
 type Props = {

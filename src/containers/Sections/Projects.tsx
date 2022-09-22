@@ -2,7 +2,6 @@ import SectionContainer from "../../components/Sections/SectionContainer";
 
 import { AnimatePresence, motion } from "framer-motion";
 import useLanguageContext from "../../context/LanguageContext";
-import UnderlineProjects from "../../components/Projects/UnderlineProjects";
 type Props = {};
 
 import { useState } from "react";
@@ -10,6 +9,7 @@ import { useState } from "react";
 import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
 import SelectedProject from "../../components/Projects/SelectedProject";
 import ProjectShowcase from "../../components/Projects/ProjectShowcase";
+import Underline from "../../components/Sections/Underline";
 
 export default function Projects({}: Props) {
    const { currentIdiom } = useLanguageContext();
@@ -30,7 +30,7 @@ export default function Projects({}: Props) {
                   >
                      {title}
                   </motion.div>
-                  <UnderlineProjects />
+                  <Underline projects />
                </div>
             </div>
             <ProjectShowcase setValues={setValues} />

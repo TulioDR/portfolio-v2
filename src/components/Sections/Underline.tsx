@@ -1,23 +1,57 @@
 import { motion } from "framer-motion";
 import { infoAnimation } from "../../animations/InfoAnimation";
 
-type Props = {};
+type Props = { projects?: boolean };
 
-export default function Underline({}: Props) {
+const projectsUnderline = {
+   initial: { width: 0 },
+   animate: {
+      width: "100%",
+      transition: {
+         duration: 0.6,
+         delay: 0.5,
+         ease: [0.645, 0.045, 0.355, 1],
+      },
+   },
+};
+
+const normal1 = {
+   initial: { width: "100%" },
+   animate: { x: 0 },
+};
+const normal2 = {
+   initial: { width: "100%", x: "-100%" },
+   animate: {
+      x: 0,
+      transition: {
+         duration: 0.8,
+         delay: 0.5,
+         ease: [0.645, 0.045, 0.355, 1],
+      },
+   },
+};
+
+export default function Underline({ projects }: Props) {
    return (
-      <motion.div variants={infoAnimation} className="w-28 md:w-36">
+      <motion.div
+         variants={projects ? undefined : infoAnimation}
+         className="w-28 md:w-36"
+      >
          <div className="space-y-3 md:space-y-5">
-            <div className="bg-secondary w-2/3 h-1 rounded-sm"></div>
-            <div className="flex justify-end">
+            <div className="w-2/3 h-1">
                <motion.div
-                  initial={{ x: "-100%" }}
-                  animate={{ x: 0 }}
-                  transition={{
-                     duration: 0.8,
-                     delay: 0.6,
-                     ease: [0.645, 0.045, 0.355, 1],
-                  }}
-                  className="bg-secondary w-2/3 h-1 rounded-sm "
+                  variants={projects ? projectsUnderline : normal1}
+                  initial="initial"
+                  animate="animate"
+                  className="bg-secondary h-full rounded-sm"
+               ></motion.div>
+            </div>
+            <div className="w-2/3 h-1 ml-[33.33%]">
+               <motion.div
+                  variants={projects ? projectsUnderline : normal2}
+                  initial="initial"
+                  animate="animate"
+                  className="bg-secondary h-full rounded-sm"
                ></motion.div>
             </div>
          </div>
