@@ -23,7 +23,7 @@ export default function Jumbotron({
 }: Props) {
    return (
       <div
-         className={`w-full h-full top-0 left-0 z-20 sm:z-0 sm:w-1/2 absolute sm:static pr-10 pt-24 pb-36 sm:pr-0 sm:pt-0 sm:pb-0 duration-500 ${
+         className={`w-full h-full top-0 left-0 z-20 sm:z-0 sm:w-1/2 absolute sm:static px-10 pt-24 pb-36 sm:px-0 sm:pt-0 sm:pb-0 duration-500 ${
             reveal ? "" : "translate-y-full sm:translate-y-0"
          }`}
       >
