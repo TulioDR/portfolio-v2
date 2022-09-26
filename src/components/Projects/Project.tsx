@@ -13,12 +13,7 @@ type Props = {
    layout?: string;
 };
 
-export default function Project({
-   projectRef,
-
-   project,
-   layout,
-}: Props) {
+export default function Project({ projectRef, project, layout }: Props) {
    const { goForward } = useRouteContext();
 
    const execute = () => {

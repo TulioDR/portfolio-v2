@@ -1,25 +1,27 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import useRouteContext from "../context/RouteContext";
 import { projectsList } from "../assets/constants/projects";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-type Props = {};
+import arrowLeft from "../assets/images/arrow-left.svg";
 
-export default function Project({}: Props) {
-   const router = useRouter();
-   const query = router.query.project;
+type Props = {
+   currentProject: any;
+};
 
+Project.getInitialProps = async ({ query }: any) => {
+   const project = projectsList.find((p) => p.link === query.project);
+   return { currentProject: project };
+};
+
+export default function Project({ currentProject }: Props) {
    const { setForwardAnimation, goBack } = useRouteContext();
-   const [currentProject, setCurrentProject] = useState<any>(null);
 
    useEffect(() => {
-      const project = projectsList.find((p) => p.link === query);
-      setCurrentProject(project);
       setForwardAnimation(false);
-   }, [query, setForwardAnimation]);
+   }, [setForwardAnimation]);
 
    const execute = () => {
       goBack(currentProject.img, currentProject.link);
@@ -34,28 +36,30 @@ export default function Project({}: Props) {
             exit={{ transition: { duration: 1 } }}
             className="relative h-screen overflow-y-auto overflow-x-hidden"
          >
-            {currentProject && (
-               <div className="h-screen w-screen relative">
-                  <Image
-                     src={currentProject.img}
-                     alt="background"
-                     layout="fill"
-                     objectFit="cover"
-                     objectPosition="top"
-                     className="brightness-[0.5]"
-                     priority
-                  />
-               </div>
-            )}
+            <div className="h-screen w-screen relative">
+               <Image
+                  src={currentProject?.img}
+                  alt="background"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="top"
+                  className="brightness-[0.5]"
+                  priority
+               />
+            </div>
+
             <div className="h-screen bg-white text-black w-full p-10"></div>
-            {currentProject && (
-               <button
+            <div className="absolute top-32 left-16 overflow-hidden w-16 h-9">
+               <motion.button
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0, transition: { duration: 0.6 } }}
+                  exit={{ x: "-100%", transition: { duration: 0.6 } }}
                   onClick={execute}
-                  className="absolute top-32 left-16 px-4 py-3 bg-primaryDark rounded-md"
+                  className="w-full h-full relative"
                >
-                  Return
-               </button>
-            )}
+                  <Image src={arrowLeft} alt="back" layout="fill" />
+               </motion.button>
+            </div>
          </motion.div>
       </>
    );

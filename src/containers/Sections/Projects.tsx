@@ -26,6 +26,7 @@ export default function Projects({}: Props) {
             x: offsetLeft,
             y: offsetTop,
          });
+
          setTimeout(() => setBackAnimation(false), 50);
       }
    }, [setPositionValues, selectedProject]);

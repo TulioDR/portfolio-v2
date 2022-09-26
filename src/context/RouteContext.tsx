@@ -58,10 +58,14 @@ export function RouteProvider({ children }: Props) {
    };
 
    const goBack = async (img: any, query: string) => {
-      await selectProject(query);
+      selectProject(query);
       setBackgroundImage(img);
-      setBackAnimation(true);
       router.push("/#projects");
+
+      // the delay is equal to the delay on the elements exit duration on [project]
+      setTimeout(() => {
+         setBackAnimation(true);
+      }, 600);
    };
 
    const goForward = (img: any, ref: any, link: string) => {
