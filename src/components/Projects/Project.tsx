@@ -1,55 +1,69 @@
 import Image from "next/image";
-import {
-   MouseParallaxChild,
-   MouseParallaxContainer,
-} from "react-parallax-mouse";
+// import {
+//    MouseParallaxChild,
+//    MouseParallaxContainer,
+// } from "react-parallax-mouse";
 
-import landscape from "../../assets/images/landscape2.jpg";
 import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
-
-import { useRef } from "react";
+import useRouteContext from "../../context/RouteContext";
 
 type Props = {
-   lg?: string;
-   setValues: any;
+   projectRef: any;
+   project: any;
+   layout?: string;
 };
 
-export default function Project({ lg, setValues }: Props) {
-   const project = useRef<HTMLDivElement>(null);
+export default function Project({
+   projectRef,
 
-   const saveValues = () => {
-      const { clientWidth, clientHeight, offsetLeft, offsetTop } =
-         project.current!;
+   project,
+   layout,
+}: Props) {
+   const { goForward } = useRouteContext();
 
-      setValues({
-         width: clientWidth,
-         height: clientHeight,
-         x: offsetLeft,
-         y: offsetTop,
-      });
+   const execute = () => {
+      goForward(project.img, projectRef, project.link);
    };
 
    return (
       <div
-         ref={project}
-         className={`relative overflow-hidden cursor-pointer ${lg}`}
-         onClick={saveValues}
+         ref={projectRef}
+         className={`relative overflow-hidden cursor-pointer ${layout}`}
+         onClick={execute}
       >
-         <MouseParallaxContainer enabled={false} className="h-full w-full">
+         <Image
+            src={project.img}
+            alt="landscape"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="top"
+            className="brightness-50"
+            priority
+         />
+         <div className="absolute w-full bottom-0 left-0 pb-3 pl-4 pt-10 text-2xl font-semibold bg-gradient-to-t from-primaryDark to-transparent">
+            {project.name}
+         </div>
+
+         {/* <MouseParallaxContainer enabled={false} className="h-full w-full">
             <MouseParallaxChild
                factorX={0.03}
                factorY={0.03}
-               className="w-full h-full bg-1/2 relative border border-primary"
+               className="w-full h-full bg-1/2 relative"
             >
                <Image
-                  src={landscape}
+                  src={project.img}
                   alt="landscape"
                   layout="fill"
-                  className="object-cover w-full brightness-50"
+                  objectFit="cover"
+                  objectPosition="top"
+                  className="brightness-50"
                   priority
                />
+               <div className="absolute w-full bottom-0 left-0 pb-3 pl-4 pt-10 text-2xl font-semibold bg-gradient-to-t from-primaryDark to-transparent">
+                  {project.name}
+               </div>
             </MouseParallaxChild>
-         </MouseParallaxContainer>
+         </MouseParallaxContainer> */}
          <JumbotronAnimation />
       </div>
    );

@@ -1,45 +1,76 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+
+import useRouteContext from "../../context/RouteContext";
 
 type Props = {
-   values: any;
-   setValues: any;
+   back?: boolean;
+   reveal: boolean;
 };
 
-export default function SelectedProject({ values, setValues }: Props) {
-   console.log(values);
+export default function SelectedProject({ back, reveal }: Props) {
+   const { positionValues, backgroundImage } = useRouteContext();
+
+   const forward = {
+      initial: {
+         width: positionValues?.width,
+         height: positionValues?.height,
+         x: positionValues?.x,
+         y: positionValues?.y,
+      },
+      animate: {
+         width: "100%",
+         height: "100%",
+         x: 0,
+         y: 0,
+         transition: {
+            duration: 0.6,
+            ease: "easeOut",
+         },
+      },
+   };
+   const backward = {
+      initial: {
+         width: "100%",
+         height: "100%",
+         x: 0,
+         y: 0,
+      },
+      exit: {
+         width: positionValues?.width,
+         height: positionValues?.height,
+         x: positionValues?.x,
+         y: positionValues?.y,
+         transition: {
+            duration: 0.6,
+            delay: 0.5,
+            ease: "easeOut",
+         },
+      },
+   };
    return (
-      <motion.div
-         initial={{
-            width: values.width,
-            height: values.height,
-            x: values.x,
-            y: values.y,
-         }}
-         animate={{
-            width: "100%",
-            height: "100%",
-            x: 0,
-            y: 0,
-            transition: {
-               duration: 0.4,
-               ease: "easeOut",
-            },
-         }}
-         exit={{
-            width: values.width,
-            height: values.height,
-            x: values.x,
-            y: values.y,
-            transition: { duration: 0.3 },
-         }}
-         className="absolute top-0 left-0 z-50 brightness-50"
-         onClick={() => setValues(null)}
-      >
-         <img
-            src="/landscape2.jpg"
-            alt="landscape"
-            className="object-cover h-full w-full"
-         />
-      </motion.div>
+      <AnimatePresence>
+         {reveal && (
+            <motion.div
+               variants={!back ? forward : backward}
+               initial="initial"
+               animate="animate"
+               exit="exit"
+               className="absolute top-0 left-0 z-10"
+            >
+               <div className="relative w-full h-full">
+                  <Image
+                     src={backgroundImage}
+                     alt="landscape"
+                     layout="fill"
+                     objectFit="cover"
+                     objectPosition="top"
+                     className="brightness-50"
+                     priority
+                  />
+               </div>
+            </motion.div>
+         )}
+      </AnimatePresence>
    );
 }

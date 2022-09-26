@@ -63,10 +63,6 @@ body {
    src: url("../assets/fonts/Futura\ Extra\ Black\ font.ttf");
 }
 
-body::-webkit-scrollbar {
-   display: none;
-}
-
 .hide-scrollbar::-webkit-scrollbar {
    display: none;
 }

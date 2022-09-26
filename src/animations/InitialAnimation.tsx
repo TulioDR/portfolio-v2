@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 import eagle from "../assets/images/logo/eagle.svg";
 
 type Props = {};

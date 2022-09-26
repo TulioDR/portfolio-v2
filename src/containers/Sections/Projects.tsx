@@ -1,22 +1,34 @@
 import SectionContainer from "../../components/Sections/SectionContainer";
-
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import useLanguageContext from "../../context/LanguageContext";
-type Props = {};
-
-import { useState } from "react";
-
 import MobileProjectsShowcase from "../../components/Projects/MobileProjectsShowcase";
-import SelectedProject from "../../components/Projects/SelectedProject";
 
 import Underline from "../../components/Sections/Underline";
 import ProjectsShowcase from "../../components/Projects/ProjectsShowcase";
+import { useEffect } from "react";
+import useRouteContext from "../../context/RouteContext";
 
+type Props = {};
 export default function Projects({}: Props) {
    const { currentIdiom } = useLanguageContext();
    const { title } = currentIdiom.projects;
 
-   const [values, setValues] = useState<any>(null);
+   const { setPositionValues, selectedProject, setBackAnimation } =
+      useRouteContext();
+
+   useEffect(() => {
+      if (selectedProject) {
+         const { clientWidth, clientHeight, offsetLeft, offsetTop } =
+            selectedProject?.current!;
+         setPositionValues({
+            width: clientWidth,
+            height: clientHeight,
+            x: offsetLeft,
+            y: offsetTop,
+         });
+         setTimeout(() => setBackAnimation(false), 50);
+      }
+   }, [setPositionValues, selectedProject]);
 
    return (
       <SectionContainer index={2}>
@@ -34,13 +46,8 @@ export default function Projects({}: Props) {
                   <Underline projects />
                </div>
             </div>
-            <ProjectsShowcase setValues={setValues} />
-            <MobileProjectsShowcase setValues={setValues} />
-            <AnimatePresence>
-               {values && (
-                  <SelectedProject values={values} setValues={setValues} />
-               )}
-            </AnimatePresence>
+            <ProjectsShowcase />
+            <MobileProjectsShowcase />
          </div>
       </SectionContainer>
    );

@@ -5,21 +5,14 @@ import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
 import MobileProject from "./MobileProject";
 import { useRef } from "react";
 
-type Props = { setValues: any };
+type Props = {};
 
-export default function MobileProjectsShowcase({ setValues }: Props) {
+export default function MobileProjectsShowcase({}: Props) {
    const project = useRef<HTMLDivElement>(null);
 
    const saveValues = () => {
-      const { clientWidth, clientHeight, offsetLeft, offsetTop } =
-         project.current!;
-
-      setValues({
-         width: clientWidth,
-         height: clientHeight,
-         x: offsetLeft,
-         y: offsetTop,
-      });
+      // const { clientWidth, clientHeight, offsetLeft, offsetTop } =
+      //    project.current!;
    };
 
    return (
