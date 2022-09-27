@@ -14,10 +14,14 @@ import CardContainer from "../components/ViewProject/CardContainer";
 import CardInner from "../components/ViewProject/CardInner";
 import MainSubtitle from "../components/ViewProject/MainSubtitle";
 import TechnologyCard from "../components/ViewProject/TechnologyCard";
+import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
+import BottomBackBtn from "../components/ViewProject/BottomBackBtn";
 
 type Props = {
    currentProject: any;
 };
+
+const projectFeatures = [1, 2, 3, 4, 5, 6, 7];
 
 Project.getInitialProps = async ({ query }: any) => {
    const project = projectsList.find((p) => p.link === query.project);
@@ -53,16 +57,18 @@ export default function Project({ currentProject }: Props) {
             className="relative h-screen overflow-y-auto overflow-x-hidden"
          >
             <BackBtn onClick={execute} />
-            <div ref={container} className="h-screen w-screen relative">
-               <Image
-                  src={currentProject.img}
-                  alt="background"
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="top"
-                  className="brightness-[0.5]"
-                  priority
-               />
+            <div ref={container} className="h-screen w-full relative">
+               <div className="relative h-full w-screen">
+                  <Image
+                     src={currentProject.img}
+                     alt="background"
+                     layout="fill"
+                     objectFit="cover"
+                     objectPosition="top"
+                     className="brightness-[0.5]"
+                     priority
+                  />
+               </div>
                <div className="h-full w-full absolute top-0 left-0">
                   <BackgroundGradient>
                      <ProjectTitle>{currentProject.name}</ProjectTitle>
@@ -71,8 +77,12 @@ export default function Project({ currentProject }: Props) {
                         Find The movies and tv shows you love and keep track of
                         them in any way you want
                      </div>
+                     <button className="rounded-full bg-secondary w-max text-xl px-10 py-2">
+                        Visit Site
+                     </button>
                   </BackgroundGradient>
                </div>
+               <ViewCodeBtn />
             </div>
             <div className="bg-gray-200 text-gray-500 w-full px-5 sm:px-10 md:px-20 py-20 space-y-20">
                <InformationContainer>
@@ -90,30 +100,16 @@ export default function Project({ currentProject }: Props) {
                   </div>
                </InformationContainer>
                <MainSubtitle>Features</MainSubtitle>
-               <InformationContainer>
-                  <CardContainer>
-                     <CardInner />
-                     <CardInner info>
-                        <Subtitle>Login Page</Subtitle>
-                     </CardInner>
-                  </CardContainer>
-               </InformationContainer>
-               <InformationContainer>
-                  <CardContainer reverse>
-                     <CardInner />
-                     <CardInner info>
-                        <Subtitle>Login Page</Subtitle>
-                     </CardInner>
-                  </CardContainer>
-               </InformationContainer>
-               <InformationContainer>
-                  <CardContainer>
-                     <CardInner />
-                     <CardInner info>
-                        <Subtitle>Login Page</Subtitle>
-                     </CardInner>
-                  </CardContainer>
-               </InformationContainer>
+               {projectFeatures.map((i, index) => (
+                  <InformationContainer key={i}>
+                     <CardContainer reverse={index % 2 != 0}>
+                        <CardInner />
+                        <CardInner info>
+                           <Subtitle>Login Page</Subtitle>
+                        </CardInner>
+                     </CardContainer>
+                  </InformationContainer>
+               ))}
 
                <MainSubtitle>Technologies Used</MainSubtitle>
 
@@ -140,6 +136,8 @@ export default function Project({ currentProject }: Props) {
                      </div>
                   </div>
                </InformationContainer>
+
+               <BottomBackBtn />
             </div>
          </motion.div>
       </>
