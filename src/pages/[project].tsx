@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import useRouteContext from "../context/RouteContext";
 import { projectsList } from "../assets/constants/projects";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import BackBtn from "../components/ViewProject/BackBtn";
 import ProjectTitle from "../components/ViewProject/ProjectTitle";
 import BackgroundGradient from "../components/ViewProject/BackgroundGradient";
@@ -16,6 +16,8 @@ import MainSubtitle from "../components/ViewProject/MainSubtitle";
 import TechnologyCard from "../components/ViewProject/TechnologyCard";
 import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import BottomBackBtn from "../components/ViewProject/BottomBackBtn";
+import ProjectDetailsContainer from "../components/ViewProject/ProjectDetailsContainer";
+import useNavbarContext from "../context/NavbarContext";
 
 type Props = {
    currentProject: any;
@@ -30,7 +32,8 @@ Project.getInitialProps = async ({ query }: any) => {
 
 export default function Project({ currentProject }: Props) {
    const { setForwardAnimation, goBack } = useRouteContext();
-   const container = useRef<HTMLDivElement>(null);
+
+   const { container } = useNavbarContext();
 
    useEffect(() => {
       setForwardAnimation(false);
@@ -53,11 +56,12 @@ export default function Project({ currentProject }: Props) {
             <title>Film Organizer</title>
          </Head>
          <motion.div
+            ref={container}
             exit={{ transition: { duration: 0.7 } }}
             className="relative h-screen overflow-y-auto overflow-x-hidden"
          >
             <BackBtn onClick={execute} />
-            <div ref={container} className="h-screen w-full relative">
+            <div className="h-screen w-full relative">
                <div className="relative h-full w-screen">
                   <Image
                      src={currentProject.img}
@@ -84,7 +88,7 @@ export default function Project({ currentProject }: Props) {
                </div>
                <ViewCodeBtn />
             </div>
-            <div className="bg-gray-200 text-gray-500 w-full px-5 sm:px-10 md:px-20 py-20 space-y-20">
+            <ProjectDetailsContainer>
                <InformationContainer>
                   <div className="space-y-5">
                      <Subtitle>Role</Subtitle>
@@ -99,6 +103,7 @@ export default function Project({ currentProject }: Props) {
                      <div>Page made using TMDB api</div>
                   </div>
                </InformationContainer>
+
                <MainSubtitle>Features</MainSubtitle>
                {projectFeatures.map((i, index) => (
                   <InformationContainer key={i}>
@@ -112,7 +117,6 @@ export default function Project({ currentProject }: Props) {
                ))}
 
                <MainSubtitle>Technologies Used</MainSubtitle>
-
                <InformationContainer>
                   <div className="grid grid-cols-5 gap-5 w-full">
                      <div className="flex flex-col justify-center space-y-5">
@@ -138,7 +142,7 @@ export default function Project({ currentProject }: Props) {
                </InformationContainer>
 
                <BottomBackBtn />
-            </div>
+            </ProjectDetailsContainer>
          </motion.div>
       </>
    );

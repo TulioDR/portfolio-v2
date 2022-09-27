@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useInView } from "framer-motion";
+import { createContext, useContext, useEffect, useState, useRef } from "react";
 import usePositionContext from "./PositionContext";
 
 interface AppContextInterface {
@@ -7,6 +8,10 @@ interface AppContextInterface {
    isMenuOpen: boolean;
    toggleMenu: any;
    closeMenu: any;
+   isWhiteBackground: boolean;
+   isWhiteArrow: boolean;
+   whiteBackRef: any;
+   container: any;
 }
 
 const NavbarContext = createContext({} as AppContextInterface);
@@ -30,12 +35,34 @@ export function NavbarProvider({ children }: Props) {
    };
    const closeMenu = () => setIsMenuOpen(false);
 
+   const [isWhiteBackground, setIsWhiteBackground] = useState<boolean>(false);
+   const [isWhiteArrow, setIsWhiteArrow] = useState<boolean>(false);
+   const container = useRef(null);
+   const whiteBackRef = useRef(null);
+   const isInView = useInView(whiteBackRef, {
+      root: container,
+      margin: "0px 0px -95% 0px",
+   });
+   const isArrowInView = useInView(whiteBackRef, {
+      root: container,
+      margin: "0px 0px -84% 0px",
+   });
+
+   useEffect(() => {
+      setIsWhiteBackground(isInView);
+      setIsWhiteArrow(isArrowInView);
+   }, [isInView, isArrowInView]);
+
    const value = {
       hoveredBullet,
       setHoveredBullet,
       isMenuOpen,
       toggleMenu,
       closeMenu,
+      isWhiteBackground,
+      isWhiteArrow,
+      whiteBackRef,
+      container,
    };
    return (
       <NavbarContext.Provider value={value}>{children}</NavbarContext.Provider>

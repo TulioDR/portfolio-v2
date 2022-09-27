@@ -3,7 +3,7 @@ import { useState } from "react";
 import useNavbarContext from "../../context/NavbarContext";
 
 export default function Hamburger() {
-   const { toggleMenu, isMenuOpen } = useNavbarContext();
+   const { toggleMenu, isMenuOpen, isWhiteBackground } = useNavbarContext();
 
    const [isAnimating, setIsAnimating] = useState(false);
 
@@ -26,7 +26,9 @@ export default function Hamburger() {
                rotate: isMenuOpen ? -45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className="bg-white w-12 h-1"
+            className={`${
+               !isWhiteBackground ? "bg-white" : "bg-black"
+            }  w-12 h-1`}
          ></motion.span>
          <motion.span
             animate={{
@@ -34,7 +36,9 @@ export default function Hamburger() {
                rotate: isMenuOpen ? 45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className="bg-white w-12 h-1"
+            className={`${
+               !isWhiteBackground ? "bg-white" : "bg-black"
+            }  w-12 h-1`}
          ></motion.span>
       </button>
    );

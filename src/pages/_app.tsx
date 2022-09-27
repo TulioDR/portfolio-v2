@@ -26,8 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                      <motion.div key={router.route} className="h-screen w-full">
                         <NavbarProvider>
                            <Navbar />
+                           <Component {...pageProps} />;
                         </NavbarProvider>
-                        <Component {...pageProps} />;
                      </motion.div>
                   </AnimatePresence>
                </div>
