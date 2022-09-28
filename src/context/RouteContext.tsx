@@ -26,6 +26,13 @@ interface AppContextInterface {
 
    setForwardAnimation: any;
    setBackAnimation: any;
+
+   showTitle1: boolean;
+   showTitle2: boolean;
+   showTitle3: boolean;
+   setShowTitle1: any;
+   setShowTitle2: any;
+   setShowTitle3: any;
 }
 type Props = {
    children: React.ReactNode;
@@ -47,14 +54,33 @@ export function RouteProvider({ children }: Props) {
    const [backgroundImage, setBackgroundImage] = useState<any>(null);
    const [selectedProject, setSelectedProject] = useState<any>(null);
 
+   const [showTitle1, setShowTitle1] = useState<boolean>(true);
+   const [showTitle2, setShowTitle2] = useState<boolean>(true);
+   const [showTitle3, setShowTitle3] = useState<boolean>(true);
+
    const project1 = useRef<HTMLDivElement>(null);
    const project2 = useRef<HTMLDivElement>(null);
    const project3 = useRef<HTMLDivElement>(null);
 
    const selectProject = (query: string) => {
-      if (query === "film-organizer") setSelectedProject(project1);
-      if (query === "simple-pokedex") setSelectedProject(project2);
-      if (query === "portfolio-v1") setSelectedProject(project3);
+      if (query === "film-organizer") {
+         setSelectedProject(project1);
+         setTimeout(() => {
+            setShowTitle1(true);
+         }, 2000);
+      }
+      if (query === "simple-pokedex") {
+         setSelectedProject(project2);
+         setTimeout(() => {
+            setShowTitle2(true);
+         }, 2000);
+      }
+      if (query === "portfolio-v1") {
+         setSelectedProject(project3);
+         setTimeout(() => {
+            setShowTitle3(true);
+         }, 2000);
+      }
    };
 
    const goBack = async (img: any, query: string) => {
@@ -95,6 +121,12 @@ export function RouteProvider({ children }: Props) {
       goForward,
       setForwardAnimation,
       setBackAnimation,
+      showTitle1,
+      showTitle2,
+      showTitle3,
+      setShowTitle1,
+      setShowTitle2,
+      setShowTitle3,
    };
    return (
       <RouteContext.Provider value={value}>{children}</RouteContext.Provider>

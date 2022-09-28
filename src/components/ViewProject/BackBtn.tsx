@@ -31,7 +31,7 @@ const SvgComponent = ({ isWhiteArrow }: SvgProps) => (
 export default function BackBtn({ onClick }: Props) {
    const { isWhiteArrow } = useNavbarContext();
    return (
-      <div className="fixed top-24 left-16 z-20 overflow-hidden w-16 h-9 translate-y-3 duration-300 hover:-translate-x-2">
+      <div className="fixed top-24 left-16 z-10 overflow-hidden w-16 h-9 translate-y-3 duration-300 hover:-translate-x-2">
          <motion.button
             initial={{ x: "100%" }}
             animate={{ x: 0, transition: { duration: 0.6 } }}

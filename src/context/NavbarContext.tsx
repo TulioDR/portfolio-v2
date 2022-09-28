@@ -11,7 +11,6 @@ interface AppContextInterface {
    isWhiteBackground: boolean;
    isWhiteArrow: boolean;
    whiteBackRef: any;
-   container: any;
 }
 
 const NavbarContext = createContext({} as AppContextInterface);
@@ -37,14 +36,11 @@ export function NavbarProvider({ children }: Props) {
 
    const [isWhiteBackground, setIsWhiteBackground] = useState<boolean>(false);
    const [isWhiteArrow, setIsWhiteArrow] = useState<boolean>(false);
-   const container = useRef(null);
    const whiteBackRef = useRef(null);
    const isInView = useInView(whiteBackRef, {
-      root: container,
       margin: "0px 0px -95% 0px",
    });
    const isArrowInView = useInView(whiteBackRef, {
-      root: container,
       margin: "0px 0px -84% 0px",
    });
 
@@ -62,7 +58,6 @@ export function NavbarProvider({ children }: Props) {
       isWhiteBackground,
       isWhiteArrow,
       whiteBackRef,
-      container,
    };
    return (
       <NavbarContext.Provider value={value}>{children}</NavbarContext.Provider>

@@ -17,10 +17,11 @@ import TechnologyCard from "../components/ViewProject/TechnologyCard";
 import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import BottomBackBtn from "../components/ViewProject/BottomBackBtn";
 import ProjectDetailsContainer from "../components/ViewProject/ProjectDetailsContainer";
-import useNavbarContext from "../context/NavbarContext";
 import ViewProjectUnderline from "../components/ViewProject/ViewProjectUnderline";
 import VisitSiteBtn from "../components/ViewProject/VisitSiteBtn";
 import ProjectDescription from "../components/ViewProject/ProjectDescription";
+
+import { animateScroll } from "react-scroll";
 
 type Props = {
    currentProject: any;
@@ -36,28 +37,27 @@ Project.getInitialProps = async ({ query }: any) => {
 export default function Project({ currentProject }: Props) {
    const { setForwardAnimation, goBack } = useRouteContext();
 
-   const { container } = useNavbarContext();
-
    useEffect(() => {
       setForwardAnimation(false);
    }, [setForwardAnimation]);
 
-   const execute = () => {
-      // container.current!.scrollIntoView({ behavior: "smooth" });
+   const goBackBtn = () => {
       const { img, link } = currentProject;
-      goBack(img, link);
+      if (window.scrollY) {
+         animateScroll.scrollToTop({ duration: 800, smooth: true });
+         setTimeout(() => goBack(img, link), 800);
+      } else {
+         goBack(img, link);
+      }
    };
+
    return (
       <>
          <Head>
             <title>Film Organizer</title>
          </Head>
-         <motion.div
-            ref={container}
-            exit={{ transition: { delay: 10 } }}
-            className="relative h-screen overflow-y-auto overflow-x-hidden"
-         >
-            <BackBtn onClick={execute} />
+         <motion.div exit={{ transition: { delay: 10 } }} className="relative">
+            <BackBtn onClick={goBackBtn} />
             <div className="h-screen w-full relative">
                <div className="relative h-full w-screen">
                   <Image
@@ -137,7 +137,7 @@ export default function Project({ currentProject }: Props) {
                   </div>
                </InformationContainer>
 
-               <BottomBackBtn />
+               <BottomBackBtn onClick={goBackBtn} />
             </ProjectDetailsContainer>
          </motion.div>
       </>

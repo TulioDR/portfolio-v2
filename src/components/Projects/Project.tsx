@@ -6,18 +6,30 @@ import Image from "next/image";
 
 import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
 import useRouteContext from "../../context/RouteContext";
+import { motion } from "framer-motion";
 
 type Props = {
    projectRef: any;
    project: any;
    layout?: string;
+   showTitle: boolean;
+   setShowTitle: any;
 };
 
-export default function Project({ projectRef, project, layout }: Props) {
+export default function Project({
+   projectRef,
+   project,
+   layout,
+   showTitle,
+   setShowTitle,
+}: Props) {
    const { goForward } = useRouteContext();
 
    const execute = () => {
-      goForward(project.img, projectRef, project.link);
+      setShowTitle(false);
+      setTimeout(() => {
+         goForward(project.img, projectRef, project.link);
+      }, 500);
    };
 
    return (
@@ -35,9 +47,15 @@ export default function Project({ projectRef, project, layout }: Props) {
             className="brightness-50"
             priority
          />
-         <div className="absolute w-full bottom-0 left-0 pb-3 pl-4 pt-10 text-2xl font-semibold bg-gradient-to-t from-primaryDark to-transparent">
+         <motion.div
+            animate={{
+               y: showTitle ? 0 : "100%",
+               transition: { duration: 0.5 },
+            }}
+            className="absolute w-full bottom-0 left-0 pb-3 pl-4 pt-10 text-2xl font-semibold bg-gradient-to-t from-primaryDark to-transparent"
+         >
             {project.name}
-         </div>
+         </motion.div>
 
          {/* <MouseParallaxContainer enabled={false} className="h-full w-full">
             <MouseParallaxChild

@@ -24,7 +24,7 @@ const Home: NextPage = () => {
          </Head>
          <motion.div
             exit={{ transition: { duration: 1 } }}
-            className="h-screen w-full hide-scrollbar"
+            className="h-screen w-full"
          >
             <ScrollAdvice />
             <Sidebar />

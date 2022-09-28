@@ -19,14 +19,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       <RouteProvider>
          <PositionProvider>
             <LanguageProvider>
-               <div className="h-screen w-full relative">
+               <div className="w-full overflow-x-hidden relative">
                   <InitialAnimation />
                   <Selected />
                   <AnimatePresence exitBeforeEnter>
-                     <motion.div key={router.route} className="h-screen w-full">
+                     <motion.div key={router.route} className="w-full">
                         <NavbarProvider>
                            <Navbar />
-                           <Component {...pageProps} />;
+                           <Component {...pageProps} />
                         </NavbarProvider>
                      </motion.div>
                   </AnimatePresence>
