@@ -65,7 +65,7 @@ export function RouteProvider({ children }: Props) {
       // the delay is equal to the delay on the elements exit duration on [project]
       setTimeout(() => {
          setBackAnimation(true);
-      }, 600);
+      }, 900);
    };
 
    const goForward = (img: any, ref: any, link: string) => {

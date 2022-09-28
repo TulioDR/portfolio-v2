@@ -1,5 +1,3 @@
-import React from "react";
-
 import useLanguageContext from "../../context/LanguageContext";
 
 type Props = {};

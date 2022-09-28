@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import BackBtn from "../components/ViewProject/BackBtn";
 import ProjectTitle from "../components/ViewProject/ProjectTitle";
 import BackgroundGradient from "../components/ViewProject/BackgroundGradient";
-import Underline from "../components/Sections/Underline";
+
 import InformationContainer from "../components/ViewProject/InformationContainer";
 import Subtitle from "../components/ViewProject/Subtitle";
 import CardContainer from "../components/ViewProject/CardContainer";
@@ -18,6 +18,9 @@ import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import BottomBackBtn from "../components/ViewProject/BottomBackBtn";
 import ProjectDetailsContainer from "../components/ViewProject/ProjectDetailsContainer";
 import useNavbarContext from "../context/NavbarContext";
+import ViewProjectUnderline from "../components/ViewProject/ViewProjectUnderline";
+import VisitSiteBtn from "../components/ViewProject/VisitSiteBtn";
+import ProjectDescription from "../components/ViewProject/ProjectDescription";
 
 type Props = {
    currentProject: any;
@@ -40,15 +43,9 @@ export default function Project({ currentProject }: Props) {
    }, [setForwardAnimation]);
 
    const execute = () => {
-      container.current!.scrollIntoView({ behavior: "smooth" });
+      // container.current!.scrollIntoView({ behavior: "smooth" });
       const { img, link } = currentProject;
-      if (!container.current?.scrollTop) {
-         goBack(img, link);
-      } else {
-         setTimeout(() => {
-            goBack(img, link);
-         }, 200);
-      }
+      goBack(img, link);
    };
    return (
       <>
@@ -57,7 +54,7 @@ export default function Project({ currentProject }: Props) {
          </Head>
          <motion.div
             ref={container}
-            exit={{ transition: { duration: 0.7 } }}
+            exit={{ transition: { delay: 10 } }}
             className="relative h-screen overflow-y-auto overflow-x-hidden"
          >
             <BackBtn onClick={execute} />
@@ -76,14 +73,9 @@ export default function Project({ currentProject }: Props) {
                <div className="h-full w-full absolute top-0 left-0">
                   <BackgroundGradient>
                      <ProjectTitle>{currentProject.name}</ProjectTitle>
-                     <Underline />
-                     <div className="text-2xl font-medium w-1/2">
-                        Find The movies and tv shows you love and keep track of
-                        them in any way you want
-                     </div>
-                     <button className="rounded-full bg-secondary w-max text-xl px-10 py-2">
-                        Visit Site
-                     </button>
+                     <ViewProjectUnderline />
+                     <ProjectDescription />
+                     <VisitSiteBtn />
                   </BackgroundGradient>
                </div>
                <ViewCodeBtn />
@@ -100,7 +92,11 @@ export default function Project({ currentProject }: Props) {
                   </div>
                   <div className="space-y-5">
                      <Subtitle>Overview</Subtitle>
-                     <div>Page made using TMDB api</div>
+                     <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Asperiores temporibus rem vero expedita molestiae quos
+                        odio impedit aspernatur maiores voluptates.
+                     </div>
                   </div>
                </InformationContainer>
 

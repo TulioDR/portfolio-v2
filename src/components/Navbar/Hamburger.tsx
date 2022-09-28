@@ -4,7 +4,6 @@ import useNavbarContext from "../../context/NavbarContext";
 
 export default function Hamburger() {
    const { toggleMenu, isMenuOpen, isWhiteBackground } = useNavbarContext();
-
    const [isAnimating, setIsAnimating] = useState(false);
 
    const handleClick = () => {
