@@ -3,21 +3,23 @@ import { Pagination } from "swiper";
 
 import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
 import MobileProject from "./MobileProject";
-import { useRef } from "react";
+import { projectsList } from "../../assets/constants/projects";
+import useRouteContext from "../../context/RouteContext";
 
 type Props = {};
 
 export default function MobileProjectsShowcase({}: Props) {
-   const project = useRef<HTMLDivElement>(null);
+   const { goForward, mobileProject } = useRouteContext();
 
-   const saveValues = () => {
-      // const { clientWidth, clientHeight, offsetLeft, offsetTop } =
-      //    project.current!;
+   const saveValues = (img: any, link: string) => {
+      setTimeout(() => {
+         goForward(img, mobileProject, link);
+      }, 500);
    };
 
    return (
       <div className="flex-1 flex flex-col w-full sm:hidden">
-         <div ref={project} className="flex-1 w-full">
+         <div ref={mobileProject} className="flex-1 w-full">
             <Swiper
                speed={500}
                spaceBetween={0}
@@ -32,18 +34,11 @@ export default function MobileProjectsShowcase({}: Props) {
                className="w-full h-full relative"
             >
                <JumbotronAnimation />
-               <SwiperSlide>
-                  <MobileProject saveValues={saveValues} />
-               </SwiperSlide>
-               <SwiperSlide>
-                  <MobileProject saveValues={saveValues} />
-               </SwiperSlide>
-               <SwiperSlide>
-                  <MobileProject saveValues={saveValues} />
-               </SwiperSlide>
-               <SwiperSlide>
-                  <MobileProject saveValues={saveValues} />
-               </SwiperSlide>
+               {projectsList.map((project, index) => (
+                  <SwiperSlide key={index}>
+                     <MobileProject project={project} saveValues={saveValues} />
+                  </SwiperSlide>
+               ))}
             </Swiper>
          </div>
          <div className="h-8 w-full flex space-x-3 justify-center items-center mobile-projects-showcase-pagination-bullet-container"></div>

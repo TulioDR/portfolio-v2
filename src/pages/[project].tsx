@@ -41,13 +41,13 @@ export default function Project({ currentProject }: Props) {
       setForwardAnimation(false);
    }, [setForwardAnimation]);
 
-   const goBackBtn = () => {
+   const goBackBtn = (mobile: boolean) => {
       const { img, link } = currentProject;
       if (window.scrollY) {
          animateScroll.scrollToTop({ duration: 800, smooth: true });
          setTimeout(() => goBack(img, link), 800);
       } else {
-         goBack(img, link);
+         goBack(img, link, mobile);
       }
    };
 

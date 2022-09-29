@@ -11,7 +11,7 @@ const infoContainerAnimation = {
    },
    animate: {
       background:
-         "linear-gradient(90deg, rgba(20,23,25,0.98) 0%, rgba(0,0,0,0) 100%)",
+         "linear-gradient(90deg, rgba(20,23,25,0.98) 0%, rgba(0,0,0,0.2) 100%)",
       transition: {
          duration: 0.5,
          staggerChildren: 0.1,

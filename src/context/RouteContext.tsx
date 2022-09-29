@@ -33,6 +33,7 @@ interface AppContextInterface {
    setShowTitle1: any;
    setShowTitle2: any;
    setShowTitle3: any;
+   mobileProject: any;
 }
 type Props = {
    children: React.ReactNode;
@@ -58,6 +59,7 @@ export function RouteProvider({ children }: Props) {
    const [showTitle2, setShowTitle2] = useState<boolean>(true);
    const [showTitle3, setShowTitle3] = useState<boolean>(true);
 
+   const mobileProject = useRef<HTMLDivElement>(null);
    const project1 = useRef<HTMLDivElement>(null);
    const project2 = useRef<HTMLDivElement>(null);
    const project3 = useRef<HTMLDivElement>(null);
@@ -83,8 +85,9 @@ export function RouteProvider({ children }: Props) {
       }
    };
 
-   const goBack = async (img: any, query: string) => {
-      selectProject(query);
+   const goBack = async (img: any, query: string, mobile?: boolean) => {
+      if (mobile) setSelectedProject(mobileProject);
+      else selectProject(query);
       setBackgroundImage(img);
       router.push("/#projects");
 
@@ -127,6 +130,7 @@ export function RouteProvider({ children }: Props) {
       setShowTitle1,
       setShowTitle2,
       setShowTitle3,
+      mobileProject,
    };
    return (
       <RouteContext.Provider value={value}>{children}</RouteContext.Provider>

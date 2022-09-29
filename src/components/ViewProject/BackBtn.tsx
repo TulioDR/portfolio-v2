@@ -36,8 +36,17 @@ export default function BackBtn({ onClick }: Props) {
             initial={{ x: "100%" }}
             animate={{ x: 0, transition: { duration: 0.6 } }}
             exit={{ x: "-110%", transition: { duration: 0.6 } }}
-            onClick={onClick}
-            className="w-full h-full relative"
+            onClick={() => onClick(false)}
+            className="w-full h-full relative hidden sm:block"
+         >
+            <SvgComponent isWhiteArrow={isWhiteArrow} />
+         </motion.button>
+         <motion.button
+            initial={{ x: "100%" }}
+            animate={{ x: 0, transition: { duration: 0.6 } }}
+            exit={{ x: "-110%", transition: { duration: 0.6 } }}
+            onClick={() => onClick(true)}
+            className="w-full h-full relative sm:hidden"
          >
             <SvgComponent isWhiteArrow={isWhiteArrow} />
          </motion.button>
