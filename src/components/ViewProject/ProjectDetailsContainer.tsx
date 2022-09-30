@@ -7,7 +7,7 @@ export default function ProjectDetailsContainer({ children }: Props) {
    return (
       <div
          ref={whiteBackRef}
-         className="bg-gray-200 text-gray-500 w-full px-5 sm:px-10 md:px-20 py-20 space-y-20"
+         className="bg-gray-200 text-gray-500 w-full px-5 sm:px-10 md:px-16 lg:px-20 py-20 space-y-20"
       >
          {children}
       </div>

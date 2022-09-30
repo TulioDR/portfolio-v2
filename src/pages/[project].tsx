@@ -1,11 +1,10 @@
 import Head from "next/head";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import useRouteContext from "../context/RouteContext";
 import { projectsList } from "../assets/constants/projects";
 import { useEffect } from "react";
 import BackBtn from "../components/ViewProject/BackBtn";
-import ProjectTitle from "../components/ViewProject/ProjectTitle";
+
 import BackgroundGradient from "../components/ViewProject/BackgroundGradient";
 
 import InformationContainer from "../components/ViewProject/InformationContainer";
@@ -17,11 +16,14 @@ import TechnologyCard from "../components/ViewProject/TechnologyCard";
 import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import BottomBackBtn from "../components/ViewProject/BottomBackBtn";
 import ProjectDetailsContainer from "../components/ViewProject/ProjectDetailsContainer";
-import ViewProjectUnderline from "../components/ViewProject/ViewProjectUnderline";
 import VisitSiteBtn from "../components/ViewProject/VisitSiteBtn";
-import ProjectDescription from "../components/ViewProject/ProjectDescription";
 
 import { animateScroll } from "react-scroll";
+import Title from "../components/Main/Title";
+
+import RevealToRight from "../animations/RevealToRight";
+import Underline from "../components/Sections/Underline";
+import ProjectDescription from "../components/ViewProject/ProjectDescription";
 
 type Props = {
    currentProject: any;
@@ -54,9 +56,9 @@ export default function Project({ currentProject }: Props) {
    return (
       <>
          <Head>
-            <title>Film Organizer</title>
+            <title>{currentProject.name} Showcase</title>
          </Head>
-         <motion.div exit={{ transition: { delay: 10 } }} className="relative">
+         <div className="relative">
             <BackBtn onClick={goBackBtn} />
             <div className="h-screen w-full relative">
                <div className="relative h-full w-screen">
@@ -70,32 +72,41 @@ export default function Project({ currentProject }: Props) {
                      priority
                   />
                </div>
-               <div className="h-full w-full absolute top-0 left-0">
-                  <BackgroundGradient>
-                     <ProjectTitle>{currentProject.name}</ProjectTitle>
-                     <ViewProjectUnderline />
+               <BackgroundGradient>
+                  <RevealToRight>
+                     <Title>{currentProject.name}</Title>
+                  </RevealToRight>
+                  <RevealToRight>
+                     <Underline />
+                  </RevealToRight>
+                  <RevealToRight>
                      <ProjectDescription />
-                     <VisitSiteBtn />
-                  </BackgroundGradient>
-               </div>
+                  </RevealToRight>
+                  <VisitSiteBtn />
+               </BackgroundGradient>
                <ViewCodeBtn />
             </div>
             <ProjectDetailsContainer>
                <InformationContainer>
-                  <div className="space-y-5">
-                     <Subtitle>Role</Subtitle>
-                     <div>UI Design / Coding</div>
-                  </div>
-                  <div className="space-y-5">
-                     <Subtitle>Date</Subtitle>
-                     <div>SEP 2021</div>
-                  </div>
-                  <div className="space-y-5">
-                     <Subtitle>Overview</Subtitle>
-                     <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Asperiores temporibus rem vero expedita molestiae quos
-                        odio impedit aspernatur maiores voluptates.
+                  <div className="sm:flex justify-between space-y-5 sm:space-y-0 sm:space-x-10">
+                     <div className="space-y-3 sm:space-y-5">
+                        <Subtitle>Role</Subtitle>
+                        <div>UI Design / Coding</div>
+                     </div>
+                     <div className="space-y-3 sm:space-y-5">
+                        <Subtitle>Date</Subtitle>
+                        <div>SEP 2021</div>
+                     </div>
+                     <div className="space-y-3 sm:space-y-5">
+                        <Subtitle>Overview</Subtitle>
+                        <div>
+                           A film – also called a movie, motion picture, moving
+                           picture, picture or photoplay – is a work of visual
+                           art that simulates experiences and otherwise
+                           communicates ideas, stories, perceptions, feelings,
+                           beauty, or atmosphere through the use of moving
+                           images
+                        </div>
                      </div>
                   </div>
                </InformationContainer>
@@ -139,7 +150,7 @@ export default function Project({ currentProject }: Props) {
 
                <BottomBackBtn onClick={goBackBtn} />
             </ProjectDetailsContainer>
-         </motion.div>
+         </div>
       </>
    );
 }

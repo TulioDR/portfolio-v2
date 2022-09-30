@@ -1,8 +1,8 @@
-import JumbotronAnimation from "../../components/Jumbotron/JumbotronAnimation";
 import JumbotronBackgroundImage from "../../components/Jumbotron/JumbotronBackgroundImage";
 import JumbotronContainer from "../../components/Jumbotron/JumbotronContainer";
 import JumbotronInnerContainer from "../../components/Jumbotron/JumbotronInnerContainer";
 import { motion } from "framer-motion";
+import RevealImageAnimation from "../../animations/RevealImageAnimation";
 
 type Props = {
    children: React.ReactNode;
@@ -32,7 +32,6 @@ export default function Jumbotron({
             animate={{ scale: 1 }}
             transition={{
                duration: 1.2,
-               delay: 0.4,
                ease: "easeOut",
             }}
             className="flex flex-col w-full h-full origin-right"
@@ -51,7 +50,7 @@ export default function Jumbotron({
                      alt={imgAlt}
                   />
                   <JumbotronInnerContainer>{children}</JumbotronInnerContainer>
-                  <JumbotronAnimation />
+                  <RevealImageAnimation />
                </JumbotronContainer>
             </div>
          </motion.div>

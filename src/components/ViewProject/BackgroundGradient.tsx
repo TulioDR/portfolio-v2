@@ -11,7 +11,7 @@ const infoContainerAnimation = {
    },
    animate: {
       background:
-         "linear-gradient(90deg, rgba(20,23,25,0.98) 0%, rgba(0,0,0,0.2) 100%)",
+         "linear-gradient(90deg, rgba(20,23,25,0.98) 0%, rgba(0,0,0,0.4) 100%)",
       transition: {
          duration: 0.5,
          staggerChildren: 0.1,
@@ -35,9 +35,11 @@ export default function BackgroundGradient({ children }: Props) {
          initial="initial"
          animate="animate"
          exit="exit"
-         className="h-full pl-44 space-y-5 flex flex-col justify-center w-full"
+         className="w-full h-full absolute top-0 left-0 pl-5 pr-5 sm:pr-0 sm:pl-10 md:pl-16 lg:pl-20 xl:pl-40"
       >
-         {children}
+         <div className="w-full h-full overflow-hidden space-y-5 flex flex-col justify-center">
+            {children}
+         </div>
       </motion.div>
    );
 }

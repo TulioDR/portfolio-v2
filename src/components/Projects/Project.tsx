@@ -4,9 +4,9 @@ import Image from "next/image";
 //    MouseParallaxContainer,
 // } from "react-parallax-mouse";
 
-import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
 import useRouteContext from "../../context/RouteContext";
 import { motion } from "framer-motion";
+import RevealImageAnimation from "../../animations/RevealImageAnimation";
 
 type Props = {
    projectRef: any;
@@ -77,7 +77,7 @@ export default function Project({
                </div>
             </MouseParallaxChild>
          </MouseParallaxContainer> */}
-         <JumbotronAnimation />
+         <RevealImageAnimation />
       </div>
    );
 }

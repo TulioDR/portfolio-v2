@@ -1,18 +1,15 @@
-import AboutInfoContainer from "../../components/About/AboutInfoContainer";
+import AboutInfo from "../../components/About/AboutInfo";
 import SkillsShowcase from "../../components/About/SkillsShowcase";
-import Info from "../../components/Sections/Info";
 import InfoContainer from "../../components/Sections/InfoContainer";
 import SectionContainer from "../../components/Sections/SectionContainer";
-
 import useLanguageContext from "../../context/LanguageContext";
-
 import Jumbotron from "../Parts/Jumbotron";
-
 import aboutImage from "../../assets/images/projects.jpg";
 import { useState } from "react";
 import RevealJumbotronBtn from "../../components/Sections/RevealJumbotronBtn";
-import SectionTitle from "../../components/Sections/SectionTitle";
 import Underline from "../../components/Sections/Underline";
+import RevealToRight from "../../animations/RevealToRight";
+import Title from "../../components/Main/Title";
 
 type Props = {};
 
@@ -28,17 +25,21 @@ export default function About({}: Props) {
    return (
       <SectionContainer index={1}>
          <InfoContainer>
-            <SectionTitle>{title}</SectionTitle>
-            <Underline />
-            <Info about>
-               <AboutInfoContainer>{description1}</AboutInfoContainer>
-            </Info>
-            <Info about>
-               <AboutInfoContainer>{description2}</AboutInfoContainer>
-            </Info>
-            <Info about>
-               <AboutInfoContainer>{description3}</AboutInfoContainer>
-            </Info>
+            <RevealToRight>
+               <Title>{title}</Title>
+            </RevealToRight>
+            <RevealToRight>
+               <Underline />
+            </RevealToRight>
+            <RevealToRight about>
+               <AboutInfo>{description1}</AboutInfo>
+            </RevealToRight>
+            <RevealToRight about>
+               <AboutInfo>{description2}</AboutInfo>
+            </RevealToRight>
+            <RevealToRight about>
+               <AboutInfo>{description3}</AboutInfo>
+            </RevealToRight>
             <RevealJumbotronBtn
                text={checkMySkills}
                onClick={toggleJumbotron}

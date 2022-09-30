@@ -1,10 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
-import JumbotronAnimation from "../Jumbotron/JumbotronAnimation";
 import MobileProject from "./MobileProject";
 import { projectsList } from "../../assets/constants/projects";
 import useRouteContext from "../../context/RouteContext";
+import RevealImageAnimation from "../../animations/RevealImageAnimation";
 
 type Props = {};
 
@@ -33,7 +33,7 @@ export default function MobileProjectsShowcase({}: Props) {
                modules={[Pagination]}
                className="w-full h-full relative"
             >
-               <JumbotronAnimation />
+               <RevealImageAnimation />
                {projectsList.map((project, index) => (
                   <SwiperSlide key={index}>
                      <MobileProject project={project} saveValues={saveValues} />
