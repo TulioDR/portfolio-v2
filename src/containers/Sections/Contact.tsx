@@ -7,12 +7,12 @@ import InfoContainer from "../../components/Sections/InfoContainer";
 import SectionContainer from "../../components/Sections/SectionContainer";
 import useLanguageContext from "../../context/LanguageContext";
 import Jumbotron from "../Parts/Jumbotron";
-import RevealJumbotronBtn from "../../components/Sections/RevealJumbotronBtn";
 import useMobileFormContext from "../../context/MobileFormContext";
 import contactImg from "../../assets/images/contact6.jpg";
 import Underline from "../../components/Sections/Underline";
 import RevealToRight from "../../animations/RevealToRight";
 import Title from "../../components/Main/Title";
+import MainButton from "../../components/Main/MainButton";
 
 export default function Contact() {
    const { currentIdiom } = useLanguageContext();
@@ -45,7 +45,9 @@ export default function Contact() {
                   </ContactLink>
                </Info>
             </RevealToRight>
-            <RevealJumbotronBtn text={contactMe} onClick={toggleMobileReveal} />
+            <MainButton mobile onClick={toggleMobileReveal}>
+               {contactMe}
+            </MainButton>
          </InfoContainer>
          <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
             <ContactForm

@@ -6,10 +6,10 @@ import useLanguageContext from "../../context/LanguageContext";
 import Jumbotron from "../Parts/Jumbotron";
 import aboutImage from "../../assets/images/projects.jpg";
 import { useState } from "react";
-import RevealJumbotronBtn from "../../components/Sections/RevealJumbotronBtn";
 import Underline from "../../components/Sections/Underline";
 import RevealToRight from "../../animations/RevealToRight";
 import Title from "../../components/Main/Title";
+import MainButton from "../../components/Main/MainButton";
 
 type Props = {};
 
@@ -40,10 +40,9 @@ export default function About({}: Props) {
             <RevealToRight about>
                <AboutInfo>{description3}</AboutInfo>
             </RevealToRight>
-            <RevealJumbotronBtn
-               text={checkMySkills}
-               onClick={toggleJumbotron}
-            />
+            <MainButton mobile onClick={toggleJumbotron}>
+               {checkMySkills}
+            </MainButton>
          </InfoContainer>
 
          <Jumbotron

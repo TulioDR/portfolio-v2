@@ -12,10 +12,8 @@ import Subtitle from "../components/ViewProject/Subtitle";
 import CardContainer from "../components/ViewProject/CardContainer";
 import CardInner from "../components/ViewProject/CardInner";
 import MainSubtitle from "../components/ViewProject/MainSubtitle";
-import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import BottomBackBtn from "../components/ViewProject/BottomBackBtn";
 import ProjectDetailsContainer from "../components/ViewProject/ProjectDetailsContainer";
-import VisitSiteBtn from "../components/ViewProject/VisitSiteBtn";
 
 import { animateScroll } from "react-scroll";
 import Title from "../components/Main/Title";
@@ -28,6 +26,8 @@ import Layout16 from "../components/ViewProject/Technologies/Layout16";
 import MobileLayout from "../components/ViewProject/Technologies/MobileLayout";
 import Layout6 from "../components/ViewProject/Technologies/Layout6";
 import Layout9 from "../components/ViewProject/Technologies/Layout9";
+import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
+import MainButton from "../components/Main/MainButton";
 
 type Props = {
    currentProject: any;
@@ -72,6 +72,10 @@ export default function Project({ currentProject }: Props) {
       }
    };
 
+   const goToWebsite = () => {
+      console.log("go To Website");
+   };
+
    return (
       <>
          <Head>
@@ -101,8 +105,9 @@ export default function Project({ currentProject }: Props) {
                   <RevealToRight>
                      <ProjectDescription>{description}</ProjectDescription>
                   </RevealToRight>
-                  <VisitSiteBtn>{visitSite}</VisitSiteBtn>
+                  <MainButton onClick={goToWebsite}>{visitSite}</MainButton>
                </BackgroundGradient>
+               <ViewCodeBtn mobile>{viewCode}</ViewCodeBtn>
                <ViewCodeBtn>{viewCode}</ViewCodeBtn>
             </div>
             <ProjectDetailsContainer>
