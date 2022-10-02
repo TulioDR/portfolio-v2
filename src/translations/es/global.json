@@ -64,8 +64,8 @@
       "viewCode": "Ver Código",
       "visitSite": "Visitar Sitio",
       "roleText": "Rol",
-      "date": "Fecha",
-      "overview": "Descripción",
+      "dateTitle": "Fecha",
+      "overviewTitle": "Descripción",
       "featuresText": "Características",
       "technologiesUsed": "Tecnologías Usadas",
       "back": "volver"

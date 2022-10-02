@@ -44,15 +44,25 @@ export default function Project({ currentProject }: Props) {
    const { currentProjectIdiom, currentIdiom } = useLanguageContext();
 
    const translation = currentProjectIdiom[currentProject.link];
-   const { description, title, img, role, features, technologies } =
-      translation;
+   const {
+      description,
+      title,
+      img,
+      role,
+      date,
+      overview,
+      features,
+      technologies,
+      website,
+      repository,
+   } = translation;
 
    const {
       visitSite,
       viewCode,
       roleText,
-      date,
-      overview,
+      dateTitle,
+      overviewTitle,
       featuresText,
       technologiesUsed,
       back,
@@ -73,7 +83,11 @@ export default function Project({ currentProject }: Props) {
    };
 
    const goToWebsite = () => {
-      console.log("go To Website");
+      window.open(website, "_blank");
+   };
+
+   const goToRepo = () => {
+      window.open(repository, "_blank");
    };
 
    return (
@@ -107,8 +121,10 @@ export default function Project({ currentProject }: Props) {
                   </RevealToRight>
                   <MainButton onClick={goToWebsite}>{visitSite}</MainButton>
                </BackgroundGradient>
-               <ViewCodeBtn mobile>{viewCode}</ViewCodeBtn>
-               <ViewCodeBtn>{viewCode}</ViewCodeBtn>
+               <ViewCodeBtn onClick={goToRepo} mobile>
+                  {viewCode}
+               </ViewCodeBtn>
+               <ViewCodeBtn onClick={goToRepo}>{viewCode}</ViewCodeBtn>
             </div>
             <ProjectDetailsContainer>
                <InformationContainer>
@@ -118,19 +134,12 @@ export default function Project({ currentProject }: Props) {
                         <div>{role}</div>
                      </div>
                      <div className="space-y-3 sm:space-y-5">
-                        <Subtitle>{date}</Subtitle>
-                        <div>SEP 2021</div>
+                        <Subtitle>{dateTitle}</Subtitle>
+                        <div>{date}</div>
                      </div>
                      <div className="space-y-3 sm:space-y-5">
-                        <Subtitle>{overview}</Subtitle>
-                        <div>
-                           A film – also called a movie, motion picture, moving
-                           picture, picture or photoplay – is a work of visual
-                           art that simulates experiences and otherwise
-                           communicates ideas, stories, perceptions, feelings,
-                           beauty, or atmosphere through the use of moving
-                           images
-                        </div>
+                        <Subtitle>{overviewTitle}</Subtitle>
+                        <div>{overview}</div>
                      </div>
                   </div>
                </InformationContainer>

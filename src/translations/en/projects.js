@@ -26,9 +26,12 @@ const englishProjects = {
       title: "Film Organizer",
       img: filmOrganizer,
       description: "Find and keep track of the movies and tv shows you love",
+      website: "https://film-organizer.netlify.app/home",
+      repository: "https://github.com/TulioDR/Film-Organizer",
       role: "UI Design / Coding",
-      date: "",
-      overview: "",
+      date: "JUNE 2022",
+      overview:
+         'Film Organizer it\'s a full stack MERN web application made with React functional components. The app allows you to create "Lists" in which you can save Movies or TV Shows obtained from the TMDB API. It also allows manual authentication or using an existing Google account',
       features: [
          {
             name: "Home Page",
@@ -144,17 +147,17 @@ const englishProjects = {
             link: "https://www.npmjs.com/package/redux-thunk",
          },
       ],
-      website: "",
-      repository: "",
    },
    "simple-pokedex": {
       title: "Simple Pokedex",
       img: simplePokedex,
-      description:
-         "A simple pokédex to find and learn more about your favorite Pokémons",
+      description: "A simple pokédex to find and learn more about any Pokémons",
+      website: "https://simple-pokedex-app.netlify.app/pokedex/",
+      repository: "https://github.com/TulioDR/Simple-Pokedex",
       role: "UI Design / Coding",
-      date: "",
-      overview: "",
+      date: "DEC 2021",
+      overview:
+         "Simple Pokédex is a web application with a simple UI made with the PokéAPI that allows you to find pokemons and learn about them.",
       features: [
          {
             name: "Search Bar",
@@ -209,16 +212,16 @@ const englishProjects = {
             link: "https://tailwindcss.com/",
          },
       ],
-      website: "",
-      repository: "",
    },
    "portfolio-v1": {
       title: "Portfolio.v1",
       img: portfolioV1,
       description: "The first and simple iteration or my portfolio",
+      website: "https://tulioruzov1.vercel.app",
+      repository: "https://github.com/TulioDR/portfolio",
       role: "UI Design / Coding",
-      date: "",
-      overview: "",
+      date: "FEB 2022",
+      overview: "A simple portfolio made to show my projects and skills",
       features: [
          {
             name: "Contact Form",
@@ -288,8 +291,6 @@ const englishProjects = {
             link: "https://swiperjs.com/",
          },
       ],
-      website: "",
-      repository: "",
    },
 };
 

@@ -4,9 +4,10 @@ import { useState } from "react";
 type Props = {
    children: React.ReactNode;
    mobile?: boolean;
+   onClick: any;
 };
 
-export default function ViewCodeBtn({ children, mobile }: Props) {
+export default function ViewCodeBtn({ children, mobile, onClick }: Props) {
    const [isOpen, setIsOpen] = useState<boolean>(false);
    const toggle = () => setIsOpen(!isOpen);
 
@@ -25,14 +26,6 @@ export default function ViewCodeBtn({ children, mobile }: Props) {
       },
       exit: { y: "100%", opacity: 0, transition: { duration: 0.6 } },
    };
-
-   const mobileOpen = () => {
-      console.log("open from mobile");
-   };
-   const desktopOpen = () => {
-      console.log("open from desktop");
-   };
-
    return (
       <motion.button
          variants={mobile ? mobileButtonAnimation : buttonAnimation}
@@ -45,11 +38,11 @@ export default function ViewCodeBtn({ children, mobile }: Props) {
          className={`rounded-lg bg-secondary absolute bottom-5 right-5 sm:bottom-10 sm:right-10 md:right-16 md:bottom-16 lg:bottom-20 lg:right-20 xl:right-16 xl:bottom-16 w-14 h-14 group justify-end overflow-hidden ${
             mobile ? "flex lg:hidden" : "hidden lg:flex"
          }`}
-         onClick={mobile ? undefined : desktopOpen}
+         onClick={mobile ? undefined : onClick}
       >
          <div className="flex items-center h-full w-44">
             <span
-               onClick={mobile ? mobileOpen : undefined}
+               onClick={mobile ? onClick : undefined}
                className="h-12 w-[7.5rem] grid place-content-center pl-2 md:text-lg"
             >
                {children}

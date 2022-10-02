@@ -27,9 +27,12 @@ const spanishProjects = {
       img: filmOrganizer,
       description:
          "Encuentra y guarda las peliculas y series que más te gustan.",
+      website: "https://film-organizer.netlify.app/home",
+      repository: "https://github.com/TulioDR/Film-Organizer",
       role: "Diseño de UI / Código",
-      date: "",
-      overview: "",
+      date: "JUN 2022",
+      overview:
+         'Film Organizer es una aplicación MERN full stack hecha con compenentes funcionales en React. La aplicación te permite crear "Listas" en las cuales puedes guardar Películas o Series de TV las obtenidas por medio de la TMDB API. También permite autenticación manual o usando una cuenta existente de Google.',
       features: [
          {
             name: "Página de Inicio",
@@ -146,17 +149,18 @@ const spanishProjects = {
             link: "https://www.npmjs.com/package/redux-thunk",
          },
       ],
-      website: "",
-      repository: "",
    },
    "simple-pokedex": {
       title: "Simple Pokedex",
       img: simplePokedex,
       description:
-         "Un pokédex sencilla para encontrar y aprender más sobre tus pokemones favoritos",
+         "Un pokédex sencilla para encontrar y aprender más sobre cualquier pokémon",
+      website: "https://simple-pokedex-app.netlify.app/pokedex/",
+      repository: "https://github.com/TulioDR/Simple-Pokedex",
       role: "Diseño de UI / Código",
-      date: "",
-      overview: "",
+      date: "DIC 2021",
+      overview:
+         "Simple Pokédex es una aplicación web de simple interfaz hecha con la PokéApi que permite encontrar pokemones y aprender de ellos.",
       features: [
          {
             name: "Barra de Búsqueda",
@@ -211,16 +215,17 @@ const spanishProjects = {
             link: "https://tailwindcss.com/",
          },
       ],
-      website: "",
-      repository: "",
    },
    "portfolio-v1": {
       title: "Portfolio.v1",
       img: portfolioV1,
       description: "La primera y sencilla iteración de mi portafolio",
+      website: "https://tulioruzov1.vercel.app",
+      repository: "https://github.com/TulioDR/portfolio",
       role: "Diseño de UI / Código",
-      date: "",
-      overview: "",
+      date: "FEB 2022",
+      overview:
+         "Un portafolio sencillo y organizado para mostrar mis proyectos y habilidades",
       features: [
          {
             name: "Planilla de Contacto",
@@ -290,8 +295,6 @@ const spanishProjects = {
             link: "https://swiperjs.com/",
          },
       ],
-      website: "",
-      repository: "",
    },
 };
 
