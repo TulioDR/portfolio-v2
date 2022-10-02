@@ -1,10 +1,11 @@
 import React from "react";
 
 type Props = {
+   children: React.ReactNode;
    onClick: any;
 };
 
-export default function BottomBackBtn({ onClick }: Props) {
+export default function BottomBackBtn({ children, onClick }: Props) {
    return (
       <button
          onClick={onClick}
@@ -13,8 +14,8 @@ export default function BottomBackBtn({ onClick }: Props) {
          <span className="h-[0.15rem] w-20 bg-black">
             <div className="bg-black w-6 h-1/2 group-hover:-rotate-45 duration-300 origin-left"></div>
          </span>
-         <span className="text-4xl text-black tracking-widest font-light">
-            BACK
+         <span className="text-4xl text-black tracking-widest font-light uppercase">
+            {children}
          </span>
       </button>
    );

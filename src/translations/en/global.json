@@ -38,12 +38,7 @@
    "projects": {
       "title": "Projects",
       "subtitle1": "I love Details, Technology,",
-      "subtitle2": "and Animation.",
-      "repository": "Repository",
-      "website": "Website",
-      "viewCode": "View Code",
-      "visitSite": "Visit Site",
-      "checkMyProjects": "Check my projects"
+      "subtitle2": "and Animation."
    },
    "contact": {
       "title": "Get In Touch",
@@ -65,5 +60,15 @@
          "noMessage1": "I can't read minds yet...",
          "noMessage2": "so a message would be nice."
       }
+   },
+   "viewProject": {
+      "viewCode": "View Code",
+      "visitSite": "Visit Site",
+      "roleText": "Role",
+      "date": "Date",
+      "overview": "Overview",
+      "featuresText": "Features",
+      "technologiesUsed": "Technologies Used",
+      "back": "Back"
    }
 }

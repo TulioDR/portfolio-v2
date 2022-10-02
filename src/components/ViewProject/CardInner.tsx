@@ -6,7 +6,7 @@ type Props = {
 export default function CardInner({ children, info }: Props) {
    return (
       <div
-         className={`w-full md:w-1/2  aspect-square flex items-center p-14 ${
+         className={`w-full md:w-1/2  aspect-square flex flex-col space-y-5 justify-center p-[7%] ${
             info ? "bg-white" : "bg-gray-800"
          }`}
       >

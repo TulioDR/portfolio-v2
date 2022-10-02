@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 
-type Props = {};
+type Props = {
+   children: React.ReactNode;
+};
 
-export default function ViewCodeBtn({}: Props) {
+export default function ViewCodeBtn({ children }: Props) {
    return (
       <motion.button
          initial={{ y: "100%", opacity: 0 }}
@@ -13,7 +15,7 @@ export default function ViewCodeBtn({}: Props) {
       >
          <div className="flex items-center h-full w-44">
             <span className="h-12 w-[7.5rem] grid place-content-center translate-x-2 text-lg">
-               View Code
+               {children}
             </span>
             <span className="group-hover:rotate-180 duration-300 text-3xl material-icons w-14">
                code

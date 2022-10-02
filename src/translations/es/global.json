@@ -37,12 +37,7 @@
    "projects": {
       "title": "Proyectos",
       "subtitle1": "Amo los Detalles, la Tecnología,",
-      "subtitle2": "y la Animación.",
-      "repository": "Repositorio",
-      "website": "Sitio Web",
-      "viewCode": "Ver Código",
-      "visitSite": "Visitar Sitio",
-      "checkMyProjects": "Ve mis proyectos"
+      "subtitle2": "y la Animación."
    },
    "contact": {
       "title": "Contáctame",
@@ -64,5 +59,15 @@
          "noMessage1": "Todavía no puedo leer mentes...",
          "noMessage2": "Así que un mensaje estaría bien."
       }
+   },
+   "viewProject": {
+      "viewCode": "Ver Código",
+      "visitSite": "Visitar Sitio",
+      "roleText": "Rol",
+      "date": "Fecha",
+      "overview": "Descripción",
+      "featuresText": "Características",
+      "technologiesUsed": "Tecnologías Usadas",
+      "back": "volver"
    }
 }

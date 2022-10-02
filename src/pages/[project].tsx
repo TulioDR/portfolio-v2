@@ -12,7 +12,6 @@ import Subtitle from "../components/ViewProject/Subtitle";
 import CardContainer from "../components/ViewProject/CardContainer";
 import CardInner from "../components/ViewProject/CardInner";
 import MainSubtitle from "../components/ViewProject/MainSubtitle";
-import TechnologyCard from "../components/ViewProject/TechnologyCard";
 import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import BottomBackBtn from "../components/ViewProject/BottomBackBtn";
 import ProjectDetailsContainer from "../components/ViewProject/ProjectDetailsContainer";
@@ -24,12 +23,15 @@ import Title from "../components/Main/Title";
 import RevealToRight from "../animations/RevealToRight";
 import Underline from "../components/Sections/Underline";
 import ProjectDescription from "../components/ViewProject/ProjectDescription";
+import useLanguageContext from "../context/LanguageContext";
+import Layout16 from "../components/ViewProject/Technologies/Layout16";
+import MobileLayout from "../components/ViewProject/Technologies/MobileLayout";
+import Layout6 from "../components/ViewProject/Technologies/Layout6";
+import Layout9 from "../components/ViewProject/Technologies/Layout9";
 
 type Props = {
    currentProject: any;
 };
-
-const projectFeatures = [1, 2, 3, 4, 5, 6, 7];
 
 Project.getInitialProps = async ({ query }: any) => {
    const project = projectsList.find((p) => p.link === query.project);
@@ -38,6 +40,23 @@ Project.getInitialProps = async ({ query }: any) => {
 
 export default function Project({ currentProject }: Props) {
    const { setForwardAnimation, goBack } = useRouteContext();
+
+   const { currentProjectIdiom, currentIdiom } = useLanguageContext();
+
+   const translation = currentProjectIdiom[currentProject.link];
+   const { description, title, img, role, features, technologies } =
+      translation;
+
+   const {
+      visitSite,
+      viewCode,
+      roleText,
+      date,
+      overview,
+      featuresText,
+      technologiesUsed,
+      back,
+   } = currentIdiom.viewProject;
 
    useEffect(() => {
       setForwardAnimation(false);
@@ -56,14 +75,14 @@ export default function Project({ currentProject }: Props) {
    return (
       <>
          <Head>
-            <title>{currentProject.name} Showcase</title>
+            <title>{title} Showcase</title>
          </Head>
          <div className="relative">
             <BackBtn onClick={goBackBtn} />
             <div className="h-screen w-full relative">
                <div className="relative h-full w-screen">
                   <Image
-                     src={currentProject.img}
+                     src={img}
                      alt="background"
                      layout="fill"
                      objectFit="cover"
@@ -74,31 +93,31 @@ export default function Project({ currentProject }: Props) {
                </div>
                <BackgroundGradient>
                   <RevealToRight>
-                     <Title>{currentProject.name}</Title>
+                     <Title>{title}</Title>
                   </RevealToRight>
                   <RevealToRight>
                      <Underline />
                   </RevealToRight>
                   <RevealToRight>
-                     <ProjectDescription />
+                     <ProjectDescription>{description}</ProjectDescription>
                   </RevealToRight>
-                  <VisitSiteBtn />
+                  <VisitSiteBtn>{visitSite}</VisitSiteBtn>
                </BackgroundGradient>
-               <ViewCodeBtn />
+               <ViewCodeBtn>{viewCode}</ViewCodeBtn>
             </div>
             <ProjectDetailsContainer>
                <InformationContainer>
                   <div className="sm:flex justify-between space-y-5 sm:space-y-0 sm:space-x-10">
                      <div className="space-y-3 sm:space-y-5">
-                        <Subtitle>Role</Subtitle>
-                        <div>UI Design / Coding</div>
+                        <Subtitle>{roleText}</Subtitle>
+                        <div>{role}</div>
                      </div>
                      <div className="space-y-3 sm:space-y-5">
-                        <Subtitle>Date</Subtitle>
+                        <Subtitle>{date}</Subtitle>
                         <div>SEP 2021</div>
                      </div>
                      <div className="space-y-3 sm:space-y-5">
-                        <Subtitle>Overview</Subtitle>
+                        <Subtitle>{overview}</Subtitle>
                         <div>
                            A film – also called a movie, motion picture, moving
                            picture, picture or photoplay – is a work of visual
@@ -111,44 +130,34 @@ export default function Project({ currentProject }: Props) {
                   </div>
                </InformationContainer>
 
-               <MainSubtitle>Features</MainSubtitle>
-               {projectFeatures.map((i, index) => (
-                  <InformationContainer key={i}>
+               <MainSubtitle>{featuresText}</MainSubtitle>
+               {features.map((feature: any, index: number) => (
+                  <InformationContainer key={index}>
                      <CardContainer reverse={index % 2 != 0}>
                         <CardInner />
                         <CardInner info>
-                           <Subtitle>Login Page</Subtitle>
+                           <Subtitle>{feature.name}</Subtitle>
+                           <div className="text-lg">{feature.description}</div>
                         </CardInner>
                      </CardContainer>
                   </InformationContainer>
                ))}
 
-               <MainSubtitle>Technologies Used</MainSubtitle>
+               <MainSubtitle>{technologiesUsed}</MainSubtitle>
                <InformationContainer>
-                  <div className="grid grid-cols-5 gap-5 w-full">
-                     <div className="flex flex-col justify-center space-y-5">
-                        <TechnologyCard />
-                     </div>
-                     <div className="flex flex-col justify-center space-y-5">
-                        <TechnologyCard />
-                        <TechnologyCard />
-                     </div>
-                     <div className="flex flex-col justify-center space-y-5">
-                        <TechnologyCard />
-                        <TechnologyCard />
-                        <TechnologyCard />
-                     </div>
-                     <div className="flex flex-col justify-center space-y-5">
-                        <TechnologyCard />
-                        <TechnologyCard />
-                     </div>
-                     <div className="flex flex-col justify-center space-y-5">
-                        <TechnologyCard />
-                     </div>
-                  </div>
+                  {technologies.length === 16 && (
+                     <Layout16 technologies={technologies} />
+                  )}
+                  {technologies.length === 9 && (
+                     <Layout9 technologies={technologies} />
+                  )}
+                  {technologies.length === 6 && (
+                     <Layout6 technologies={technologies} />
+                  )}
+                  <MobileLayout technologies={technologies} />
                </InformationContainer>
 
-               <BottomBackBtn onClick={goBackBtn} />
+               <BottomBackBtn onClick={goBackBtn}>{back}</BottomBackBtn>
             </ProjectDetailsContainer>
          </div>
       </>
