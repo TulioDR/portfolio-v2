@@ -24,8 +24,8 @@ export default function SelectedProject({ back, reveal }: Props) {
          x: 0,
          y: 0,
          transition: {
-            duration: 0.6,
-            ease: "easeOut",
+            duration: 0.4,
+            ease: [0.645, 0.045, 0.355, 1],
          },
       },
    };
@@ -42,7 +42,7 @@ export default function SelectedProject({ back, reveal }: Props) {
          x: positionValues?.x,
          y: positionValues?.y,
          transition: {
-            duration: 0.6,
+            duration: 0.5,
             delay: 0.5,
             ease: "easeOut",
          },

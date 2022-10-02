@@ -9,17 +9,17 @@ import RevealImageAnimation from "../../animations/RevealImageAnimation";
 type Props = {};
 
 export default function MobileProjectsShowcase({}: Props) {
-   const { goForward, mobileProject } = useRouteContext();
+   const { goForward } = useRouteContext();
 
    const saveValues = (img: any, link: string) => {
       setTimeout(() => {
-         goForward(img, mobileProject, link);
+         goForward(img, link);
       }, 500);
    };
 
    return (
       <div className="flex-1 flex flex-col w-full sm:hidden">
-         <div ref={mobileProject} className="flex-1 w-full">
+         <div id="mobile-projects" className="flex-1 w-full">
             <Swiper
                speed={500}
                spaceBetween={0}

@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image";
 import { useRouter } from "next/router";
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 interface PositionValues {
    width: number;
@@ -16,24 +16,13 @@ interface AppContextInterface {
    setPositionValues: React.Dispatch<
       React.SetStateAction<PositionValues | null>
    >;
-   project1: React.RefObject<HTMLDivElement>;
-   project2: React.RefObject<HTMLDivElement>;
-   project3: React.RefObject<HTMLDivElement>;
    backgroundImage: StaticImageData;
-   selectedProject: any;
+   selectedProjectId: any;
    goBack: any;
    goForward: any;
 
    setForwardAnimation: any;
    setBackAnimation: any;
-
-   showTitle1: boolean;
-   showTitle2: boolean;
-   showTitle3: boolean;
-   setShowTitle1: any;
-   setShowTitle2: any;
-   setShowTitle3: any;
-   mobileProject: any;
 }
 type Props = {
    children: React.ReactNode;
@@ -53,41 +42,10 @@ export function RouteProvider({ children }: Props) {
    const [forwardAnimation, setForwardAnimation] = useState<boolean>(false);
    const [backAnimation, setBackAnimation] = useState<boolean>(false);
    const [backgroundImage, setBackgroundImage] = useState<any>(null);
-   const [selectedProject, setSelectedProject] = useState<any>(null);
+   const [selectedProjectId, setSelectedProjectId] = useState<string>("");
 
-   const [showTitle1, setShowTitle1] = useState<boolean>(true);
-   const [showTitle2, setShowTitle2] = useState<boolean>(true);
-   const [showTitle3, setShowTitle3] = useState<boolean>(true);
-
-   const mobileProject = useRef<HTMLDivElement>(null);
-   const project1 = useRef<HTMLDivElement>(null);
-   const project2 = useRef<HTMLDivElement>(null);
-   const project3 = useRef<HTMLDivElement>(null);
-
-   const selectProject = (query: string) => {
-      if (query === "film-organizer") {
-         setSelectedProject(project1);
-         setTimeout(() => {
-            setShowTitle1(true);
-         }, 2000);
-      }
-      if (query === "simple-pokedex") {
-         setSelectedProject(project2);
-         setTimeout(() => {
-            setShowTitle2(true);
-         }, 2000);
-      }
-      if (query === "portfolio-v1") {
-         setSelectedProject(project3);
-         setTimeout(() => {
-            setShowTitle3(true);
-         }, 2000);
-      }
-   };
-
-   const goBack = async (img: any, query: string, mobile?: boolean) => {
-      if (mobile) setSelectedProject(mobileProject);
-      else selectProject(query);
+   const goBack = async (img: StaticImageData, query: string) => {
+      setSelectedProjectId(query);
       setBackgroundImage(img);
       router.push("/#projects");
 
@@ -97,9 +55,10 @@ export function RouteProvider({ children }: Props) {
       }, 700);
    };
 
-   const goForward = (img: any, ref: any, link: string) => {
+   const goForward = (img: StaticImageData, link: string) => {
       setBackgroundImage(img);
-      const { clientWidth, clientHeight, offsetLeft, offsetTop } = ref.current!;
+      const project = document.getElementById(link);
+      const { clientWidth, clientHeight, offsetLeft, offsetTop } = project!;
       setPositionValues({
          width: clientWidth,
          height: clientHeight,
@@ -115,22 +74,12 @@ export function RouteProvider({ children }: Props) {
       setPositionValues,
       forwardAnimation,
       backAnimation,
-      project1,
-      project2,
-      project3,
       backgroundImage,
-      selectedProject,
+      selectedProjectId,
       goBack,
       goForward,
       setForwardAnimation,
       setBackAnimation,
-      showTitle1,
-      showTitle2,
-      showTitle3,
-      setShowTitle1,
-      setShowTitle2,
-      setShowTitle3,
-      mobileProject,
    };
    return (
       <RouteContext.Provider value={value}>{children}</RouteContext.Provider>

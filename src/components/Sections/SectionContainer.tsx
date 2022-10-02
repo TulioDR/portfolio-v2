@@ -11,8 +11,7 @@ const containerAnimation = {
    initial: { opacity: 1 },
    animate: {
       transition: {
-         // delayChildren: 2,
-         delayChildren: 0.4,
+         delayChildren: 0.5,
       },
    },
 };
