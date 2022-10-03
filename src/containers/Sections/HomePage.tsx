@@ -1,4 +1,5 @@
 import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 import RevealToRight from "../../animations/RevealToRight";
 import Logo from "../../components/Home/Logo";
 import Title from "../../components/Main/Title";
@@ -17,6 +18,8 @@ export default function HomePage({}: Props) {
    const { currentIdiom } = useLanguageContext();
 
    const { webDeveloper } = currentIdiom.home;
+
+   const router = useRouter();
    return (
       <SectionContainer index={0}>
          <div className="flex flex-col sm:flex-row w-full">
@@ -38,7 +41,9 @@ export default function HomePage({}: Props) {
             </InfoContainer>
             <div className="w-full sm:w-1/2 h-full flex items-center justify-center">
                <AnimatePresence>
-                  {currentIndex === 0 && <Logo />}
+                  {(currentIndex === 0 || router.asPath === "/#home") && (
+                     <Logo />
+                  )}
                </AnimatePresence>
             </div>
          </div>

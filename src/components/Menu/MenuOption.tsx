@@ -2,19 +2,28 @@ import { ReactNode } from "react";
 import { motion } from "framer-motion";
 import usePositionContext from "../../context/PositionContext";
 import useNavbarContext from "../../context/NavbarContext";
+import { useRouter } from "next/router";
 
 type Props = {
    children: ReactNode;
    index: number;
    bulletRef: any;
+   link: string;
 };
 
-export default function MenuOption({ children, bulletRef, index }: Props) {
+export default function MenuOption({
+   children,
+   bulletRef,
+   index,
+   link,
+}: Props) {
    const { currentIndex } = usePositionContext();
    const { hoveredBullet, setHoveredBullet, closeMenu } = useNavbarContext();
+   const router = useRouter();
 
    const execute = () => {
-      bulletRef.current.click();
+      if (router.route === "/") bulletRef.current.click();
+      else router.push(`/#${link}`);
       closeMenu();
    };
    const handleHoverStart = () => {

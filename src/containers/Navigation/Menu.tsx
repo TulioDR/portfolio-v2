@@ -17,16 +17,16 @@ export default function Menu() {
       <MenuContainer>
          <MenuTitle />
          <MenuOptionsContainer>
-            <MenuOption index={0} bulletRef={homeBullet}>
+            <MenuOption link="home" index={0} bulletRef={homeBullet}>
                {home}
             </MenuOption>
-            <MenuOption index={1} bulletRef={aboutBullet}>
+            <MenuOption link="about" index={1} bulletRef={aboutBullet}>
                {about}
             </MenuOption>
-            <MenuOption index={2} bulletRef={projectsBullet}>
+            <MenuOption link="projects" index={2} bulletRef={projectsBullet}>
                {projects}
             </MenuOption>
-            <MenuOption index={3} bulletRef={contactBullet}>
+            <MenuOption link="contact" index={3} bulletRef={contactBullet}>
                {contact}
             </MenuOption>
          </MenuOptionsContainer>
