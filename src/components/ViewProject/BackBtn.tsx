@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import useNavbarContext from "../../context/NavbarContext";
 type Props = {
    onClick: any;
+   mobile?: boolean;
 };
 
 type SvgProps = {
@@ -28,25 +29,24 @@ const SvgComponent = ({ isWhiteArrow }: SvgProps) => (
    </svg>
 );
 
-export default function BackBtn({ onClick }: Props) {
+export default function BackBtn({ onClick, mobile }: Props) {
    const { isWhiteArrow } = useNavbarContext();
+
+   const animation = {
+      initial: { x: "100%" },
+      animate: { x: 0, transition: { duration: 0.6 } },
+      exit: { x: "-110%", transition: { duration: 0.6 } },
+   };
    return (
-      <div className="fixed top-20 lg:top-24 left-5 sm:left-10 md:left-16 lg:left-20 xl:left-16 z-10 overflow-hidden w-16 h-9 translate-y-3 duration-300 hover:-translate-x-2">
+      <div
+         className={`${
+            mobile ? "sm:hidden" : "hidden sm:block"
+         } fixed top-20 lg:top-24 left-5 sm:left-10 md:left-16 lg:left-20 xl:left-16 z-10 overflow-hidden w-16 h-9 translate-y-3 duration-300 hover:-translate-x-2`}
+      >
          <motion.button
-            initial={{ x: "100%" }}
-            animate={{ x: 0, transition: { duration: 0.6 } }}
-            exit={{ x: "-110%", transition: { duration: 0.6 } }}
-            onClick={() => onClick(false)}
-            className="w-full h-full relative hidden sm:block"
-         >
-            <SvgComponent isWhiteArrow={isWhiteArrow} />
-         </motion.button>
-         <motion.button
-            initial={{ x: "100%" }}
-            animate={{ x: 0, transition: { duration: 0.6 } }}
-            exit={{ x: "-110%", transition: { duration: 0.6 } }}
-            onClick={() => onClick(true)}
-            className="w-full h-full relative sm:hidden"
+            variants={animation}
+            onClick={() => onClick(mobile)}
+            className="w-full h-full relative"
          >
             <SvgComponent isWhiteArrow={isWhiteArrow} />
          </motion.button>

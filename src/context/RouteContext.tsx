@@ -13,16 +13,13 @@ interface AppContextInterface {
    forwardAnimation: boolean;
    backAnimation: boolean;
    positionValues: PositionValues | null;
-   setPositionValues: React.Dispatch<
-      React.SetStateAction<PositionValues | null>
-   >;
+   setValues: (element: HTMLElement) => void;
    backgroundImage: StaticImageData;
-   selectedProjectId: any;
-   goBack: any;
-   goForward: any;
-
-   setForwardAnimation: any;
-   setBackAnimation: any;
+   selectedProjectId: string;
+   closeProjectDetails: (img: StaticImageData, query: string) => void;
+   openProjectDetails: (img: StaticImageData, id: string, link: string) => void;
+   setForwardAnimation: React.Dispatch<React.SetStateAction<boolean>>;
+   setBackAnimation: React.Dispatch<React.SetStateAction<boolean>>;
 }
 type Props = {
    children: React.ReactNode;
@@ -44,40 +41,47 @@ export function RouteProvider({ children }: Props) {
    const [backgroundImage, setBackgroundImage] = useState<any>(null);
    const [selectedProjectId, setSelectedProjectId] = useState<string>("");
 
-   const goBack = async (img: StaticImageData, query: string) => {
-      setSelectedProjectId(query);
-      setBackgroundImage(img);
-      router.push("/#projects");
-
-      // the delay is equal to the delay on the elements exit duration on [project]
-      setTimeout(() => {
-         setBackAnimation(true);
-      }, 700);
-   };
-
-   const goForward = (img: StaticImageData, link: string) => {
-      setBackgroundImage(img);
-      const project = document.getElementById(link);
-      const { clientWidth, clientHeight, offsetLeft, offsetTop } = project!;
+   const setValues = (element: HTMLElement) => {
+      const { clientWidth, clientHeight, offsetLeft, offsetTop } = element;
       setPositionValues({
          width: clientWidth,
          height: clientHeight,
          x: offsetLeft,
          y: offsetTop,
       });
+   };
+
+   const openProjectDetails = (
+      img: StaticImageData,
+      id: string,
+      link: string
+   ): void => {
+      setBackgroundImage(img);
+      const project = document.getElementById(id);
+      setValues(project!);
       setForwardAnimation(true);
       router.push(`/${link}`);
    };
 
+   const closeProjectDetails = (img: StaticImageData, id: string): void => {
+      setBackgroundImage(img);
+      setSelectedProjectId(id);
+      // the delay is equal to the delay on the elements exit duration on [project]
+      setTimeout(() => {
+         setBackAnimation(true);
+      }, 700);
+      router.push("/#projects");
+   };
+
    const value = {
       positionValues,
-      setPositionValues,
+      setValues,
       forwardAnimation,
       backAnimation,
       backgroundImage,
       selectedProjectId,
-      goBack,
-      goForward,
+      closeProjectDetails,
+      openProjectDetails,
       setForwardAnimation,
       setBackAnimation,
    };

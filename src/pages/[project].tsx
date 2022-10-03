@@ -39,7 +39,7 @@ Project.getInitialProps = async ({ query }: any) => {
 };
 
 export default function Project({ currentProject }: Props) {
-   const { setForwardAnimation, goBack } = useRouteContext();
+   const { setForwardAnimation, closeProjectDetails } = useRouteContext();
 
    const { currentProjectIdiom, currentIdiom } = useLanguageContext();
 
@@ -72,13 +72,15 @@ export default function Project({ currentProject }: Props) {
       setForwardAnimation(false);
    }, [setForwardAnimation]);
 
-   const goBackBtn = (mobile: boolean) => {
+   const goBackBtn = (mobile?: boolean) => {
       const { img, link } = currentProject;
       if (window.scrollY) {
          animateScroll.scrollToTop({ duration: 800, smooth: true });
-         setTimeout(() => goBack(img, link), 800);
+         setTimeout(() => {
+            closeProjectDetails(img, mobile ? "mobile-projects" : link);
+         }, 800);
       } else {
-         goBack(img, link, mobile);
+         closeProjectDetails(img, mobile ? "mobile-projects" : link);
       }
    };
 
@@ -97,6 +99,7 @@ export default function Project({ currentProject }: Props) {
          </Head>
          <div className="relative">
             <BackBtn onClick={goBackBtn} />
+            <BackBtn onClick={goBackBtn} mobile />
             <div className="h-screen w-full relative">
                <div className="relative h-full w-screen">
                   <Image
@@ -172,6 +175,9 @@ export default function Project({ currentProject }: Props) {
                </InformationContainer>
 
                <BottomBackBtn onClick={goBackBtn}>{back}</BottomBackBtn>
+               <BottomBackBtn onClick={goBackBtn} mobile>
+                  {back}
+               </BottomBackBtn>
             </ProjectDetailsContainer>
          </div>
       </>

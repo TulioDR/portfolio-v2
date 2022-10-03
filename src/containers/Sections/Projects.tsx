@@ -14,22 +14,15 @@ export default function Projects({}: Props) {
    const { currentIdiom } = useLanguageContext();
    const { title } = currentIdiom.projects;
 
-   const { setPositionValues, selectedProjectId, setBackAnimation } =
-      useRouteContext();
+   const { setValues, selectedProjectId, setBackAnimation } = useRouteContext();
 
    useEffect(() => {
       if (selectedProjectId) {
-         const project = document.getElementById(selectedProjectId);
-         const { clientWidth, clientHeight, offsetLeft, offsetTop } = project!;
-         setPositionValues({
-            width: clientWidth,
-            height: clientHeight,
-            x: offsetLeft,
-            y: offsetTop,
-         });
+         const project = document.getElementById(selectedProjectId)!;
+         setValues(project);
          setTimeout(() => setBackAnimation(false), 50);
       }
-   }, [setPositionValues, selectedProjectId]);
+   }, []);
 
    return (
       <SectionContainer index={2}>

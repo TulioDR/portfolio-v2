@@ -3,20 +3,11 @@ import { Pagination } from "swiper";
 
 import MobileProject from "./MobileProject";
 import { projectsList } from "../../assets/constants/projects";
-import useRouteContext from "../../context/RouteContext";
 import RevealImageAnimation from "../../animations/RevealImageAnimation";
 
 type Props = {};
 
 export default function MobileProjectsShowcase({}: Props) {
-   const { goForward } = useRouteContext();
-
-   const saveValues = (img: any, link: string) => {
-      setTimeout(() => {
-         goForward(img, link);
-      }, 500);
-   };
-
    return (
       <div className="flex-1 flex flex-col w-full sm:hidden">
          <div id="mobile-projects" className="flex-1 w-full">
@@ -36,7 +27,7 @@ export default function MobileProjectsShowcase({}: Props) {
                <RevealImageAnimation />
                {projectsList.map((project, index) => (
                   <SwiperSlide key={index}>
-                     <MobileProject project={project} saveValues={saveValues} />
+                     <MobileProject project={project} />
                   </SwiperSlide>
                ))}
             </Swiper>

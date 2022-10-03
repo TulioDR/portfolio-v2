@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function Project({ project, layout }: Props) {
-   const { goForward, selectedProjectId } = useRouteContext();
+   const { openProjectDetails, selectedProjectId } = useRouteContext();
    const [showTitle, setShowTitle] = useState<boolean>(false);
 
    useEffect(() => {
@@ -23,16 +23,18 @@ export default function Project({ project, layout }: Props) {
       else setTimeout(() => setShowTitle(true), 1000);
    }, [selectedProjectId, project.link]);
 
-   const execute = () => {
+   const goToDetails = () => {
       setShowTitle(false);
-      setTimeout(() => goForward(project.img, project.link), 300);
+      setTimeout(() => {
+         openProjectDetails(project.img, project.link, project.link);
+      }, 300);
    };
 
    return (
       <div
          id={project.link}
          className={`relative overflow-hidden cursor-pointer ${layout}`}
-         onClick={execute}
+         onClick={goToDetails}
       >
          <Image
             src={project.img}
