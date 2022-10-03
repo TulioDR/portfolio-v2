@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useRouteContext from "../../context/RouteContext";
 import ProjectImage from "../Main/ProjectImage";
 
@@ -9,7 +9,11 @@ type Props = {
 
 export default function MobileProject({ project }: Props) {
    const { openProjectDetails } = useRouteContext();
-   const [showTitle, setShowTitle] = useState<boolean>(true);
+   const [showTitle, setShowTitle] = useState<boolean>(false);
+
+   useEffect(() => {
+      setTimeout(() => setShowTitle(true), 1000);
+   }, []);
 
    const goToDetails = () => {
       setShowTitle(false);
