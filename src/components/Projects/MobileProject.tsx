@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import useRouteContext from "../../context/RouteContext";
+import ProjectImage from "../Main/ProjectImage";
 
 type Props = {
    project: any;
@@ -23,14 +23,7 @@ export default function MobileProject({ project }: Props) {
          className="w-full h-full relative cursor-pointer"
          onClick={goToDetails}
       >
-         <Image
-            src={project.img}
-            alt="landscape"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-            priority
-         />
+         <ProjectImage src={project.img} alt={project.name} />
          <motion.div
             animate={{
                y: showTitle ? 0 : "100%",

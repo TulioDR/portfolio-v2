@@ -9,7 +9,6 @@ export default function MobileInitialSlide({}: Props) {
 
    const swiper = useSwiper();
    useEffect(() => {
-      console.log(currentLink);
       if (currentLink === "film-organizer") {
          swiper.slideTo(0, 0);
       }
@@ -19,6 +18,6 @@ export default function MobileInitialSlide({}: Props) {
       if (currentLink === "portfolio-v1") {
          swiper.slideTo(2, 0);
       }
-   }, [currentLink]);
+   }, [currentLink, swiper]);
    return <></>;
 }

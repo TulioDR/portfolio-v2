@@ -1,4 +1,3 @@
-import Image from "next/image";
 // import {
 //    MouseParallaxChild,
 //    MouseParallaxContainer,
@@ -8,6 +7,7 @@ import useRouteContext from "../../context/RouteContext";
 import { motion } from "framer-motion";
 import RevealImageAnimation from "../../animations/RevealImageAnimation";
 import { useEffect, useState } from "react";
+import ProjectImage from "../Main/ProjectImage";
 
 type Props = {
    project: any;
@@ -36,15 +36,7 @@ export default function Project({ project, layout }: Props) {
          className={`relative overflow-hidden cursor-pointer ${layout}`}
          onClick={goToDetails}
       >
-         <Image
-            src={project.img}
-            alt="landscape"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-            className="brightness-50"
-            priority
-         />
+         <ProjectImage src={project.img} alt={project.name} />
          <motion.div
             animate={{
                y: showTitle ? 0 : "100%",

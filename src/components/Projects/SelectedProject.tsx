@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 
 import useRouteContext from "../../context/RouteContext";
+import ProjectImage from "../Main/ProjectImage";
 
 type Props = {
    back?: boolean;
@@ -58,17 +58,7 @@ export default function SelectedProject({ back, reveal }: Props) {
                exit="exit"
                className="absolute top-0 left-0 z-10"
             >
-               <div className="relative w-full h-full">
-                  <Image
-                     src={backgroundImage}
-                     alt="landscape"
-                     layout="fill"
-                     objectFit="cover"
-                     objectPosition="top"
-                     className="brightness-50"
-                     priority
-                  />
-               </div>
+               <ProjectImage src={backgroundImage} alt="landscape" />
             </motion.div>
          )}
       </AnimatePresence>

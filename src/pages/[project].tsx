@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import useRouteContext from "../context/RouteContext";
 import { projectsList } from "../assets/constants/projects";
 import { useEffect } from "react";
@@ -28,6 +27,7 @@ import Layout6 from "../components/ViewProject/Technologies/Layout6";
 import Layout9 from "../components/ViewProject/Technologies/Layout9";
 import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import MainButton from "../components/Main/MainButton";
+import ProjectImage from "../components/Main/ProjectImage";
 
 type Props = {
    currentProject: any;
@@ -101,17 +101,7 @@ export default function Project({ currentProject }: Props) {
             <BackBtn onClick={goBackBtn} />
             <BackBtn onClick={goBackBtn} mobile />
             <div className="h-screen w-full relative">
-               <div className="relative h-full w-screen">
-                  <Image
-                     src={img}
-                     alt="background"
-                     layout="fill"
-                     objectFit="cover"
-                     objectPosition="top"
-                     className="brightness-[0.5]"
-                     priority
-                  />
-               </div>
+               <ProjectImage src={img} alt="background" background />
                <BackgroundGradient>
                   <RevealToRight>
                      <Title>{title}</Title>
