@@ -45,6 +45,9 @@ export default function BackBtn({ onClick, mobile }: Props) {
       >
          <motion.button
             variants={animation}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             onClick={() => onClick(mobile)}
             className="w-full h-full relative"
          >
