@@ -77,10 +77,10 @@ export default function Project({ currentProject }: Props) {
       if (window.scrollY) {
          animateScroll.scrollToTop({ duration: 800, smooth: true });
          setTimeout(() => {
-            closeProjectDetails(img, mobile ? "mobile-projects" : link);
+            closeProjectDetails(img, mobile ? "mobile-projects" : link, link);
          }, 800);
       } else {
-         closeProjectDetails(img, mobile ? "mobile-projects" : link);
+         closeProjectDetails(img, mobile ? "mobile-projects" : link, link);
       }
    };
 

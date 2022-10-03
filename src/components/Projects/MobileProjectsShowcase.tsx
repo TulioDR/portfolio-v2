@@ -4,6 +4,7 @@ import { Pagination } from "swiper";
 import MobileProject from "./MobileProject";
 import { projectsList } from "../../assets/constants/projects";
 import RevealImageAnimation from "../../animations/RevealImageAnimation";
+import MobileInitialSlide from "./MobileInitialSlide";
 
 type Props = {};
 
@@ -24,6 +25,7 @@ export default function MobileProjectsShowcase({}: Props) {
                modules={[Pagination]}
                className="w-full h-full relative"
             >
+               <MobileInitialSlide />
                <RevealImageAnimation />
                {projectsList.map((project, index) => (
                   <SwiperSlide key={index}>

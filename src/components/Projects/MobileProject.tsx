@@ -17,6 +17,7 @@ export default function MobileProject({ project }: Props) {
          openProjectDetails(project.img, "mobile-projects", project.link);
       }, 300);
    };
+
    return (
       <div
          className="w-full h-full relative cursor-pointer"
