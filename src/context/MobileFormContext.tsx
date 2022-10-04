@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 interface AppContextInterface {
    revealMobileForm: boolean;
-   toggleMobileReveal: any;
+   toggleMobileReveal: () => void;
 }
 
 type Props = {
@@ -19,7 +19,7 @@ export function MobileFormProvider({ children }: Props) {
    const toggleMobileReveal = () => {
       setRevealJumbotron(!revealMobileForm);
    };
-   const value = {
+   const value: AppContextInterface = {
       revealMobileForm,
       toggleMobileReveal,
    };

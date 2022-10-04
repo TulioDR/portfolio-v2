@@ -6,7 +6,7 @@ import spanishProjects from "../translations/es/projects.js";
 
 interface AppContextInterface {
    isEnglish: boolean;
-   toggleLanguage: any;
+   toggleLanguage: () => void;
    currentIdiom: any;
    currentProjectIdiom: any;
 }
@@ -31,7 +31,7 @@ export function LanguageProvider({ children }: Props) {
       setCurrentProjectIdiom(newLanguage);
    }, [isEnglish]);
 
-   const value = {
+   const value: AppContextInterface = {
       isEnglish,
       toggleLanguage,
       currentIdiom,

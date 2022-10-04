@@ -26,15 +26,15 @@ interface AppContextInterface {
    setBackAnimation: React.Dispatch<React.SetStateAction<boolean>>;
    currentLink: string;
 }
-type Props = {
-   children: React.ReactNode;
-};
 
 const RouteContext = createContext({} as AppContextInterface);
 export default function useRouteContext() {
    return useContext(RouteContext);
 }
 
+type Props = {
+   children: React.ReactNode;
+};
 export function RouteProvider({ children }: Props) {
    const router = useRouter();
 
@@ -84,7 +84,7 @@ export function RouteProvider({ children }: Props) {
       router.push("/#projects");
    };
 
-   const value = {
+   const value: AppContextInterface = {
       positionValues,
       setValues,
       forwardAnimation,

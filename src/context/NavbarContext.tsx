@@ -6,11 +6,11 @@ interface AppContextInterface {
    hoveredBullet: number;
    setHoveredBullet: React.Dispatch<React.SetStateAction<number>>;
    isMenuOpen: boolean;
-   toggleMenu: any;
-   closeMenu: any;
+   toggleMenu: () => void;
+   closeMenu: () => void;
    isWhiteBackground: boolean;
    isWhiteArrow: boolean;
-   whiteBackRef: any;
+   whiteBackRef: React.MutableRefObject<null>;
 }
 
 const NavbarContext = createContext({} as AppContextInterface);
@@ -49,7 +49,7 @@ export function NavbarProvider({ children }: Props) {
       setIsWhiteArrow(isArrowInView);
    }, [isInView, isArrowInView]);
 
-   const value = {
+   const value: AppContextInterface = {
       hoveredBullet,
       setHoveredBullet,
       isMenuOpen,

@@ -10,7 +10,7 @@ import {
 
 interface AppContextInterface {
    currentIndex: number | null;
-   setCurrentIndex: any;
+   setCurrentIndex: React.Dispatch<React.SetStateAction<0 | 1 | 2 | 3 | null>>;
    homeBullet: RefObject<HTMLButtonElement>;
    aboutBullet: RefObject<HTMLButtonElement>;
    projectsBullet: RefObject<HTMLButtonElement>;
@@ -23,9 +23,8 @@ export default function usePositionContext() {
 type Props = {
    children: React.ReactNode;
 };
-
 export function PositionProvider({ children }: Props) {
-   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+   const [currentIndex, setCurrentIndex] = useState<0 | 1 | 2 | 3 | null>(null);
 
    const { asPath } = useRouter();
    useEffect(() => {
@@ -40,7 +39,7 @@ export function PositionProvider({ children }: Props) {
    const projectsBullet = useRef<HTMLButtonElement>(null);
    const contactBullet = useRef<HTMLButtonElement>(null);
 
-   const value = {
+   const value: AppContextInterface = {
       currentIndex,
       setCurrentIndex,
       homeBullet,
