@@ -28,6 +28,7 @@ import Layout9 from "../components/ViewProject/Technologies/Layout9";
 import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import MainButton from "../components/Main/MainButton";
 import ProjectImage from "../components/Main/ProjectImage";
+import Image from "next/image";
 
 type Props = {
    currentProject: any;
@@ -92,10 +93,11 @@ export default function Project({ currentProject }: Props) {
       window.open(repository, "_blank");
    };
 
+   const pageTitle: string = `${title} Showcase`;
    return (
       <>
          <Head>
-            <title>{title} Showcase</title>
+            <title>{pageTitle}</title>
          </Head>
          <div className="relative">
             <BackBtn onClick={goBackBtn} />
@@ -141,7 +143,16 @@ export default function Project({ currentProject }: Props) {
                {features.map((feature: any, index: number) => (
                   <InformationContainer key={index}>
                      <CardContainer reverse={index % 2 != 0}>
-                        <CardInner />
+                        <CardInner>
+                           {feature.img && (
+                              <Image
+                                 src={feature.img}
+                                 alt={feature.name}
+                                 layout="fill"
+                                 priority
+                              />
+                           )}
+                        </CardInner>
                         <CardInner info>
                            <Subtitle>{feature.name}</Subtitle>
                            <div className="text-lg">{feature.description}</div>

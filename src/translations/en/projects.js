@@ -21,6 +21,27 @@ import nextjs from "../../assets/images/technologies/nextjs.png";
 import emailjs from "../../assets/images/technologies/emailjs.png";
 import swiper from "../../assets/images/technologies/swiper.svg";
 
+// Film Organizer
+import mongoAtlas from "../../assets/images/features/film-organizer/atlas.jpg";
+import darkTheme from "../../assets/images/features/film-organizer/dark-theme.png";
+import listManager from "../../assets/images/features/film-organizer/manager.png";
+import login from "../../assets/images/features/film-organizer/login.png";
+import searchBar from "../../assets/images/features/film-organizer/search-bar.png";
+import homePage from "../../assets/images/features/film-organizer/home-page.png";
+import sidebar from "../../assets/images/features/film-organizer/sidebar.png";
+
+// Simple Pokedex
+import pokedexSearchBar from "../../assets/images/features/simple-pokedex/search-bar.png";
+import details from "../../assets/images/features/simple-pokedex/details.png";
+import select from "../../assets/images/features/simple-pokedex/select.png";
+import randomize from "../../assets/images/features/simple-pokedex/randomize.png";
+
+// Portfolio v1
+import contactForm from "../../assets/images/features/portfolio-v1/contact-form.png";
+import idioms from "../../assets/images/features/portfolio-v1/idioms.png";
+import projectsPortfolio from "../../assets/images/features/portfolio-v1/projects-showcase.png";
+import theme from "../../assets/images/features/portfolio-v1/theme.png";
+
 const englishProjects = {
    "film-organizer": {
       title: "Film Organizer",
@@ -37,32 +58,38 @@ const englishProjects = {
             name: "Home Page",
             description:
                "Includes movies on the theater, shows on air, and upcoming movies",
-            img: "",
+            img: homePage,
          },
          {
             name: "Expandable Sidebar",
             description: "To navigate easily between pages",
-            img: "",
+            img: sidebar,
          },
          {
             name: "Search bar",
             description: "Search for movies or shows by their names",
-            img: "",
+            img: searchBar,
          },
          {
             name: "Sign In / Login",
             description: "Made with formik (you can use Google!)",
-            img: "",
+            img: login,
+         },
+         {
+            name: "List Manager",
+            description: "Modify, delete or keep track of your lists",
+            img: listManager,
          },
          {
             name: "Dark Theme",
             description: "Easily implemented with Tailwindcss",
-            img: "",
+            img: darkTheme,
          },
          {
             name: "MongoDB Atlas",
-            description: "It's here where users and lists are stored",
-            img: "",
+            description:
+               "It's here where users and lists are stored, connected with nodejs",
+            img: mongoAtlas,
          },
       ],
       technologies: [
@@ -162,22 +189,22 @@ const englishProjects = {
          {
             name: "Search Bar",
             description: "Search for a pokémon by it's name",
-            img: "",
+            img: pokedexSearchBar,
          },
          {
             name: "Order Bar",
             description: "Order the search alphabetically o by number",
-            img: "",
+            img: select,
          },
          {
             name: "Randomize",
             description: "Obtain a random list of pokemons",
-            img: "",
+            img: randomize,
          },
          {
             name: "Pokémon Details",
             description: "Description, height, weight, gender, evolution...",
-            img: "",
+            img: details,
          },
       ],
       technologies: [
@@ -224,24 +251,24 @@ const englishProjects = {
       overview: "A simple portfolio made to show my projects and skills",
       features: [
          {
-            name: "Contact Form",
-            description: "Easily implemented with formik and emailjs",
-            img: "",
-         },
-         {
             name: "Projects Showcase",
             description: "Made with Swiper.js",
-            img: "",
+            img: projectsPortfolio,
          },
          {
-            name: "Dark Theme",
+            name: "Dark/Light Theme",
             description: "Easily implemented with Tailwindcss",
-            img: "",
+            img: theme,
          },
          {
             name: "Alternate between languages",
             description: "Made possible with React Context API",
-            img: "",
+            img: idioms,
+         },
+         {
+            name: "Contact Form",
+            description: "Easily implemented with formik and emailjs",
+            img: contactForm,
          },
       ],
       technologies: [

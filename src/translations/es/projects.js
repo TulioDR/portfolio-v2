@@ -21,6 +21,27 @@ import nextjs from "../../assets/images/technologies/nextjs.png";
 import emailjs from "../../assets/images/technologies/emailjs.png";
 import swiper from "../../assets/images/technologies/swiper.svg";
 
+// Film Organizer
+import mongoAtlas from "../../assets/images/features/film-organizer/atlas.jpg";
+import darkTheme from "../../assets/images/features/film-organizer/dark-theme.png";
+import listManager from "../../assets/images/features/film-organizer/manager.png";
+import login from "../../assets/images/features/film-organizer/login.png";
+import searchBar from "../../assets/images/features/film-organizer/search-bar.png";
+import homePage from "../../assets/images/features/film-organizer/home-page.png";
+import sidebar from "../../assets/images/features/film-organizer/sidebar.png";
+
+// Simple Pokedex
+import pokedexSearchBar from "../../assets/images/features/simple-pokedex/search-bar.png";
+import details from "../../assets/images/features/simple-pokedex/details.png";
+import select from "../../assets/images/features/simple-pokedex/select.png";
+import randomize from "../../assets/images/features/simple-pokedex/randomize.png";
+
+// Portfolio v1
+import contactForm from "../../assets/images/features/portfolio-v1/contact-form.png";
+import idioms from "../../assets/images/features/portfolio-v1/idioms.png";
+import projectsPortfolio from "../../assets/images/features/portfolio-v1/projects-showcase.png";
+import theme from "../../assets/images/features/portfolio-v1/theme.png";
+
 const spanishProjects = {
    "film-organizer": {
       title: "Film Organizer",
@@ -56,6 +77,11 @@ const spanishProjects = {
             img: "",
          },
          {
+            name: "Gestor de Listas",
+            description: "Modifica, borra o mantente al tanto de tus listas",
+            img: "",
+         },
+         {
             name: "Tema Oscuro",
             description: "Implementado fácilmente con Tailwindcss",
             img: "",
@@ -63,7 +89,7 @@ const spanishProjects = {
          {
             name: "MongoDB Atlas",
             description:
-               "Es aquí donde los usuarios y las listas están almacenados",
+               "Es aquí donde los usuarios y las listas están almacenados, conectado con nodejs",
             img: "",
          },
       ],
@@ -165,22 +191,22 @@ const spanishProjects = {
          {
             name: "Barra de Búsqueda",
             description: "Busca un pokémon por su nombre",
-            img: "",
+            img: pokedexSearchBar,
          },
          {
             name: "Selección de Orden",
             description: "Ordena la búsqueda alfabéticamente o por número",
-            img: "",
+            img: select,
          },
          {
             name: "Aleatorizar",
             description: "Obtén una lista aleatoria de Pokemones",
-            img: "",
+            img: randomize,
          },
          {
             name: "Detalles del Pokémon",
             description: "Descripción, altura, peso, género, evolución...",
-            img: "",
+            img: details,
          },
       ],
       technologies: [
@@ -228,24 +254,24 @@ const spanishProjects = {
          "Un portafolio sencillo y organizado para mostrar mis proyectos y habilidades",
       features: [
          {
-            name: "Planilla de Contacto",
-            description: "Implementada Fácilmente con formik y emailjs",
-            img: "",
-         },
-         {
             name: "Exhibición de Projectos",
             description: "Hecha con Swiper.js",
-            img: "",
+            img: projectsPortfolio,
          },
          {
-            name: "Tema Oscuro",
+            name: "Tema Claro/Oscuro",
             description: "Implementado fácilmente con Tailwindcss",
-            img: "",
+            img: theme,
          },
          {
             name: "Alternancia de Idiomas",
             description: "Hecho posible con Context API de React",
-            img: "",
+            img: idioms,
+         },
+         {
+            name: "Planilla de Contacto",
+            description: "Implementada Fácilmente con formik y emailjs",
+            img: contactForm,
          },
       ],
       technologies: [
