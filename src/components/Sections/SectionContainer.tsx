@@ -1,9 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import usePositionContext from "../../context/PositionContext";
 import { motion } from "framer-motion";
+import { useSwiperSlide } from "swiper/react";
 type Props = {
-   index: number;
    children: React.ReactNode;
 };
 
@@ -16,16 +15,16 @@ const containerAnimation = {
    },
 };
 
-export default function SectionContainer({ index, children }: Props) {
-   const { currentIndex } = usePositionContext();
+export default function SectionContainer({ children }: Props) {
    const [selected, setSelected] = useState(true);
+   const swiperSlide = useSwiperSlide();
 
    useEffect(() => {
-      if (currentIndex === index) {
+      if (swiperSlide.isActive) {
          setSelected(false);
          setTimeout(() => setSelected(true), 50);
       }
-   }, [currentIndex, index]);
+   }, [swiperSlide.isActive]);
 
    return (
       <div className="w-full h-full pl-10 md:pl-16 lg:pl-20 xl:pl-40 2xl:pl-48 relative overflow-hidden">

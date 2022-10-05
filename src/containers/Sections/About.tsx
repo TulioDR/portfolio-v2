@@ -23,7 +23,7 @@ export default function About({}: Props) {
    const toggleJumbotron = () => setRevealJumbotron(!revealJumbotron);
 
    return (
-      <SectionContainer index={1}>
+      <SectionContainer>
          <InfoContainer>
             <RevealToRight>
                <Title>{title}</Title>

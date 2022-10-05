@@ -25,7 +25,7 @@ export default function Projects({}: Props) {
    }, []);
 
    return (
-      <SectionContainer index={2}>
+      <SectionContainer>
          <div className="h-full w-full flex flex-col">
             <div className="overflow-hidden mb-2">
                <div className="flex items-center space-x-5 pb-2">

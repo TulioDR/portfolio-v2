@@ -23,7 +23,7 @@ export default function Contact() {
    const { toggleMobileReveal } = useMobileFormContext();
 
    return (
-      <SectionContainer index={3}>
+      <SectionContainer>
          <InfoContainer>
             <RevealToRight>
                <Title>{title}</Title>

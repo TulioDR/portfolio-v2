@@ -8,12 +8,12 @@ import { motion } from "framer-motion";
 import RevealImageAnimation from "../../animations/RevealImageAnimation";
 import { useEffect, useState } from "react";
 import ProjectImage from "../Main/ProjectImage";
+import ProjectModel from "../../models/ProjectModel";
 
 type Props = {
-   project: any;
+   project: ProjectModel;
    layout?: string;
 };
-
 export default function Project({ project, layout }: Props) {
    const { openProjectDetails, selectedProjectId } = useRouteContext();
    const [showTitle, setShowTitle] = useState<boolean>(false);

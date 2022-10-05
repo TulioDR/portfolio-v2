@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import useRouteContext from "../../context/RouteContext";
+import ProjectModel from "../../models/ProjectModel";
 import ProjectImage from "../Main/ProjectImage";
 
 type Props = {
-   project: any;
+   project: ProjectModel;
 };
 
 export default function MobileProject({ project }: Props) {

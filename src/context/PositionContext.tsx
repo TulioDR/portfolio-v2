@@ -1,16 +1,8 @@
-import { useRouter } from "next/router";
-import {
-   useContext,
-   createContext,
-   useState,
-   useEffect,
-   useRef,
-   RefObject,
-} from "react";
+import { useContext, createContext, useState, useRef, RefObject } from "react";
 
 interface AppContextInterface {
-   currentIndex: number | null;
-   setCurrentIndex: React.Dispatch<React.SetStateAction<0 | 1 | 2 | 3 | null>>;
+   currentIndex: number;
+   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
    homeBullet: RefObject<HTMLButtonElement>;
    aboutBullet: RefObject<HTMLButtonElement>;
    projectsBullet: RefObject<HTMLButtonElement>;
@@ -24,15 +16,7 @@ type Props = {
    children: React.ReactNode;
 };
 export function PositionProvider({ children }: Props) {
-   const [currentIndex, setCurrentIndex] = useState<0 | 1 | 2 | 3 | null>(null);
-
-   const { asPath } = useRouter();
-   useEffect(() => {
-      if (asPath === "/#about") setCurrentIndex(1);
-      else if (asPath === "/#projects") setCurrentIndex(2);
-      else if (asPath === "/#contact") setCurrentIndex(3);
-      else setCurrentIndex(0);
-   }, []);
+   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
    const homeBullet = useRef<HTMLButtonElement>(null);
    const aboutBullet = useRef<HTMLButtonElement>(null);

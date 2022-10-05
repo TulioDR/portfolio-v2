@@ -1,8 +1,3 @@
-type Props = {};
-import {
-   MouseParallaxChild,
-   MouseParallaxContainer,
-} from "react-parallax-mouse";
 import { motion } from "framer-motion";
 import useLanguageContext from "../../context/LanguageContext";
 
@@ -10,7 +5,7 @@ import moon from "../../assets/images/logo/moon.svg";
 import shield from "../../assets/images/logo/shield.svg";
 import Image from "next/image";
 
-export default function Logo({}: Props) {
+export default function Logo() {
    const { currentIdiom } = useLanguageContext();
    const { portfolio } = currentIdiom.home;
 
@@ -56,16 +51,8 @@ export default function Logo({}: Props) {
    };
 
    return (
-      <MouseParallaxContainer
-         useWindowMouseEvents={true}
-         className="w-44 h-full sm:w-72 md:w-80 lg:w-96 xl:w-125 relative -translate-y-4 sm:translate-y-0"
-         containerStyles={{ overflow: "visible" }}
-      >
-         <MouseParallaxChild
-            factorX={0.04}
-            factorY={0.04}
-            className="w-full h-full flex items-center justify-center"
-         >
+      <div className="w-44 h-full sm:w-72 md:w-80 lg:w-96 xl:w-125 relative -translate-y-4 sm:translate-y-0">
+         <div className="w-full h-full flex items-center justify-center">
             <motion.div
                variants={moonVariant}
                initial="initial"
@@ -83,12 +70,8 @@ export default function Logo({}: Props) {
                   />
                </div>
             </motion.div>
-         </MouseParallaxChild>
-         <MouseParallaxChild
-            factorX={0.02}
-            factorY={0.02}
-            className="absolute flex justify-end items-center top-0 left-0 h-full w-full"
-         >
+         </div>
+         <div className="absolute flex justify-end items-center top-0 left-0 h-full w-full">
             <motion.div
                variants={title}
                initial="initial"
@@ -109,7 +92,7 @@ export default function Logo({}: Props) {
                   </div>
                </div>
             </motion.div>
-         </MouseParallaxChild>
-      </MouseParallaxContainer>
+         </div>
+      </div>
    );
 }
