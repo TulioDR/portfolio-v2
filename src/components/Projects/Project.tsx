@@ -23,7 +23,7 @@ export default function Project({ project, layout }: Props) {
             setSelectedProjectId("");
          }, 1000);
       }
-   }, [selectedProjectId, project.link]);
+   }, [selectedProjectId, setSelectedProjectId, project.link]);
 
    const goToDetails = () => {
       setShowTitle(false);
