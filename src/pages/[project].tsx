@@ -34,10 +34,10 @@ type Props = {
    currentProject: any;
 };
 
-Project.getInitialProps = async ({ query }: any) => {
+export async function getServerSideProps({ query }: any) {
    const project = projectsList.find((p) => p.link === query.project);
-   return { currentProject: project };
-};
+   return { props: { currentProject: project } };
+}
 
 export default function Project({ currentProject }: Props) {
    const { setForwardAnimation, closeProjectDetails } = useRouteContext();
