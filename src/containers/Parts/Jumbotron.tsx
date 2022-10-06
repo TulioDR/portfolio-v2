@@ -40,9 +40,9 @@ export default function Jumbotron({
                <JumbotronContainer>
                   <button
                      onClick={toggle}
-                     className="bg-secondary px-2 py-2 absolute right-2 top-2 z-20 rounded-full material-icons sm:hidden"
+                     className="bg-secondary w-11 h-11 grid place-content-center absolute right-2 top-2 z-20 rounded-full sm:hidden"
                   >
-                     close
+                     <span className="material-icons">close</span>
                   </button>
                   <JumbotronBackgroundImage
                      about={about}
