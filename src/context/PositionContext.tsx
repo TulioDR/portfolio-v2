@@ -45,6 +45,12 @@ export function PositionProvider({ children }: Props) {
    useEffect(() => {
       if (router.route !== "/") {
          setCurrentIndex(null);
+      } else {
+         const { asPath } = router;
+         if (asPath === "/#about") setCurrentIndex(1);
+         else if (asPath === "/#projects") setCurrentIndex(2);
+         else if (asPath === "/#contact") setCurrentIndex(3);
+         else setCurrentIndex(0);
       }
    }, [router.route]);
 

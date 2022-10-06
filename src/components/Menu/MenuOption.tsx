@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import { motion } from "framer-motion";
 import usePositionContext from "../../context/PositionContext";
 import useNavbarContext from "../../context/NavbarContext";
@@ -20,13 +20,6 @@ export default function MenuOption({
    const { currentIndex } = usePositionContext();
    const { hoveredBullet, setHoveredBullet, closeMenu } = useNavbarContext();
    const router = useRouter();
-
-   const [showMarker, setShowMarker] = useState<boolean>(true);
-   useEffect(() => {
-      if (router.route !== "/") {
-         setShowMarker(false);
-      }
-   }, [router.route]);
 
    const execute = () => {
       if (router.route === "/") bulletRef.current.click();
@@ -56,13 +49,13 @@ export default function MenuOption({
          variants={option}
          className={`cursor-pointer relative mx-auto py-2 ${
             currentIndex === index ? "" : "text-gray-400"
-         } ${showMarker ? "" : "hover:text-white hover:duration-300"}`}
+         } ${currentIndex ? "" : "hover:text-white hover:duration-300"}`}
          onClick={execute}
          onHoverStart={handleHoverStart}
          onHoverEnd={handleHoverEnd}
       >
          {children}
-         {hoveredBullet === index && showMarker && (
+         {hoveredBullet === index && currentIndex !== null && (
             <motion.div
                layoutId="menuSelector"
                transition={{ duration: 0.2 }}
