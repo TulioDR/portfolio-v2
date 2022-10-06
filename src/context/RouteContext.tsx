@@ -16,6 +16,7 @@ interface AppContextInterface {
    setValues: (element: HTMLElement) => void;
    backgroundImage: StaticImageData;
    selectedProjectId: string;
+   setSelectedProjectId: React.Dispatch<React.SetStateAction<string>>;
    closeProjectDetails: (
       img: StaticImageData,
       id: string,
@@ -91,6 +92,7 @@ export function RouteProvider({ children }: Props) {
       backAnimation,
       backgroundImage,
       selectedProjectId,
+      setSelectedProjectId,
       closeProjectDetails,
       openProjectDetails,
       setForwardAnimation,

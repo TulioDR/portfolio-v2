@@ -20,7 +20,9 @@ export default function Projects({}: Props) {
       if (selectedProjectId) {
          const project = document.getElementById(selectedProjectId)!;
          setValues(project);
-         setTimeout(() => setBackAnimation(false), 50);
+         setTimeout(() => {
+            setBackAnimation(false);
+         }, 50);
       }
    }, []);
 
