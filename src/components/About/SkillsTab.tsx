@@ -21,7 +21,7 @@ export default function SkillsTab({ children, isMain, main, onClick }: Props) {
                layoutId="underline"
                className="w-full bg-secondary absolute"
                initial={{ bottom: -1, height: 5 }}
-               transition={{ duration: 0.5, ease: [0.645, 0.045, 0.355, 1] }}
+               transition={{ duration: 0.3, ease: [0.645, 0.045, 0.355, 1] }}
             />
          )}
       </motion.li>

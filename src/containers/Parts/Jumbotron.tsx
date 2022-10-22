@@ -40,7 +40,7 @@ export default function Jumbotron({
                <JumbotronContainer>
                   <button
                      onClick={toggle}
-                     className="bg-secondary w-11 h-11 grid place-content-center absolute right-2 top-2 z-20 rounded-full sm:hidden"
+                     className="bg-secondary w-8 h-8 grid place-content-center absolute right-2 top-2 z-20 rounded-full sm:hidden"
                   >
                      <span className="material-icons">close</span>
                   </button>
