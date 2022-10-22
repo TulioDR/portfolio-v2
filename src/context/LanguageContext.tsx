@@ -1,8 +1,8 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import english from "../translations/en/global.json";
 import spanish from "../translations/es/global.json";
-import englishProjects from "../translations/en/projects.js";
-import spanishProjects from "../translations/es/projects.js";
+import englishProjects from "../translations/en/projects";
+import spanishProjects from "../translations/es/projects";
 
 interface AppContextInterface {
    isEnglish: boolean;

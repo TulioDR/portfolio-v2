@@ -11,7 +11,7 @@ export const projectsList = [
    {
       name: "Simple Pokédex",
       img: simplePokedex,
-      link: "simple-pokedex",
+      link: "pokedex",
    },
    {
       name: "Portfolio.v1",

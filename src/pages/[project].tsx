@@ -35,7 +35,8 @@ type Props = {
 };
 
 export async function getServerSideProps({ query }: any) {
-   const project = projectsList.find((p) => p.link === query.project);
+   const projectLink = query.project;
+   const project = projectsList.find((p) => p.link === projectLink);
    return { props: { currentProject: project } };
 }
 
@@ -43,8 +44,9 @@ export default function Project({ currentProject }: Props) {
    const { setForwardAnimation, closeProjectDetails } = useRouteContext();
 
    const { currentProjectIdiom, currentIdiom } = useLanguageContext();
-
-   const translation = currentProjectIdiom[currentProject.link];
+   const translation = currentProjectIdiom.find(
+      (p: any) => p.link === currentProject.link
+   );
    const {
       description,
       title,
