@@ -4,7 +4,7 @@ import InfoContainer from "../../components/Sections/InfoContainer";
 import SectionContainer from "../../components/Sections/SectionContainer";
 import useLanguageContext from "../../context/LanguageContext";
 import Jumbotron from "../Parts/Jumbotron";
-import aboutImage from "../../assets/images/projects.jpg";
+import aboutImage from "../../assets/images/jumbotron/projects.jpg";
 import { useState } from "react";
 import Underline from "../../components/Sections/Underline";
 import RevealToRight from "../../animations/RevealToRight";

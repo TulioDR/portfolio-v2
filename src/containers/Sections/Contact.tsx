@@ -8,7 +8,7 @@ import SectionContainer from "../../components/Sections/SectionContainer";
 import useLanguageContext from "../../context/LanguageContext";
 import Jumbotron from "../Parts/Jumbotron";
 import useMobileFormContext from "../../context/MobileFormContext";
-import contactImg from "../../assets/images/contact6.jpg";
+import contactImg from "../../assets/images/jumbotron/contact.jpg";
 import Underline from "../../components/Sections/Underline";
 import RevealToRight from "../../animations/RevealToRight";
 import Title from "../../components/Main/Title";
