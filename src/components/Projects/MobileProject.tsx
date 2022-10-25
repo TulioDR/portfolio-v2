@@ -28,7 +28,7 @@ export default function MobileProject({ project }: Props) {
          className="w-full h-full relative cursor-pointer"
          onClick={goToDetails}
       >
-         <ProjectImage src={project.img} alt={project.name} />
+         <ProjectImage src={project.img} alt={project.title} />
          <motion.div
             animate={{
                y: showTitle ? 0 : "100%",
@@ -36,7 +36,7 @@ export default function MobileProject({ project }: Props) {
             }}
             className="absolute w-full bottom-0 left-0 pb-3 pl-4 pt-10 text-2xl font-semibold bg-gradient-to-t from-primaryDark to-transparent"
          >
-            {project.name}
+            {project.title}
          </motion.div>
       </div>
    );

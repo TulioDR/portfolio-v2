@@ -4,17 +4,17 @@ import portfolioV1 from "../images/projects/portfolio-v1.png";
 
 export const projectsList = [
    {
-      name: "Film Organizer",
+      title: "Film Organizer",
       img: filmOrganizer,
       link: "film-organizer",
    },
    {
-      name: "Simple Pokédex",
+      title: "Simple Pokédex",
       img: pokedex,
       link: "pokedex",
    },
    {
-      name: "Portfolio.v1",
+      title: "Portfolio.v1",
       img: portfolioV1,
       link: "portfolio-v1",
    },
