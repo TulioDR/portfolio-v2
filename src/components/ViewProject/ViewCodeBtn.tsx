@@ -49,7 +49,7 @@ export default function ViewCodeBtn({ children, mobile, onClick }: Props) {
             </span>
             <span
                onClick={mobile ? toggle : undefined}
-               className={`duration-300 text-3xl material-icons w-14 h-full grid place-content-center ${
+               className={`duration-300 w-14 h-full grid place-content-center ${
                   mobile
                      ? isOpen
                         ? "rotate-180"
@@ -57,7 +57,11 @@ export default function ViewCodeBtn({ children, mobile, onClick }: Props) {
                      : "group-hover:rotate-180"
                }`}
             >
-               {mobile ? (isOpen ? "close" : "code") : "code"}
+               <span
+                  className={`material-icons text-3xl w-full grid place-content-center}`}
+               >
+                  {mobile ? (isOpen ? "close" : "code") : "code"}
+               </span>
             </span>
          </div>
       </motion.button>
