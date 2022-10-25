@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import RevealImageAnimation from "../../animations/RevealImageAnimation";
 import { useEffect, useState } from "react";
 import ProjectImage from "../Main/ProjectImage";
-import ProjectModel from "../../models/ProjectModel";
 
 type Props = {
-   project: ProjectModel;
+   project: any;
    layout?: string;
 };
 export default function Project({ project, layout }: Props) {
