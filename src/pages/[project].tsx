@@ -95,11 +95,10 @@ export default function Project({ currentProject }: Props) {
       window.open(repository, "_blank");
    };
 
-   const pageTitle: string = `${title} Showcase`;
    return (
       <>
          <Head>
-            <title>{pageTitle}</title>
+            <title>{`${title} Showcase`}</title>
          </Head>
          <div className="relative">
             <BackBtn onClick={goBackBtn} />

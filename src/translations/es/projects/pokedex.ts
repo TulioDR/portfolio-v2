@@ -1,4 +1,4 @@
-import simplePokedex from "../../../assets/images/projects/simple-pokedex.png";
+import pokedexBackground from "../../../assets/images/projects/pokedex.png";
 import pokedexSearchBar from "../../../assets/images/features/simple-pokedex/search-bar.png";
 import details from "../../../assets/images/features/simple-pokedex/details.png";
 import select from "../../../assets/images/features/simple-pokedex/select.png";
@@ -10,7 +10,7 @@ import pokedexTech from "../../../assets/constants/projectsTech/pokedexTech";
 export const pokedex: ProjectModel = {
    link: "pokedex",
    title: "Pokédex",
-   img: simplePokedex,
+   img: pokedexBackground,
    description:
       "Un pokédex sencilla para encontrar y aprender más sobre cualquier pokémon",
    website: "https://pokedex-animated.vercel.app/",

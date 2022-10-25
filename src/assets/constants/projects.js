@@ -1,5 +1,5 @@
 import filmOrganizer from "../images/projects/film-organizer.png";
-import simplePokedex from "../images/projects/simple-pokedex.png";
+import pokedex from "../images/projects/pokedex.png";
 import portfolioV1 from "../images/projects/portfolio-v1.png";
 
 export const projectsList = [
@@ -10,7 +10,7 @@ export const projectsList = [
    },
    {
       name: "Simple Pokédex",
-      img: simplePokedex,
+      img: pokedex,
       link: "pokedex",
    },
    {
