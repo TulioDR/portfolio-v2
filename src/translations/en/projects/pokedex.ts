@@ -1,8 +1,8 @@
 import pokedexBackground from "../../../assets/images/projects/pokedex.png";
-import pokedexSearchBar from "../../../assets/images/features/simple-pokedex/search-bar.png";
-import details from "../../../assets/images/features/simple-pokedex/details.png";
-import select from "../../../assets/images/features/simple-pokedex/select.png";
-import randomize from "../../../assets/images/features/simple-pokedex/randomize.png";
+import pokedexSearchBar from "../../../assets/images/features/pokedex/search-bar.png";
+import details from "../../../assets/images/features/pokedex/details.png";
+import select from "../../../assets/images/features/pokedex/select.png";
+import randomize from "../../../assets/images/features/pokedex/randomize.png";
 
 import ProjectModel from "../../../models/ProjectModel";
 import pokedexTech from "../../../assets/constants/projectsTech/pokedexTech";
@@ -25,7 +25,7 @@ export const pokedex: ProjectModel = {
          img: pokedexSearchBar,
       },
       {
-         name: "Order Bar",
+         name: "Select Order",
          description: "Order the search alphabetically o by number",
          img: select,
       },
