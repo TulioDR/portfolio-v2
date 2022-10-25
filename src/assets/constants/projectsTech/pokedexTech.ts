@@ -1,10 +1,10 @@
-import html from "../../../assets/images/technologies/html.png";
-import css from "../../../assets/images/technologies/css.png";
-import javascript from "../../../assets/images/technologies/javascript.png";
+import html from "../../images/technologies/html.png";
+import css from "../../images/technologies/css.png";
+import javascript from "../../images/technologies/javascript.png";
 import framerMotion from "../../images/technologies/framer-motion.png";
-import tailwind from "../../../assets/images/technologies/tailwind.svg";
-import nextjs from "../../../assets/images/technologies/nextjs.png";
-import typescript from "../../../assets/images/technologies/typescript.png";
+import tailwind from "../../images/technologies/tailwind.svg";
+import nextjs from "../../images/technologies/nextjs.png";
+import typescript from "../../images/technologies/typescript.png";
 
 import { TechnologiesModel } from "../../../models/ProjectModel";
 
