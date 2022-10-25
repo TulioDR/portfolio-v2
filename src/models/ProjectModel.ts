@@ -1,5 +1,11 @@
 import { StaticImageData } from "next/image";
 
+export interface TechnologiesModel {
+   name: string;
+   link: string;
+   img: StaticImageData;
+}
+
 export default interface ProjectModel {
    link: string;
    title: string;
@@ -15,9 +21,5 @@ export default interface ProjectModel {
       description: string;
       img: StaticImageData;
    }[];
-   technologies: {
-      name: string;
-      link: string;
-      img: StaticImageData;
-   }[];
+   technologies: TechnologiesModel[];
 }

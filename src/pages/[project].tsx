@@ -21,14 +21,14 @@ import RevealToRight from "../animations/RevealToRight";
 import Underline from "../components/Sections/Underline";
 import ProjectDescription from "../components/ViewProject/ProjectDescription";
 import useLanguageContext from "../context/LanguageContext";
-import Layout16 from "../components/ViewProject/Technologies/Layout16";
 import MobileLayout from "../components/ViewProject/Technologies/MobileLayout";
-import Layout6 from "../components/ViewProject/Technologies/Layout6";
-import Layout9 from "../components/ViewProject/Technologies/Layout9";
 import ViewCodeBtn from "../components/ViewProject/ViewCodeBtn";
 import MainButton from "../components/Main/MainButton";
 import ProjectImage from "../components/Main/ProjectImage";
 import Image from "next/image";
+import Layout7 from "../components/ViewProject/Technologies/Layout7";
+import Layout9 from "../components/ViewProject/Technologies/Layout9";
+import Layout16 from "../components/ViewProject/Technologies/Layout16";
 
 type Props = {
    currentProject: any;
@@ -171,8 +171,8 @@ export default function Project({ currentProject }: Props) {
                   {technologies.length === 9 && (
                      <Layout9 technologies={technologies} />
                   )}
-                  {technologies.length === 6 && (
-                     <Layout6 technologies={technologies} />
+                  {technologies.length === 7 && (
+                     <Layout7 technologies={technologies} />
                   )}
                   <MobileLayout technologies={technologies} />
                </InformationContainer>

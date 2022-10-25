@@ -2,20 +2,21 @@ import TechnologyCard from "../TechnologyCard";
 
 type Props = { technologies?: any };
 
-export default function Layout6({ technologies }: Props) {
+export default function Layout7({ technologies }: Props) {
    return (
       <div className="hidden sm:flex flex-col space-y-5 ">
-         <div className="grid grid-cols-3 gap-5 w-full">
+         <div className="grid grid-cols-2 gap-5 w-2/3 mx-auto">
             <TechnologyCard technology={technologies[0]} />
             <TechnologyCard technology={technologies[1]} />
-            <TechnologyCard technology={technologies[2]} />
          </div>
-         <div className="grid grid-cols-2 gap-5 w-2/3 mx-auto">
+         <div className="grid grid-cols-3 gap-5 w-full mx-auto">
+            <TechnologyCard technology={technologies[2]} />
             <TechnologyCard technology={technologies[3]} />
             <TechnologyCard technology={technologies[4]} />
          </div>
-         <div className="grid grid-cols-1 gap-5 w-1/3 mx-auto">
+         <div className="grid grid-cols-2 gap-5 w-2/3 mx-auto">
             <TechnologyCard technology={technologies[5]} />
+            <TechnologyCard technology={technologies[6]} />
          </div>
       </div>
    );

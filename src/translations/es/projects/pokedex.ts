@@ -4,15 +4,8 @@ import details from "../../../assets/images/features/simple-pokedex/details.png"
 import select from "../../../assets/images/features/simple-pokedex/select.png";
 import randomize from "../../../assets/images/features/simple-pokedex/randomize.png";
 
-// Technologies
-import html from "../../../assets/images/technologies/html.png";
-import css from "../../../assets/images/technologies/css.png";
-import javascript from "../../../assets/images/technologies/javascript.png";
-import react from "../../../assets/images/technologies/react.png";
-import reactRouter from "../../../assets/images/technologies/react-router.png";
-import tailwind from "../../../assets/images/technologies/tailwind.svg";
-
 import ProjectModel from "../../../models/ProjectModel";
+import pokedexTech from "../../../assets/constants/projectsTech/pokedexTech";
 
 export const pokedex: ProjectModel = {
    link: "pokedex",
@@ -48,36 +41,5 @@ export const pokedex: ProjectModel = {
          img: details,
       },
    ],
-   technologies: [
-      {
-         name: "HTML",
-         img: html,
-         link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-      },
-      {
-         name: "CSS",
-         img: css,
-         link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-      },
-      {
-         name: "Javascript",
-         img: javascript,
-         link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-      },
-      {
-         name: "React",
-         img: react,
-         link: "https://reactjs.org/",
-      },
-      {
-         name: "React-Router-Dom",
-         img: reactRouter,
-         link: "https://reactrouter.com/",
-      },
-      {
-         name: "Tailwindcss",
-         img: tailwind,
-         link: "https://tailwindcss.com/",
-      },
-   ],
+   technologies: pokedexTech,
 };

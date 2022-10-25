@@ -7,24 +7,8 @@ import listManager from "../../../assets/images/features/film-organizer/manager.
 import login from "../../../assets/images/features/film-organizer/login.png";
 import searchBar from "../../../assets/images/features/film-organizer/search-bar.png";
 
-// Technologies
-import html from "../../../assets/images/technologies/html.png";
-import css from "../../../assets/images/technologies/css.png";
-import javascript from "../../../assets/images/technologies/javascript.png";
-import react from "../../../assets/images/technologies/react.png";
-import reactRouter from "../../../assets/images/technologies/react-router.png";
-import redux from "../../../assets/images/technologies/redux.png";
-import node from "../../../assets/images/technologies/node.png";
-import mongodb from "../../../assets/images/technologies/mongodb.png";
-import express from "../../../assets/images/technologies/express.png";
-import tailwind from "../../../assets/images/technologies/tailwind.svg";
-import framerMotion from "../../../assets/images/technologies/framer-motion.png";
-import reactSelect from "../../../assets/images/technologies/react-select.png";
-import formik from "../../../assets/images/technologies/formik.png";
-import axios from "../../../assets/images/technologies/axios.png";
-import reactGoogleLogin from "../../../assets/images/technologies/react-google-login.png";
-
 import ProjectModel from "../../../models/ProjectModel";
+import filmOrganizerTech from "../../../assets/constants/projectsTech/filmOrganizerTech";
 
 export const filmOrganizer: ProjectModel = {
    link: "film-organizer",
@@ -76,86 +60,5 @@ export const filmOrganizer: ProjectModel = {
          img: mongoAtlas,
       },
    ],
-   technologies: [
-      {
-         name: "HTML",
-         img: html,
-         link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-      },
-      {
-         name: "CSS",
-         img: css,
-         link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-      },
-      {
-         name: "Javascript",
-         img: javascript,
-         link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-      },
-      {
-         name: "React",
-         img: react,
-         link: "https://reactjs.org/",
-      },
-      {
-         name: "React-Router-Dom",
-         img: reactRouter,
-         link: "https://reactrouter.com/",
-      },
-      {
-         name: "Redux",
-         img: redux,
-         link: "https://redux.js.org/",
-      },
-      {
-         name: "NodeJS",
-         img: node,
-         link: "https://nodejs.org/",
-      },
-      {
-         name: "MongoDB",
-         img: mongodb,
-         link: "https://www.mongodb.com/",
-      },
-      {
-         name: "Express",
-         img: express,
-         link: "https://expressjs.com/",
-      },
-      {
-         name: "Tailwindcss",
-         img: tailwind,
-         link: "https://tailwindcss.com/",
-      },
-      {
-         name: "Framer Motion",
-         img: framerMotion,
-         link: "https://www.framer.com/motion/",
-      },
-      {
-         name: "Formik",
-         img: formik,
-         link: "https://formik.org/",
-      },
-      {
-         name: "React-Select",
-         img: reactSelect,
-         link: "https://react-select.com/",
-      },
-      {
-         name: "Axios",
-         img: axios,
-         link: "https://axios-http.com/",
-      },
-      {
-         name: "React-Google-Login",
-         img: reactGoogleLogin,
-         link: "https://www.npmjs.com/package/react-google-login",
-      },
-      {
-         name: "Redux Thunk",
-         img: redux,
-         link: "https://www.npmjs.com/package/redux-thunk",
-      },
-   ],
+   technologies: filmOrganizerTech,
 };
