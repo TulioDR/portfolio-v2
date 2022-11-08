@@ -11,7 +11,7 @@ export const pokedex: ProjectModel = {
    mainInfo: pokedexMain,
    description: "A simple pokédex to find and learn more about any Pokémon",
    role: "UI Design / Coding",
-   date: "DEC 2021",
+   date: "JULY 2022",
    overview:
       "Simple Pokédex is a web application with a simple UI made with the PokéAPI that allows you to find pokemons and learn about them.",
    technologies: pokedexTech,
