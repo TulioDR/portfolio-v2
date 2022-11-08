@@ -6,13 +6,17 @@ export interface TechnologiesModel {
    img: StaticImageData;
 }
 
-export default interface ProjectModel {
+export interface ProjectMainInfoModel {
    link: string;
    title: string;
    img: StaticImageData;
-   description: string;
    website: string;
    repository: string;
+}
+
+export default interface ProjectModel {
+   mainInfo: ProjectMainInfoModel;
+   description: string;
    role: string;
    date: string;
    overview: string;

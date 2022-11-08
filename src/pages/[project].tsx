@@ -1,7 +1,6 @@
 import Head from "next/head";
 import useRouteContext from "../context/RouteContext";
-import { projectsList } from "../assets/constants/projects";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import BackBtn from "../components/ViewProject/BackBtn";
 
 import BackgroundGradient from "../components/ViewProject/BackgroundGradient";
@@ -29,36 +28,41 @@ import Image from "next/image";
 import Layout7 from "../components/ViewProject/Technologies/Layout7";
 import Layout9 from "../components/ViewProject/Technologies/Layout9";
 import Layout16 from "../components/ViewProject/Technologies/Layout16";
+import { useRouter } from "next/router";
+import english from "../translations/en/global";
 
 type Props = {
-   currentProject: any;
+   currentProjectEnglish: any;
 };
 
 export async function getServerSideProps({ query }: any) {
-   const projectLink = query.project;
-   const project = projectsList.find((p) => p.link === projectLink);
-   return { props: { currentProject: project } };
+   const project = english.projects.projectsList.find(
+      (p: any) => p.mainInfo.link === query.project
+   );
+   return { props: { currentProjectEnglish: project } };
 }
 
-export default function Project({ currentProject }: Props) {
+export default function Project({ currentProjectEnglish }: Props) {
    const { setForwardAnimation, closeProjectDetails } = useRouteContext();
+   const { currentIdiom } = useLanguageContext();
 
-   const { currentProjectIdiom, currentIdiom } = useLanguageContext();
-   const translation = currentProjectIdiom.find(
-      (p: any) => p.link === currentProject.link
+   const [currentProject, setCurrentProject] = useState<any>(
+      currentProjectEnglish
    );
-   const {
-      description,
-      title,
-      img,
-      role,
-      date,
-      overview,
-      features,
-      technologies,
-      website,
-      repository,
-   } = translation;
+
+   const router = useRouter();
+   useEffect(() => {
+      const link = router.query.project;
+      if (!link) return;
+      const project = currentIdiom.projects.projectsList.find(
+         (p: any) => p.mainInfo.link === link
+      );
+      setCurrentProject(project);
+   }, [router.query.project, currentIdiom.projects.projectsList]);
+
+   const { title, website, repository } = currentProject.mainInfo;
+   const { description, role, date, overview, features, technologies } =
+      currentProject;
 
    const {
       visitSite,
@@ -76,7 +80,7 @@ export default function Project({ currentProject }: Props) {
    }, [setForwardAnimation]);
 
    const goBackBtn = (mobile?: boolean) => {
-      const { img, link } = currentProject;
+      const { img, link } = currentProject.mainInfo;
       if (window.scrollY) {
          animateScroll.scrollToTop({ duration: 800, smooth: true });
          setTimeout(() => {
@@ -104,7 +108,11 @@ export default function Project({ currentProject }: Props) {
             <BackBtn onClick={goBackBtn} />
             <BackBtn onClick={goBackBtn} mobile />
             <div className="h-screen w-full relative">
-               <ProjectImage src={img} alt="background" background />
+               <ProjectImage
+                  src={currentProjectEnglish.mainInfo.img}
+                  alt="background"
+                  background
+               />
                <BackgroundGradient>
                   <RevealToRight>
                      <Title>{title}</Title>

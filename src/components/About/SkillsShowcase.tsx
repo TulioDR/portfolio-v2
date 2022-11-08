@@ -5,8 +5,8 @@ import SkillsGrid from "./SkillsGrid";
 import SkillsTab from "./SkillsTab";
 
 import useLanguageContext from "../../context/LanguageContext";
-import mainSkillsList from "../../assets/constants/mainSkillsList";
-import otherSkillsList from "../../assets/constants/otherSkillsList";
+import mainSkillsList from "../../assets/data/mainSkillsList";
+import otherSkillsList from "../../assets/data/otherSkillsList";
 
 type Props = {};
 

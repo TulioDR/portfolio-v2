@@ -1,24 +1,21 @@
-import pokedexBackground from "../../../assets/images/projects/pokedex.png";
 import pokedexSearchBar from "../../../assets/images/features/pokedex/search-bar.png";
 import details from "../../../assets/images/features/pokedex/details.png";
 import select from "../../../assets/images/features/pokedex/select.png";
 import randomize from "../../../assets/images/features/pokedex/randomize.png";
 
 import ProjectModel from "../../../models/ProjectModel";
-import pokedexTech from "../../../assets/constants/projectsTech/pokedexTech";
+import pokedexTech from "../../../assets/projects/technologies/pokedexTech";
+import pokedexMain from "../../../assets/projects/mainInfo/pokedexMain";
 
 export const pokedex: ProjectModel = {
-   link: "pokedex",
-   title: "Pokédex",
-   img: pokedexBackground,
+   mainInfo: pokedexMain,
    description:
       "Un pokédex sencilla para encontrar y aprender más sobre cualquier pokémon",
-   website: "https://pokedex-animated.vercel.app/",
-   repository: "https://github.com/TulioDR/pokedex",
    role: "Diseño de UI / Código",
    date: "DIC 2021",
    overview:
       "Simple Pokédex es una aplicación web de simple interfaz hecha con PokéApi que permite encontrar pokemones y aprender de ellos.",
+   technologies: pokedexTech,
    features: [
       {
          name: "Barra de Búsqueda",
@@ -41,5 +38,4 @@ export const pokedex: ProjectModel = {
          img: details,
       },
    ],
-   technologies: pokedexTech,
 };

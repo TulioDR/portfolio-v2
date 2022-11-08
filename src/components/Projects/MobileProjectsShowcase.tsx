@@ -2,9 +2,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
 import MobileProject from "./MobileProject";
-import { projectsList } from "../../assets/constants/projects";
 import RevealImageAnimation from "../../animations/RevealImageAnimation";
 import MobileInitialSlide from "./MobileInitialSlide";
+import filmOrganizerMain from "../../assets/projects/mainInfo/filmOrganizerMain";
+import pokedexMain from "../../assets/projects/mainInfo/pokedexMain";
+import dashboardMain from "../../assets/projects/mainInfo/dashboardMain";
 
 type Props = {};
 
@@ -27,11 +29,15 @@ export default function MobileProjectsShowcase({}: Props) {
             >
                <MobileInitialSlide />
                <RevealImageAnimation />
-               {projectsList.map((project, index) => (
-                  <SwiperSlide key={index}>
-                     <MobileProject project={project} />
-                  </SwiperSlide>
-               ))}
+               <SwiperSlide>
+                  <MobileProject project={filmOrganizerMain} />
+               </SwiperSlide>
+               <SwiperSlide>
+                  <MobileProject project={pokedexMain} />
+               </SwiperSlide>
+               <SwiperSlide>
+                  <MobileProject project={dashboardMain} />
+               </SwiperSlide>
             </Swiper>
          </div>
          <div className="h-8 w-full flex space-x-3 justify-center items-center mobile-projects-showcase-pagination-bullet-container"></div>

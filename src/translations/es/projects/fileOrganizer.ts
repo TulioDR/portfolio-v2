@@ -1,4 +1,3 @@
-import filmOrganizerBackground from "../../../assets/images/projects/film-organizer.png";
 import homePage from "../../../assets/images/features/film-organizer/home-page.png";
 import sidebar from "../../../assets/images/features/film-organizer/sidebar.png";
 import mongoAtlas from "../../../assets/images/features/film-organizer/atlas.jpg";
@@ -8,19 +7,17 @@ import login from "../../../assets/images/features/film-organizer/login.png";
 import searchBar from "../../../assets/images/features/film-organizer/search-bar.png";
 
 import ProjectModel from "../../../models/ProjectModel";
-import filmOrganizerTech from "../../../assets/constants/projectsTech/filmOrganizerTech";
+import filmOrganizerTech from "../../../assets/projects/technologies/filmOrganizerTech";
+import filmOrganizerMain from "../../../assets/projects/mainInfo/filmOrganizerMain";
 
 export const filmOrganizer: ProjectModel = {
-   link: "film-organizer",
-   title: "Film Organizer",
-   img: filmOrganizerBackground,
-   description: "Encuentra y guarda las peliculas y series que más te gustan.",
-   website: "https://film-organizer.netlify.app/home",
-   repository: "https://github.com/TulioDR/Film-Organizer",
+   mainInfo: filmOrganizerMain,
+   description: "Encuentra y guarda las películas y series que más te gustan.",
    role: "Diseño de UI / Código",
    date: "JUN 2022",
    overview:
       'Film Organizer es una aplicación MERN full stack hecha con compenentes funcionales en React. La aplicación te permite crear "Listas" en las cuales puedes guardar Películas o Series de TV las obtenidas por medio de la TMDB API. También permite autenticación manual o usando una cuenta existente de Google.',
+   technologies: filmOrganizerTech,
    features: [
       {
          name: "Página de Inicio",
@@ -60,5 +57,4 @@ export const filmOrganizer: ProjectModel = {
          img: mongoAtlas,
       },
    ],
-   technologies: filmOrganizerTech,
 };

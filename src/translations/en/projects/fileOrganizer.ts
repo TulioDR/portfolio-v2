@@ -1,4 +1,3 @@
-import filmOrganizerBackground from "../../../assets/images/projects/film-organizer.png";
 import homePage from "../../../assets/images/features/film-organizer/home-page.png";
 import sidebar from "../../../assets/images/features/film-organizer/sidebar.png";
 import mongoAtlas from "../../../assets/images/features/film-organizer/atlas.jpg";
@@ -8,19 +7,17 @@ import login from "../../../assets/images/features/film-organizer/login.png";
 import searchBar from "../../../assets/images/features/film-organizer/search-bar.png";
 
 import ProjectModel from "../../../models/ProjectModel";
-import filmOrganizerTech from "../../../assets/constants/projectsTech/filmOrganizerTech";
+import filmOrganizerTech from "../../../assets/projects/technologies/filmOrganizerTech";
+import filmOrganizerMain from "../../../assets/projects/mainInfo/filmOrganizerMain";
 
 export const filmOrganizer: ProjectModel = {
-   link: "film-organizer",
-   title: "Film Organizer",
-   img: filmOrganizerBackground,
+   mainInfo: filmOrganizerMain,
    description: "Find and keep track of the movies and tv shows you love",
-   website: "https://film-organizer.netlify.app/home",
-   repository: "https://github.com/TulioDR/Film-Organizer",
    role: "UI Design / Coding",
    date: "JUNE 2022",
    overview:
       'Film Organizer it\'s a full stack MERN web application made with React functional components. The app allows you to create "Lists" in which you can save Movies or TV Shows obtained from the TMDB API. It also allows manual authentication or using an existing Google account',
+   technologies: filmOrganizerTech,
    features: [
       {
          name: "Home Page",
@@ -60,5 +57,4 @@ export const filmOrganizer: ProjectModel = {
          img: mongoAtlas,
       },
    ],
-   technologies: filmOrganizerTech,
 };
