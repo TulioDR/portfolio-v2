@@ -4,7 +4,7 @@ const filmOrganizerMain = {
    title: "Film Organizer",
    img: filmOrganizer,
    link: "film-organizer",
-   website: "https://film-organizer.netlify.app/home",
+   website: "https://film-organizer.vercel.app/",
    repository: "https://github.com/TulioDR/Film-Organizer",
 };
 
