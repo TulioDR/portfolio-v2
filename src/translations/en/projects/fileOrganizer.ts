@@ -2,7 +2,6 @@ import homePage from "../../../assets/images/features/film-organizer/home-page.p
 import sidebar from "../../../assets/images/features/film-organizer/sidebar.png";
 import supabase from "../../../assets/images/features/film-organizer/supabase.jpg";
 import darkTheme from "../../../assets/images/features/film-organizer/dark-theme.png";
-import listManager from "../../../assets/images/features/film-organizer/manager.png";
 import login from "../../../assets/images/features/film-organizer/login.png";
 import searchBar from "../../../assets/images/features/film-organizer/search-bar.png";
 
@@ -37,13 +36,8 @@ export const filmOrganizer: ProjectModel = {
       },
       {
          name: "Sign In / Login",
-         description: "Made with formik (you can use Google!)",
+         description: "Made with formik (you can use Google and Github!)",
          img: login,
-      },
-      {
-         name: "List Manager",
-         description: "Modify, delete or keep track of your lists",
-         img: listManager,
       },
       {
          name: "Dark Theme",
