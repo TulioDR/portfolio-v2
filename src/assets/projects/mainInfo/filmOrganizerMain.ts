@@ -5,7 +5,7 @@ const filmOrganizerMain = {
    img: filmOrganizer,
    link: "film-organizer",
    website: "https://film-organizer.vercel.app/",
-   repository: "https://github.com/TulioDR/Film-Organizer",
+   repository: "https://github.com/TulioDR/film-organizer-v2/",
 };
 
 export default filmOrganizerMain;
