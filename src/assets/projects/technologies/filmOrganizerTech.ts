@@ -2,17 +2,18 @@ import html from "../../images/technologies/html.png";
 import css from "../../images/technologies/css.png";
 import javascript from "../../images/technologies/javascript.png";
 import react from "../../images/technologies/react.png";
-import reactRouter from "../../images/technologies/react-router.png";
-import redux from "../../images/technologies/redux.png";
-import node from "../../images/technologies/node.png";
-import mongodb from "../../images/technologies/mongodb.png";
-import express from "../../images/technologies/express.png";
+import nextjs from "../../images/technologies/nextjs.png";
+import prisma from "../../images/technologies/prisma.png";
+import typescript from "../../images/technologies/typescript.png";
+import supabase from "../../images/technologies/supabase.png";
+import tmdb from "../../images/technologies/tmdb.png";
 import tailwind from "../../images/technologies/tailwind.svg";
 import framerMotion from "../../images/technologies/framer-motion.png";
 import reactSelect from "../../images/technologies/react-select.png";
 import formik from "../../images/technologies/formik.png";
 import axios from "../../images/technologies/axios.png";
-import reactGoogleLogin from "../../../assets/images/technologies/react-google-login.png";
+import swiper from "../../images/technologies/swiper.svg";
+import adexin from "../../../assets/images/technologies/adexin.png";
 
 import { TechnologiesModel } from "../../../models/ProjectModel";
 
@@ -38,34 +39,34 @@ const filmOrganizerTech: TechnologiesModel[] = [
       link: "https://reactjs.org/",
    },
    {
-      name: "React-Router-Dom",
-      img: reactRouter,
-      link: "https://reactrouter.com/",
+      name: "Next.js",
+      img: nextjs,
+      link: "https://nextjs.org/",
    },
    {
-      name: "Redux",
-      img: redux,
-      link: "https://redux.js.org/",
-   },
-   {
-      name: "NodeJS",
-      img: node,
-      link: "https://nodejs.org/",
-   },
-   {
-      name: "MongoDB",
-      img: mongodb,
-      link: "https://www.mongodb.com/",
-   },
-   {
-      name: "Express",
-      img: express,
-      link: "https://expressjs.com/",
+      name: "Typescript",
+      img: typescript,
+      link: "https://www.typescriptlang.org/",
    },
    {
       name: "Tailwindcss",
       img: tailwind,
       link: "https://tailwindcss.com/",
+   },
+   {
+      name: "Supabase",
+      img: supabase,
+      link: "https://supabase.com/",
+   },
+   {
+      name: "Prisma",
+      img: prisma,
+      link: "https://www.prisma.io/",
+   },
+   {
+      name: "TMDB API",
+      img: tmdb,
+      link: "https://www.themoviedb.org/",
    },
    {
       name: "Framer Motion",
@@ -88,14 +89,14 @@ const filmOrganizerTech: TechnologiesModel[] = [
       link: "https://axios-http.com/",
    },
    {
-      name: "React-Google-Login",
-      img: reactGoogleLogin,
-      link: "https://www.npmjs.com/package/react-google-login",
+      name: "Spinners React",
+      img: adexin,
+      link: "https://adexin.github.io/spinners/",
    },
    {
-      name: "Redux Thunk",
-      img: redux,
-      link: "https://www.npmjs.com/package/redux-thunk",
+      name: "Swiper.js",
+      img: swiper,
+      link: "https://swiperjs.com/",
    },
 ];
 
