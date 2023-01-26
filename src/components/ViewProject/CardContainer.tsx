@@ -6,7 +6,7 @@ type Props = {
 export default function CardContainer({ children, reverse }: Props) {
    return (
       <div
-         className={` md:flex rounded-xl shadow-lg overflow-hidden w-full ${
+         className={` md:flex rounded-xl shadow-lg overflow-hidden w-full border-[8px] border-white ${
             reverse ? "flex-row-reverse" : ""
          }`}
       >
