@@ -1,6 +1,6 @@
 import homePage from "../../../assets/images/features/film-organizer/home-page.png";
 import sidebar from "../../../assets/images/features/film-organizer/sidebar.png";
-import mongoAtlas from "../../../assets/images/features/film-organizer/atlas.jpg";
+import supabase from "../../../assets/images/features/film-organizer/supabase.jpg";
 import darkTheme from "../../../assets/images/features/film-organizer/dark-theme.png";
 import listManager from "../../../assets/images/features/film-organizer/manager.png";
 import login from "../../../assets/images/features/film-organizer/login.png";
@@ -51,10 +51,10 @@ export const filmOrganizer: ProjectModel = {
          img: darkTheme,
       },
       {
-         name: "MongoDB Atlas",
+         name: "Supabase",
          description:
-            "Es aquí donde los usuarios y las listas están almacenados, conectado con nodejs",
-         img: mongoAtlas,
+            "Es aquí donde los usuarios y las listas están almacenados, conectado con Prima",
+         img: supabase,
       },
    ],
 };
