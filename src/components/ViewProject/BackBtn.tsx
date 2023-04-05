@@ -9,14 +9,7 @@ type SvgProps = {
    isWhiteArrow: boolean;
 };
 const SvgComponent = ({ isWhiteArrow }: SvgProps) => (
-   <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height={34}
-      viewBox="0 0 67 34"
-      style={{
-         transform: "translateX(0)",
-      }}
-   >
+   <svg xmlns="http://www.w3.org/2000/svg" height={34} viewBox="0 0 67 34">
       <g
          fill="none"
          fillRule="evenodd"

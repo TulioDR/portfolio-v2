@@ -130,6 +130,7 @@ export default function Project({ currentProjectEnglish }: Props) {
                </ViewCodeBtn>
                <ViewCodeBtn onClick={goToRepo}>{viewCode}</ViewCodeBtn>
             </div>
+
             <ProjectDetailsContainer>
                <InformationContainer>
                   <div className="sm:flex justify-between space-y-5 sm:space-y-0 sm:space-x-10">

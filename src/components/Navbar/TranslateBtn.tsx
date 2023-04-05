@@ -1,8 +1,6 @@
 import useLanguageContext from "../../context/LanguageContext";
 
-type Props = {};
-
-export default function TranslateBtn({}: Props) {
+export default function TranslateBtn() {
    const { isEnglish, toggleLanguage } = useLanguageContext();
    return (
       <button className="flex items-center space-x-2" onClick={toggleLanguage}>
