@@ -1,13 +1,11 @@
 import { Formik } from "formik";
 
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import useLanguageContext from "../../context/LanguageContext";
 import FormInputs from "./FormInputs";
 
 type Props = {
    setSentSuccessfull: React.Dispatch<React.SetStateAction<boolean>>;
-   setSentFailure: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const initialState = {
@@ -28,10 +26,7 @@ type Errors = {
    };
 };
 
-export default function ContactForm({
-   setSentSuccessfull,
-   setSentFailure,
-}: Props) {
+export default function ContactForm({ setSentSuccessfull }: Props) {
    const { currentIdiom } = useLanguageContext();
 
    const [isNameOnFocus, setIsNameOnFocus] = useState<boolean>(false);
@@ -46,28 +41,8 @@ export default function ContactForm({
       return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email);
    };
 
-   const onSubmit = (_values: any, { resetForm }: any) => {
-      emailjs
-         .sendForm(
-            process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
-            process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
-            form.current!,
-            process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY!
-         )
-         .then(
-            (_result) => {
-               resetForm();
-               setIsNameOnFocus(false);
-               setIsEmailOnFocus(false);
-               setIsMessageOnFocus(false);
-               setSentSuccessfull(true);
-               setTimeout(() => setSentSuccessfull(false), 4000);
-            },
-            (error) => {
-               console.log(error);
-               setSentFailure(true);
-            }
-         );
+   const onSubmit = (_values: any) => {
+      setSentSuccessfull(true);
    };
 
    const validation = (value: any) => {

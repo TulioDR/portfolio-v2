@@ -50,10 +50,7 @@ export default function Contact() {
             </MainButton>
          </InfoContainer>
          <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
-            <ContactForm
-               setSentSuccessfull={setSentSuccessfull}
-               setSentFailure={setSentFailure}
-            />
+            <ContactForm setSentSuccessfull={setSentSuccessfull} />
          </Jumbotron>
          <SentMessage
             open={sentSuccessfull}
