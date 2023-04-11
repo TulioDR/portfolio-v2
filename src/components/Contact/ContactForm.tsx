@@ -5,7 +5,7 @@ import useLanguageContext from "../../context/LanguageContext";
 import FormInputs from "./FormInputs";
 
 type Props = {
-   setSentSuccessfull: React.Dispatch<React.SetStateAction<boolean>>;
+   setSentMessage: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const initialState = {
@@ -26,7 +26,7 @@ type Errors = {
    };
 };
 
-export default function ContactForm({ setSentSuccessfull }: Props) {
+export default function ContactForm({ setSentMessage }: Props) {
    const { currentIdiom } = useLanguageContext();
 
    const [isNameOnFocus, setIsNameOnFocus] = useState<boolean>(false);
@@ -41,8 +41,10 @@ export default function ContactForm({ setSentSuccessfull }: Props) {
       return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email);
    };
 
-   const onSubmit = (_values: any) => {
-      setSentSuccessfull(true);
+   const onSubmit = (values: any) => {
+      console.log(values);
+      setSentMessage(true);
+      console.log("submit this");
    };
 
    const validation = (value: any) => {

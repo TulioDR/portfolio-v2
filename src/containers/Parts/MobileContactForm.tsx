@@ -7,8 +7,7 @@ import useMobileFormContext from "../../context/MobileFormContext";
 type Props = {};
 
 export default function MobileContactForm({}: Props) {
-   const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
-   const [sentFailure, setSentFailure] = useState<boolean>(false);
+   const [sentMessage, setSentMessage] = useState<boolean>(false);
 
    const { revealMobileForm, toggleMobileReveal } = useMobileFormContext();
 
@@ -29,13 +28,12 @@ export default function MobileContactForm({}: Props) {
                   >
                      close
                   </button>
-                  <ContactForm setSentSuccessfull={setSentSuccessfull} />
-                  <SentMessage
-                     open={sentSuccessfull}
-                     setOpen={setSentSuccessfull}
-                     success
-                  />
-                  <SentMessage open={sentFailure} setOpen={setSentFailure} />
+                  <ContactForm setSentMessage={setSentMessage} />
+                  <AnimatePresence>
+                     {sentMessage && (
+                        <SentMessage setOpen={setSentMessage} success />
+                     )}
+                  </AnimatePresence>
                </div>
             </motion.div>
          )}

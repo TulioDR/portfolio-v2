@@ -13,49 +13,50 @@ import Underline from "../../components/Sections/Underline";
 import RevealToRight from "../../animations/RevealToRight";
 import Title from "../../components/Main/Title";
 import MainButton from "../../components/Main/MainButton";
+import { AnimatePresence } from "framer-motion";
 
 export default function Contact() {
    const { currentIdiom } = useLanguageContext();
    const { title, contactMe } = currentIdiom.contact;
-   const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
+   const [sentMessage, setSentMessage] = useState<boolean>(false);
+   console.log("refresh");
 
    const { toggleMobileReveal } = useMobileFormContext();
-
    return (
-      <SectionContainer>
-         <InfoContainer>
-            <RevealToRight>
-               <Title>{title}</Title>
-            </RevealToRight>
-            <RevealToRight>
-               <Underline />
-            </RevealToRight>
-            <RevealToRight>
-               <Info>
-                  <ContactLink href="mailto:tulioruzo29@gmail.com">
-                     tulioruzo29@gmail.com
-                  </ContactLink>
-               </Info>
-            </RevealToRight>
-            <RevealToRight>
-               <Info>
-                  <ContactLink href="https://github.com/TulioDR">
-                     Github
-                  </ContactLink>
-               </Info>
-            </RevealToRight>
-            <MainButton mobile onClick={toggleMobileReveal}>
-               {contactMe}
-            </MainButton>
-         </InfoContainer>
-         <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
-            <ContactForm setSentSuccessfull={setSentSuccessfull} />
-         </Jumbotron>
-         <SentMessage
-            open={sentSuccessfull}
-            setOpen={setSentSuccessfull}
-            success
-         />
-      </SectionContainer>
+      <>
+         <SectionContainer>
+            <InfoContainer>
+               <RevealToRight>
+                  <Title>{title}</Title>
+               </RevealToRight>
+               <RevealToRight>
+                  <Underline />
+               </RevealToRight>
+               <RevealToRight>
+                  <Info>
+                     <ContactLink href="mailto:tulioruzo29@gmail.com">
+                        tulioruzo29@gmail.com
+                     </ContactLink>
+                  </Info>
+               </RevealToRight>
+               <RevealToRight>
+                  <Info>
+                     <ContactLink href="https://github.com/TulioDR">
+                        Github
+                     </ContactLink>
+                  </Info>
+               </RevealToRight>
+               <MainButton mobile onClick={toggleMobileReveal}>
+                  {contactMe}
+               </MainButton>
+            </InfoContainer>
+            <Jumbotron imgSrc={contactImg} imgAlt="contact-form-background">
+               <ContactForm setSentMessage={setSentMessage} />
+            </Jumbotron>
+         </SectionContainer>
+         <AnimatePresence>
+            {sentMessage && <SentMessage setOpen={setSentMessage} success />}
+         </AnimatePresence>
+      </>
    );
 }
