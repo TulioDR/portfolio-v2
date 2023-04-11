@@ -36,6 +36,7 @@ export default function SentMessage({ open, setOpen, success }: Props) {
                         className="hover:underline"
                         href="https://tulioruzo.vercel.app/"
                         target="_blank"
+                        rel="noreferrer"
                      >
                         https://tulioruzo.vercel.app/
                      </a>
