@@ -29,10 +29,7 @@ export default function MobileContactForm({}: Props) {
                   >
                      close
                   </button>
-                  <ContactForm
-                     setSentSuccessfull={setSentSuccessfull}
-                     setSentFailure={setSentFailure}
-                  />
+                  <ContactForm setSentSuccessfull={setSentSuccessfull} />
                   <SentMessage
                      open={sentSuccessfull}
                      setOpen={setSentSuccessfull}
