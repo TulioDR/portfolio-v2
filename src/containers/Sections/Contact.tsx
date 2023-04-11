@@ -18,7 +18,6 @@ export default function Contact() {
    const { currentIdiom } = useLanguageContext();
    const { title, contactMe } = currentIdiom.contact;
    const [sentSuccessfull, setSentSuccessfull] = useState<boolean>(false);
-   const [sentFailure, setSentFailure] = useState<boolean>(false);
 
    const { toggleMobileReveal } = useMobileFormContext();
 
@@ -57,7 +56,6 @@ export default function Contact() {
             setOpen={setSentSuccessfull}
             success
          />
-         <SentMessage open={sentFailure} setOpen={setSentFailure} />
       </SectionContainer>
    );
 }
